@@ -23,6 +23,66 @@ hard under strong solver attempts, and useful as a measurement axis.
 BenchBench itself is the system. Individual generated benchmarks are candidate
 artifacts inside that system; there is no single "current live candidate."
 
+## Current Results
+
+We have run two small 3x3 creator/solver sweeps through Codex. In each row, the
+creator model built a benchmark package and the solver models tried to solve
+the public solver bundle.
+
+### Experiment 001: Visual/Topology-Attracted Pilot
+
+This first complete grid was useful, but the creator prompt was influenced by
+an earlier visual-trace success and pulled models toward visual/topology tasks.
+
+| creator | generated benchmark | solver GPT-5.2 | solver GPT-5.4 | solver GPT-5.5 | status |
+|---|---|---:|---:|---:|---|
+| GPT-5.2 | Folded Strip Order | 16/30 | 14/30 | 19/30 | too easy |
+| GPT-5.4 | Occluded Tile Provenance | 7/30 | 4/30 | 5/30 | difficulty pass in pilot |
+| GPT-5.5 | Shadow Weave Topology | 15/30 | 24/30 | 26/30 | too easy |
+
+Extra sanity check: GPT-5.5 at `xhigh` scored 10/30 on Occluded Tile
+Provenance.
+
+### Experiment 002: Broad Creator Prompt Sweep
+
+The second 3x3 sweep removed the visual/domain nudge. Creators saw benchmark
+landscape notes and the prior pilot, but were asked in broad terms to make the
+best benchmark package they could.
+
+| creator | generated benchmark | benchmark type | solver GPT-5.2 | solver GPT-5.4 | solver GPT-5.5 | status |
+|---|---|---|---:|---:|---:|---|
+| GPT-5.2 | IgnoreSense | `.gitignore` semantics / software spec following | 4/30 | 7/30 | 7/30 | hard under tested solvers; novelty unmeasured |
+| GPT-5.4 | Spectrum Assembly | constrained string reconstruction | 30/30 | 30/30 | 30/30 | too easy |
+| GPT-5.5 | Protocol Archaeology | trace-based byte-protocol inference | 0/30 | 0/30 | 0/30 | hard under tested solvers; solvability unresolved |
+
+Extra GPT-5.5 `xhigh` sanity checks:
+
+| benchmark | GPT-5.5 xhigh |
+|---|---:|
+| IgnoreSense | 7/30 |
+| Protocol Archaeology | 0/30 |
+
+Protocol Archaeology also has two specialist baseline scores at 0/30. That is
+not a final rejection, but it is a warning: all-zero scores may indicate that
+the public packet is under-specified rather than that the benchmark found a
+deep missing capability. It needs a separate solvability and identifiability
+audit.
+
+## What We Think We Learned
+
+- The broad prompt is better than the visual-attractor prompt: it produced
+  software-spec, combinatorial, and trace-inference benchmarks instead of three
+  visual puzzles.
+- A benchmark can fail by being too easy: Spectrum Assembly looked formal, but
+  every solver got 30/30 once the right search abstraction was obvious.
+- A benchmark can also fail by being too unknowable: Protocol Archaeology may
+  be private-keyed or under-specified from the solver packet.
+- The right acceptance gate is not "frontier model got less than 50%." It is:
+  externally solvable, well-specified, reproducible, hard under strong solver
+  attempts, and then useful as a measurement axis.
+- Similarity/novelty still needs more model coverage. The current data is
+  enough for a smoke test, not a serious regression claim.
+
 ## Current Useful Artifacts
 
 - `benchmark_landscape/`: researched eval catalog, public score tables, model
@@ -31,18 +91,6 @@ artifacts inside that system; there is no single "current live candidate."
 - `run_broad_xhigh_sanity.py`: extra high-effort solver sanity harness.
 - `experiments/001_three_model_grid_pilot/`: first 3-model grid pilot.
 - `experiments/002_broad_sweep_20260515_220653/`: broad prompt 3-model sweep.
-
-## Main Findings So Far
-
-- Broad creator prompts worked better than visually nudged prompts.
-- `Spectrum Assembly` showed that formal-looking tasks can be trivial for
-  tool-using solvers.
-- `Protocol Archaeology` showed the opposite risk: all-zero model scores can
-  reflect under-specification rather than a deep missing capability. Its final
-  status is unresolved pending a separate audit run.
-- `IgnoreSense` is a useful-looking generated benchmark candidate, but it still
-  needs broader solver coverage and a real similarity check before any novelty
-  claim.
 
 ## Running A Sweep
 
