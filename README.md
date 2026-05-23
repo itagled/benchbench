@@ -34,10 +34,11 @@ BenchBench can use generated benchmarks in two ways:
   validate them, then run the solver grid. Strong new candidates can be promoted
   into the stable bank for later solver extensions.
 
-The current stable bank is Experiment 002. It contains IgnoreSense, Spectrum
-Assembly, and Protocol Archaeology. New model columns should normally be added
-there first, because that preserves comparability with the existing GPT-5.2,
-GPT-5.4, and GPT-5.5 solver columns.
+Current status: there is not yet a final promoted stable bank. Experiment 002
+is a historical stable-bank reference because it was the first fixed set that
+we extended with Gemini solver columns. The current headline evidence is the
+two five-model sweeps, Experiments 003 and 004. Experiment 004's Reimbursement
+Forensics is the strongest current candidate for audit and possible promotion.
 
 ## Methodology And Process
 
@@ -92,62 +93,17 @@ run against the same public bundles and private scorers.
 
 ## Current Results
 
-We have run two small 3x3 creator/solver sweeps through Codex, added Gemini
-solver columns through Antigravity, and run one fresh five-model creator/solver
-sweep across GPT-5.2, GPT-5.4, GPT-5.5, Gemini 3.1 Pro, and Gemini 3.5 Flash.
-We then ran a second five-model sweep where creators were shown the Experiment
-003 failure report and asked to build a benchmark that survived those solver
-strategies. In each row, the creator model built a benchmark package and the
-solver models tried to solve the public solver bundle.
+The current headline evidence is Experiments 003 and 004: two full five-model
+creator/solver sweeps across GPT-5.2, GPT-5.4, GPT-5.5, Gemini 3.1 Pro, and
+Gemini 3.5 Flash. Experiment 004 is the most important run because it tested
+whether creators could improve after seeing the failure report from Experiment
+003.
 
-### Experiment 001: Visual/Topology-Attracted Pilot
+Experiments 001 and 002 are historical support. They explain why the prompt was
+broadened, how the Gemini backend was smoke-tested against fixed benchmark
+packages, and what failure modes to avoid. They are not the main result.
 
-This first complete grid was useful, but the creator prompt was influenced by
-an earlier visual-trace success and pulled models toward visual/topology tasks.
-
-| creator | generated benchmark | solver GPT-5.2 | solver GPT-5.4 | solver GPT-5.5 | status |
-|---|---|---:|---:|---:|---|
-| GPT-5.2 | Folded Strip Order | 16/30 | 14/30 | 19/30 | too easy |
-| GPT-5.4 | Occluded Tile Provenance | 7/30 | 4/30 | 5/30 | difficulty pass in pilot |
-| GPT-5.5 | Shadow Weave Topology | 15/30 | 24/30 | 26/30 | too easy |
-
-Extra sanity check: GPT-5.5 at `xhigh` scored 10/30 on Occluded Tile
-Provenance.
-
-### Experiment 002: Broad Creator Prompt Sweep
-
-The second 3x3 sweep removed the visual/domain nudge. Creators saw benchmark
-landscape notes and the prior pilot, but were asked in broad terms to make the
-best benchmark package they could.
-
-| creator | generated benchmark | benchmark type | solver GPT-5.2 | solver GPT-5.4 | solver GPT-5.5 | status |
-|---|---|---|---:|---:|---:|---|
-| GPT-5.2 | IgnoreSense | `.gitignore` semantics / software spec following | 4/30 | 7/30 | 7/30 | hard under tested solvers; novelty unmeasured |
-| GPT-5.4 | Spectrum Assembly | constrained string reconstruction | 30/30 | 30/30 | 30/30 | too easy |
-| GPT-5.5 | Protocol Archaeology | trace-based byte-protocol inference | 0/30 | 0/30 | 0/30 | hard under tested solvers; solvability unresolved |
-
-Extra GPT-5.5 `xhigh` sanity checks:
-
-| benchmark | GPT-5.5 xhigh |
-|---|---:|
-| IgnoreSense | 7/30 |
-| Protocol Archaeology | 0/30 |
-
-Antigravity stable-bank solver extension:
-
-| benchmark | Gemini 3.1 Pro (High) | Gemini 3.5 Flash (High) |
-|---|---:|---:|
-| IgnoreSense | 7/30 | 4/30 |
-| Spectrum Assembly | 30/30 | 30/30 |
-| Protocol Archaeology | 0/30 | 0/30 (timeout; 0 predictions) |
-
-Protocol Archaeology also has two specialist baseline scores at 0/30. That is
-not a final rejection, but it is a warning: all-zero scores may indicate that
-the public packet is under-specified rather than that the benchmark found a
-deep missing capability. It needs a separate solvability and identifiability
-audit.
-
-### Experiment 003: Five-Model Fresh Sweep
+### Experiment 003: First Five-Model Sweep
 
 This run used all five models as both creators and solvers. All five generated
 packages passed controller validation after the score parser was fixed to accept
@@ -208,6 +164,40 @@ failure, not a keeper. Gemini 3.1 Pro's Corrupted LZ77 Recovery is not
 unsolvable: GPT-5.4 solved 22/30 and GPT-5.5 solved 17/30. Its weak cells are
 mostly blank outputs, no parsed rows, or timeout behavior.
 
+### Historical Support: Experiments 001 And 002
+
+These runs are worth keeping as evidence, but they should be read as archive
+material behind the two 5x5 runs.
+
+Experiment 001 was the first complete 3-model grid. It was useful because it
+showed a visual/topology attractor in the early prompt.
+
+| creator | generated benchmark | solver GPT-5.2 | solver GPT-5.4 | solver GPT-5.5 | status |
+|---|---|---:|---:|---:|---|
+| GPT-5.2 | Folded Strip Order | 16/30 | 14/30 | 19/30 | too easy |
+| GPT-5.4 | Occluded Tile Provenance | 7/30 | 4/30 | 5/30 | difficulty pass in pilot |
+| GPT-5.5 | Shadow Weave Topology | 15/30 | 24/30 | 26/30 | too easy |
+
+Experiment 002 removed the visual/domain nudge and became the first fixed
+reference set for adding Gemini solver columns.
+
+| creator | generated benchmark | benchmark type | solver GPT-5.2 | solver GPT-5.4 | solver GPT-5.5 | status |
+|---|---|---|---:|---:|---:|---|
+| GPT-5.2 | IgnoreSense | `.gitignore` semantics / software spec following | 4/30 | 7/30 | 7/30 | hard under tested solvers; novelty unmeasured |
+| GPT-5.4 | Spectrum Assembly | constrained string reconstruction | 30/30 | 30/30 | 30/30 | too easy |
+| GPT-5.5 | Protocol Archaeology | trace-based byte-protocol inference | 0/30 | 0/30 | 0/30 | hard under tested solvers; solvability unresolved |
+
+Gemini solver extension on Experiment 002:
+
+| benchmark | Gemini 3.1 Pro (High) | Gemini 3.5 Flash (High) |
+|---|---:|---:|
+| IgnoreSense | 7/30 | 4/30 |
+| Spectrum Assembly | 30/30 | 30/30 |
+| Protocol Archaeology | 0/30 | 0/30 (timeout; 0 predictions) |
+
+Protocol Archaeology remains a cautionary case: all-zero scores can mean the
+task is under-specified, not that the benchmark found a deep missing capability.
+
 ## What We Think We Learned
 
 - The broad prompt is better than the visual-attractor prompt: it produced
@@ -254,9 +244,10 @@ mostly blank outputs, no parsed rows, or timeout behavior.
 - `run_existing_solver_extension.py`: adds extra solver columns to an existing
   saved sweep without regenerating creator packages.
 - `run_broad_xhigh_sanity.py`: extra high-effort solver sanity harness.
-- `experiments/001_three_model_grid_pilot/`: first 3-model grid pilot.
-- `experiments/002_broad_sweep_20260515_220653/`: broad prompt 3-model sweep.
-- `experiments/003_five_model_sweep_20260522_195526/`: full five-model
+- `experiments/001_three_model_grid_pilot/`: historical 3-model pilot.
+- `experiments/002_broad_sweep_20260515_220653/`: historical 3-model broad
+  sweep and initial fixed-reference set for Gemini solver extension.
+- `experiments/003_five_model_sweep_20260522_195526/`: first full five-model
   creator/solver sweep with GPT and Gemini models.
 - `experiments/004_feedback_sweep_20260522_225208/`: feedback-driven
   five-model creator/solver sweep.
