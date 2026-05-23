@@ -11,7 +11,6 @@ from __future__ import annotations
 import datetime as dt
 import argparse
 import json
-import re
 import shutil
 import subprocess
 import tempfile
@@ -19,6 +18,13 @@ from pathlib import Path
 from typing import Any
 
 from benchbench_model_backends import ModelSpec, parse_model_spec, run_cmd, run_model, safe_name
+from benchbench_results import (
+    candidate_title,
+    extract_solver_predictions,
+    read_jsonl,
+    score_summary,
+    write_jsonl,
+)
 
 
 ROOT = Path(__file__).resolve().parent
@@ -204,60 +210,6 @@ Read every visible file in this bundle and solve every item.
 Return only JSONL, one object per item, with exactly:
 {{"id":"...","answer":"..."}}
 """
-
-
-def read_jsonl(path: Path) -> list[dict[str, Any]]:
-    rows: list[dict[str, Any]] = []
-    with path.open("r", encoding="utf-8") as handle:
-        for line in handle:
-            line = line.strip()
-            if line:
-                rows.append(json.loads(line))
-    return rows
-
-
-def write_jsonl(path: Path, rows: list[dict[str, Any]]) -> None:
-    with path.open("w", encoding="utf-8") as handle:
-        for row in rows:
-            handle.write(json.dumps(row, ensure_ascii=True, separators=(",", ":")) + "\n")
-
-
-def score_summary(path: Path) -> dict[str, Any] | None:
-    if not path.exists():
-        return None
-    text = path.read_text(encoding="utf-8")
-    try:
-        data = json.loads(text)
-    except Exception:
-        data = None
-    if isinstance(data, dict):
-        total = data.get("total", data.get("n_items", data.get("total_gold", data.get("total_items"))))
-        correct = data.get(
-            "correct",
-            data.get("n_correct", data.get("score", data.get("exact_match", data.get("correct_predictions")))),
-        )
-        accuracy = data.get("accuracy")
-        details = data.get("details")
-        if (total is None or correct is None) and isinstance(details, list):
-            total = len(details)
-            correct = sum(1 for row in details if isinstance(row, dict) and row.get("correct") is True)
-        if isinstance(correct, str):
-            match = re.search(r"(?<![\d.])(\d+)\s*/\s*(\d+)(?![\d.])", correct)
-            if match:
-                correct = int(match.group(1))
-                total = int(match.group(2))
-        if total is not None and correct is not None:
-            if accuracy is None:
-                accuracy = 0.0 if int(total) == 0 else float(correct) / float(total)
-            return {"total": total, "correct": correct, "accuracy": accuracy}
-
-    match = re.search(r"(?<![\d.])(\d+)\s*/\s*(\d+)(?![\d.])", text)
-    if not match:
-        return None
-    correct = int(match.group(1))
-    total = int(match.group(2))
-    accuracy = 0.0 if total == 0 else correct / total
-    return {"total": total, "correct": correct, "accuracy": accuracy}
 
 
 def make_shifted_wrong_predictions(gold_rows: list[dict[str, Any]]) -> list[dict[str, Any]]:
@@ -464,38 +416,6 @@ def local_validate(candidate_dir: Path) -> dict[str, Any]:
     }
 
 
-def extract_predictions(raw: str, item_ids: list[str]) -> list[dict[str, Any]]:
-    by_id: dict[str, Any] = {}
-    for line in raw.splitlines():
-        s = line.strip().strip(",")
-        if not (s.startswith("{") and s.endswith("}")):
-            continue
-        try:
-            obj = json.loads(s)
-        except Exception:
-            continue
-        if isinstance(obj, dict) and set(obj) == {"id", "answer"} and obj.get("id") in item_ids:
-            by_id[str(obj["id"])] = obj["answer"]
-    return [{"id": row_id, "answer": by_id[row_id]} for row_id in item_ids if row_id in by_id]
-
-
-def extract_solver_predictions(raw_out_path: Path, solver_dir: Path, item_ids: list[str]) -> tuple[list[dict[str, Any]], str]:
-    raw = raw_out_path.read_text(encoding="utf-8") if raw_out_path.exists() else ""
-    stdout_predictions = extract_predictions(raw, item_ids)
-
-    file_path = solver_dir / "predictions.jsonl"
-    file_predictions: list[dict[str, Any]] = []
-    if file_path.exists():
-        file_predictions = extract_predictions(file_path.read_text(encoding="utf-8", errors="replace"), item_ids)
-
-    if len(file_predictions) > len(stdout_predictions):
-        return file_predictions, str(file_path)
-    if stdout_predictions:
-        return stdout_predictions, str(raw_out_path)
-
-    return [], str(raw_out_path)
-
-
 def run_solver(creator_model: str, solver_spec: ModelSpec, candidate_dir: Path) -> dict[str, Any]:
     slug = f"{safe_name(creator_model)}__solved_by__{safe_name(solver_spec.name)}"
     solver_dir = RUN_DIR / f"isolated_solver_{slug}"
@@ -565,24 +485,6 @@ def run_solver(creator_model: str, solver_spec: ModelSpec, candidate_dir: Path) 
         }
     )
     return result
-
-
-def candidate_title(candidate_dir: Path) -> str:
-    spec = candidate_dir / "benchmark_spec.json"
-    if spec.exists():
-        try:
-            data = json.loads(spec.read_text(encoding="utf-8"))
-            for key in ["benchmark_name", "name", "title", "benchmark_id"]:
-                if data.get(key):
-                    return str(data[key])
-        except Exception:
-            pass
-    readme = candidate_dir / "README.md"
-    if readme.exists():
-        for line in readme.read_text(encoding="utf-8").splitlines():
-            if line.startswith("#"):
-                return line.lstrip("#").strip()
-    return candidate_dir.name
 
 
 def candidate_status(scores: list[dict[str, Any] | None]) -> str:

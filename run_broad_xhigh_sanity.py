@@ -4,11 +4,13 @@
 from __future__ import annotations
 
 import json
-import re
 import shutil
 import subprocess
 from pathlib import Path
 from typing import Any
+
+from benchbench_model_backends import parse_tokens, run_cmd, safe_name
+from benchbench_results import candidate_title, extract_predictions, read_jsonl, score_summary, write_jsonl
 
 
 ROOT = Path(__file__).resolve().parent
@@ -37,19 +39,6 @@ Read every visible file in this bundle and solve every item.
 Return only JSONL, one object per item, with exactly:
 {"id":"...","answer":"..."}
 """
-
-
-def safe_name(model: str) -> str:
-    return model.replace(".", "_").replace("-", "_")
-
-
-def run_cmd(args: list[str], cwd: Path, stdin_text: str | None = None, timeout: int | None = None) -> subprocess.CompletedProcess[str]:
-    return subprocess.run(args, cwd=cwd, input=stdin_text, text=True, capture_output=True, check=False, timeout=timeout)
-
-
-def parse_tokens(text: str) -> int:
-    matches = re.findall(r"tokens used\s+(\d[\d,]*)", text)
-    return int(matches[-1].replace(",", "")) if matches else 0
 
 
 def run_codex(out_path: Path, cwd: Path) -> dict[str, Any]:
@@ -94,57 +83,6 @@ def run_codex(out_path: Path, cwd: Path) -> dict[str, Any]:
         "stderr_path": str(stderr_path),
         "prompt_path": str(prompt_path),
     }
-
-
-def read_jsonl(path: Path) -> list[dict[str, Any]]:
-    return [json.loads(line) for line in path.read_text(encoding="utf-8").splitlines() if line.strip()]
-
-
-def write_jsonl(path: Path, rows: list[dict[str, Any]]) -> None:
-    path.write_text("".join(json.dumps(row, separators=(",", ":")) + "\n" for row in rows), encoding="utf-8")
-
-
-def extract_predictions(raw: str, item_ids: list[str]) -> list[dict[str, Any]]:
-    by_id: dict[str, str] = {}
-    for line in raw.splitlines():
-        s = line.strip().strip(",")
-        if not (s.startswith("{") and s.endswith("}")):
-            continue
-        try:
-            obj = json.loads(s)
-        except Exception:
-            continue
-        if isinstance(obj, dict) and set(obj) == {"id", "answer"} and obj.get("id") in item_ids:
-            by_id[str(obj["id"])] = obj["answer"]
-    return [{"id": item_id, "answer": by_id[item_id]} for item_id in item_ids if item_id in by_id]
-
-
-def score_summary(path: Path) -> dict[str, Any] | None:
-    if not path.exists():
-        return None
-    data = json.loads(path.read_text(encoding="utf-8"))
-    total = data.get("total", data.get("n_items"))
-    correct = data.get("correct", data.get("n_correct"))
-    accuracy = data.get("accuracy")
-    if total is None or correct is None or accuracy is None:
-        return None
-    return {"total": total, "correct": correct, "accuracy": accuracy}
-
-
-def candidate_title(candidate_dir: Path) -> str:
-    spec = candidate_dir / "benchmark_spec.json"
-    if spec.exists():
-        try:
-            data = json.loads(spec.read_text(encoding="utf-8"))
-            for key in ["benchmark_name", "name", "title", "benchmark_id", "benchmark"]:
-                if data.get(key):
-                    return str(data[key])
-        except Exception:
-            pass
-    for line in (candidate_dir / "README.md").read_text(encoding="utf-8").splitlines():
-        if line.startswith("#"):
-            return line.lstrip("#").strip()
-    return candidate_dir.name
 
 
 def run_one(creator_model: str) -> dict[str, Any]:
@@ -220,4 +158,3 @@ def main() -> None:
 
 if __name__ == "__main__":
     main()
-

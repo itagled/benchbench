@@ -8,14 +8,15 @@ import benchbench_model_backends as backends
 from benchbench_model_backends import (
     antigravity_model_id_from_label,
     antigravity_model_setting,
-    parse_antigravity_selected_label,
     claude_cache_summary,
     claude_tokens_used,
+    parse_antigravity_selected_label,
     parse_model_spec,
     run_cmd,
     safe_name,
 )
-from run_broad_three_model_sweep import candidate_status, score_summary
+from benchbench_results import extract_predictions, extract_solver_predictions, score_summary
+from run_broad_three_model_sweep import candidate_status
 from scripts.build_benchmark_landscape_pack import model_from_safe_slug, solver_model_from_score_path
 
 
@@ -86,6 +87,10 @@ class ModelBackendTests(unittest.TestCase):
             },
         }
         self.assertEqual(claude_tokens_used(with_model_usage), 72)
+        self.assertEqual(
+            claude_cache_summary(with_model_usage),
+            {"cache_creation_input_tokens": 17, "cache_read_input_tokens": 19},
+        )
 
     def test_antigravity_label_parser_uses_last_label(self) -> None:
         text = '\n'.join(
@@ -175,6 +180,28 @@ class ModelBackendTests(unittest.TestCase):
                 encoding="utf-8",
             )
             self.assertEqual(score_summary(score_details), {"total": 2, "correct": 1, "accuracy": 0.5})
+
+    def test_prediction_extraction_prefers_solver_written_file(self) -> None:
+        with tempfile.TemporaryDirectory(prefix="benchbench-prediction-extract-test.") as tmp:
+            tmp_path = Path(tmp)
+            raw_out = tmp_path / "stdout.jsonl"
+            solver_dir = tmp_path / "solver"
+            solver_dir.mkdir()
+            raw_out.write_text('{"id":"1","answer":"stdout"}\n', encoding="utf-8")
+            (solver_dir / "predictions.jsonl").write_text(
+                '{"id":1,"answer":"file-one"}\n{"id":"2","answer":"file-two"}\n',
+                encoding="utf-8",
+            )
+            self.assertEqual(
+                extract_predictions(raw_out.read_text(encoding="utf-8"), ["1", "2"]),
+                [{"id": "1", "answer": "stdout"}],
+            )
+            predictions, source = extract_solver_predictions(raw_out, solver_dir, ["1", "2"])
+            self.assertEqual(
+                predictions,
+                [{"id": "1", "answer": "file-one"}, {"id": "2", "answer": "file-two"}],
+            )
+            self.assertEqual(source, str(solver_dir / "predictions.jsonl"))
 
     def test_candidate_status_flags_all_zero_for_audit(self) -> None:
         self.assertEqual(candidate_status([{"total": 30, "correct": 0, "accuracy": 0.0}]), "solvability_audit")

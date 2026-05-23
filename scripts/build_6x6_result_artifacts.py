@@ -3,14 +3,18 @@
 
 from __future__ import annotations
 
-import json
 import re
+import sys
 from html import escape
 from pathlib import Path
-from typing import Any
-
 
 ROOT = Path(__file__).resolve().parents[1]
+sys.path.insert(0, str(ROOT))
+
+from benchbench_model_backends import safe_name
+from benchbench_results import score_summary
+
+
 OUT_MD = ROOT / "experiments" / "result_grids_6x6_20260523.md"
 FIG_DIR = ROOT / "experiments" / "figures"
 
@@ -24,45 +28,11 @@ SOLVERS = [
 ]
 
 
-def safe_name(name: str) -> str:
-    return re.sub(r"[^A-Za-z0-9]+", "_", name.strip().lower()).strip("_")
-
-
-def score_summary(path: Path) -> tuple[int, int] | None:
-    if not path.exists():
-        return None
-    try:
-        data = json.loads(path.read_text(encoding="utf-8"))
-    except Exception:
-        text = path.read_text(encoding="utf-8", errors="replace")
-        match = re.search(r"(?<![\d.])(\d+)\s*/\s*(\d+)(?![\d.])", text)
-        return (int(match.group(1)), int(match.group(2))) if match else None
-    if not isinstance(data, dict):
-        return None
-
-    total = data.get("total", data.get("n_items", data.get("total_gold", data.get("total_items"))))
-    correct = data.get("correct", data.get("n_correct", data.get("exact_match", data.get("correct_predictions"))))
-    if correct is None and isinstance(data.get("score"), (int, float)):
-        correct = data["score"]
-    if correct is None and isinstance(data.get("score"), str):
-        match = re.search(r"(?<![\d.])(\d+)\s*/\s*(\d+)(?![\d.])", data["score"])
-        if match:
-            correct = int(match.group(1))
-            total = int(match.group(2))
-    details = data.get("details", data.get("per_item", data.get("results")))
-    if (total is None or correct is None) and isinstance(details, list):
-        total = len(details)
-        correct = sum(1 for row in details if isinstance(row, dict) and row.get("correct") is True)
-    if total is None or correct is None:
-        return None
-    return int(correct), int(total)
-
-
 def candidate_score(candidate_dir: Path, solver_id: str) -> str:
     score = score_summary(candidate_dir / f"score_solver_{safe_name(solver_id)}.json")
     if score is None:
         return "NA"
-    return f"{score[0]}/{score[1]}"
+    return f"{score['correct']}/{score['total']}"
 
 
 def build_grid(base_run: str, claude_run: str, creators: list[tuple[str, str, str]], skip: dict[tuple[str, str], str] | None = None) -> list[list[str]]:

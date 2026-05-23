@@ -159,11 +159,40 @@ def claude_tokens_used(data: dict[str, Any]) -> int:
 
 def claude_cache_summary(data: dict[str, Any]) -> dict[str, int]:
     usage = data.get("usage")
-    if not isinstance(usage, dict):
-        return {"cache_creation_input_tokens": 0, "cache_read_input_tokens": 0}
+    if isinstance(usage, dict):
+        summary = {
+            "cache_creation_input_tokens": int(usage.get("cache_creation_input_tokens") or 0),
+            "cache_read_input_tokens": int(usage.get("cache_read_input_tokens") or 0),
+        }
+        if summary["cache_creation_input_tokens"] or summary["cache_read_input_tokens"]:
+            return summary
+
+    model_usage = data.get("modelUsage")
+    if isinstance(model_usage, dict):
+        return {
+            "cache_creation_input_tokens": sum(
+                int(item.get("cacheCreationInputTokens") or 0)
+                for item in model_usage.values()
+                if isinstance(item, dict)
+            ),
+            "cache_read_input_tokens": sum(
+                int(item.get("cacheReadInputTokens") or 0)
+                for item in model_usage.values()
+                if isinstance(item, dict)
+            ),
+        }
+    return {"cache_creation_input_tokens": 0, "cache_read_input_tokens": 0}
+
+
+def claude_metadata(data: dict[str, Any], spec: ModelSpec) -> dict[str, Any]:
+    cache_summary = claude_cache_summary(data)
     return {
-        "cache_creation_input_tokens": int(usage.get("cache_creation_input_tokens") or 0),
-        "cache_read_input_tokens": int(usage.get("cache_read_input_tokens") or 0),
+        "claude_model": spec.claude_model or spec.name,
+        "claude_total_cost_usd": data.get("total_cost_usd"),
+        "claude_usage": data.get("usage") if isinstance(data.get("usage"), dict) else {},
+        "claude_model_usage": data.get("modelUsage") if isinstance(data.get("modelUsage"), dict) else {},
+        "claude_cache_creation_input_tokens": cache_summary["cache_creation_input_tokens"],
+        "claude_cache_read_input_tokens": cache_summary["cache_read_input_tokens"],
     }
 
 
@@ -472,7 +501,6 @@ def run_claude_model(spec: ModelSpec, prompt: str, out_path: Path, cwd: Path, ef
     if data.get("is_error") and returncode == 0:
         returncode = 1
 
-    cache_summary = claude_cache_summary(data)
     return {
         "model": spec.name,
         "display_model": spec.display_name,
@@ -484,12 +512,7 @@ def run_claude_model(spec: ModelSpec, prompt: str, out_path: Path, cwd: Path, ef
         "stderr_path": str(stderr_path),
         "prompt_path": str(prompt_path),
         "effort": effort,
-        "claude_model": spec.claude_model or spec.name,
-        "claude_total_cost_usd": data.get("total_cost_usd"),
-        "claude_usage": data.get("usage") if isinstance(data.get("usage"), dict) else {},
-        "claude_model_usage": data.get("modelUsage") if isinstance(data.get("modelUsage"), dict) else {},
-        "claude_cache_creation_input_tokens": cache_summary["cache_creation_input_tokens"],
-        "claude_cache_read_input_tokens": cache_summary["cache_read_input_tokens"],
+        **claude_metadata(data, spec),
     }
 
 

@@ -20,13 +20,20 @@ from typing import Any
 from benchbench_model_backends import (
     ModelSpec,
     antigravity_model_id_from_label,
-    claude_cache_summary,
+    claude_metadata,
     claude_tokens_used,
     parse_antigravity_selected_label,
     parse_model_spec,
     run_cmd,
     run_model,
     safe_name,
+)
+from benchbench_results import (
+    candidate_title,
+    extract_solver_predictions,
+    read_jsonl,
+    score_summary,
+    write_jsonl,
 )
 
 
@@ -60,101 +67,6 @@ Read every visible file in this bundle and solve every item.
 Return only JSONL, one object per item, with exactly:
 {{"id":"...","answer":"..."}}
 """
-
-
-def read_jsonl(path: Path) -> list[dict[str, Any]]:
-    return [json.loads(line) for line in path.read_text(encoding="utf-8").splitlines() if line.strip()]
-
-
-def write_jsonl(path: Path, rows: list[dict[str, Any]]) -> None:
-    path.write_text("".join(json.dumps(row, ensure_ascii=True, separators=(",", ":")) + "\n" for row in rows), encoding="utf-8")
-
-
-def extract_predictions(raw: str, item_ids: list[str]) -> list[dict[str, Any]]:
-    by_id: dict[str, Any] = {}
-    for line in raw.splitlines():
-        s = line.strip().strip(",")
-        if not (s.startswith("{") and s.endswith("}")):
-            continue
-        try:
-            obj = json.loads(s)
-        except Exception:
-            continue
-        if isinstance(obj, dict) and set(obj) == {"id", "answer"} and obj.get("id") in item_ids:
-            by_id[str(obj["id"])] = obj["answer"]
-    return [{"id": item_id, "answer": by_id[item_id]} for item_id in item_ids if item_id in by_id]
-
-
-def extract_solver_predictions(raw_out_path: Path, solver_dir: Path, item_ids: list[str]) -> tuple[list[dict[str, Any]], str]:
-    raw = raw_out_path.read_text(encoding="utf-8") if raw_out_path.exists() else ""
-    stdout_predictions = extract_predictions(raw, item_ids)
-
-    file_path = solver_dir / "predictions.jsonl"
-    file_predictions: list[dict[str, Any]] = []
-    if file_path.exists():
-        file_predictions = extract_predictions(file_path.read_text(encoding="utf-8", errors="replace"), item_ids)
-
-    if len(file_predictions) > len(stdout_predictions):
-        return file_predictions, str(file_path)
-    if stdout_predictions:
-        return stdout_predictions, str(raw_out_path)
-
-    return [], str(raw_out_path)
-
-
-def score_summary(path: Path) -> dict[str, Any] | None:
-    if not path.exists():
-        return None
-    try:
-        text = path.read_text(encoding="utf-8")
-        data = json.loads(text)
-    except Exception:
-        text = path.read_text(encoding="utf-8", errors="replace")
-        data = None
-    if not isinstance(data, dict):
-        match = re.search(r"(?<![\d.])(\d+)\s*/\s*(\d+)(?![\d.])", text)
-        if not match:
-            return None
-        correct = int(match.group(1))
-        total = int(match.group(2))
-        return {"total": total, "correct": correct, "accuracy": 0.0 if total == 0 else correct / total}
-    total = data.get("total", data.get("n_items", data.get("total_gold", data.get("total_items"))))
-    correct = data.get("correct", data.get("n_correct", data.get("exact_match", data.get("correct_predictions"))))
-    accuracy = data.get("accuracy")
-    details = data.get("details")
-    if (total is None or correct is None) and isinstance(details, list):
-        total = len(details)
-        correct = sum(1 for row in details if isinstance(row, dict) and row.get("correct") is True)
-    if correct is None and isinstance(data.get("score"), (int, float)):
-        correct = data["score"]
-    if correct is None and isinstance(data.get("score"), str):
-        match = re.search(r"(?<![\d.])(\d+)\s*/\s*(\d+)(?![\d.])", data["score"])
-        if match:
-            correct = int(match.group(1))
-            total = int(match.group(2))
-    if total is None or correct is None:
-        return None
-    if accuracy is None:
-        accuracy = 0.0 if int(total) == 0 else int(correct) / int(total)
-    return {"total": total, "correct": correct, "accuracy": accuracy}
-
-
-def candidate_title(candidate_dir: Path) -> str:
-    spec = candidate_dir / "benchmark_spec.json"
-    if spec.exists():
-        try:
-            data = json.loads(spec.read_text(encoding="utf-8"))
-            for key in ["benchmark_name", "name", "title", "benchmark_id", "benchmark"]:
-                if data.get(key):
-                    return str(data[key])
-        except Exception:
-            pass
-    readme = candidate_dir / "README.md"
-    if readme.exists():
-        for line in readme.read_text(encoding="utf-8").splitlines():
-            if line.startswith("#"):
-                return line.lstrip("#").strip()
-    return candidate_dir.name
 
 
 def creator_name_from_candidate_dir(candidate_dir: Path) -> str:
@@ -223,16 +135,8 @@ def run_one(
             except Exception:
                 data = {}
             if isinstance(data, dict):
-                cache_summary = claude_cache_summary(data)
                 tokens_used = claude_tokens_used(data)
-                claude_fields = {
-                    "claude_model": solver_spec.claude_model or solver_spec.name,
-                    "claude_total_cost_usd": data.get("total_cost_usd"),
-                    "claude_usage": data.get("usage") if isinstance(data.get("usage"), dict) else {},
-                    "claude_model_usage": data.get("modelUsage") if isinstance(data.get("modelUsage"), dict) else {},
-                    "claude_cache_creation_input_tokens": cache_summary["cache_creation_input_tokens"],
-                    "claude_cache_read_input_tokens": cache_summary["cache_read_input_tokens"],
-                }
+                claude_fields = claude_metadata(data, solver_spec)
         result = {
             "phase": "solver_extension",
             "model": solver_spec.name,
