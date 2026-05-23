@@ -1,0 +1,23 @@
+{
+    "benchmark_name": "MFN-Cascade",
+    "version": "1.0.0",
+    "description": "An evaluation of multi-stage legally-grounded recursive reasoning. Solvers must parse semi-structured, legally-phrased bilateral trade treaties, trace MFN tariff updates and category hierarchies across recursive propagation rounds, and calculate final stable tariffs.",
+    "domain": "Legal Reasoning & Recursive Logic Systems",
+    "sample_count": 30,
+    "metric": "Exact Match Accuracy",
+    "capability_claim": "Tests advanced LLMs' ability to accurately interpret complex, legally-phrased conditional rules and follow recursive, stateful updates to a stable mathematical fixed point or stalemate lock, a task requiring high-fidelity reading comprehension and precise sequential logic.",
+    "closest_benchmarks": [
+        {
+            "name": "GPQA",
+            "difference": "While GPQA evaluates factual domain-expert graduate science, MFN-Cascade evaluates procedural reasoning under dense, legally-phrased logical dependencies and recursive loops."
+        },
+        {
+            "name": "LiveCodeBench / HumanEval",
+            "difference": "Instead of evaluating code generation, MFN-Cascade evaluates code-execution-like procedural trace reasoning directly on dense textual specifications without allowing models to simply copy-paste a pre-written interpreter."
+        },
+        {
+            "name": "OSWorld / WebArena",
+            "difference": "MFN-Cascade is self-contained and does not require complex UI or browser interaction, focusing purely on deep logical inference and multi-step propagation."
+        }
+    ]
+}

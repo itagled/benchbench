@@ -1,0 +1,45 @@
+==============================================================
+BILATERAL TRADE AND TARIFF AGREEMENT BETWEEN GAMMA AND DELTA
+==============================================================
+Signed: 2020-01-01 | Effective: 2020-03-01
+
+PREAMBLE:
+The Sovereign Governments of Nation Gamma and Nation Delta, seeking to maximize trade efficiency and maintain fair competitive grounds, hereby agree to the following tariff schedules and trade rules.
+
+SECTION 1: BASE TARIFF RATES
+Article 1: Nation Delta shall apply a base tariff rate of 7.8% on the import of Agriculture from Nation Gamma.
+Article 2: Nation Delta shall apply a base tariff rate of 6.0% on the import of Chemicals from Nation Gamma.
+Article 3: Nation Delta shall apply a base tariff rate of 9.6% on the import of ConsumerElectronics from Nation Gamma.
+Article 4: Nation Delta shall apply a base tariff rate of 5.5% on the import of Electronics from Nation Gamma.
+Article 5: Nation Delta shall apply a base tariff rate of 5.6% on the import of FinishedApparel from Nation Gamma.
+Article 6: Nation Delta shall apply a base tariff rate of 8.3% on the import of FreshProduce from Nation Gamma.
+Article 7: Nation Delta shall apply a base tariff rate of 7.7% on the import of GrainsAndCereals from Nation Gamma.
+Article 8: Nation Delta shall apply a base tariff rate of 6.5% on the import of HeavyEquipment from Nation Gamma.
+Article 9: Nation Delta shall apply a base tariff rate of 7.0% on the import of IndustrialSemiconductors from Nation Gamma.
+Article 10: Nation Delta shall apply a base tariff rate of 7.2% on the import of Machinery from Nation Gamma.
+Article 11: Nation Delta shall apply a base tariff rate of 5.7% on the import of OrganicSolvents from Nation Gamma.
+Article 12: Nation Delta shall apply a base tariff rate of 8.3% on the import of PrecisionTools from Nation Gamma.
+Article 13: Nation Delta shall apply a base tariff rate of 9.8% on the import of RawFabrics from Nation Gamma.
+Article 14: Nation Delta shall apply a base tariff rate of 9.9% on the import of SyntheticPolymers from Nation Gamma.
+Article 15: Nation Delta shall apply a base tariff rate of 7.3% on the import of Textiles from Nation Gamma.
+Article 16: Nation Gamma shall apply a base tariff rate of 9.6% on the import of Agriculture from Nation Delta.
+Article 17: Nation Gamma shall apply a base tariff rate of 7.2% on the import of Chemicals from Nation Delta.
+Article 18: Nation Gamma shall apply a base tariff rate of 6.0% on the import of ConsumerElectronics from Nation Delta.
+Article 19: Nation Gamma shall apply a base tariff rate of 7.7% on the import of Electronics from Nation Delta.
+Article 20: Nation Gamma shall apply a base tariff rate of 8.7% on the import of FinishedApparel from Nation Delta.
+Article 21: Nation Gamma shall apply a base tariff rate of 8.4% on the import of FreshProduce from Nation Delta.
+Article 22: Nation Gamma shall apply a base tariff rate of 8.6% on the import of GrainsAndCereals from Nation Delta.
+Article 23: Nation Gamma shall apply a base tariff rate of 5.8% on the import of HeavyEquipment from Nation Delta.
+Article 24: Nation Gamma shall apply a base tariff rate of 7.5% on the import of IndustrialSemiconductors from Nation Delta.
+Article 25: Nation Gamma shall apply a base tariff rate of 9.9% on the import of Machinery from Nation Delta.
+Article 26: Nation Gamma shall apply a base tariff rate of 5.9% on the import of OrganicSolvents from Nation Delta.
+Article 27: Nation Gamma shall apply a base tariff rate of 6.0% on the import of PrecisionTools from Nation Delta.
+Article 28: Nation Gamma shall apply a base tariff rate of 5.8% on the import of RawFabrics from Nation Delta.
+Article 29: Nation Gamma shall apply a base tariff rate of 9.8% on the import of SyntheticPolymers from Nation Delta.
+Article 30: Nation Gamma shall apply a base tariff rate of 9.6% on the import of Textiles from Nation Delta.
+
+SECTION 2: MOST FAVORED NATION CLAUSES
+Article 31 (MFN): If Nation Gamma grants a tariff rate on FreshProduce imported from any third nation that is lower than the tariff rate applied on imports from Nation Delta, then the tariff rate applied on imports from Nation Delta for FreshProduce shall be reduced to match that rate multiplied by a factor of 1.00, subject to a minimum floor of 1.8%.
+Article 32 (MFN): If Nation Delta grants a tariff rate on PrecisionTools imported from any third nation that is lower than the tariff rate applied on imports from Nation Gamma, then the tariff rate applied on imports from Nation Gamma for PrecisionTools shall be reduced to match that rate multiplied by a factor of 1.05, subject to a minimum floor of 1.8%.
+
+--------------------------------------------------------------

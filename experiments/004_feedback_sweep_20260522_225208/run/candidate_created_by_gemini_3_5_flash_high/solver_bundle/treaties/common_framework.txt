@@ -1,0 +1,49 @@
+==============================================================
+COMMON MULTI-LATERAL TARIFF AND TRADE SETTLEMENT FRAMEWORK
+==============================================================
+Active: 2020-01-01 | Re-codified: 2025-01-01
+
+This document outlines the standard operational framework governing all bilateral and multilateral tariff schedules, MFN updates, category hierarchies, and operational protocols. All signatory nations must adhere strictly to these execution steps.
+
+SECTION 1: GOODS CATEGORIES AND HIERARCHY
+The system utilizes a 2-tier hierarchical goods classification. Tariff adjustments applied to parent categories automatically propagate downwards to sub-categories if the parent rate becomes lower than the sub-category rate.
+
+Hierarchy Definition:
+- Electronics (Parent)
+  ├─ ConsumerElectronics (Child)
+  └─ IndustrialSemiconductors (Child)
+- Agriculture (Parent)
+  ├─ GrainsAndCereals (Child)
+  └─ FreshProduce (Child)
+- Textiles (Parent)
+  ├─ FinishedApparel (Child)
+  └─ RawFabrics (Child)
+- Machinery (Parent)
+  ├─ HeavyEquipment (Child)
+  └─ PrecisionTools (Child)
+- Chemicals (Parent)
+  ├─ OrganicSolvents (Child)
+  └─ SyntheticPolymers (Child)
+
+Rule (Parent-Child Propagation):
+For any bilateral pair (Importer, Exporter), if the tariff rate on a parent category is lower than the tariff rate on a sub-category, the sub-category tariff rate is instantly reduced to match the parent category rate:
+Tariff(Child) = min(Tariff(Child), Tariff(Parent))
+
+SECTION 2: MOST FAVORED NATION (MFN) CLAUSE EXECUTION
+1. An MFN clause triggers whenever the Importer applies a tariff rate to imports from a third-party nation that is strictly lower than the tariff rate currently applied to the Exporter for the same category.
+2. When triggered, the tariff applied to the Exporter is reduced according to the specific formula stated in the bilateral treaty:
+   - "match that rate, plus a margin of M%": New Tariff = min(Current, max(Floor, Third-Party Rate + M%))
+   - "match that rate, multiplied by a factor of C": New Tariff = min(Current, max(Floor, Third-Party Rate * C))
+3. Tariff rates can never be increased via MFN clauses. They are strictly downward-reducing.
+
+SECTION 3: DISCRETE ROUND SIMULATION AND STALEMATE PROTOCOLS
+To determine the final, stable tariff rates following a trade adjustment:
+1. Initialize all tariff rates to their active base levels on the query date (after applying all active historical amendments).
+2. Apply the initiating unilateral trade event to the tariff schedule.
+3. Perform discrete rounds of updates. In each round:
+   - Step A: Evaluate and apply all MFN clauses based on the tariff rates from the PREVIOUS round.
+   - Step B: Apply hierarchical parent-to-child propagation to the updated rates.
+4. Convergence: If, after any round, the maximum change across all tariff rates in the system is less than 0.01%, the system is declared STABLE.
+5. Stalemate Lock: If the system does not reach stability after exactly 20 rounds of updates, the system is declared to be in a circular stalemate. All rates are locked to their values at the end of round 20, rounded to the nearest 0.1%.
+   - In this case, the final answer must be formatted as: STALEMATE_X.Y% (where X.Y is the locked rate).
+   - If the system did reach stability, the answer must be formatted as: X.Y%

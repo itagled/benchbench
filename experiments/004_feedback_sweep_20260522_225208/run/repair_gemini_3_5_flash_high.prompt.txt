@@ -1,0 +1,93 @@
+
+You are Gemini 3.5 Flash (High)+Antigravity repairing your BenchBench candidate in place.
+
+The candidate artifact directory is:
+
+/Users/rohit/Documents/Workspace/Coding/benchbench/experiments/004_feedback_sweep_20260522_225208/run/candidate_created_by_gemini_3_5_flash_high
+
+Use that exact directory as the working directory for every shell command and
+file read/write. Antigravity may open a global scratch directory by default;
+ignore that scratch directory and repair the benchmark package only in the
+artifact directory above.
+
+The controller validation found problems:
+
+<<<LOCAL_REPORT
+missing_root_files: none
+missing_solver_bundle_files: none
+external_solvability_evidence: present in validation_report.md, README.md, benchmark_spec.json
+gold_rows: 30
+gold_contract_valid: True
+solver_bundle_file_count: 12
+solver_bundle_item_rows: 30
+solver_bundle_item_contract_valid: True
+leak_scan_matches: treaties/common_framework.txt:solution
+
+commands:
+[
+  {
+    "args": [
+      "/Users/rohit/.pyenv/versions/global_env/bin/python",
+      "generator.py",
+      "--sample-count",
+      "30",
+      "--seed",
+      "20260516",
+      "--out-dir",
+      "."
+    ],
+    "returncode": 0,
+    "stdout_tail": "Generated 30 items successfully.\n",
+    "stderr_tail": ""
+  },
+  {
+    "args": [
+      "/Users/rohit/.pyenv/versions/global_env/bin/python",
+      "verifier.py",
+      "--items",
+      "solver_bundle/items_private_sample.jsonl",
+      "--gold",
+      "gold_private_sample.jsonl"
+    ],
+    "returncode": 0,
+    "stdout_tail": "Verification passed successfully! All contracts, mappings, schemas, and counts are valid.\n",
+    "stderr_tail": ""
+  },
+  {
+    "args": [
+      "/Users/rohit/.pyenv/versions/global_env/bin/python",
+      "scorer.py",
+      "--gold",
+      "gold_private_sample.jsonl",
+      "--predictions",
+      "predictions_gold_controller.jsonl",
+      "--out",
+      "score_gold_controller.json"
+    ],
+    "returncode": 0,
+    "stdout_tail": "Score report saved to score_gold_controller.json\nOverall Accuracy: 100.0% (30/30)\n",
+    "stderr_tail": ""
+  },
+  {
+    "args": [
+      "/Users/rohit/.pyenv/versions/global_env/bin/python",
+      "scorer.py",
+      "--gold",
+      "gold_private_sample.jsonl",
+      "--predictions",
+      "predictions_wrong_shifted_controller.jsonl",
+      "--out",
+      "score_wrong_shifted_controller.json"
+    ],
+    "returncode": 0,
+    "stdout_tail": "Score report saved to score_wrong_shifted_controller.json\nOverall Accuracy: 0.0% (0/30)\n",
+    "stderr_tail": ""
+  }
+]
+
+LOCAL_REPORT>>>
+
+Fix package validity only: deterministic generation, verifier/scorer CLI,
+solver-bundle isolation, JSONL contracts, and validation report. Preserve the
+benchmark's intended idea if possible. Regenerate the 30-item sample and rerun
+validation commands before finishing.

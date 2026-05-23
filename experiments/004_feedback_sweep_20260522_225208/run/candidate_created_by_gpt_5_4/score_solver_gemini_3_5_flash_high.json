@@ -1,0 +1,129 @@
+{
+  "total_gold": 30,
+  "predictions_received": 30,
+  "missing_ids": [],
+  "exact_match": 27,
+  "accuracy": 0.9,
+  "results": [
+    {
+      "id": "rpa_001",
+      "correct": true
+    },
+    {
+      "id": "rpa_002",
+      "correct": true
+    },
+    {
+      "id": "rpa_003",
+      "correct": true
+    },
+    {
+      "id": "rpa_004",
+      "correct": true
+    },
+    {
+      "id": "rpa_005",
+      "correct": true
+    },
+    {
+      "id": "rpa_006",
+      "correct": true
+    },
+    {
+      "id": "rpa_007",
+      "correct": false
+    },
+    {
+      "id": "rpa_008",
+      "correct": false
+    },
+    {
+      "id": "rpa_009",
+      "correct": true
+    },
+    {
+      "id": "rpa_010",
+      "correct": true
+    },
+    {
+      "id": "rpa_011",
+      "correct": true
+    },
+    {
+      "id": "rpa_012",
+      "correct": true
+    },
+    {
+      "id": "rpa_013",
+      "correct": true
+    },
+    {
+      "id": "rpa_014",
+      "correct": true
+    },
+    {
+      "id": "rpa_015",
+      "correct": true
+    },
+    {
+      "id": "rpa_016",
+      "correct": true
+    },
+    {
+      "id": "rpa_017",
+      "correct": true
+    },
+    {
+      "id": "rpa_018",
+      "correct": true
+    },
+    {
+      "id": "rpa_019",
+      "correct": true
+    },
+    {
+      "id": "rpa_020",
+      "correct": true
+    },
+    {
+      "id": "rpa_021",
+      "correct": true
+    },
+    {
+      "id": "rpa_022",
+      "correct": true
+    },
+    {
+      "id": "rpa_023",
+      "correct": true
+    },
+    {
+      "id": "rpa_024",
+      "correct": false
+    },
+    {
+      "id": "rpa_025",
+      "correct": true
+    },
+    {
+      "id": "rpa_026",
+      "correct": true
+    },
+    {
+      "id": "rpa_027",
+      "correct": true
+    },
+    {
+      "id": "rpa_028",
+      "correct": true
+    },
+    {
+      "id": "rpa_029",
+      "correct": true
+    },
+    {
+      "id": "rpa_030",
+      "correct": true
+    }
+  ]
+}

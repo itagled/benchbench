@@ -1,0 +1,14 @@
+{
+  "benchmark_name": "Corrupted LZ77 Recovery",
+  "description": "Recovers original data from an LZ77-compressed byte stream containing exactly 3 random byte flips, given that the uncompressed data is a sequence of 16-byte blocks each protected by a CRC16.",
+  "domain": "reverse_engineering",
+  "task_type": "synthesis",
+  "item_count": 30,
+  "difficulty_features": [
+    "custom_lz77_format",
+    "search_with_pruning",
+    "crc16_integrity_checks",
+    "joint_source_channel_decoding"
+  ],
+  "solvability": "A human or external solver can determine the exact solution by writing a search algorithm that interleaves LZ77 decompression with block-level CRC checks. Since 3 byte flips in a ~300 byte stream yield a huge search space, blind search fails, but CRC failures localized to specific compressed token ranges allow for massive pruning. The solution is unique with overwhelming probability due to the dense CRC16 checks."
+}

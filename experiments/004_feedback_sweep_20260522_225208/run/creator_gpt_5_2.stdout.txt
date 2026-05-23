@@ -1,0 +1,8 @@
+- Created a new benchmark package: **Reimbursement Forensics (ReiFor) v1** (`README.md`, `benchmark_spec.json`) that asks solvers to compute an exact **USD-cents reimbursable total** from a multi-document evidence bundle (policy + exchange rates + receipts + emails).
+- Implemented the full BenchBench pipeline: `generator.py` builds `solver_bundle/` + `gold_private_sample.jsonl`, `verifier.py` recomputes gold using only solver-visible assets, and `scorer.py` exact-matches predictions.
+- Ran required validations in this directory:
+  - `generator.py` produced 30 items and a leakage-safe `solver_bundle/`
+  - `verifier.py` succeeded: `OK: verified 30 items`
+  - Gold self-score: `predictions.jsonl` vs gold scored `30/30` (`score_report.json`)
+  - Weak baseline included and executed: `baseline_solver.py` scored `1/30` (`score_report_baseline.json`, `predictions_baseline.jsonl`)
+- Wrote benchmark QA docs: `validation_report.md` (includes external solvability/identifiability argument) and `failure_modes.md`.

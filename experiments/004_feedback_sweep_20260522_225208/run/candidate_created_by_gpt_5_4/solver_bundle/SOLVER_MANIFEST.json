@@ -1,0 +1,13 @@
+{
+  "benchmark": "release_packet_arbitration",
+  "version": "1.0.0",
+  "items_file": "items_private_sample.jsonl",
+  "policy_file": "policy/release_governance_manual.md",
+  "solver_bundle_root": ".",
+  "forbidden_contents": [
+    "gold answers",
+    "private generator logic",
+    "verifier code",
+    "scorer code"
+  ]
+}

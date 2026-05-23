@@ -1,0 +1,16 @@
+{
+    "benchmark_name": "MFN-Cascade",
+    "files": [
+        "README.md",
+        "items_private_sample.jsonl",
+        "treaties/common_framework.txt",
+        "treaties/treaty_alpha_beta.txt",
+        "treaties/treaty_beta_gamma.txt",
+        "treaties/treaty_gamma_delta.txt",
+        "treaties/treaty_delta_epsilon.txt",
+        "treaties/treaty_epsilon_alpha.txt",
+        "treaties/amendment_2022_04_15.txt",
+        "treaties/amendment_2024_09_01.txt",
+        "treaties/amendment_2025_06_20.txt"
+    ]
+}

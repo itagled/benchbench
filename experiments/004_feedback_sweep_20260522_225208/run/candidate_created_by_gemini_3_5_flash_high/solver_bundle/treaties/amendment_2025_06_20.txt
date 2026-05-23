@@ -1,0 +1,12 @@
+==============================================================
+MULTILATERAL TARIFF AMENDMENT AND OVERRIDE ACT (ACT-20250620)
+==============================================================
+Ratification Date: 2025-06-20 | Effective Date: 2025-06-20
+
+Be it resolved by the signatory nations that the following modifications and overrides to existing bilateral agreements are officially codified and active as of the effective date.
+
+Amendment Clause 1: The base tariff rate applied by Nation Alpha on Agriculture from Nation Delta is hereby modified to 5.0%, overriding all previous article clauses.
+Amendment Clause 2: The base tariff rate applied by Nation Epsilon on HeavyEquipment from Nation Beta is hereby modified to 5.3%, overriding all previous article clauses.
+Amendment Clause 3: Article 32 of the Treaty between Nation Beta and Nation Gamma is modified. The MFN floor is adjusted to 0.5% and the margin is set to 0.3%.
+
+--------------------------------------------------------------

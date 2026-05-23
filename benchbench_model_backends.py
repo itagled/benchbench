@@ -121,9 +121,16 @@ def run_cmd(
     except subprocess.TimeoutExpired as exc:
         try:
             os.killpg(process.pid, signal.SIGKILL)
-        except ProcessLookupError:
-            pass
-        stdout, stderr = process.communicate()
+        except (PermissionError, ProcessLookupError):
+            try:
+                process.kill()
+            except (PermissionError, ProcessLookupError):
+                pass
+        try:
+            stdout, stderr = process.communicate(timeout=2)
+        except subprocess.TimeoutExpired:
+            stdout = exc.stdout or ""
+            stderr = exc.stderr or ""
         exc.stdout = stdout
         exc.stderr = stderr
         raise exc

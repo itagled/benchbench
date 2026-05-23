@@ -1,0 +1,45 @@
+==============================================================
+BILATERAL TRADE AND TARIFF AGREEMENT BETWEEN BETA AND GAMMA
+==============================================================
+Signed: 2020-01-01 | Effective: 2020-03-01
+
+PREAMBLE:
+The Sovereign Governments of Nation Beta and Nation Gamma, seeking to maximize trade efficiency and maintain fair competitive grounds, hereby agree to the following tariff schedules and trade rules.
+
+SECTION 1: BASE TARIFF RATES
+Article 1: Nation Beta shall apply a base tariff rate of 6.4% on the import of Agriculture from Nation Gamma.
+Article 2: Nation Beta shall apply a base tariff rate of 8.0% on the import of Chemicals from Nation Gamma.
+Article 3: Nation Beta shall apply a base tariff rate of 7.2% on the import of ConsumerElectronics from Nation Gamma.
+Article 4: Nation Beta shall apply a base tariff rate of 6.0% on the import of Electronics from Nation Gamma.
+Article 5: Nation Beta shall apply a base tariff rate of 8.0% on the import of FinishedApparel from Nation Gamma.
+Article 6: Nation Beta shall apply a base tariff rate of 9.6% on the import of FreshProduce from Nation Gamma.
+Article 7: Nation Beta shall apply a base tariff rate of 7.4% on the import of GrainsAndCereals from Nation Gamma.
+Article 8: Nation Beta shall apply a base tariff rate of 8.3% on the import of HeavyEquipment from Nation Gamma.
+Article 9: Nation Beta shall apply a base tariff rate of 7.4% on the import of IndustrialSemiconductors from Nation Gamma.
+Article 10: Nation Beta shall apply a base tariff rate of 9.5% on the import of Machinery from Nation Gamma.
+Article 11: Nation Beta shall apply a base tariff rate of 8.2% on the import of OrganicSolvents from Nation Gamma.
+Article 12: Nation Beta shall apply a base tariff rate of 7.4% on the import of PrecisionTools from Nation Gamma.
+Article 13: Nation Beta shall apply a base tariff rate of 8.1% on the import of RawFabrics from Nation Gamma.
+Article 14: Nation Beta shall apply a base tariff rate of 7.6% on the import of SyntheticPolymers from Nation Gamma.
+Article 15: Nation Beta shall apply a base tariff rate of 5.2% on the import of Textiles from Nation Gamma.
+Article 16: Nation Gamma shall apply a base tariff rate of 8.0% on the import of Agriculture from Nation Beta.
+Article 17: Nation Gamma shall apply a base tariff rate of 8.3% on the import of Chemicals from Nation Beta.
+Article 18: Nation Gamma shall apply a base tariff rate of 7.0% on the import of ConsumerElectronics from Nation Beta.
+Article 19: Nation Gamma shall apply a base tariff rate of 9.0% on the import of Electronics from Nation Beta.
+Article 20: Nation Gamma shall apply a base tariff rate of 6.3% on the import of FinishedApparel from Nation Beta.
+Article 21: Nation Gamma shall apply a base tariff rate of 7.4% on the import of FreshProduce from Nation Beta.
+Article 22: Nation Gamma shall apply a base tariff rate of 7.9% on the import of GrainsAndCereals from Nation Beta.
+Article 23: Nation Gamma shall apply a base tariff rate of 8.9% on the import of HeavyEquipment from Nation Beta.
+Article 24: Nation Gamma shall apply a base tariff rate of 6.0% on the import of IndustrialSemiconductors from Nation Beta.
+Article 25: Nation Gamma shall apply a base tariff rate of 7.8% on the import of Machinery from Nation Beta.
+Article 26: Nation Gamma shall apply a base tariff rate of 7.8% on the import of OrganicSolvents from Nation Beta.
+Article 27: Nation Gamma shall apply a base tariff rate of 9.6% on the import of PrecisionTools from Nation Beta.
+Article 28: Nation Gamma shall apply a base tariff rate of 8.1% on the import of RawFabrics from Nation Beta.
+Article 29: Nation Gamma shall apply a base tariff rate of 7.1% on the import of SyntheticPolymers from Nation Beta.
+Article 30: Nation Gamma shall apply a base tariff rate of 6.8% on the import of Textiles from Nation Beta.
+
+SECTION 2: MOST FAVORED NATION CLAUSES
+Article 31 (MFN): If Nation Beta grants a tariff rate on Machinery imported from any third nation that is lower than the tariff rate applied on imports from Nation Gamma, then the tariff rate applied on imports from Nation Gamma for Machinery shall be reduced to match that rate multiplied by a factor of 1.10, subject to a minimum floor of 2.8%.
+Article 32 (MFN): If Nation Gamma grants a tariff rate on Chemicals imported from any third nation that is lower than the tariff rate applied on imports from Nation Beta, then the tariff rate applied on imports from Nation Beta for Chemicals shall be reduced to match that rate, plus a margin of 0.8%, subject to a minimum floor of 1.4%.
+
+--------------------------------------------------------------

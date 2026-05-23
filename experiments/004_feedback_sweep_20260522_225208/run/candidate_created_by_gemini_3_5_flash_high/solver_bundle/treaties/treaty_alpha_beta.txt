@@ -1,0 +1,45 @@
+==============================================================
+BILATERAL TRADE AND TARIFF AGREEMENT BETWEEN ALPHA AND BETA
+==============================================================
+Signed: 2020-01-01 | Effective: 2020-03-01
+
+PREAMBLE:
+The Sovereign Governments of Nation Alpha and Nation Beta, seeking to maximize trade efficiency and maintain fair competitive grounds, hereby agree to the following tariff schedules and trade rules.
+
+SECTION 1: BASE TARIFF RATES
+Article 1: Nation Alpha shall apply a base tariff rate of 5.8% on the import of Agriculture from Nation Beta.
+Article 2: Nation Alpha shall apply a base tariff rate of 7.4% on the import of Chemicals from Nation Beta.
+Article 3: Nation Alpha shall apply a base tariff rate of 9.7% on the import of ConsumerElectronics from Nation Beta.
+Article 4: Nation Alpha shall apply a base tariff rate of 7.0% on the import of Electronics from Nation Beta.
+Article 5: Nation Alpha shall apply a base tariff rate of 5.5% on the import of FinishedApparel from Nation Beta.
+Article 6: Nation Alpha shall apply a base tariff rate of 9.1% on the import of FreshProduce from Nation Beta.
+Article 7: Nation Alpha shall apply a base tariff rate of 7.1% on the import of GrainsAndCereals from Nation Beta.
+Article 8: Nation Alpha shall apply a base tariff rate of 6.6% on the import of HeavyEquipment from Nation Beta.
+Article 9: Nation Alpha shall apply a base tariff rate of 9.7% on the import of IndustrialSemiconductors from Nation Beta.
+Article 10: Nation Alpha shall apply a base tariff rate of 6.8% on the import of Machinery from Nation Beta.
+Article 11: Nation Alpha shall apply a base tariff rate of 8.0% on the import of OrganicSolvents from Nation Beta.
+Article 12: Nation Alpha shall apply a base tariff rate of 6.8% on the import of PrecisionTools from Nation Beta.
+Article 13: Nation Alpha shall apply a base tariff rate of 9.3% on the import of RawFabrics from Nation Beta.
+Article 14: Nation Alpha shall apply a base tariff rate of 9.1% on the import of SyntheticPolymers from Nation Beta.
+Article 15: Nation Alpha shall apply a base tariff rate of 7.7% on the import of Textiles from Nation Beta.
+Article 16: Nation Beta shall apply a base tariff rate of 7.3% on the import of Agriculture from Nation Alpha.
+Article 17: Nation Beta shall apply a base tariff rate of 7.1% on the import of Chemicals from Nation Alpha.
+Article 18: Nation Beta shall apply a base tariff rate of 7.1% on the import of ConsumerElectronics from Nation Alpha.
+Article 19: Nation Beta shall apply a base tariff rate of 8.6% on the import of Electronics from Nation Alpha.
+Article 20: Nation Beta shall apply a base tariff rate of 5.2% on the import of FinishedApparel from Nation Alpha.
+Article 21: Nation Beta shall apply a base tariff rate of 7.4% on the import of FreshProduce from Nation Alpha.
+Article 22: Nation Beta shall apply a base tariff rate of 6.0% on the import of GrainsAndCereals from Nation Alpha.
+Article 23: Nation Beta shall apply a base tariff rate of 8.2% on the import of HeavyEquipment from Nation Alpha.
+Article 24: Nation Beta shall apply a base tariff rate of 9.9% on the import of IndustrialSemiconductors from Nation Alpha.
+Article 25: Nation Beta shall apply a base tariff rate of 7.7% on the import of Machinery from Nation Alpha.
+Article 26: Nation Beta shall apply a base tariff rate of 9.2% on the import of OrganicSolvents from Nation Alpha.
+Article 27: Nation Beta shall apply a base tariff rate of 6.1% on the import of PrecisionTools from Nation Alpha.
+Article 28: Nation Beta shall apply a base tariff rate of 9.9% on the import of RawFabrics from Nation Alpha.
+Article 29: Nation Beta shall apply a base tariff rate of 7.6% on the import of SyntheticPolymers from Nation Alpha.
+Article 30: Nation Beta shall apply a base tariff rate of 8.4% on the import of Textiles from Nation Alpha.
+
+SECTION 2: MOST FAVORED NATION CLAUSES
+Article 31 (MFN): If Nation Alpha grants a tariff rate on FreshProduce imported from any third nation that is lower than the tariff rate applied on imports from Nation Beta, then the tariff rate applied on imports from Nation Beta for FreshProduce shall be reduced to match that rate multiplied by a factor of 1.05, subject to a minimum floor of 1.1%.
+Article 32 (MFN): If Nation Beta grants a tariff rate on FinishedApparel imported from any third nation that is lower than the tariff rate applied on imports from Nation Alpha, then the tariff rate applied on imports from Nation Alpha for FinishedApparel shall be reduced to match that rate multiplied by a factor of 1.05, subject to a minimum floor of 1.2%.
+
+--------------------------------------------------------------

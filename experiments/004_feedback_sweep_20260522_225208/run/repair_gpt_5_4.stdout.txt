@@ -1,0 +1,11 @@
+Repaired the package in place and regenerated the 30-item sample from the fixed generator.
+
+Current behavior: the package already ran end to end, but its contracts were too loose and its validation report was static. New behavior: `verifier.py` now enforces item-row structure, canonical answer values, and solver-bundle path isolation; `scorer.py` now validates gold and prediction rows more strictly, including malformed answers, duplicate ids, and unknown ids; `generator.py` now emits a tighter `benchmark_spec.json`, records solver-bundle isolation in `SOLVER_MANIFEST.json`, and rewrites `validation_report.md` from the deterministic sample metadata.
+
+I reran the requested validation commands in `/Users/rohit/Documents/Workspace/Coding/benchbench/experiments/004_feedback_sweep_20260522_225208/run/candidate_created_by_gpt_5_4`:
+- `generator.py --sample-count 30 --seed 20260516 --out-dir .`
+- `verifier.py --items solver_bundle/items_private_sample.jsonl --gold gold_private_sample.jsonl`
+- `scorer.py --gold gold_private_sample.jsonl --predictions predictions_gold_controller.jsonl --out score_gold_controller.json`
+- `scorer.py --gold gold_private_sample.jsonl --predictions predictions_wrong_shifted_controller.jsonl --out score_wrong_shifted_controller.json`
+
+Verification passed: verifier returned `status: ok` with `item_count: 30`, gold self-score is `30/30`, and the shifted-wrong controller score is `0/30`. One extra check I attempted, `python -m py_compile`, was blocked by this environment trying to write outside the writable area, so I did not rely on it.

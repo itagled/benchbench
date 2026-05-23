@@ -48,6 +48,8 @@ BENCHMARK_LANDSCAPE = read_text(
     limit=90000,
 )
 PILOT_SUMMARY = read_text(ROOT / "experiments" / "001_three_model_grid_pilot" / "README.md", limit=12000)
+CREATOR_FEEDBACK_CONTEXT = ""
+CREATOR_FEEDBACK_CONTEXT_PATH: Path | None = None
 
 
 CREATOR_PROMPT = """
@@ -99,6 +101,8 @@ Prior BenchBench pilot result:
 <<<PRIOR_PILOT
 {pilot_summary}
 PRIOR_PILOT>>>
+
+{feedback_context_block}
 
 Required root files:
 - README.md
@@ -224,8 +228,11 @@ def score_summary(path: Path) -> dict[str, Any] | None:
     except Exception:
         data = None
     if isinstance(data, dict):
-        total = data.get("total", data.get("n_items"))
-        correct = data.get("correct", data.get("n_correct", data.get("score")))
+        total = data.get("total", data.get("n_items", data.get("total_gold", data.get("total_items"))))
+        correct = data.get(
+            "correct",
+            data.get("n_correct", data.get("score", data.get("exact_match", data.get("correct_predictions")))),
+        )
         accuracy = data.get("accuracy")
         if total is not None and correct is not None:
             if accuracy is None:
@@ -534,6 +541,23 @@ def candidate_title(candidate_dir: Path) -> str:
     return candidate_dir.name
 
 
+def candidate_status(scores: list[dict[str, Any] | None]) -> str:
+    parsed_scores = [score for score in scores if score]
+    if not parsed_scores:
+        return "no_scores"
+    totals = [int(score["total"]) for score in parsed_scores if score.get("total") is not None]
+    corrects = [int(score["correct"]) for score in parsed_scores if score.get("correct") is not None]
+    if not totals or not corrects:
+        return "no_scores"
+    max_total = max(totals)
+    max_correct = max(corrects)
+    if max_correct == 0:
+        return "solvability_audit"
+    if max_total and max_correct >= (0.5 * max_total):
+        return "reject"
+    return "accept"
+
+
 def mismatch_validation(result: dict[str, Any]) -> dict[str, Any]:
     expected = result.get("antigravity_expected_label")
     actual = result.get("antigravity_actual_label")
@@ -552,13 +576,18 @@ def write_summary(manifest: list[dict[str, Any]], validations: dict[str, dict[st
     lines: list[str] = []
     lines.append("# Broad BenchBench Sweep")
     lines.append("")
-    lines.append("This run used the broad creator prompt: creators saw benchmark landscape notes and prior pilot outcomes, but were not directed toward any specific domain or modality.")
+    if CREATOR_FEEDBACK_CONTEXT_PATH is None:
+        lines.append("This run used the broad creator prompt: creators saw benchmark landscape notes and prior pilot outcomes, but were not directed toward any specific domain or modality.")
+    else:
+        lines.append("This run used the broad creator prompt plus a prior-run failure report: creators saw benchmark landscape notes, prior pilot outcomes, and feedback on how the previous candidates broke.")
     lines.append("")
     lines.append(f"Run root: `{RUN_ROOT}`")
     lines.append(f"Creator models: `{', '.join(spec.name for spec in MODEL_SPECS)}`")
     lines.append(f"Solver models: `{', '.join(spec.name for spec in MODEL_SPECS)}`")
     lines.append(f"Creator effort: `{CREATOR_EFFORT}`")
     lines.append(f"Solver effort: `{SOLVER_EFFORT}`")
+    if CREATOR_FEEDBACK_CONTEXT_PATH is not None:
+        lines.append(f"Creator feedback context: `{CREATOR_FEEDBACK_CONTEXT_PATH}`")
     if any(spec.provider == "antigravity" for spec in MODEL_SPECS):
         lines.append("")
         lines.append("Antigravity rows use the current selected `agy` model and are checked against the selected-model label in the CLI log when a specific Gemini label is requested.")
@@ -588,10 +617,12 @@ def write_summary(manifest: list[dict[str, Any]], validations: dict[str, dict[st
     for creator_spec in MODEL_SPECS:
         cdir = candidate_dirs[creator_spec.name]
         cells = []
+        scores: list[dict[str, Any] | None] = []
         max_correct: int | None = None
         max_total: int | None = None
         for solver_spec in MODEL_SPECS:
             score = score_summary(cdir / f"score_solver_{safe_name(solver_spec.name)}.json")
+            scores.append(score)
             if score:
                 cells.append(f"{score['correct']}/{score['total']}")
                 if max_correct is None or score["correct"] > max_correct:
@@ -599,7 +630,7 @@ def write_summary(manifest: list[dict[str, Any]], validations: dict[str, dict[st
                     max_total = int(score["total"])
             else:
                 cells.append("NA")
-        status = "accept" if max_correct is not None and max_total and max_correct < (0.5 * max_total) else "reject"
+        status = candidate_status(scores)
         lines.append(f"| {creator_spec.display_name} | {candidate_title(cdir)} | " + " | ".join(cells) + f" | {max_correct}/{max_total} | {status} |")
 
     lines.append("")
@@ -630,6 +661,11 @@ def write_summary(manifest: list[dict[str, Any]], validations: dict[str, dict[st
     (RUN_ROOT / "manifest.json").write_text(json.dumps(manifest, indent=2, sort_keys=True) + "\n", encoding="utf-8")
 
 
+def write_manifest(manifest: list[dict[str, Any]]) -> None:
+    RUN_ROOT.mkdir(parents=True, exist_ok=True)
+    (RUN_ROOT / "manifest.json").write_text(json.dumps(manifest, indent=2, sort_keys=True) + "\n", encoding="utf-8")
+
+
 def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser(description="Run a broad BenchBench creator/solver sweep.")
     parser.add_argument(
@@ -646,11 +682,17 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--solver-effort", default=SOLVER_EFFORT)
     parser.add_argument("--creator-timeout-seconds", type=int, default=CREATOR_TIMEOUT_SECONDS)
     parser.add_argument("--solver-timeout-seconds", type=int, default=SOLVER_TIMEOUT_SECONDS)
+    parser.add_argument(
+        "--feedback-context",
+        type=Path,
+        default=None,
+        help="Optional Markdown/text file appended to creator prompts as feedback from prior runs.",
+    )
     return parser.parse_args()
 
 
 def main() -> None:
-    global CREATOR_EFFORT, SOLVER_EFFORT, CREATOR_TIMEOUT_SECONDS, SOLVER_TIMEOUT_SECONDS, MODELS, MODEL_SPECS, RUN_ROOT, RUN_DIR
+    global CREATOR_EFFORT, SOLVER_EFFORT, CREATOR_TIMEOUT_SECONDS, SOLVER_TIMEOUT_SECONDS, MODELS, MODEL_SPECS, RUN_ROOT, RUN_DIR, CREATOR_FEEDBACK_CONTEXT, CREATOR_FEEDBACK_CONTEXT_PATH
 
     args = parse_args()
     MODELS = args.models
@@ -659,6 +701,9 @@ def main() -> None:
     SOLVER_EFFORT = args.solver_effort
     CREATOR_TIMEOUT_SECONDS = args.creator_timeout_seconds
     SOLVER_TIMEOUT_SECONDS = args.solver_timeout_seconds
+    if args.feedback_context is not None:
+        CREATOR_FEEDBACK_CONTEXT_PATH = args.feedback_context if args.feedback_context.is_absolute() else ROOT / args.feedback_context
+        CREATOR_FEEDBACK_CONTEXT = read_text(CREATOR_FEEDBACK_CONTEXT_PATH, limit=60000)
     if args.run_root is not None:
         RUN_ROOT = args.run_root if args.run_root.is_absolute() else ROOT / args.run_root
         RUN_DIR = RUN_ROOT / "run"
@@ -681,6 +726,14 @@ def main() -> None:
                 artifact_dir=candidate_dir,
                 benchmark_landscape=BENCHMARK_LANDSCAPE,
                 pilot_summary=PILOT_SUMMARY,
+                feedback_context_block=(
+                    "Feedback from the previous BenchBench run:\n\n"
+                    "<<<PRIOR_RUN_FEEDBACK\n"
+                    f"{CREATOR_FEEDBACK_CONTEXT}\n"
+                    "PRIOR_RUN_FEEDBACK>>>\n"
+                    if CREATOR_FEEDBACK_CONTEXT
+                    else ""
+                ),
                 python=PYTHON,
                 seed=GENERATION_SEED,
             ),
@@ -691,6 +744,7 @@ def main() -> None:
         )
         creator.update({"phase": "creator", "creator_model": spec.name, "creator_display_model": spec.display_name})
         manifest.append(creator)
+        write_manifest(manifest)
         print(f"[creator:done] {spec.name} rc={creator['returncode']} tokens={creator['tokens_used']}", flush=True)
 
         validation = mismatch_validation(creator) if creator.get("model_mismatch") else local_validate(candidate_dir)
@@ -713,6 +767,7 @@ def main() -> None:
             )
             repair.update({"phase": "repair", "creator_model": spec.name, "creator_display_model": spec.display_name})
             manifest.append(repair)
+            write_manifest(manifest)
             print(f"[repair:done] {spec.name} rc={repair['returncode']} tokens={repair['tokens_used']}", flush=True)
             validation = mismatch_validation(repair) if repair.get("model_mismatch") else local_validate(candidate_dir)
             validations[spec.name] = validation
@@ -726,6 +781,8 @@ def main() -> None:
             print(f"[solver:start] creator={creator_spec.name} solver={solver_spec.name}", flush=True)
             result = run_solver(creator_spec.name, solver_spec, candidate_dir)
             manifest.append(result)
+            write_manifest(manifest)
+            write_summary(manifest, validations, candidate_dirs)
             print(
                 f"[solver:done] creator={creator_spec.name} solver={solver_spec.name} "
                 f"rows={result['prediction_rows']} score={result.get('score_summary')} "

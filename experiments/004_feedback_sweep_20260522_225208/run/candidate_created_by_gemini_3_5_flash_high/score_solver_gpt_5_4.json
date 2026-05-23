@@ -1,0 +1,188 @@
+{
+    "benchmark": "mfn_cascade",
+    "total_items": 30,
+    "correct_predictions": 30,
+    "accuracy": 1.0,
+    "results": [
+        {
+            "id": "mfn_cascade_001",
+            "gold": "5.9%",
+            "prediction": "5.9%",
+            "correct": true
+        },
+        {
+            "id": "mfn_cascade_002",
+            "gold": "5.9%",
+            "prediction": "5.9%",
+            "correct": true
+        },
+        {
+            "id": "mfn_cascade_003",
+            "gold": "9.1%",
+            "prediction": "9.1%",
+            "correct": true
+        },
+        {
+            "id": "mfn_cascade_004",
+            "gold": "6.0%",
+            "prediction": "6.0%",
+            "correct": true
+        },
+        {
+            "id": "mfn_cascade_005",
+            "gold": "7.4%",
+            "prediction": "7.4%",
+            "correct": true
+        },
+        {
+            "id": "mfn_cascade_006",
+            "gold": "6.0%",
+            "prediction": "6.0%",
+            "correct": true
+        },
+        {
+            "id": "mfn_cascade_007",
+            "gold": "7.0%",
+            "prediction": "7.0%",
+            "correct": true
+        },
+        {
+            "id": "mfn_cascade_008",
+            "gold": "7.8%",
+            "prediction": "7.8%",
+            "correct": true
+        },
+        {
+            "id": "mfn_cascade_009",
+            "gold": "7.8%",
+            "prediction": "7.8%",
+            "correct": true
+        },
+        {
+            "id": "mfn_cascade_010",
+            "gold": "6.0%",
+            "prediction": "6.0%",
+            "correct": true
+        },
+        {
+            "id": "mfn_cascade_011",
+            "gold": "7.8%",
+            "prediction": "7.8%",
+            "correct": true
+        },
+        {
+            "id": "mfn_cascade_012",
+            "gold": "7.4%",
+            "prediction": "7.4%",
+            "correct": true
+        },
+        {
+            "id": "mfn_cascade_013",
+            "gold": "7.2%",
+            "prediction": "7.2%",
+            "correct": true
+        },
+        {
+            "id": "mfn_cascade_014",
+            "gold": "8.4%",
+            "prediction": "8.4%",
+            "correct": true
+        },
+        {
+            "id": "mfn_cascade_015",
+            "gold": "6.0%",
+            "prediction": "6.0%",
+            "correct": true
+        },
+        {
+            "id": "mfn_cascade_016",
+            "gold": "7.0%",
+            "prediction": "7.0%",
+            "correct": true
+        },
+        {
+            "id": "mfn_cascade_017",
+            "gold": "8.0%",
+            "prediction": "8.0%",
+            "correct": true
+        },
+        {
+            "id": "mfn_cascade_018",
+            "gold": "7.7%",
+            "prediction": "7.7%",
+            "correct": true
+        },
+        {
+            "id": "mfn_cascade_019",
+            "gold": "5.3%",
+            "prediction": "5.3%",
+            "correct": true
+        },
+        {
+            "id": "mfn_cascade_020",
+            "gold": "6.7%",
+            "prediction": "6.7%",
+            "correct": true
+        },
+        {
+            "id": "mfn_cascade_021",
+            "gold": "8.9%",
+            "prediction": "8.9%",
+            "correct": true
+        },
+        {
+            "id": "mfn_cascade_022",
+            "gold": "5.2%",
+            "prediction": "5.2%",
+            "correct": true
+        },
+        {
+            "id": "mfn_cascade_023",
+            "gold": "6.4%",
+            "prediction": "6.4%",
+            "correct": true
+        },
+        {
+            "id": "mfn_cascade_024",
+            "gold": "7.4%",
+            "prediction": "7.4%",
+            "correct": true
+        },
+        {
+            "id": "mfn_cascade_025",
+            "gold": "6.0%",
+            "prediction": "6.0%",
+            "correct": true
+        },
+        {
+            "id": "mfn_cascade_026",
+            "gold": "5.5%",
+            "prediction": "5.5%",
+            "correct": true
+        },
+        {
+            "id": "mfn_cascade_027",
+            "gold": "7.4%",
+            "prediction": "7.4%",
+            "correct": true
+        },
+        {
+            "id": "mfn_cascade_028",
+            "gold": "7.0%",
+            "prediction": "7.0%",
+            "correct": true
+        },
+        {
+            "id": "mfn_cascade_029",
+            "gold": "6.0%",
+            "prediction": "6.0%",
+            "correct": true
+        },
+        {
+            "id": "mfn_cascade_030",
+            "gold": "6.3%",
+            "prediction": "6.3%",
+            "correct": true
+        }
+    ]
+}

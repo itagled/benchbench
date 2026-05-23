@@ -1,0 +1,2014 @@
+2026-05-23T08:31:42.892633Z  WARN codex_rollout::list: state db discrepancy during find_thread_path_by_id_str_in_subdir: falling_back
+2026-05-23T08:31:42.912284Z  WARN codex_rollout::list: state db discrepancy during find_thread_path_by_id_str_in_subdir: falling_back
+OpenAI Codex v0.130.0
+--------
+workdir: /Users/rohit/Documents/Workspace/Coding/benchbench/experiments/004_feedback_sweep_20260522_225208/run/isolated_solver_gpt_5_4__solved_by__gpt_5_5
+model: gpt-5.5
+provider: openai
+approval: never
+sandbox: workspace-write [workdir, /tmp, $TMPDIR, /Users/rohit/.codex/memories] (network access enabled)
+reasoning effort: low
+reasoning summaries: none
+session id: 019e53f6-2d0f-7143-8ce9-4e8f42853a4a
+--------
+user
+
+You are gpt-5.5+Codex acting as a blind BenchBench solver.
+
+You are in an isolated solver bundle at:
+
+/Users/rohit/Documents/Workspace/Coding/benchbench/experiments/004_feedback_sweep_20260522_225208/run/isolated_solver_gpt_5_4__solved_by__gpt_5_5
+
+Use that exact directory as the working directory for every shell command and
+file read/write. Antigravity may open a global scratch directory by default;
+ignore that scratch directory and work only in the solver bundle above.
+
+You may use any local computation, shell scripts, installed packages, OCR,
+image processing, code, and internet access if useful. Try your best to solve
+the benchmark.
+
+The only forbidden action is inspecting parent directories or files outside this
+isolated solver bundle. Do not look for gold files, generators, scorers, private
+traces, or answer keys outside this directory.
+
+Read every visible file in this bundle and solve every item.
+
+Return only JSONL, one object per item, with exactly:
+{"id":"...","answer":"..."}
+
+deprecated: `[features].codex_hooks` is deprecated. Use `[features].hooks` instead.
+Enable it with `--enable hooks` or `[features].hooks` in config.toml. See https://developers.openai.com/codex/config-basic#feature-flags for details.
+2026-05-23T08:31:42.938733Z  WARN codex_rollout::list: state db discrepancy during find_thread_path_by_id_str_in_subdir: falling_back
+2026-05-23T08:31:42.948727Z  WARN codex_rollout::list: state db discrepancy during find_thread_path_by_id_str_in_subdir: falling_back
+2026-05-23T08:31:42.979159Z  WARN codex_rollout::list: state db discrepancy during find_thread_path_by_id_str_in_subdir: falling_back
+2026-05-23T08:31:43.000860Z  WARN codex_rollout::list: state db discrepancy during find_thread_path_by_id_str_in_subdir: falling_back
+2026-05-23T08:31:43.025573Z  WARN codex_rollout::list: state db discrepancy during find_thread_path_by_id_str_in_subdir: falling_back
+2026-05-23T08:31:43.050786Z  WARN codex_rollout::list: state db discrepancy during find_thread_path_by_id_str_in_subdir: falling_back
+2026-05-23T08:31:43.083272Z  WARN codex_rollout::list: state db discrepancy during find_thread_path_by_id_str_in_subdir: falling_back
+2026-05-23T08:31:43.108180Z  WARN codex_rollout::list: state db discrepancy during find_thread_path_by_id_str_in_subdir: falling_back
+2026-05-23T08:31:43.137491Z  WARN codex_rollout::list: state db discrepancy during find_thread_path_by_id_str_in_subdir: falling_back
+2026-05-23T08:31:43.160070Z  WARN codex_rollout::list: state db discrepancy during find_thread_path_by_id_str_in_subdir: falling_back
+2026-05-23T08:31:43.185799Z  WARN codex_rollout::list: state db discrepancy during find_thread_path_by_id_str_in_subdir: falling_back
+2026-05-23T08:31:43.209976Z  WARN codex_rollout::list: state db discrepancy during find_thread_path_by_id_str_in_subdir: falling_back
+2026-05-23T08:31:43.235896Z  WARN codex_rollout::list: state db discrepancy during find_thread_path_by_id_str_in_subdir: falling_back
+2026-05-23T08:31:43.261360Z  WARN codex_rollout::list: state db discrepancy during find_thread_path_by_id_str_in_subdir: falling_back
+2026-05-23T08:31:43.295563Z  WARN codex_rollout::list: state db discrepancy during find_thread_path_by_id_str_in_subdir: falling_back
+2026-05-23T08:31:43.318478Z  WARN codex_rollout::list: state db discrepancy during find_thread_path_by_id_str_in_subdir: falling_back
+2026-05-23T08:31:43.345325Z  WARN codex_rollout::list: state db discrepancy during find_thread_path_by_id_str_in_subdir: falling_back
+2026-05-23T08:31:43.375645Z  WARN codex_rollout::list: state db discrepancy during find_thread_path_by_id_str_in_subdir: falling_back
+2026-05-23T08:31:43.398383Z  WARN codex_rollout::list: state db discrepancy during find_thread_path_by_id_str_in_subdir: falling_back
+2026-05-23T08:31:43.435333Z  WARN codex_rollout::list: state db discrepancy during find_thread_path_by_id_str_in_subdir: falling_back
+2026-05-23T08:31:43.463207Z  WARN codex_rollout::list: state db discrepancy during find_thread_path_by_id_str_in_subdir: falling_back
+2026-05-23T08:31:43.489628Z  WARN codex_rollout::list: state db discrepancy during find_thread_path_by_id_str_in_subdir: falling_back
+2026-05-23T08:31:43.504652Z  WARN codex_rollout::list: state db discrepancy during find_thread_path_by_id_str_in_subdir: falling_back
+2026-05-23T08:31:43.534932Z  WARN codex_rollout::list: state db discrepancy during find_thread_path_by_id_str_in_subdir: falling_back
+2026-05-23T08:31:43.562128Z  WARN codex_rollout::list: state db discrepancy during find_thread_path_by_id_str_in_subdir: falling_back
+2026-05-23T08:31:43.592830Z  WARN codex_rollout::list: state db discrepancy during find_thread_path_by_id_str_in_subdir: falling_back
+2026-05-23T08:31:43.623347Z  WARN codex_rollout::list: state db discrepancy during find_thread_path_by_id_str_in_subdir: falling_back
+2026-05-23T08:31:43.648895Z  WARN codex_rollout::list: state db discrepancy during find_thread_path_by_id_str_in_subdir: falling_back
+2026-05-23T08:31:43.664030Z  WARN codex_rollout::list: state db discrepancy during find_thread_path_by_id_str_in_subdir: falling_back
+2026-05-23T08:31:43.696599Z  WARN codex_rollout::list: state db discrepancy during find_thread_path_by_id_str_in_subdir: falling_back
+2026-05-23T08:31:43.714766Z  WARN codex_rollout::list: state db discrepancy during find_thread_path_by_id_str_in_subdir: falling_back
+2026-05-23T08:31:43.983835Z  WARN codex_core_skills::loader: ignoring interface.icon_small: icon path must not contain '..'
+2026-05-23T08:31:43.983847Z  WARN codex_core_skills::loader: ignoring interface.icon_large: icon path must not contain '..'
+2026-05-23T08:31:43.984414Z  WARN codex_core_skills::loader: ignoring interface.icon_small: icon path must not contain '..'
+2026-05-23T08:31:43.984422Z  WARN codex_core_skills::loader: ignoring interface.icon_large: icon path must not contain '..'
+2026-05-23T08:31:43.984994Z  WARN codex_core_skills::loader: ignoring interface.icon_small: icon path must not contain '..'
+2026-05-23T08:31:43.985002Z  WARN codex_core_skills::loader: ignoring interface.icon_large: icon path must not contain '..'
+2026-05-23T08:31:43.985543Z  WARN codex_core_skills::loader: ignoring interface.icon_small: icon path must not contain '..'
+2026-05-23T08:31:43.985549Z  WARN codex_core_skills::loader: ignoring interface.icon_large: icon path must not contain '..'
+2026-05-23T08:31:43.986073Z  WARN codex_core_skills::loader: ignoring interface.icon_small: icon path must not contain '..'
+2026-05-23T08:31:43.986080Z  WARN codex_core_skills::loader: ignoring interface.icon_large: icon path must not contain '..'
+2026-05-23T08:31:43.987294Z  WARN codex_core_skills::loader: ignoring interface.icon_small: icon path must not contain '..'
+2026-05-23T08:31:43.987301Z  WARN codex_core_skills::loader: ignoring interface.icon_large: icon path must not contain '..'
+2026-05-23T08:31:44.763588Z  WARN codex_core_skills::loader: ignoring interface.icon_small: icon path must not contain '..'
+2026-05-23T08:31:44.763599Z  WARN codex_core_skills::loader: ignoring interface.icon_large: icon path must not contain '..'
+2026-05-23T08:31:44.764091Z  WARN codex_core_skills::loader: ignoring interface.icon_small: icon path must not contain '..'
+2026-05-23T08:31:44.764097Z  WARN codex_core_skills::loader: ignoring interface.icon_large: icon path must not contain '..'
+2026-05-23T08:31:44.764601Z  WARN codex_core_skills::loader: ignoring interface.icon_small: icon path must not contain '..'
+2026-05-23T08:31:44.764606Z  WARN codex_core_skills::loader: ignoring interface.icon_large: icon path must not contain '..'
+2026-05-23T08:31:44.765194Z  WARN codex_core_skills::loader: ignoring interface.icon_small: icon path must not contain '..'
+2026-05-23T08:31:44.765200Z  WARN codex_core_skills::loader: ignoring interface.icon_large: icon path must not contain '..'
+2026-05-23T08:31:44.765694Z  WARN codex_core_skills::loader: ignoring interface.icon_small: icon path must not contain '..'
+2026-05-23T08:31:44.765700Z  WARN codex_core_skills::loader: ignoring interface.icon_large: icon path must not contain '..'
+2026-05-23T08:31:44.768047Z  WARN codex_core_skills::loader: ignoring interface.icon_small: icon path must not contain '..'
+2026-05-23T08:31:44.768053Z  WARN codex_core_skills::loader: ignoring interface.icon_large: icon path must not contain '..'
+codex
+I’ll work only inside the isolated bundle and inspect the visible files there before solving.
+exec
+/bin/zsh -lc 'pwd && rg --files -uu .' in /Users/rohit/Documents/Workspace/Coding/benchbench/experiments/004_feedback_sweep_20260522_225208/run/isolated_solver_gpt_5_4__solved_by__gpt_5_5
+ succeeded in 0ms:
+/Users/rohit/Documents/Workspace/Coding/benchbench/experiments/004_feedback_sweep_20260522_225208/run/isolated_solver_gpt_5_4__solved_by__gpt_5_5
+./SOLVER_MANIFEST.json
+./items_private_sample.jsonl
+./README.md
+./policy/release_governance_manual.md
+./packets/rpa_019/amendments.md
+./packets/rpa_019/freeze_bulletin.md
+./packets/rpa_019/change_request.md
+./packets/rpa_019/approvals.md
+./packets/rpa_019/capability_register.md
+./packets/rpa_019/incident_log.md
+./packets/rpa_026/amendments.md
+./packets/rpa_026/freeze_bulletin.md
+./packets/rpa_026/change_request.md
+./packets/rpa_026/approvals.md
+./packets/rpa_026/capability_register.md
+./packets/rpa_026/incident_log.md
+./packets/rpa_021/amendments.md
+./packets/rpa_021/freeze_bulletin.md
+./packets/rpa_021/change_request.md
+./packets/rpa_021/approvals.md
+./packets/rpa_021/capability_register.md
+./packets/rpa_021/incident_log.md
+./packets/rpa_028/amendments.md
+./packets/rpa_028/freeze_bulletin.md
+./packets/rpa_028/change_request.md
+./packets/rpa_028/approvals.md
+./packets/rpa_028/capability_register.md
+./packets/rpa_028/incident_log.md
+./packets/rpa_017/amendments.md
+./packets/rpa_017/freeze_bulletin.md
+./packets/rpa_017/change_request.md
+./packets/rpa_017/approvals.md
+./packets/rpa_017/capability_register.md
+./packets/rpa_017/incident_log.md
+./packets/rpa_010/amendments.md
+./packets/rpa_010/freeze_bulletin.md
+./packets/rpa_010/change_request.md
+./packets/rpa_010/approvals.md
+./packets/rpa_010/capability_register.md
+./packets/rpa_010/incident_log.md
+./packets/rpa_011/amendments.md
+./packets/rpa_011/freeze_bulletin.md
+./packets/rpa_011/change_request.md
+./packets/rpa_011/approvals.md
+./packets/rpa_011/capability_register.md
+./packets/rpa_011/incident_log.md
+./packets/rpa_029/amendments.md
+./packets/rpa_029/freeze_bulletin.md
+./packets/rpa_029/change_request.md
+./packets/rpa_029/approvals.md
+./packets/rpa_029/capability_register.md
+./packets/rpa_029/incident_log.md
+./packets/rpa_016/amendments.md
+./packets/rpa_016/freeze_bulletin.md
+./packets/rpa_016/change_request.md
+./packets/rpa_016/approvals.md
+./packets/rpa_016/capability_register.md
+./packets/rpa_016/incident_log.md
+./packets/rpa_020/amendments.md
+./packets/rpa_020/freeze_bulletin.md
+./packets/rpa_020/change_request.md
+./packets/rpa_020/approvals.md
+./packets/rpa_020/capability_register.md
+./packets/rpa_020/incident_log.md
+./packets/rpa_018/amendments.md
+./packets/rpa_018/freeze_bulletin.md
+./packets/rpa_018/change_request.md
+./packets/rpa_018/approvals.md
+./packets/rpa_018/capability_register.md
+./packets/rpa_018/incident_log.md
+./packets/rpa_027/amendments.md
+./packets/rpa_027/freeze_bulletin.md
+./packets/rpa_027/change_request.md
+./packets/rpa_027/approvals.md
+./packets/rpa_027/capability_register.md
+./packets/rpa_027/incident_log.md
+./packets/rpa_005/amendments.md
+./packets/rpa_005/freeze_bulletin.md
+./packets/rpa_005/change_request.md
+./packets/rpa_005/approvals.md
+./packets/rpa_005/capability_register.md
+./packets/rpa_005/incident_log.md
+./packets/rpa_002/amendments.md
+./packets/rpa_002/freeze_bulletin.md
+./packets/rpa_002/change_request.md
+./packets/rpa_002/approvals.md
+./packets/rpa_002/capability_register.md
+./packets/rpa_002/incident_log.md
+./packets/rpa_003/amendments.md
+./packets/rpa_003/freeze_bulletin.md
+./packets/rpa_003/change_request.md
+./packets/rpa_003/approvals.md
+./packets/rpa_003/capability_register.md
+./packets/rpa_003/incident_log.md
+./packets/rpa_004/amendments.md
+./packets/rpa_004/freeze_bulletin.md
+./packets/rpa_004/change_request.md
+./packets/rpa_004/approvals.md
+./packets/rpa_004/capability_register.md
+./packets/rpa_004/incident_log.md
+./packets/rpa_022/amendments.md
+./packets/rpa_022/freeze_bulletin.md
+./packets/rpa_022/change_request.md
+./packets/rpa_022/approvals.md
+./packets/rpa_022/capability_register.md
+./packets/rpa_022/incident_log.md
+./packets/rpa_025/amendments.md
+./packets/rpa_025/freeze_bulletin.md
+./packets/rpa_025/change_request.md
+./packets/rpa_025/approvals.md
+./packets/rpa_025/capability_register.md
+./packets/rpa_025/incident_log.md
+./packets/rpa_013/amendments.md
+./packets/rpa_013/freeze_bulletin.md
+./packets/rpa_013/change_request.md
+./packets/rpa_013/approvals.md
+./packets/rpa_013/capability_register.md
+./packets/rpa_013/incident_log.md
+./packets/rpa_014/amendments.md
+./packets/rpa_014/freeze_bulletin.md
+./packets/rpa_014/change_request.md
+./packets/rpa_014/approvals.md
+./packets/rpa_014/capability_register.md
+./packets/rpa_014/incident_log.md
+./packets/rpa_015/amendments.md
+./packets/rpa_015/freeze_bulletin.md
+./packets/rpa_015/change_request.md
+./packets/rpa_015/approvals.md
+./packets/rpa_015/capability_register.md
+./packets/rpa_015/incident_log.md
+./packets/rpa_012/amendments.md
+./packets/rpa_012/freeze_bulletin.md
+./packets/rpa_012/change_request.md
+./packets/rpa_012/approvals.md
+./packets/rpa_012/capability_register.md
+./packets/rpa_012/incident_log.md
+./packets/rpa_024/amendments.md
+./packets/rpa_024/freeze_bulletin.md
+./packets/rpa_024/change_request.md
+./packets/rpa_024/approvals.md
+./packets/rpa_024/capability_register.md
+./packets/rpa_024/incident_log.md
+./packets/rpa_023/amendments.md
+./packets/rpa_023/freeze_bulletin.md
+./packets/rpa_023/change_request.md
+./packets/rpa_023/approvals.md
+./packets/rpa_023/capability_register.md
+./packets/rpa_023/incident_log.md
+./packets/rpa_001/amendments.md
+./packets/rpa_001/freeze_bulletin.md
+./packets/rpa_001/change_request.md
+./packets/rpa_001/approvals.md
+./packets/rpa_001/capability_register.md
+./packets/rpa_001/incident_log.md
+./packets/rpa_006/amendments.md
+./packets/rpa_006/freeze_bulletin.md
+./packets/rpa_006/change_request.md
+./packets/rpa_006/approvals.md
+./packets/rpa_006/capability_register.md
+./packets/rpa_006/incident_log.md
+./packets/rpa_030/amendments.md
+./packets/rpa_030/freeze_bulletin.md
+./packets/rpa_030/change_request.md
+./packets/rpa_030/approvals.md
+./packets/rpa_030/capability_register.md
+./packets/rpa_030/incident_log.md
+./packets/rpa_008/amendments.md
+./packets/rpa_008/freeze_bulletin.md
+./packets/rpa_008/change_request.md
+./packets/rpa_008/approvals.md
+./packets/rpa_008/capability_register.md
+./packets/rpa_008/incident_log.md
+./packets/rpa_009/amendments.md
+./packets/rpa_009/freeze_bulletin.md
+./packets/rpa_009/change_request.md
+./packets/rpa_009/approvals.md
+./packets/rpa_009/capability_register.md
+./packets/rpa_009/incident_log.md
+./packets/rpa_007/amendments.md
+./packets/rpa_007/freeze_bulletin.md
+./packets/rpa_007/change_request.md
+./packets/rpa_007/approvals.md
+./packets/rpa_007/capability_register.md
+./packets/rpa_007/incident_log.md
+
+2026-05-23T08:31:48.914545Z  WARN codex_core_skills::loader: ignoring interface.icon_small: icon path must not contain '..'
+2026-05-23T08:31:48.914557Z  WARN codex_core_skills::loader: ignoring interface.icon_large: icon path must not contain '..'
+2026-05-23T08:31:48.915057Z  WARN codex_core_skills::loader: ignoring interface.icon_small: icon path must not contain '..'
+2026-05-23T08:31:48.915065Z  WARN codex_core_skills::loader: ignoring interface.icon_large: icon path must not contain '..'
+2026-05-23T08:31:48.915551Z  WARN codex_core_skills::loader: ignoring interface.icon_small: icon path must not contain '..'
+2026-05-23T08:31:48.915555Z  WARN codex_core_skills::loader: ignoring interface.icon_large: icon path must not contain '..'
+2026-05-23T08:31:48.916021Z  WARN codex_core_skills::loader: ignoring interface.icon_small: icon path must not contain '..'
+2026-05-23T08:31:48.916025Z  WARN codex_core_skills::loader: ignoring interface.icon_large: icon path must not contain '..'
+2026-05-23T08:31:48.916496Z  WARN codex_core_skills::loader: ignoring interface.icon_small: icon path must not contain '..'
+2026-05-23T08:31:48.916500Z  WARN codex_core_skills::loader: ignoring interface.icon_large: icon path must not contain '..'
+2026-05-23T08:31:48.917529Z  WARN codex_core_skills::loader: ignoring interface.icon_small: icon path must not contain '..'
+2026-05-23T08:31:48.917533Z  WARN codex_core_skills::loader: ignoring interface.icon_large: icon path must not contain '..'
+codex
+The bundle is a policy-and-packet benchmark: one governance manual, a JSONL item list, and 30 RPA packet folders with the same six document types. I’m going to read the task format and policy first, then compute answers from the packet text.
+exec
+/bin/zsh -lc "sed -n '1,220p' README.md" in /Users/rohit/Documents/Workspace/Coding/benchbench/experiments/004_feedback_sweep_20260522_225208/run/isolated_solver_gpt_5_4__solved_by__gpt_5_5
+ succeeded in 0ms:
+# Solver Bundle
+
+Use only the files in this folder. Read the policy manual, then each packet directory, and answer each item with the required canonical JSON string.
+
+exec
+/bin/zsh -lc "sed -n '1,260p' policy/release_governance_manual.md" in /Users/rohit/Documents/Workspace/Coding/benchbench/experiments/004_feedback_sweep_20260522_225208/run/isolated_solver_gpt_5_4__solved_by__gpt_5_5
+exec
+/bin/zsh -lc "sed -n '1,120p' items_private_sample.jsonl" in /Users/rohit/Documents/Workspace/Coding/benchbench/experiments/004_feedback_sweep_20260522_225208/run/isolated_solver_gpt_5_4__solved_by__gpt_5_5
+ succeeded in 0ms:
+{"id": "rpa_001", "packet_dir": "packets/rpa_001", "policy_path": "policy/release_governance_manual.md", "question": "Return a canonical JSON string with keys decision, governing_rule, and responsible_actor. Use the highest-priority decisive rule from the policy. responsible_actor should be the requester for packet-level failures, or the invalid approver when R2 is the decisive rule."}
+{"id": "rpa_002", "packet_dir": "packets/rpa_002", "policy_path": "policy/release_governance_manual.md", "question": "Return a canonical JSON string with keys decision, governing_rule, and responsible_actor. Use the highest-priority decisive rule from the policy. responsible_actor should be the requester for packet-level failures, or the invalid approver when R2 is the decisive rule."}
+{"id": "rpa_003", "packet_dir": "packets/rpa_003", "policy_path": "policy/release_governance_manual.md", "question": "Return a canonical JSON string with keys decision, governing_rule, and responsible_actor. Use the highest-priority decisive rule from the policy. responsible_actor should be the requester for packet-level failures, or the invalid approver when R2 is the decisive rule."}
+{"id": "rpa_004", "packet_dir": "packets/rpa_004", "policy_path": "policy/release_governance_manual.md", "question": "Return a canonical JSON string with keys decision, governing_rule, and responsible_actor. Use the highest-priority decisive rule from the policy. responsible_actor should be the requester for packet-level failures, or the invalid approver when R2 is the decisive rule."}
+{"id": "rpa_005", "packet_dir": "packets/rpa_005", "policy_path": "policy/release_governance_manual.md", "question": "Return a canonical JSON string with keys decision, governing_rule, and responsible_actor. Use the highest-priority decisive rule from the policy. responsible_actor should be the requester for packet-level failures, or the invalid approver when R2 is the decisive rule."}
+{"id": "rpa_006", "packet_dir": "packets/rpa_006", "policy_path": "policy/release_governance_manual.md", "question": "Return a canonical JSON string with keys decision, governing_rule, and responsible_actor. Use the highest-priority decisive rule from the policy. responsible_actor should be the requester for packet-level failures, or the invalid approver when R2 is the decisive rule."}
+{"id": "rpa_007", "packet_dir": "packets/rpa_007", "policy_path": "policy/release_governance_manual.md", "question": "Return a canonical JSON string with keys decision, governing_rule, and responsible_actor. Use the highest-priority decisive rule from the policy. responsible_actor should be the requester for packet-level failures, or the invalid approver when R2 is the decisive rule."}
+{"id": "rpa_008", "packet_dir": "packets/rpa_008", "policy_path": "policy/release_governance_manual.md", "question": "Return a canonical JSON string with keys decision, governing_rule, and responsible_actor. Use the highest-priority decisive rule from the policy. responsible_actor should be the requester for packet-level failures, or the invalid approver when R2 is the decisive rule."}
+{"id": "rpa_009", "packet_dir": "packets/rpa_009", "policy_path": "policy/release_governance_manual.md", "question": "Return a canonical JSON string with keys decision, governing_rule, and responsible_actor. Use the highest-priority decisive rule from the policy. responsible_actor should be the requester for packet-level failures, or the invalid approver when R2 is the decisive rule."}
+{"id": "rpa_010", "packet_dir": "packets/rpa_010", "policy_path": "policy/release_governance_manual.md", "question": "Return a canonical JSON string with keys decision, governing_rule, and responsible_actor. Use the highest-priority decisive rule from the policy. responsible_actor should be the requester for packet-level failures, or the invalid approver when R2 is the decisive rule."}
+{"id": "rpa_011", "packet_dir": "packets/rpa_011", "policy_path": "policy/release_governance_manual.md", "question": "Return a canonical JSON string with keys decision, governing_rule, and responsible_actor. Use the highest-priority decisive rule from the policy. responsible_actor should be the requester for packet-level failures, or the invalid approver when R2 is the decisive rule."}
+{"id": "rpa_012", "packet_dir": "packets/rpa_012", "policy_path": "policy/release_governance_manual.md", "question": "Return a canonical JSON string with keys decision, governing_rule, and responsible_actor. Use the highest-priority decisive rule from the policy. responsible_actor should be the requester for packet-level failures, or the invalid approver when R2 is the decisive rule."}
+{"id": "rpa_013", "packet_dir": "packets/rpa_013", "policy_path": "policy/release_governance_manual.md", "question": "Return a canonical JSON string with keys decision, governing_rule, and responsible_actor. Use the highest-priority decisive rule from the policy. responsible_actor should be the requester for packet-level failures, or the invalid approver when R2 is the decisive rule."}
+{"id": "rpa_014", "packet_dir": "packets/rpa_014", "policy_path": "policy/release_governance_manual.md", "question": "Return a canonical JSON string with keys decision, governing_rule, and responsible_actor. Use the highest-priority decisive rule from the policy. responsible_actor should be the requester for packet-level failures, or the invalid approver when R2 is the decisive rule."}
+{"id": "rpa_015", "packet_dir": "packets/rpa_015", "policy_path": "policy/release_governance_manual.md", "question": "Return a canonical JSON string with keys decision, governing_rule, and responsible_actor. Use the highest-priority decisive rule from the policy. responsible_actor should be the requester for packet-level failures, or the invalid approver when R2 is the decisive rule."}
+{"id": "rpa_016", "packet_dir": "packets/rpa_016", "policy_path": "policy/release_governance_manual.md", "question": "Return a canonical JSON string with keys decision, governing_rule, and responsible_actor. Use the highest-priority decisive rule from the policy. responsible_actor should be the requester for packet-level failures, or the invalid approver when R2 is the decisive rule."}
+{"id": "rpa_017", "packet_dir": "packets/rpa_017", "policy_path": "policy/release_governance_manual.md", "question": "Return a canonical JSON string with keys decision, governing_rule, and responsible_actor. Use the highest-priority decisive rule from the policy. responsible_actor should be the requester for packet-level failures, or the invalid approver when R2 is the decisive rule."}
+{"id": "rpa_018", "packet_dir": "packets/rpa_018", "policy_path": "policy/release_governance_manual.md", "question": "Return a canonical JSON string with keys decision, governing_rule, and responsible_actor. Use the highest-priority decisive rule from the policy. responsible_actor should be the requester for packet-level failures, or the invalid approver when R2 is the decisive rule."}
+{"id": "rpa_019", "packet_dir": "packets/rpa_019", "policy_path": "policy/release_governance_manual.md", "question": "Return a canonical JSON string with keys decision, governing_rule, and responsible_actor. Use the highest-priority decisive rule from the policy. responsible_actor should be the requester for packet-level failures, or the invalid approver when R2 is the decisive rule."}
+{"id": "rpa_020", "packet_dir": "packets/rpa_020", "policy_path": "policy/release_governance_manual.md", "question": "Return a canonical JSON string with keys decision, governing_rule, and responsible_actor. Use the highest-priority decisive rule from the policy. responsible_actor should be the requester for packet-level failures, or the invalid approver when R2 is the decisive rule."}
+{"id": "rpa_021", "packet_dir": "packets/rpa_021", "policy_path": "policy/release_governance_manual.md", "question": "Return a canonical JSON string with keys decision, governing_rule, and responsible_actor. Use the highest-priority decisive rule from the policy. responsible_actor should be the requester for packet-level failures, or the invalid approver when R2 is the decisive rule."}
+{"id": "rpa_022", "packet_dir": "packets/rpa_022", "policy_path": "policy/release_governance_manual.md", "question": "Return a canonical JSON string with keys decision, governing_rule, and responsible_actor. Use the highest-priority decisive rule from the policy. responsible_actor should be the requester for packet-level failures, or the invalid approver when R2 is the decisive rule."}
+{"id": "rpa_023", "packet_dir": "packets/rpa_023", "policy_path": "policy/release_governance_manual.md", "question": "Return a canonical JSON string with keys decision, governing_rule, and responsible_actor. Use the highest-priority decisive rule from the policy. responsible_actor should be the requester for packet-level failures, or the invalid approver when R2 is the decisive rule."}
+{"id": "rpa_024", "packet_dir": "packets/rpa_024", "policy_path": "policy/release_governance_manual.md", "question": "Return a canonical JSON string with keys decision, governing_rule, and responsible_actor. Use the highest-priority decisive rule from the policy. responsible_actor should be the requester for packet-level failures, or the invalid approver when R2 is the decisive rule."}
+{"id": "rpa_025", "packet_dir": "packets/rpa_025", "policy_path": "policy/release_governance_manual.md", "question": "Return a canonical JSON string with keys decision, governing_rule, and responsible_actor. Use the highest-priority decisive rule from the policy. responsible_actor should be the requester for packet-level failures, or the invalid approver when R2 is the decisive rule."}
+{"id": "rpa_026", "packet_dir": "packets/rpa_026", "policy_path": "policy/release_governance_manual.md", "question": "Return a canonical JSON string with keys decision, governing_rule, and responsible_actor. Use the highest-priority decisive rule from the policy. responsible_actor should be the requester for packet-level failures, or the invalid approver when R2 is the decisive rule."}
+{"id": "rpa_027", "packet_dir": "packets/rpa_027", "policy_path": "policy/release_governance_manual.md", "question": "Return a canonical JSON string with keys decision, governing_rule, and responsible_actor. Use the highest-priority decisive rule from the policy. responsible_actor should be the requester for packet-level failures, or the invalid approver when R2 is the decisive rule."}
+{"id": "rpa_028", "packet_dir": "packets/rpa_028", "policy_path": "policy/release_governance_manual.md", "question": "Return a canonical JSON string with keys decision, governing_rule, and responsible_actor. Use the highest-priority decisive rule from the policy. responsible_actor should be the requester for packet-level failures, or the invalid approver when R2 is the decisive rule."}
+{"id": "rpa_029", "packet_dir": "packets/rpa_029", "policy_path": "policy/release_governance_manual.md", "question": "Return a canonical JSON string with keys decision, governing_rule, and responsible_actor. Use the highest-priority decisive rule from the policy. responsible_actor should be the requester for packet-level failures, or the invalid approver when R2 is the decisive rule."}
+{"id": "rpa_030", "packet_dir": "packets/rpa_030", "policy_path": "policy/release_governance_manual.md", "question": "Return a canonical JSON string with keys decision, governing_rule, and responsible_actor. Use the highest-priority decisive rule from the policy. responsible_actor should be the requester for packet-level failures, or the invalid approver when R2 is the decisive rule."}
+
+ succeeded in 0ms:
+# Release Governance Manual RG-7
+
+This benchmark packet models a fictional release-governance process.
+
+## Rule Precedence
+
+When several clauses apply, use the highest-priority decisive clause below.
+If a decisive reject rule applies, return `reject`.
+If no decisive reject rule applies but the evidence is incomplete or conflicting in a way the packet cannot resolve, return `escalate`.
+Otherwise return `approve`.
+
+Priority order:
+1. `R7` emergency evidence conflict or missing required emergency co-sign.
+2. `R6` sensitive change missing required security approval.
+3. `R5` active freeze window blocks the release.
+4. `R4` all approvals became stale after a scope-changing amendment.
+5. `R3` separation-of-duties failure.
+6. `R2` approver lacked authority at the scheduled release time.
+7. `R1` request never received the minimum valid approvals.
+8. `A1` packet is valid and approvable.
+
+## Approval Thresholds
+
+`R1`: Every request needs two valid approvals tied to the final scope.
+At least one valid approval must come from Operations or a valid Operations delegate.
+For high-risk requests, one valid approval must come from a Director.
+
+## Authority
+
+`R2`: An approval is valid only if, at the scheduled release time, the signer had matching authority for the service domain.
+Delegations are valid only inside their published start and end times and only for the listed domain.
+
+## Separation Of Duties
+
+`R3`: The requester cannot satisfy both required approvals by themselves.
+If the requester signed as one approver, the second required approval must come from a different person.
+
+## Staleness After Scope Change
+
+`R4`: Any amendment that changes the scheduled release time by more than 90 minutes, or changes the risk tier, voids all earlier approvals.
+After such an amendment, the request must collect a fresh full set of approvals.
+
+## Freeze Windows
+
+`R5`: A release scheduled inside an active freeze window is rejected unless the packet shows an emergency override.
+An emergency override requires:
+- an incident ticket marked `SEV1` or `SEV2`;
+- one valid Director approval after the incident opened; and
+- one valid Operations approval after the incident opened.
+
+## Sensitive Changes
+
+`R6`: A request touching any data tagged `regulated` or `credential` requires one valid Security approval tied to the final scope.
+For low-risk requests, the Security approval may also count toward the base two approvals.
+
+## Emergency Evidence Integrity
+
+`R7`: If the packet claims emergency status but the incident evidence is contradictory, closed before the qualifying approvals, or below `SEV2`, reject under `R7`.
+
+## Approval Timing
+
+Approvals count only if they were sent after the request existed and before the scheduled release time.
+
+exec
+/bin/zsh -lc "sed -n '1,220p' SOLVER_MANIFEST.json" in /Users/rohit/Documents/Workspace/Coding/benchbench/experiments/004_feedback_sweep_20260522_225208/run/isolated_solver_gpt_5_4__solved_by__gpt_5_5
+ succeeded in 0ms:
+{
+  "benchmark": "release_packet_arbitration",
+  "version": "1.0.0",
+  "items_file": "items_private_sample.jsonl",
+  "policy_file": "policy/release_governance_manual.md",
+  "solver_bundle_root": ".",
+  "forbidden_contents": [
+    "gold answers",
+    "private generator logic",
+    "verifier code",
+    "scorer code"
+  ]
+}
+
+2026-05-23T08:31:59.720444Z  WARN codex_core_skills::loader: ignoring interface.icon_small: icon path must not contain '..'
+2026-05-23T08:31:59.720456Z  WARN codex_core_skills::loader: ignoring interface.icon_large: icon path must not contain '..'
+2026-05-23T08:31:59.720947Z  WARN codex_core_skills::loader: ignoring interface.icon_small: icon path must not contain '..'
+2026-05-23T08:31:59.720956Z  WARN codex_core_skills::loader: ignoring interface.icon_large: icon path must not contain '..'
+2026-05-23T08:31:59.721460Z  WARN codex_core_skills::loader: ignoring interface.icon_small: icon path must not contain '..'
+2026-05-23T08:31:59.721465Z  WARN codex_core_skills::loader: ignoring interface.icon_large: icon path must not contain '..'
+2026-05-23T08:31:59.721955Z  WARN codex_core_skills::loader: ignoring interface.icon_small: icon path must not contain '..'
+2026-05-23T08:31:59.721959Z  WARN codex_core_skills::loader: ignoring interface.icon_large: icon path must not contain '..'
+2026-05-23T08:31:59.722444Z  WARN codex_core_skills::loader: ignoring interface.icon_small: icon path must not contain '..'
+2026-05-23T08:31:59.722448Z  WARN codex_core_skills::loader: ignoring interface.icon_large: icon path must not contain '..'
+2026-05-23T08:31:59.723520Z  WARN codex_core_skills::loader: ignoring interface.icon_small: icon path must not contain '..'
+2026-05-23T08:31:59.723525Z  WARN codex_core_skills::loader: ignoring interface.icon_large: icon path must not contain '..'
+exec
+/bin/zsh -lc "for f in packets/rpa_001/*.md; do printf '\\n### %s\\n' \""'$f"; sed -n '"'1,220p' \""'$f"; done' in /Users/rohit/Documents/Workspace/Coding/benchbench/experiments/004_feedback_sweep_20260522_225208/run/isolated_solver_gpt_5_4__solved_by__gpt_5_5
+ succeeded in 0ms:
+
+### packets/rpa_001/amendments.md
+# Amendments
+
+No amendments were filed.
+
+### packets/rpa_001/approvals.md
+# Approvals
+
+- 2026-05-01 18:00 | DIA (Dina Iqbal) | claims `ops` | manual approval recorded in packet
+- 2026-05-01 20:00 | BEX (Benoit Xu) | claims `security` | manual approval recorded in packet
+- 2026-05-01 22:00 | GIO (Gio Park) | claims `ops` | manual approval recorded in packet
+
+### packets/rpa_001/capability_register.md
+# Capability Register
+
+## Standing roles
+
+- ALP (Alya Pike): request_manager, ops, director
+- BEX (Benoit Xu): request_manager, security, director
+- CYR (Cyrus Reed): request_manager, qa
+- DIA (Dina Iqbal): request_manager, ops, qa
+- EKO (Eko Olsen): request_manager, security
+- FEN (Fenna Noor): request_manager, security
+- GIO (Gio Park): request_manager, ops
+- HAL (Haleh Asadi): request_manager, ops, qa
+
+## Delegations
+
+- GIO delegated `ops_delegate` for domain `storage` from 2026-05-01 02:00 to 2026-05-01 13:00 by BEX
+
+### packets/rpa_001/change_request.md
+# Change Request rpa_001
+
+- Requester: FEN (Fenna Noor)
+- Service: harbor
+- Domain: storage
+- Created: 2026-05-01 15:00
+- Scheduled release: 2026-05-03 06:00
+- Risk tier: medium
+- Data tags: internal
+- Emergency requested: no
+
+Narrative:
+The request bundles a runtime change and a control-plane knob update that should be treated as one release packet.
+
+### packets/rpa_001/freeze_bulletin.md
+# Freeze Bulletin
+
+- No active freeze covers domain `storage` at the final scheduled release time.
+
+### packets/rpa_001/incident_log.md
+# Incident Evidence
+
+- No incident ticket attached.
+
+2026-05-23T08:32:03.877839Z  WARN codex_core_skills::loader: ignoring interface.icon_small: icon path must not contain '..'
+2026-05-23T08:32:03.877851Z  WARN codex_core_skills::loader: ignoring interface.icon_large: icon path must not contain '..'
+2026-05-23T08:32:03.878325Z  WARN codex_core_skills::loader: ignoring interface.icon_small: icon path must not contain '..'
+2026-05-23T08:32:03.878329Z  WARN codex_core_skills::loader: ignoring interface.icon_large: icon path must not contain '..'
+2026-05-23T08:32:03.878800Z  WARN codex_core_skills::loader: ignoring interface.icon_small: icon path must not contain '..'
+2026-05-23T08:32:03.878804Z  WARN codex_core_skills::loader: ignoring interface.icon_large: icon path must not contain '..'
+2026-05-23T08:32:03.879274Z  WARN codex_core_skills::loader: ignoring interface.icon_small: icon path must not contain '..'
+2026-05-23T08:32:03.879279Z  WARN codex_core_skills::loader: ignoring interface.icon_large: icon path must not contain '..'
+2026-05-23T08:32:03.879752Z  WARN codex_core_skills::loader: ignoring interface.icon_small: icon path must not contain '..'
+2026-05-23T08:32:03.879757Z  WARN codex_core_skills::loader: ignoring interface.icon_large: icon path must not contain '..'
+2026-05-23T08:32:03.880756Z  WARN codex_core_skills::loader: ignoring interface.icon_small: icon path must not contain '..'
+2026-05-23T08:32:03.880760Z  WARN codex_core_skills::loader: ignoring interface.icon_large: icon path must not contain '..'
+codex
+The packet files are highly regular, so I’m going to parse them mechanically and then spot-check the rule applications. That should keep the answers consistent across all 30 items.
+exec
+/bin/zsh -lc "python3 - <<'PY'
+from pathlib import Path
+root=Path('.')
+for d in sorted((root/'packets').iterdir()):
+ print('\\n====',d.name)
+ for name in ['change_request.md','amendments.md','approvals.md','capability_register.md','freeze_bulletin.md','incident_log.md']:
+  print('--',name)
+  txt=(d/name).read_text()
+  for line in txt.splitlines():
+   if line.startswith('- ') or line.startswith('# Change'):
+    print(line)
+PY" in /Users/rohit/Documents/Workspace/Coding/benchbench/experiments/004_feedback_sweep_20260522_225208/run/isolated_solver_gpt_5_4__solved_by__gpt_5_5
+ succeeded in 0ms:
+
+==== rpa_001
+-- change_request.md
+# Change Request rpa_001
+- Requester: FEN (Fenna Noor)
+- Service: harbor
+- Domain: storage
+- Created: 2026-05-01 15:00
+- Scheduled release: 2026-05-03 06:00
+- Risk tier: medium
+- Data tags: internal
+- Emergency requested: no
+-- amendments.md
+-- approvals.md
+- 2026-05-01 18:00 | DIA (Dina Iqbal) | claims `ops` | manual approval recorded in packet
+- 2026-05-01 20:00 | BEX (Benoit Xu) | claims `security` | manual approval recorded in packet
+- 2026-05-01 22:00 | GIO (Gio Park) | claims `ops` | manual approval recorded in packet
+-- capability_register.md
+- ALP (Alya Pike): request_manager, ops, director
+- BEX (Benoit Xu): request_manager, security, director
+- CYR (Cyrus Reed): request_manager, qa
+- DIA (Dina Iqbal): request_manager, ops, qa
+- EKO (Eko Olsen): request_manager, security
+- FEN (Fenna Noor): request_manager, security
+- GIO (Gio Park): request_manager, ops
+- HAL (Haleh Asadi): request_manager, ops, qa
+- GIO delegated `ops_delegate` for domain `storage` from 2026-05-01 02:00 to 2026-05-01 13:00 by BEX
+-- freeze_bulletin.md
+- No active freeze covers domain `storage` at the final scheduled release time.
+-- incident_log.md
+- No incident ticket attached.
+
+==== rpa_002
+-- change_request.md
+# Change Request rpa_002
+- Requester: CYR (Cyrus Reed)
+- Service: meridian
+- Domain: billing
+- Created: 2026-05-01 22:00
+- Scheduled release: 2026-05-02 20:00
+- Risk tier: medium
+- Data tags: internal
+- Emergency requested: no
+-- amendments.md
+-- approvals.md
+- 2026-05-02 01:00 | DIA (Dina Iqbal) | claims `ops` | manual approval recorded in packet
+- 2026-05-02 04:00 | ALP (Alya Pike) | claims `director` | manual approval recorded in packet
+-- capability_register.md
+- ALP (Alya Pike): request_manager, ops, director
+- BEX (Benoit Xu): request_manager, security, director
+- CYR (Cyrus Reed): request_manager, qa
+- DIA (Dina Iqbal): request_manager, ops, qa
+- EKO (Eko Olsen): request_manager, security
+- FEN (Fenna Noor): request_manager, security
+- GIO (Gio Park): request_manager, ops
+- HAL (Haleh Asadi): request_manager, ops, qa
+- No temporary delegations published.
+-- freeze_bulletin.md
+- No active freeze covers domain `billing` at the final scheduled release time.
+-- incident_log.md
+- No incident ticket attached.
+
+==== rpa_003
+-- change_request.md
+# Change Request rpa_003
+- Requester: CYR (Cyrus Reed)
+- Service: sable
+- Domain: messaging
+- Created: 2026-05-02 05:00
+- Scheduled release: 2026-05-04 12:00
+- Risk tier: medium
+- Data tags: internal
+- Emergency requested: no
+-- amendments.md
+-- approvals.md
+- 2026-05-02 08:00 | DIA (Dina Iqbal) | claims `ops` | manual approval recorded in packet
+- 2026-05-02 10:00 | BEX (Benoit Xu) | claims `security` | manual approval recorded in packet
+- 2026-05-02 12:00 | GIO (Gio Park) | claims `ops` | manual approval recorded in packet
+-- capability_register.md
+- ALP (Alya Pike): request_manager, ops, director
+- BEX (Benoit Xu): request_manager, security, director
+- CYR (Cyrus Reed): request_manager, qa
+- DIA (Dina Iqbal): request_manager, ops, qa
+- EKO (Eko Olsen): request_manager, security
+- FEN (Fenna Noor): request_manager, security
+- GIO (Gio Park): request_manager, ops
+- HAL (Haleh Asadi): request_manager, ops, qa
+- ALP delegated `ops_delegate` for domain `messaging` from 2026-05-01 20:00 to 2026-05-02 03:00 by BEX
+-- freeze_bulletin.md
+- No active freeze covers domain `messaging` at the final scheduled release time.
+-- incident_log.md
+- No incident ticket attached.
+
+==== rpa_004
+-- change_request.md
+# Change Request rpa_004
+- Requester: EKO (Eko Olsen)
+- Service: cinder
+- Domain: auth
+- Created: 2026-05-02 12:00
+- Scheduled release: 2026-05-03 10:00
+- Risk tier: high
+- Data tags: internal
+- Emergency requested: no
+-- amendments.md
+-- approvals.md
+- 2026-05-02 15:00 | DIA (Dina Iqbal) | claims `ops` | manual approval recorded in packet
+- 2026-05-02 17:00 | BEX (Benoit Xu) | claims `security` | manual approval recorded in packet
+- 2026-05-02 19:00 | GIO (Gio Park) | claims `ops` | manual approval recorded in packet
+-- capability_register.md
+- ALP (Alya Pike): request_manager, ops, director
+- BEX (Benoit Xu): request_manager, security, director
+- CYR (Cyrus Reed): request_manager, qa
+- DIA (Dina Iqbal): request_manager, ops, qa
+- EKO (Eko Olsen): request_manager, security
+- FEN (Fenna Noor): request_manager, security
+- GIO (Gio Park): request_manager, ops
+- HAL (Haleh Asadi): request_manager, ops, qa
+- HAL delegated `ops_delegate` for domain `auth` from 2026-05-01 18:00 to 2026-05-02 01:00 by BEX
+-- freeze_bulletin.md
+- No active freeze covers domain `auth` at the final scheduled release time.
+-- incident_log.md
+- No incident ticket attached.
+
+==== rpa_005
+-- change_request.md
+# Change Request rpa_005
+- Requester: CYR (Cyrus Reed)
+- Service: meridian
+- Domain: billing
+- Created: 2026-05-02 19:00
+- Scheduled release: 2026-05-04 01:00
+- Risk tier: high
+- Data tags: internal
+- Emergency requested: no
+-- amendments.md
+-- approvals.md
+- 2026-05-02 22:00 | DIA (Dina Iqbal) | claims `ops` | manual approval recorded in packet
+- 2026-05-03 00:00 | BEX (Benoit Xu) | claims `security` | manual approval recorded in packet
+- 2026-05-03 02:00 | GIO (Gio Park) | claims `ops` | manual approval recorded in packet
+-- capability_register.md
+- ALP (Alya Pike): request_manager, ops, director
+- BEX (Benoit Xu): request_manager, security, director
+- CYR (Cyrus Reed): request_manager, qa
+- DIA (Dina Iqbal): request_manager, ops, qa
+- EKO (Eko Olsen): request_manager, security
+- FEN (Fenna Noor): request_manager, security
+- GIO (Gio Park): request_manager, ops
+- HAL (Haleh Asadi): request_manager, ops, qa
+- GIO delegated `ops_delegate` for domain `billing` from 2026-05-01 23:00 to 2026-05-02 07:00 by ALP
+-- freeze_bulletin.md
+- No active freeze covers domain `billing` at the final scheduled release time.
+-- incident_log.md
+- No incident ticket attached.
+
+==== rpa_006
+-- change_request.md
+# Change Request rpa_006
+- Requester: BEX (Benoit Xu)
+- Service: quartz
+- Domain: analytics
+- Created: 2026-05-03 02:00
+- Scheduled release: 2026-05-04 01:00
+- Risk tier: high
+- Data tags: internal
+- Emergency requested: no
+-- amendments.md
+-- approvals.md
+- 2026-05-03 06:00 | DIA (Dina Iqbal) | claims `ops` | manual approval recorded in packet
+- 2026-05-03 07:00 | CYR (Cyrus Reed) | claims `qa` | manual approval recorded in packet
+-- capability_register.md
+- ALP (Alya Pike): request_manager, ops, director
+- BEX (Benoit Xu): request_manager, security, director
+- CYR (Cyrus Reed): request_manager, qa
+- DIA (Dina Iqbal): request_manager, ops, qa
+- EKO (Eko Olsen): request_manager, security
+- FEN (Fenna Noor): request_manager, security
+- GIO (Gio Park): request_manager, ops
+- HAL (Haleh Asadi): request_manager, ops, qa
+- DIA delegated `ops_delegate` for domain `analytics` from 2026-05-02 09:00 to 2026-05-02 16:00 by ALP
+-- freeze_bulletin.md
+- No active freeze covers domain `analytics` at the final scheduled release time.
+-- incident_log.md
+- No incident ticket attached.
+
+==== rpa_007
+-- change_request.md
+# Change Request rpa_007
+- Requester: BEX (Benoit Xu)
+- Service: cinder
+- Domain: auth
+- Created: 2026-05-03 09:00
+- Scheduled release: 2026-05-04 20:00
+- Risk tier: medium
+- Data tags: internal
+- Emergency requested: no
+-- amendments.md
+-- approvals.md
+- 2026-05-03 13:00 | DIA (Dina Iqbal) | claims `ops` | manual approval recorded in packet
+- 2026-05-03 14:00 | CYR (Cyrus Reed) | claims `qa` | manual approval recorded in packet
+-- capability_register.md
+- ALP (Alya Pike): request_manager, ops, director
+- BEX (Benoit Xu): request_manager, security, director
+- CYR (Cyrus Reed): request_manager, qa
+- DIA (Dina Iqbal): request_manager, ops, qa
+- EKO (Eko Olsen): request_manager, security
+- FEN (Fenna Noor): request_manager, security
+- GIO (Gio Park): request_manager, ops
+- HAL (Haleh Asadi): request_manager, ops, qa
+- DIA delegated `ops_delegate` for domain `auth` from 2026-05-02 19:00 to 2026-05-03 07:00 by ALP
+- BEX delegated `security_delegate` for domain `auth` from 2026-05-02 17:00 to 2026-05-02 20:00 by ALP
+-- freeze_bulletin.md
+- No active freeze covers domain `auth` at the final scheduled release time.
+-- incident_log.md
+- No incident ticket attached.
+
+==== rpa_008
+-- change_request.md
+# Change Request rpa_008
+- Requester: BEX (Benoit Xu)
+- Service: cinder
+- Domain: auth
+- Created: 2026-05-03 16:00
+- Scheduled release: 2026-05-04 16:00
+- Risk tier: low
+- Data tags: internal
+- Emergency requested: no
+-- amendments.md
+-- approvals.md
+- 2026-05-03 20:00 | DIA (Dina Iqbal) | claims `ops` | manual approval recorded in packet
+- 2026-05-03 21:00 | CYR (Cyrus Reed) | claims `qa` | manual approval recorded in packet
+-- capability_register.md
+- ALP (Alya Pike): request_manager, ops, director
+- BEX (Benoit Xu): request_manager, security, director
+- CYR (Cyrus Reed): request_manager, qa
+- DIA (Dina Iqbal): request_manager, ops, qa
+- EKO (Eko Olsen): request_manager, security
+- FEN (Fenna Noor): request_manager, security
+- GIO (Gio Park): request_manager, ops
+- HAL (Haleh Asadi): request_manager, ops, qa
+- No temporary delegations published.
+-- freeze_bulletin.md
+- No active freeze covers domain `auth` at the final scheduled release time.
+-- incident_log.md
+- No incident ticket attached.
+
+==== rpa_009
+-- change_request.md
+# Change Request rpa_009
+- Requester: DIA (Dina Iqbal)
+- Service: quartz
+- Domain: analytics
+- Created: 2026-05-03 23:00
+- Scheduled release: 2026-05-06 02:00
+- Risk tier: high
+- Data tags: internal
+- Emergency requested: no
+-- amendments.md
+-- approvals.md
+- 2026-05-04 03:00 | DIA (Dina Iqbal) | claims `ops` | manual approval recorded in packet
+- 2026-05-04 04:00 | CYR (Cyrus Reed) | claims `qa` | manual approval recorded in packet
+-- capability_register.md
+- ALP (Alya Pike): request_manager, ops, director
+- BEX (Benoit Xu): request_manager, security, director
+- CYR (Cyrus Reed): request_manager, qa
+- DIA (Dina Iqbal): request_manager, ops, qa
+- EKO (Eko Olsen): request_manager, security
+- FEN (Fenna Noor): request_manager, security
+- GIO (Gio Park): request_manager, ops
+- HAL (Haleh Asadi): request_manager, ops, qa
+- No temporary delegations published.
+-- freeze_bulletin.md
+- No active freeze covers domain `analytics` at the final scheduled release time.
+-- incident_log.md
+- No incident ticket attached.
+
+==== rpa_010
+-- change_request.md
+# Change Request rpa_010
+- Requester: FEN (Fenna Noor)
+- Service: lattice
+- Domain: search
+- Created: 2026-05-04 06:00
+- Scheduled release: 2026-05-05 10:00
+- Risk tier: low
+- Data tags: internal
+- Emergency requested: no
+-- amendments.md
+-- approvals.md
+- 2026-05-04 10:00 | DIA (Dina Iqbal) | claims `ops` | manual approval recorded in packet
+- 2026-05-04 12:00 | HAL (Haleh Asadi) | claims `director` | manual approval recorded in packet
+-- capability_register.md
+- ALP (Alya Pike): request_manager, ops, director
+- BEX (Benoit Xu): request_manager, security, director
+- CYR (Cyrus Reed): request_manager, qa
+- DIA (Dina Iqbal): request_manager, ops, qa
+- EKO (Eko Olsen): request_manager, security
+- FEN (Fenna Noor): request_manager, security
+- GIO (Gio Park): request_manager, ops
+- HAL (Haleh Asadi): request_manager, ops, qa
+- No temporary delegations published.
+-- freeze_bulletin.md
+- No active freeze covers domain `search` at the final scheduled release time.
+-- incident_log.md
+- No incident ticket attached.
+
+==== rpa_011
+-- change_request.md
+# Change Request rpa_011
+- Requester: HAL (Haleh Asadi)
+- Service: quartz
+- Domain: analytics
+- Created: 2026-05-04 13:00
+- Scheduled release: 2026-05-06 09:00
+- Risk tier: low
+- Data tags: internal
+- Emergency requested: no
+-- amendments.md
+-- approvals.md
+- 2026-05-04 17:00 | DIA (Dina Iqbal) | claims `ops` | manual approval recorded in packet
+- 2026-05-04 19:00 | CYR (Cyrus Reed) | claims `director` | manual approval recorded in packet
+-- capability_register.md
+- ALP (Alya Pike): request_manager, ops, director
+- BEX (Benoit Xu): request_manager, security, director
+- CYR (Cyrus Reed): request_manager, qa
+- DIA (Dina Iqbal): request_manager, ops, qa
+- EKO (Eko Olsen): request_manager, security
+- FEN (Fenna Noor): request_manager, security
+- GIO (Gio Park): request_manager, ops
+- HAL (Haleh Asadi): request_manager, ops, qa
+- DIA delegated `ops_delegate` for domain `analytics` from 2026-05-04 03:00 to 2026-05-04 08:00 by ALP
+-- freeze_bulletin.md
+- No active freeze covers domain `analytics` at the final scheduled release time.
+-- incident_log.md
+- No incident ticket attached.
+
+==== rpa_012
+-- change_request.md
+# Change Request rpa_012
+- Requester: FEN (Fenna Noor)
+- Service: harbor
+- Domain: storage
+- Created: 2026-05-04 20:00
+- Scheduled release: 2026-05-05 16:00
+- Risk tier: low
+- Data tags: internal
+- Emergency requested: no
+-- amendments.md
+-- approvals.md
+- 2026-05-05 00:00 | DIA (Dina Iqbal) | claims `ops` | manual approval recorded in packet
+- 2026-05-05 02:00 | HAL (Haleh Asadi) | claims `director` | manual approval recorded in packet
+-- capability_register.md
+- ALP (Alya Pike): request_manager, ops, director
+- BEX (Benoit Xu): request_manager, security, director
+- CYR (Cyrus Reed): request_manager, qa
+- DIA (Dina Iqbal): request_manager, ops, qa
+- EKO (Eko Olsen): request_manager, security
+- FEN (Fenna Noor): request_manager, security
+- GIO (Gio Park): request_manager, ops
+- HAL (Haleh Asadi): request_manager, ops, qa
+- No temporary delegations published.
+-- freeze_bulletin.md
+- No active freeze covers domain `storage` at the final scheduled release time.
+-- incident_log.md
+- No incident ticket attached.
+
+==== rpa_013
+-- change_request.md
+# Change Request rpa_013
+- Requester: BEX (Benoit Xu)
+- Service: lattice
+- Domain: search
+- Created: 2026-05-05 03:00
+- Scheduled release: 2026-05-06 01:00
+- Risk tier: medium
+- Data tags: internal
+- Emergency requested: no
+-- amendments.md
+-- approvals.md
+- 2026-05-05 07:00 | DIA (Dina Iqbal) | claims `ops` | manual approval recorded in packet
+- 2026-05-05 09:00 | FEN (Fenna Noor) | claims `director` | manual approval recorded in packet
+-- capability_register.md
+- ALP (Alya Pike): request_manager, ops, director
+- BEX (Benoit Xu): request_manager, security, director
+- CYR (Cyrus Reed): request_manager, qa
+- DIA (Dina Iqbal): request_manager, ops, qa
+- EKO (Eko Olsen): request_manager, security
+- FEN (Fenna Noor): request_manager, security
+- GIO (Gio Park): request_manager, ops
+- HAL (Haleh Asadi): request_manager, ops, qa
+- GIO delegated `ops_delegate` for domain `search` from 2026-05-04 10:00 to 2026-05-04 17:00 by ALP
+-- freeze_bulletin.md
+- No active freeze covers domain `search` at the final scheduled release time.
+-- incident_log.md
+- No incident ticket attached.
+
+==== rpa_014
+-- change_request.md
+# Change Request rpa_014
+- Requester: GIO (Gio Park)
+- Service: sable
+- Domain: messaging
+- Created: 2026-05-05 10:00
+- Scheduled release: 2026-05-06 10:00
+- Risk tier: high
+- Data tags: internal
+- Emergency requested: no
+-- amendments.md
+-- approvals.md
+- 2026-05-05 13:00 | GIO (Gio Park) | claims `ops` | manual approval recorded in packet
+- 2026-05-05 15:00 | GIO (Gio Park) | claims `ops` | manual approval recorded in packet
+-- capability_register.md
+- ALP (Alya Pike): request_manager, ops, director
+- BEX (Benoit Xu): request_manager, security, director
+- CYR (Cyrus Reed): request_manager, qa
+- DIA (Dina Iqbal): request_manager, ops, qa
+- EKO (Eko Olsen): request_manager, security
+- FEN (Fenna Noor): request_manager, security
+- GIO (Gio Park): request_manager, ops
+- HAL (Haleh Asadi): request_manager, ops, qa
+- HAL delegated `ops_delegate` for domain `messaging` from 2026-05-04 17:00 to 2026-05-04 23:00 by BEX
+-- freeze_bulletin.md
+- No active freeze covers domain `messaging` at the final scheduled release time.
+-- incident_log.md
+- No incident ticket attached.
+
+==== rpa_015
+-- change_request.md
+# Change Request rpa_015
+- Requester: ALP (Alya Pike)
+- Service: meridian
+- Domain: billing
+- Created: 2026-05-05 17:00
+- Scheduled release: 2026-05-06 20:00
+- Risk tier: low
+- Data tags: internal
+- Emergency requested: no
+-- amendments.md
+-- approvals.md
+- 2026-05-05 20:00 | ALP (Alya Pike) | claims `ops` | manual approval recorded in packet
+- 2026-05-05 22:00 | ALP (Alya Pike) | claims `ops` | manual approval recorded in packet
+-- capability_register.md
+- ALP (Alya Pike): request_manager, ops, director
+- BEX (Benoit Xu): request_manager, security, director
+- CYR (Cyrus Reed): request_manager, qa
+- DIA (Dina Iqbal): request_manager, ops, qa
+- EKO (Eko Olsen): request_manager, security
+- FEN (Fenna Noor): request_manager, security
+- GIO (Gio Park): request_manager, ops
+- HAL (Haleh Asadi): request_manager, ops, qa
+- DIA delegated `ops_delegate` for domain `billing` from 2026-05-05 01:00 to 2026-05-05 04:00 by ALP
+-- freeze_bulletin.md
+- No active freeze covers domain `billing` at the final scheduled release time.
+-- incident_log.md
+- No incident ticket attached.
+
+==== rpa_016
+-- change_request.md
+# Change Request rpa_016
+- Requester: DIA (Dina Iqbal)
+- Service: harbor
+- Domain: storage
+- Created: 2026-05-06 00:00
+- Scheduled release: 2026-05-07 23:00
+- Risk tier: low
+- Data tags: internal
+- Emergency requested: no
+-- amendments.md
+-- approvals.md
+- 2026-05-06 03:00 | DIA (Dina Iqbal) | claims `ops` | manual approval recorded in packet
+- 2026-05-06 05:00 | DIA (Dina Iqbal) | claims `ops` | manual approval recorded in packet
+-- capability_register.md
+- ALP (Alya Pike): request_manager, ops, director
+- BEX (Benoit Xu): request_manager, security, director
+- CYR (Cyrus Reed): request_manager, qa
+- DIA (Dina Iqbal): request_manager, ops, qa
+- EKO (Eko Olsen): request_manager, security
+- FEN (Fenna Noor): request_manager, security
+- GIO (Gio Park): request_manager, ops
+- HAL (Haleh Asadi): request_manager, ops, qa
+- GIO delegated `ops_delegate` for domain `storage` from 2026-05-05 14:00 to 2026-05-06 02:00 by BEX
+- EKO delegated `security_delegate` for domain `storage` from 2026-05-05 13:00 to 2026-05-05 20:00 by ALP
+-- freeze_bulletin.md
+- No active freeze covers domain `storage` at the final scheduled release time.
+-- incident_log.md
+- No incident ticket attached.
+
+==== rpa_017
+-- change_request.md
+# Change Request rpa_017
+- Requester: ALP (Alya Pike)
+- Service: quartz
+- Domain: analytics
+- Created: 2026-05-06 07:00
+- Scheduled release: 2026-05-08 12:00
+- Risk tier: low
+- Data tags: internal
+- Emergency requested: no
+-- amendments.md
+-- approvals.md
+- 2026-05-06 10:00 | ALP (Alya Pike) | claims `ops` | manual approval recorded in packet
+- 2026-05-06 12:00 | ALP (Alya Pike) | claims `ops` | manual approval recorded in packet
+-- capability_register.md
+- ALP (Alya Pike): request_manager, ops, director
+- BEX (Benoit Xu): request_manager, security, director
+- CYR (Cyrus Reed): request_manager, qa
+- DIA (Dina Iqbal): request_manager, ops, qa
+- EKO (Eko Olsen): request_manager, security
+- FEN (Fenna Noor): request_manager, security
+- GIO (Gio Park): request_manager, ops
+- HAL (Haleh Asadi): request_manager, ops, qa
+- BEX delegated `security_delegate` for domain `analytics` from 2026-05-05 19:00 to 2026-05-05 21:00 by ALP
+-- freeze_bulletin.md
+- No active freeze covers domain `analytics` at the final scheduled release time.
+-- incident_log.md
+- No incident ticket attached.
+
+==== rpa_018
+-- change_request.md
+# Change Request rpa_018
+- Requester: ALP (Alya Pike)
+- Service: cinder
+- Domain: auth
+- Created: 2026-05-06 14:00
+- Scheduled release: 2026-05-08 11:00
+- Risk tier: high
+- Data tags: internal
+- Emergency requested: no
+-- amendments.md
+- Posted: 2026-05-06 19:00
+- Schedule shift: +180 minutes
+- Risk tier after amendment: high
+- Reason: load test widened impact scope
+-- approvals.md
+- 2026-05-06 16:00 | DIA (Dina Iqbal) | claims `ops` | manual approval recorded in packet
+- 2026-05-06 17:00 | ALP (Alya Pike) | claims `director` | manual approval recorded in packet
+-- capability_register.md
+- ALP (Alya Pike): request_manager, ops, director
+- BEX (Benoit Xu): request_manager, security, director
+- CYR (Cyrus Reed): request_manager, qa
+- DIA (Dina Iqbal): request_manager, ops, qa
+- EKO (Eko Olsen): request_manager, security
+- FEN (Fenna Noor): request_manager, security
+- GIO (Gio Park): request_manager, ops
+- HAL (Haleh Asadi): request_manager, ops, qa
+- No temporary delegations published.
+-- freeze_bulletin.md
+- No active freeze covers domain `auth` at the final scheduled release time.
+-- incident_log.md
+- No incident ticket attached.
+
+==== rpa_019
+-- change_request.md
+# Change Request rpa_019
+- Requester: DIA (Dina Iqbal)
+- Service: lattice
+- Domain: search
+- Created: 2026-05-06 21:00
+- Scheduled release: 2026-05-08 21:00
+- Risk tier: high
+- Data tags: internal
+- Emergency requested: no
+-- amendments.md
+- Posted: 2026-05-07 02:00
+- Schedule shift: +180 minutes
+- Risk tier after amendment: high
+- Reason: load test widened impact scope
+-- approvals.md
+- 2026-05-06 23:00 | DIA (Dina Iqbal) | claims `ops` | manual approval recorded in packet
+- 2026-05-07 00:00 | ALP (Alya Pike) | claims `director` | manual approval recorded in packet
+-- capability_register.md
+- ALP (Alya Pike): request_manager, ops, director
+- BEX (Benoit Xu): request_manager, security, director
+- CYR (Cyrus Reed): request_manager, qa
+- DIA (Dina Iqbal): request_manager, ops, qa
+- EKO (Eko Olsen): request_manager, security
+- FEN (Fenna Noor): request_manager, security
+- GIO (Gio Park): request_manager, ops
+- HAL (Haleh Asadi): request_manager, ops, qa
+- ALP delegated `ops_delegate` for domain `search` from 2026-05-06 04:00 to 2026-05-06 10:00 by BEX
+- BEX delegated `security_delegate` for domain `search` from 2026-05-06 06:00 to 2026-05-06 13:00 by ALP
+-- freeze_bulletin.md
+- No active freeze covers domain `search` at the final scheduled release time.
+-- incident_log.md
+- No incident ticket attached.
+
+==== rpa_020
+-- change_request.md
+# Change Request rpa_020
+- Requester: ALP (Alya Pike)
+- Service: sable
+- Domain: messaging
+- Created: 2026-05-07 04:00
+- Scheduled release: 2026-05-08 17:00
+- Risk tier: low
+- Data tags: internal
+- Emergency requested: no
+-- amendments.md
+- Posted: 2026-05-07 09:00
+- Schedule shift: +180 minutes
+- Risk tier after amendment: high
+- Reason: load test widened impact scope
+-- approvals.md
+- 2026-05-07 06:00 | DIA (Dina Iqbal) | claims `ops` | manual approval recorded in packet
+- 2026-05-07 07:00 | ALP (Alya Pike) | claims `director` | manual approval recorded in packet
+-- capability_register.md
+- ALP (Alya Pike): request_manager, ops, director
+- BEX (Benoit Xu): request_manager, security, director
+- CYR (Cyrus Reed): request_manager, qa
+- DIA (Dina Iqbal): request_manager, ops, qa
+- EKO (Eko Olsen): request_manager, security
+- FEN (Fenna Noor): request_manager, security
+- GIO (Gio Park): request_manager, ops
+- HAL (Haleh Asadi): request_manager, ops, qa
+- GIO delegated `ops_delegate` for domain `messaging` from 2026-05-06 19:00 to 2026-05-07 01:00 by ALP
+- FEN delegated `security_delegate` for domain `messaging` from 2026-05-05 22:00 to 2026-05-06 03:00 by BEX
+-- freeze_bulletin.md
+- No active freeze covers domain `messaging` at the final scheduled release time.
+-- incident_log.md
+- No incident ticket attached.
+
+==== rpa_021
+-- change_request.md
+# Change Request rpa_021
+- Requester: GIO (Gio Park)
+- Service: quartz
+- Domain: analytics
+- Created: 2026-05-07 11:00
+- Scheduled release: 2026-05-08 13:00
+- Risk tier: high
+- Data tags: internal
+- Emergency requested: no
+-- amendments.md
+- Posted: 2026-05-07 16:00
+- Schedule shift: +180 minutes
+- Risk tier after amendment: high
+- Reason: load test widened impact scope
+-- approvals.md
+- 2026-05-07 13:00 | DIA (Dina Iqbal) | claims `ops` | manual approval recorded in packet
+- 2026-05-07 14:00 | ALP (Alya Pike) | claims `director` | manual approval recorded in packet
+-- capability_register.md
+- ALP (Alya Pike): request_manager, ops, director
+- BEX (Benoit Xu): request_manager, security, director
+- CYR (Cyrus Reed): request_manager, qa
+- DIA (Dina Iqbal): request_manager, ops, qa
+- EKO (Eko Olsen): request_manager, security
+- FEN (Fenna Noor): request_manager, security
+- GIO (Gio Park): request_manager, ops
+- HAL (Haleh Asadi): request_manager, ops, qa
+- DIA delegated `ops_delegate` for domain `analytics` from 2026-05-07 00:00 to 2026-05-07 05:00 by ALP
+-- freeze_bulletin.md
+- No active freeze covers domain `analytics` at the final scheduled release time.
+-- incident_log.md
+- No incident ticket attached.
+
+==== rpa_022
+-- change_request.md
+# Change Request rpa_022
+- Requester: HAL (Haleh Asadi)
+- Service: cinder
+- Domain: auth
+- Created: 2026-05-07 18:00
+- Scheduled release: 2026-05-09 08:00
+- Risk tier: high
+- Data tags: internal
+- Emergency requested: no
+-- amendments.md
+-- approvals.md
+- 2026-05-07 21:00 | DIA (Dina Iqbal) | claims `ops` | manual approval recorded in packet
+- 2026-05-08 00:00 | ALP (Alya Pike) | claims `director` | manual approval recorded in packet
+-- capability_register.md
+- ALP (Alya Pike): request_manager, ops, director
+- BEX (Benoit Xu): request_manager, security, director
+- CYR (Cyrus Reed): request_manager, qa
+- DIA (Dina Iqbal): request_manager, ops, qa
+- EKO (Eko Olsen): request_manager, security
+- FEN (Fenna Noor): request_manager, security
+- GIO (Gio Park): request_manager, ops
+- HAL (Haleh Asadi): request_manager, ops, qa
+- No temporary delegations published.
+-- freeze_bulletin.md
+- Domain `auth` is frozen from 2026-05-09 03:30 to 2026-05-09 11:30.
+- Emergency overrides may proceed only under rule R5.
+-- incident_log.md
+- No incident ticket attached.
+
+==== rpa_023
+-- change_request.md
+# Change Request rpa_023
+- Requester: GIO (Gio Park)
+- Service: meridian
+- Domain: billing
+- Created: 2026-05-08 01:00
+- Scheduled release: 2026-05-10 04:00
+- Risk tier: low
+- Data tags: internal
+- Emergency requested: no
+-- amendments.md
+-- approvals.md
+- 2026-05-08 04:00 | DIA (Dina Iqbal) | claims `ops` | manual approval recorded in packet
+- 2026-05-08 07:00 | ALP (Alya Pike) | claims `director` | manual approval recorded in packet
+-- capability_register.md
+- ALP (Alya Pike): request_manager, ops, director
+- BEX (Benoit Xu): request_manager, security, director
+- CYR (Cyrus Reed): request_manager, qa
+- DIA (Dina Iqbal): request_manager, ops, qa
+- EKO (Eko Olsen): request_manager, security
+- FEN (Fenna Noor): request_manager, security
+- GIO (Gio Park): request_manager, ops
+- HAL (Haleh Asadi): request_manager, ops, qa
+- HAL delegated `ops_delegate` for domain `billing` from 2026-05-07 10:00 to 2026-05-07 18:00 by BEX
+-- freeze_bulletin.md
+- Domain `billing` is frozen from 2026-05-10 02:45 to 2026-05-10 10:45.
+- Emergency overrides may proceed only under rule R5.
+-- incident_log.md
+- No incident ticket attached.
+
+==== rpa_024
+-- change_request.md
+# Change Request rpa_024
+- Requester: FEN (Fenna Noor)
+- Service: cinder
+- Domain: auth
+- Created: 2026-05-08 08:00
+- Scheduled release: 2026-05-09 05:00
+- Risk tier: medium
+- Data tags: internal
+- Emergency requested: no
+-- amendments.md
+-- approvals.md
+- 2026-05-08 11:00 | DIA (Dina Iqbal) | claims `ops` | manual approval recorded in packet
+- 2026-05-08 14:00 | ALP (Alya Pike) | claims `director` | manual approval recorded in packet
+-- capability_register.md
+- ALP (Alya Pike): request_manager, ops, director
+- BEX (Benoit Xu): request_manager, security, director
+- CYR (Cyrus Reed): request_manager, qa
+- DIA (Dina Iqbal): request_manager, ops, qa
+- EKO (Eko Olsen): request_manager, security
+- FEN (Fenna Noor): request_manager, security
+- GIO (Gio Park): request_manager, ops
+- HAL (Haleh Asadi): request_manager, ops, qa
+- No temporary delegations published.
+-- freeze_bulletin.md
+- Domain `auth` is frozen from 2026-05-09 06:00 to 2026-05-09 14:00.
+- Emergency overrides may proceed only under rule R5.
+-- incident_log.md
+- No incident ticket attached.
+
+==== rpa_025
+-- change_request.md
+# Change Request rpa_025
+- Requester: BEX (Benoit Xu)
+- Service: sable
+- Domain: messaging
+- Created: 2026-05-08 15:00
+- Scheduled release: 2026-05-10 04:00
+- Risk tier: high
+- Data tags: internal
+- Emergency requested: no
+-- amendments.md
+-- approvals.md
+- 2026-05-08 18:00 | DIA (Dina Iqbal) | claims `ops` | manual approval recorded in packet
+- 2026-05-08 21:00 | ALP (Alya Pike) | claims `director` | manual approval recorded in packet
+-- capability_register.md
+- ALP (Alya Pike): request_manager, ops, director
+- BEX (Benoit Xu): request_manager, security, director
+- CYR (Cyrus Reed): request_manager, qa
+- DIA (Dina Iqbal): request_manager, ops, qa
+- EKO (Eko Olsen): request_manager, security
+- FEN (Fenna Noor): request_manager, security
+- GIO (Gio Park): request_manager, ops
+- HAL (Haleh Asadi): request_manager, ops, qa
+- GIO delegated `ops_delegate` for domain `messaging` from 2026-05-08 06:00 to 2026-05-08 15:00 by BEX
+-- freeze_bulletin.md
+- Domain `messaging` is frozen from 2026-05-10 02:45 to 2026-05-10 10:45.
+- Emergency overrides may proceed only under rule R5.
+-- incident_log.md
+- No incident ticket attached.
+
+==== rpa_026
+-- change_request.md
+# Change Request rpa_026
+- Requester: FEN (Fenna Noor)
+- Service: cinder
+- Domain: auth
+- Created: 2026-05-08 22:00
+- Scheduled release: 2026-05-10 20:00
+- Risk tier: low
+- Data tags: regulated
+- Emergency requested: no
+-- amendments.md
+-- approvals.md
+- 2026-05-09 01:00 | DIA (Dina Iqbal) | claims `ops` | manual approval recorded in packet
+- 2026-05-09 03:00 | ALP (Alya Pike) | claims `director` | manual approval recorded in packet
+-- capability_register.md
+- ALP (Alya Pike): request_manager, ops, director
+- BEX (Benoit Xu): request_manager, security, director
+- CYR (Cyrus Reed): request_manager, qa
+- DIA (Dina Iqbal): request_manager, ops, qa
+- EKO (Eko Olsen): request_manager, security
+- FEN (Fenna Noor): request_manager, security
+- GIO (Gio Park): request_manager, ops
+- HAL (Haleh Asadi): request_manager, ops, qa
+- GIO delegated `ops_delegate` for domain `auth` from 2026-05-08 02:00 to 2026-05-08 13:00 by BEX
+-- freeze_bulletin.md
+- No active freeze covers domain `auth` at the final scheduled release time.
+-- incident_log.md
+- No incident ticket attached.
+
+==== rpa_027
+-- change_request.md
+# Change Request rpa_027
+- Requester: BEX (Benoit Xu)
+- Service: harbor
+- Domain: storage
+- Created: 2026-05-09 05:00
+- Scheduled release: 2026-05-10 01:00
+- Risk tier: low
+- Data tags: regulated
+- Emergency requested: no
+-- amendments.md
+-- approvals.md
+- 2026-05-09 08:00 | DIA (Dina Iqbal) | claims `ops` | manual approval recorded in packet
+- 2026-05-09 10:00 | ALP (Alya Pike) | claims `director` | manual approval recorded in packet
+-- capability_register.md
+- ALP (Alya Pike): request_manager, ops, director
+- BEX (Benoit Xu): request_manager, security, director
+- CYR (Cyrus Reed): request_manager, qa
+- DIA (Dina Iqbal): request_manager, ops, qa
+- EKO (Eko Olsen): request_manager, security
+- FEN (Fenna Noor): request_manager, security
+- GIO (Gio Park): request_manager, ops
+- HAL (Haleh Asadi): request_manager, ops, qa
+- HAL delegated `ops_delegate` for domain `storage` from 2026-05-08 09:00 to 2026-05-08 20:00 by BEX
+-- freeze_bulletin.md
+- No active freeze covers domain `storage` at the final scheduled release time.
+-- incident_log.md
+- No incident ticket attached.
+
+==== rpa_028
+-- change_request.md
+# Change Request rpa_028
+- Requester: BEX (Benoit Xu)
+- Service: meridian
+- Domain: billing
+- Created: 2026-05-09 12:00
+- Scheduled release: 2026-05-10 14:00
+- Risk tier: low
+- Data tags: regulated
+- Emergency requested: no
+-- amendments.md
+-- approvals.md
+- 2026-05-09 15:00 | DIA (Dina Iqbal) | claims `ops` | manual approval recorded in packet
+- 2026-05-09 17:00 | ALP (Alya Pike) | claims `director` | manual approval recorded in packet
+-- capability_register.md
+- ALP (Alya Pike): request_manager, ops, director
+- BEX (Benoit Xu): request_manager, security, director
+- CYR (Cyrus Reed): request_manager, qa
+- DIA (Dina Iqbal): request_manager, ops, qa
+- EKO (Eko Olsen): request_manager, security
+- FEN (Fenna Noor): request_manager, security
+- GIO (Gio Park): request_manager, ops
+- HAL (Haleh Asadi): request_manager, ops, qa
+- HAL delegated `ops_delegate` for domain `billing` from 2026-05-09 02:00 to 2026-05-09 12:00 by ALP
+-- freeze_bulletin.md
+- No active freeze covers domain `billing` at the final scheduled release time.
+-- incident_log.md
+- No incident ticket attached.
+
+==== rpa_029
+-- change_request.md
+# Change Request rpa_029
+- Requester: FEN (Fenna Noor)
+- Service: lattice
+- Domain: search
+- Created: 2026-05-09 19:00
+- Scheduled release: 2026-05-11 09:00
+- Risk tier: medium
+- Data tags: internal
+- Emergency requested: yes
+-- amendments.md
+-- approvals.md
+- 2026-05-09 22:00 | DIA (Dina Iqbal) | claims `ops` | manual approval recorded in packet
+- 2026-05-10 00:00 | ALP (Alya Pike) | claims `director` | manual approval recorded in packet
+-- capability_register.md
+- ALP (Alya Pike): request_manager, ops, director
+- BEX (Benoit Xu): request_manager, security, director
+- CYR (Cyrus Reed): request_manager, qa
+- DIA (Dina Iqbal): request_manager, ops, qa
+- EKO (Eko Olsen): request_manager, security
+- FEN (Fenna Noor): request_manager, security
+- GIO (Gio Park): request_manager, ops
+- HAL (Haleh Asadi): request_manager, ops, qa
+- DIA delegated `ops_delegate` for domain `search` from 2026-05-09 04:00 to 2026-05-09 08:00 by BEX
+-- freeze_bulletin.md
+- Domain `search` is frozen from 2026-05-11 05:00 to 2026-05-11 14:00.
+- Emergency overrides may proceed only under rule R5.
+-- incident_log.md
+- Incident severity: SEV3
+- Opened: 2026-05-11 07:00
+- Closed: 2026-05-11 10:00
+
+==== rpa_030
+-- change_request.md
+# Change Request rpa_030
+- Requester: DIA (Dina Iqbal)
+- Service: quartz
+- Domain: analytics
+- Created: 2026-05-10 02:00
+- Scheduled release: 2026-05-12 12:00
+- Risk tier: high
+- Data tags: internal
+- Emergency requested: yes
+-- amendments.md
+-- approvals.md
+- 2026-05-10 05:00 | DIA (Dina Iqbal) | claims `ops` | manual approval recorded in packet
+- 2026-05-10 07:00 | ALP (Alya Pike) | claims `director` | manual approval recorded in packet
+-- capability_register.md
+- ALP (Alya Pike): request_manager, ops, director
+- BEX (Benoit Xu): request_manager, security, director
+- CYR (Cyrus Reed): request_manager, qa
+- DIA (Dina Iqbal): request_manager, ops, qa
+- EKO (Eko Olsen): request_manager, security
+- FEN (Fenna Noor): request_manager, security
+- GIO (Gio Park): request_manager, ops
+- HAL (Haleh Asadi): request_manager, ops, qa
+- GIO delegated `ops_delegate` for domain `analytics` from 2026-05-09 15:00 to 2026-05-09 21:00 by BEX
+- EKO delegated `security_delegate` for domain `analytics` from 2026-05-08 20:00 to 2026-05-09 01:00 by BEX
+-- freeze_bulletin.md
+- Domain `analytics` is frozen from 2026-05-12 08:00 to 2026-05-12 17:00.
+- Emergency overrides may proceed only under rule R5.
+-- incident_log.md
+- Incident severity: SEV3
+- Opened: 2026-05-12 10:00
+- Closed: 2026-05-12 13:00
+
+2026-05-23T08:32:10.115475Z  WARN codex_core_skills::loader: ignoring interface.icon_small: icon path must not contain '..'
+2026-05-23T08:32:10.115488Z  WARN codex_core_skills::loader: ignoring interface.icon_large: icon path must not contain '..'
+2026-05-23T08:32:10.116007Z  WARN codex_core_skills::loader: ignoring interface.icon_small: icon path must not contain '..'
+2026-05-23T08:32:10.116011Z  WARN codex_core_skills::loader: ignoring interface.icon_large: icon path must not contain '..'
+2026-05-23T08:32:10.116524Z  WARN codex_core_skills::loader: ignoring interface.icon_small: icon path must not contain '..'
+2026-05-23T08:32:10.116527Z  WARN codex_core_skills::loader: ignoring interface.icon_large: icon path must not contain '..'
+2026-05-23T08:32:10.117043Z  WARN codex_core_skills::loader: ignoring interface.icon_small: icon path must not contain '..'
+2026-05-23T08:32:10.117049Z  WARN codex_core_skills::loader: ignoring interface.icon_large: icon path must not contain '..'
+2026-05-23T08:32:10.117561Z  WARN codex_core_skills::loader: ignoring interface.icon_small: icon path must not contain '..'
+2026-05-23T08:32:10.117565Z  WARN codex_core_skills::loader: ignoring interface.icon_large: icon path must not contain '..'
+2026-05-23T08:32:10.118667Z  WARN codex_core_skills::loader: ignoring interface.icon_small: icon path must not contain '..'
+2026-05-23T08:32:10.118673Z  WARN codex_core_skills::loader: ignoring interface.icon_large: icon path must not contain '..'
+codex
+I’ve got the main rule map now. A few packets hinge on whether the signer’s claimed role is actually authorized, and on scope-changing amendments voiding earlier approvals; I’m doing one final pass for those edge cases before producing the JSONL only.
+exec
+/bin/zsh -lc "python3 - <<'PY'
+from pathlib import Path
+for i in [10,11,12,13,18,19,20,21,24,26,27,28,29,30]:
+ d=Path(f'packets/rpa_{i:03d}')
+ print('\\n====',d.name)
+ for f in ['change_request.md','amendments.md','approvals.md','freeze_bulletin.md','incident_log.md']:
+  print((d/f).read_text())
+PY" in /Users/rohit/Documents/Workspace/Coding/benchbench/experiments/004_feedback_sweep_20260522_225208/run/isolated_solver_gpt_5_4__solved_by__gpt_5_5
+2026-05-23T08:32:35.014629Z  WARN codex_core_skills::loader: ignoring interface.icon_small: icon path must not contain '..'
+2026-05-23T08:32:35.014640Z  WARN codex_core_skills::loader: ignoring interface.icon_large: icon path must not contain '..'
+2026-05-23T08:32:35.015088Z  WARN codex_core_skills::loader: ignoring interface.icon_small: icon path must not contain '..'
+2026-05-23T08:32:35.015092Z  WARN codex_core_skills::loader: ignoring interface.icon_large: icon path must not contain '..'
+2026-05-23T08:32:35.015525Z  WARN codex_core_skills::loader: ignoring interface.icon_small: icon path must not contain '..'
+2026-05-23T08:32:35.015528Z  WARN codex_core_skills::loader: ignoring interface.icon_large: icon path must not contain '..'
+2026-05-23T08:32:35.015957Z  WARN codex_core_skills::loader: ignoring interface.icon_small: icon path must not contain '..'
+2026-05-23T08:32:35.015960Z  WARN codex_core_skills::loader: ignoring interface.icon_large: icon path must not contain '..'
+2026-05-23T08:32:35.016422Z  WARN codex_core_skills::loader: ignoring interface.icon_small: icon path must not contain '..'
+2026-05-23T08:32:35.016428Z  WARN codex_core_skills::loader: ignoring interface.icon_large: icon path must not contain '..'
+ succeeded in 542ms:
+
+==== rpa_010
+# Change Request rpa_010
+
+- Requester: FEN (Fenna Noor)
+- Service: lattice
+- Domain: search
+- Created: 2026-05-04 06:00
+- Scheduled release: 2026-05-05 10:00
+- Risk tier: low
+- Data tags: internal
+- Emergency requested: no
+
+Narrative:
+The request is framed as routine, but the attached notes mention possible customer-facing timing sensitivity.
+
+# Amendments
+
+No amendments were filed.
+
+# Approvals
+
+- 2026-05-04 10:00 | DIA (Dina Iqbal) | claims `ops` | manual approval recorded in packet
+- 2026-05-04 12:00 | HAL (Haleh Asadi) | claims `director` | manual approval recorded in packet
+
+# Freeze Bulletin
+
+- No active freeze covers domain `search` at the final scheduled release time.
+
+# Incident Evidence
+
+- No incident ticket attached.
+
+
+==== rpa_011
+# Change Request rpa_011
+
+- Requester: HAL (Haleh Asadi)
+- Service: quartz
+- Domain: analytics
+- Created: 2026-05-04 13:00
+- Scheduled release: 2026-05-06 09:00
+- Risk tier: low
+- Data tags: internal
+- Emergency requested: no
+
+Narrative:
+The request is framed as routine, but the attached notes mention possible customer-facing timing sensitivity.
+
+# Amendments
+
+No amendments were filed.
+
+# Approvals
+
+- 2026-05-04 17:00 | DIA (Dina Iqbal) | claims `ops` | manual approval recorded in packet
+- 2026-05-04 19:00 | CYR (Cyrus Reed) | claims `director` | manual approval recorded in packet
+
+# Freeze Bulletin
+
+- No active freeze covers domain `analytics` at the final scheduled release time.
+
+# Incident Evidence
+
+- No incident ticket attached.
+
+
+==== rpa_012
+# Change Request rpa_012
+
+- Requester: FEN (Fenna Noor)
+- Service: harbor
+- Domain: storage
+- Created: 2026-05-04 20:00
+- Scheduled release: 2026-05-05 16:00
+- Risk tier: low
+- Data tags: internal
+- Emergency requested: no
+
+Narrative:
+The request is framed as routine, but the attached notes mention possible customer-facing timing sensitivity.
+
+# Amendments
+
+No amendments were filed.
+
+# Approvals
+
+- 2026-05-05 00:00 | DIA (Dina Iqbal) | claims `ops` | manual approval recorded in packet
+- 2026-05-05 02:00 | HAL (Haleh Asadi) | claims `director` | manual approval recorded in packet
+
+# Freeze Bulletin
+
+- No active freeze covers domain `storage` at the final scheduled release time.
+
+# Incident Evidence
+
+- No incident ticket attached.
+
+
+==== rpa_013
+# Change Request rpa_013
+
+- Requester: BEX (Benoit Xu)
+- Service: lattice
+- Domain: search
+- Created: 2026-05-05 03:00
+- Scheduled release: 2026-05-06 01:00
+- Risk tier: medium
+- Data tags: internal
+- Emergency requested: no
+
+Narrative:
+The request proposes a narrow release train update with one operational dependency and no schema rewrite.
+
+# Amendments
+
+No amendments were filed.
+
+# Approvals
+
+- 2026-05-05 07:00 | DIA (Dina Iqbal) | claims `ops` | manual approval recorded in packet
+- 2026-05-05 09:00 | FEN (Fenna Noor) | claims `director` | manual approval recorded in packet
+
+# Freeze Bulletin
+
+- No active freeze covers domain `search` at the final scheduled release time.
+
+# Incident Evidence
+
+- No incident ticket attached.
+
+
+==== rpa_018
+# Change Request rpa_018
+
+- Requester: ALP (Alya Pike)
+- Service: cinder
+- Domain: auth
+- Created: 2026-05-06 14:00
+- Scheduled release: 2026-05-08 11:00
+- Risk tier: high
+- Data tags: internal
+- Emergency requested: no
+
+Narrative:
+The request proposes a narrow release train update with one operational dependency and no schema rewrite.
+
+# Amendments
+
+## Amendment 1
+- Posted: 2026-05-06 19:00
+- Schedule shift: +180 minutes
+- Risk tier after amendment: high
+- Reason: load test widened impact scope
+
+# Approvals
+
+- 2026-05-06 16:00 | DIA (Dina Iqbal) | claims `ops` | manual approval recorded in packet
+- 2026-05-06 17:00 | ALP (Alya Pike) | claims `director` | manual approval recorded in packet
+
+# Freeze Bulletin
+
+- No active freeze covers domain `auth` at the final scheduled release time.
+
+# Incident Evidence
+
+- No incident ticket attached.
+
+
+==== rpa_019
+# Change Request rpa_019
+
+- Requester: DIA (Dina Iqbal)
+- Service: lattice
+- Domain: search
+- Created: 2026-05-06 21:00
+- Scheduled release: 2026-05-08 21:00
+- Risk tier: high
+- Data tags: internal
+- Emergency requested: no
+
+Narrative:
+The request proposes a narrow release train update with one operational dependency and no schema rewrite.
+
+# Amendments
+
+## Amendment 1
+- Posted: 2026-05-07 02:00
+- Schedule shift: +180 minutes
+- Risk tier after amendment: high
+- Reason: load test widened impact scope
+
+# Approvals
+
+- 2026-05-06 23:00 | DIA (Dina Iqbal) | claims `ops` | manual approval recorded in packet
+- 2026-05-07 00:00 | ALP (Alya Pike) | claims `director` | manual approval recorded in packet
+
+# Freeze Bulletin
+
+- No active freeze covers domain `search` at the final scheduled release time.
+
+# Incident Evidence
+
+- No incident ticket attached.
+
+
+==== rpa_020
+# Change Request rpa_020
+
+- Requester: ALP (Alya Pike)
+- Service: sable
+- Domain: messaging
+- Created: 2026-05-07 04:00
+- Scheduled release: 2026-05-08 17:00
+- Risk tier: low
+- Data tags: internal
+- Emergency requested: no
+
+Narrative:
+The request bundles a runtime change and a control-plane knob update that should be treated as one release packet.
+
+# Amendments
+
+## Amendment 1
+- Posted: 2026-05-07 09:00
+- Schedule shift: +180 minutes
+- Risk tier after amendment: high
+- Reason: load test widened impact scope
+
+# Approvals
+
+- 2026-05-07 06:00 | DIA (Dina Iqbal) | claims `ops` | manual approval recorded in packet
+- 2026-05-07 07:00 | ALP (Alya Pike) | claims `director` | manual approval recorded in packet
+
+# Freeze Bulletin
+
+- No active freeze covers domain `messaging` at the final scheduled release time.
+
+# Incident Evidence
+
+- No incident ticket attached.
+
+
+==== rpa_021
+# Change Request rpa_021
+
+- Requester: GIO (Gio Park)
+- Service: quartz
+- Domain: analytics
+- Created: 2026-05-07 11:00
+- Scheduled release: 2026-05-08 13:00
+- Risk tier: high
+- Data tags: internal
+- Emergency requested: no
+
+Narrative:
+The request bundles a runtime change and a control-plane knob update that should be treated as one release packet.
+
+# Amendments
+
+## Amendment 1
+- Posted: 2026-05-07 16:00
+- Schedule shift: +180 minutes
+- Risk tier after amendment: high
+- Reason: load test widened impact scope
+
+# Approvals
+
+- 2026-05-07 13:00 | DIA (Dina Iqbal) | claims `ops` | manual approval recorded in packet
+- 2026-05-07 14:00 | ALP (Alya Pike) | claims `director` | manual approval recorded in packet
+
+# Freeze Bulletin
+
+- No active freeze covers domain `analytics` at the final scheduled release time.
+
+# Incident Evidence
+
+- No incident ticket attached.
+
+
+==== rpa_024
+# Change Request rpa_024
+
+- Requester: FEN (Fenna Noor)
+- Service: cinder
+- Domain: auth
+- Created: 2026-05-08 08:00
+- Scheduled release: 2026-05-09 05:00
+- Risk tier: medium
+- Data tags: internal
+- Emergency requested: no
+
+Narrative:
+The request proposes a narrow release train update with one operational dependency and no schema rewrite.
+
+# Amendments
+
+No amendments were filed.
+
+# Approvals
+
+- 2026-05-08 11:00 | DIA (Dina Iqbal) | claims `ops` | manual approval recorded in packet
+- 2026-05-08 14:00 | ALP (Alya Pike) | claims `director` | manual approval recorded in packet
+
+# Freeze Bulletin
+
+- Domain `auth` is frozen from 2026-05-09 06:00 to 2026-05-09 14:00.
+- Emergency overrides may proceed only under rule R5.
+
+# Incident Evidence
+
+- No incident ticket attached.
+
+
+==== rpa_026
+# Change Request rpa_026
+
+- Requester: FEN (Fenna Noor)
+- Service: cinder
+- Domain: auth
+- Created: 2026-05-08 22:00
+- Scheduled release: 2026-05-10 20:00
+- Risk tier: low
+- Data tags: regulated
+- Emergency requested: no
+
+Narrative:
+The request proposes a narrow release train update with one operational dependency and no schema rewrite.
+
+# Amendments
+
+No amendments were filed.
+
+# Approvals
+
+- 2026-05-09 01:00 | DIA (Dina Iqbal) | claims `ops` | manual approval recorded in packet
+- 2026-05-09 03:00 | ALP (Alya Pike) | claims `director` | manual approval recorded in packet
+
+# Freeze Bulletin
+
+- No active freeze covers domain `auth` at the final scheduled release time.
+
+# Incident Evidence
+
+- No incident ticket attached.
+
+
+==== rpa_027
+# Change Request rpa_027
+
+- Requester: BEX (Benoit Xu)
+- Service: harbor
+- Domain: storage
+- Created: 2026-05-09 05:00
+- Scheduled release: 2026-05-10 01:00
+- Risk tier: low
+- Data tags: regulated
+- Emergency requested: no
+
+Narrative:
+The request bundles a runtime change and a control-plane knob update that should be treated as one release packet.
+
+# Amendments
+
+No amendments were filed.
+
+# Approvals
+
+- 2026-05-09 08:00 | DIA (Dina Iqbal) | claims `ops` | manual approval recorded in packet
+- 2026-05-09 10:00 | ALP (Alya Pike) | claims `director` | manual approval recorded in packet
+
+# Freeze Bulletin
+
+- No active freeze covers domain `storage` at the final scheduled release time.
+
+# Incident Evidence
+
+- No incident ticket attached.
+
+
+==== rpa_028
+# Change Request rpa_028
+
+- Requester: BEX (Benoit Xu)
+- Service: meridian
+- Domain: billing
+- Created: 2026-05-09 12:00
+- Scheduled release: 2026-05-10 14:00
+- Risk tier: low
+- Data tags: regulated
+- Emergency requested: no
+
+Narrative:
+The request bundles a runtime change and a control-plane knob update that should be treated as one release packet.
+
+# Amendments
+
+No amendments were filed.
+
+# Approvals
+
+- 2026-05-09 15:00 | DIA (Dina Iqbal) | claims `ops` | manual approval recorded in packet
+- 2026-05-09 17:00 | ALP (Alya Pike) | claims `director` | manual approval recorded in packet
+
+# Freeze Bulletin
+
+- No active freeze covers domain `billing` at the final scheduled release time.
+
+# Incident Evidence
+
+- No incident ticket attached.
+
+
+==== rpa_029
+# Change Request rpa_029
+
+- Requester: FEN (Fenna Noor)
+- Service: lattice
+- Domain: search
+- Created: 2026-05-09 19:00
+- Scheduled release: 2026-05-11 09:00
+- Risk tier: medium
+- Data tags: internal
+- Emergency requested: yes
+
+Narrative:
+The request bundles a runtime change and a control-plane knob update that should be treated as one release packet.
+
+# Amendments
+
+No amendments were filed.
+
+# Approvals
+
+- 2026-05-09 22:00 | DIA (Dina Iqbal) | claims `ops` | manual approval recorded in packet
+- 2026-05-10 00:00 | ALP (Alya Pike) | claims `director` | manual approval recorded in packet
+
+# Freeze Bulletin
+
+- Domain `search` is frozen from 2026-05-11 05:00 to 2026-05-11 14:00.
+- Emergency overrides may proceed only under rule R5.
+
+# Incident Evidence
+
+- Incident severity: SEV3
+- Opened: 2026-05-11 07:00
+- Closed: 2026-05-11 10:00
+
+
+==== rpa_030
+# Change Request rpa_030
+
+- Requester: DIA (Dina Iqbal)
+- Service: quartz
+- Domain: analytics
+- Created: 2026-05-10 02:00
+- Scheduled release: 2026-05-12 12:00
+- Risk tier: high
+- Data tags: internal
+- Emergency requested: yes
+
+Narrative:
+The request bundles a runtime change and a control-plane knob update that should be treated as one release packet.
+
+# Amendments
+
+No amendments were filed.
+
+# Approvals
+
+- 2026-05-10 05:00 | DIA (Dina Iqbal) | claims `ops` | manual approval recorded in packet
+- 2026-05-10 07:00 | ALP (Alya Pike) | claims `director` | manual approval recorded in packet
+
+# Freeze Bulletin
+
+- Domain `analytics` is frozen from 2026-05-12 08:00 to 2026-05-12 17:00.
+- Emergency overrides may proceed only under rule R5.
+
+# Incident Evidence
+
+- Incident severity: SEV3
+- Opened: 2026-05-12 10:00
+- Closed: 2026-05-12 13:00
+
+
+2026-05-23T08:32:35.017591Z  WARN codex_core_skills::loader: ignoring interface.icon_small: icon path must not contain '..'
+2026-05-23T08:32:35.017597Z  WARN codex_core_skills::loader: ignoring interface.icon_large: icon path must not contain '..'
+codex
+{"id":"rpa_001","answer":"{\"decision\":\"approve\",\"governing_rule\":\"A1\",\"responsible_actor\":\"FEN\"}"}
+{"id":"rpa_002","answer":"{\"decision\":\"approve\",\"governing_rule\":\"A1\",\"responsible_actor\":\"CYR\"}"}
+{"id":"rpa_003","answer":"{\"decision\":\"approve\",\"governing_rule\":\"A1\",\"responsible_actor\":\"CYR\"}"}
+{"id":"rpa_004","answer":"{\"decision\":\"approve\",\"governing_rule\":\"A1\",\"responsible_actor\":\"EKO\"}"}
+{"id":"rpa_005","answer":"{\"decision\":\"approve\",\"governing_rule\":\"A1\",\"responsible_actor\":\"CYR\"}"}
+{"id":"rpa_006","answer":"{\"decision\":\"reject\",\"governing_rule\":\"R1\",\"responsible_actor\":\"BEX\"}"}
+{"id":"rpa_007","answer":"{\"decision\":\"approve\",\"governing_rule\":\"A1\",\"responsible_actor\":\"BEX\"}"}
+{"id":"rpa_008","answer":"{\"decision\":\"approve\",\"governing_rule\":\"A1\",\"responsible_actor\":\"BEX\"}"}
+{"id":"rpa_009","answer":"{\"decision\":\"reject\",\"governing_rule\":\"R1\",\"responsible_actor\":\"DIA\"}"}
+{"id":"rpa_010","answer":"{\"decision\":\"reject\",\"governing_rule\":\"R2\",\"responsible_actor\":\"HAL\"}"}
+{"id":"rpa_011","answer":"{\"decision\":\"reject\",\"governing_rule\":\"R2\",\"responsible_actor\":\"CYR\"}"}
+{"id":"rpa_012","answer":"{\"decision\":\"reject\",\"governing_rule\":\"R2\",\"responsible_actor\":\"HAL\"}"}
+{"id":"rpa_013","answer":"{\"decision\":\"reject\",\"governing_rule\":\"R2\",\"responsible_actor\":\"FEN\"}"}
+{"id":"rpa_014","answer":"{\"decision\":\"reject\",\"governing_rule\":\"R3\",\"responsible_actor\":\"GIO\"}"}
+{"id":"rpa_015","answer":"{\"decision\":\"reject\",\"governing_rule\":\"R3\",\"responsible_actor\":\"ALP\"}"}
+{"id":"rpa_016","answer":"{\"decision\":\"reject\",\"governing_rule\":\"R3\",\"responsible_actor\":\"DIA\"}"}
+{"id":"rpa_017","answer":"{\"decision\":\"reject\",\"governing_rule\":\"R3\",\"responsible_actor\":\"ALP\"}"}
+{"id":"rpa_018","answer":"{\"decision\":\"reject\",\"governing_rule\":\"R4\",\"responsible_actor\":\"ALP\"}"}
+{"id":"rpa_019","answer":"{\"decision\":\"reject\",\"governing_rule\":\"R4\",\"responsible_actor\":\"DIA\"}"}
+{"id":"rpa_020","answer":"{\"decision\":\"reject\",\"governing_rule\":\"R4\",\"responsible_actor\":\"ALP\"}"}
+{"id":"rpa_021","answer":"{\"decision\":\"reject\",\"governing_rule\":\"R4\",\"responsible_actor\":\"GIO\"}"}
+{"id":"rpa_022","answer":"{\"decision\":\"reject\",\"governing_rule\":\"R5\",\"responsible_actor\":\"HAL\"}"}
+{"id":"rpa_023","answer":"{\"decision\":\"reject\",\"governing_rule\":\"R5\",\"responsible_actor\":\"GIO\"}"}
+{"id":"rpa_024","answer":"{\"decision\":\"approve\",\"governing_rule\":\"A1\",\"responsible_actor\":\"FEN\"}"}
+{"id":"rpa_025","answer":"{\"decision\":\"reject\",\"governing_rule\":\"R5\",\"responsible_actor\":\"BEX\"}"}
+{"id":"rpa_026","answer":"{\"decision\":\"reject\",\"governing_rule\":\"R6\",\"responsible_actor\":\"FEN\"}"}
+{"id":"rpa_027","answer":"{\"decision\":\"reject\",\"governing_rule\":\"R6\",\"responsible_actor\":\"BEX\"}"}
+{"id":"rpa_028","answer":"{\"decision\":\"reject\",\"governing_rule\":\"R6\",\"responsible_actor\":\"BEX\"}"}
+{"id":"rpa_029","answer":"{\"decision\":\"reject\",\"governing_rule\":\"R7\",\"responsible_actor\":\"FEN\"}"}
+{"id":"rpa_030","answer":"{\"decision\":\"reject\",\"governing_rule\":\"R7\",\"responsible_actor\":\"DIA\"}"}
+tokens used
+53,275

@@ -1,0 +1,64 @@
+{
+  "name": "release_packet_arbitration",
+  "version": "1.0.0",
+  "task_type": "cross_document_procedural_reasoning",
+  "deterministic_generation": {
+    "sample_count_arg": "--sample-count",
+    "seed_arg": "--seed",
+    "requires_seed": true
+  },
+  "answer_format": {
+    "type": "canonical_json_string",
+    "schema": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "decision",
+        "governing_rule",
+        "responsible_actor"
+      ],
+      "properties": {
+        "decision": {
+          "enum": [
+            "approve",
+            "reject",
+            "escalate"
+          ]
+        },
+        "governing_rule": {
+          "enum": [
+            "R1",
+            "R2",
+            "R3",
+            "R4",
+            "R5",
+            "R6",
+            "R7",
+            "A1"
+          ]
+        },
+        "responsible_actor": {
+          "type": "string",
+          "pattern": "^[A-Z]{3}$"
+        }
+      }
+    }
+  },
+  "artifacts": {
+    "gold_file": "gold_private_sample.jsonl",
+    "solver_bundle_dir": "solver_bundle",
+    "solver_manifest": "solver_bundle/SOLVER_MANIFEST.json",
+    "items_file": "solver_bundle/items_private_sample.jsonl"
+  },
+  "closest_existing_benchmarks": [
+    {
+      "name": "GAIA",
+      "why_close": "multi-artifact reasoning with tool use"
+    },
+    {
+      "name": "BrowseComp",
+      "why_close": "cross-document evidence synthesis"
+    }
+  ],
+  "why_not_duplicate": "Items are self-contained synthetic governance packets with deterministic labels derived from explicit public rules rather than web retrieval or generic open-ended QA."
+}

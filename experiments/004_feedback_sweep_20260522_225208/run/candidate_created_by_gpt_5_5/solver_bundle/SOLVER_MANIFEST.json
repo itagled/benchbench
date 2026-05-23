@@ -1,0 +1,18 @@
+{
+  "asset_root": "assets",
+  "benchmark": "Cross-Document Obligation Resolution",
+  "forbidden_files": [
+    "gold_private_sample.jsonl",
+    "generator.py",
+    "verifier.py",
+    "scorer.py",
+    "private_audit_traces.jsonl"
+  ],
+  "items_file": "items_private_sample.jsonl",
+  "prediction_schema": {
+    "answer": "canonical JSON string or object",
+    "id": "string"
+  },
+  "sample_count": 30,
+  "version": "1.0"
+}

@@ -1,0 +1,1150 @@
+2026-05-23T06:40:14.753922Z  WARN codex_rollout::list: state db discrepancy during find_thread_path_by_id_str_in_subdir: falling_back
+2026-05-23T06:40:14.777430Z  WARN codex_rollout::list: state db discrepancy during find_thread_path_by_id_str_in_subdir: falling_back
+OpenAI Codex v0.130.0
+--------
+workdir: /Users/rohit/Documents/Workspace/Coding/benchbench/experiments/004_feedback_sweep_20260522_225208/run/isolated_solver_gpt_5_5__solved_by__gpt_5_5
+model: gpt-5.5
+provider: openai
+approval: never
+sandbox: workspace-write [workdir, /tmp, $TMPDIR, /Users/rohit/.codex/memories] (network access enabled)
+reasoning effort: low
+reasoning summaries: none
+session id: 019e5390-1f86-79f2-84c1-96b0db3da2cc
+--------
+user
+
+You are gpt-5.5+Codex acting as a blind BenchBench solver.
+
+You are in an isolated solver bundle at:
+
+/Users/rohit/Documents/Workspace/Coding/benchbench/experiments/004_feedback_sweep_20260522_225208/run/isolated_solver_gpt_5_5__solved_by__gpt_5_5
+
+Use that exact directory as the working directory for every shell command and
+file read/write. Antigravity may open a global scratch directory by default;
+ignore that scratch directory and work only in the solver bundle above.
+
+You may use any local computation, shell scripts, installed packages, OCR,
+image processing, code, and internet access if useful. Try your best to solve
+the benchmark.
+
+The only forbidden action is inspecting parent directories or files outside this
+isolated solver bundle. Do not look for gold files, generators, scorers, private
+traces, or answer keys outside this directory.
+
+Read every visible file in this bundle and solve every item.
+
+Return only JSONL, one object per item, with exactly:
+{"id":"...","answer":"..."}
+
+deprecated: `[features].codex_hooks` is deprecated. Use `[features].hooks` instead.
+Enable it with `--enable hooks` or `[features].hooks` in config.toml. See https://developers.openai.com/codex/config-basic#feature-flags for details.
+2026-05-23T06:40:14.805963Z  WARN codex_rollout::list: state db discrepancy during find_thread_path_by_id_str_in_subdir: falling_back
+2026-05-23T06:40:14.833539Z  WARN codex_rollout::list: state db discrepancy during find_thread_path_by_id_str_in_subdir: falling_back
+2026-05-23T06:40:14.855084Z  WARN codex_rollout::list: state db discrepancy during find_thread_path_by_id_str_in_subdir: falling_back
+2026-05-23T06:40:14.879302Z  WARN codex_rollout::list: state db discrepancy during find_thread_path_by_id_str_in_subdir: falling_back
+2026-05-23T06:40:14.900847Z  WARN codex_rollout::list: state db discrepancy during find_thread_path_by_id_str_in_subdir: falling_back
+2026-05-23T06:40:14.926230Z  WARN codex_rollout::list: state db discrepancy during find_thread_path_by_id_str_in_subdir: falling_back
+2026-05-23T06:40:14.949138Z  WARN codex_rollout::list: state db discrepancy during find_thread_path_by_id_str_in_subdir: falling_back
+2026-05-23T06:40:14.976590Z  WARN codex_rollout::list: state db discrepancy during find_thread_path_by_id_str_in_subdir: falling_back
+2026-05-23T06:40:15.003347Z  WARN codex_rollout::list: state db discrepancy during find_thread_path_by_id_str_in_subdir: falling_back
+2026-05-23T06:40:15.026654Z  WARN codex_rollout::list: state db discrepancy during find_thread_path_by_id_str_in_subdir: falling_back
+2026-05-23T06:40:15.051170Z  WARN codex_rollout::list: state db discrepancy during find_thread_path_by_id_str_in_subdir: falling_back
+2026-05-23T06:40:15.079096Z  WARN codex_rollout::list: state db discrepancy during find_thread_path_by_id_str_in_subdir: falling_back
+2026-05-23T06:40:15.107039Z  WARN codex_rollout::list: state db discrepancy during find_thread_path_by_id_str_in_subdir: falling_back
+2026-05-23T06:40:15.133410Z  WARN codex_rollout::list: state db discrepancy during find_thread_path_by_id_str_in_subdir: falling_back
+2026-05-23T06:40:15.160812Z  WARN codex_rollout::list: state db discrepancy during find_thread_path_by_id_str_in_subdir: falling_back
+2026-05-23T06:40:15.187755Z  WARN codex_rollout::list: state db discrepancy during find_thread_path_by_id_str_in_subdir: falling_back
+2026-05-23T06:40:15.213789Z  WARN codex_rollout::list: state db discrepancy during find_thread_path_by_id_str_in_subdir: falling_back
+2026-05-23T06:40:15.241567Z  WARN codex_rollout::list: state db discrepancy during find_thread_path_by_id_str_in_subdir: falling_back
+2026-05-23T06:40:15.268306Z  WARN codex_rollout::list: state db discrepancy during find_thread_path_by_id_str_in_subdir: falling_back
+2026-05-23T06:40:15.291993Z  WARN codex_rollout::list: state db discrepancy during find_thread_path_by_id_str_in_subdir: falling_back
+2026-05-23T06:40:15.318165Z  WARN codex_rollout::list: state db discrepancy during find_thread_path_by_id_str_in_subdir: falling_back
+2026-05-23T06:40:15.342255Z  WARN codex_rollout::list: state db discrepancy during find_thread_path_by_id_str_in_subdir: falling_back
+2026-05-23T06:40:15.366135Z  WARN codex_rollout::list: state db discrepancy during find_thread_path_by_id_str_in_subdir: falling_back
+2026-05-23T06:40:15.392737Z  WARN codex_rollout::list: state db discrepancy during find_thread_path_by_id_str_in_subdir: falling_back
+2026-05-23T06:40:15.419730Z  WARN codex_rollout::list: state db discrepancy during find_thread_path_by_id_str_in_subdir: falling_back
+2026-05-23T06:40:15.443937Z  WARN codex_rollout::list: state db discrepancy during find_thread_path_by_id_str_in_subdir: falling_back
+2026-05-23T06:40:15.471053Z  WARN codex_rollout::list: state db discrepancy during find_thread_path_by_id_str_in_subdir: falling_back
+2026-05-23T06:40:15.497821Z  WARN codex_rollout::list: state db discrepancy during find_thread_path_by_id_str_in_subdir: falling_back
+2026-05-23T06:40:15.526001Z  WARN codex_rollout::list: state db discrepancy during find_thread_path_by_id_str_in_subdir: falling_back
+2026-05-23T06:40:18.174890Z  WARN codex_core_skills::loader: ignoring interface.icon_small: icon path must not contain '..'
+2026-05-23T06:40:18.174898Z  WARN codex_core_skills::loader: ignoring interface.icon_large: icon path must not contain '..'
+2026-05-23T06:40:18.175153Z  WARN codex_core_skills::loader: ignoring interface.icon_small: icon path must not contain '..'
+2026-05-23T06:40:18.175157Z  WARN codex_core_skills::loader: ignoring interface.icon_large: icon path must not contain '..'
+2026-05-23T06:40:18.175407Z  WARN codex_core_skills::loader: ignoring interface.icon_small: icon path must not contain '..'
+2026-05-23T06:40:18.175411Z  WARN codex_core_skills::loader: ignoring interface.icon_large: icon path must not contain '..'
+2026-05-23T06:40:18.175663Z  WARN codex_core_skills::loader: ignoring interface.icon_small: icon path must not contain '..'
+2026-05-23T06:40:18.175666Z  WARN codex_core_skills::loader: ignoring interface.icon_large: icon path must not contain '..'
+2026-05-23T06:40:18.175920Z  WARN codex_core_skills::loader: ignoring interface.icon_small: icon path must not contain '..'
+2026-05-23T06:40:18.175924Z  WARN codex_core_skills::loader: ignoring interface.icon_large: icon path must not contain '..'
+2026-05-23T06:40:18.176465Z  WARN codex_core_skills::loader: ignoring interface.icon_small: icon path must not contain '..'
+2026-05-23T06:40:18.176467Z  WARN codex_core_skills::loader: ignoring interface.icon_large: icon path must not contain '..'
+2026-05-23T06:40:18.896592Z  WARN codex_core_skills::loader: ignoring interface.icon_small: icon path must not contain '..'
+2026-05-23T06:40:18.896599Z  WARN codex_core_skills::loader: ignoring interface.icon_large: icon path must not contain '..'
+2026-05-23T06:40:18.896825Z  WARN codex_core_skills::loader: ignoring interface.icon_small: icon path must not contain '..'
+2026-05-23T06:40:18.896829Z  WARN codex_core_skills::loader: ignoring interface.icon_large: icon path must not contain '..'
+2026-05-23T06:40:18.897054Z  WARN codex_core_skills::loader: ignoring interface.icon_small: icon path must not contain '..'
+2026-05-23T06:40:18.897056Z  WARN codex_core_skills::loader: ignoring interface.icon_large: icon path must not contain '..'
+2026-05-23T06:40:18.897275Z  WARN codex_core_skills::loader: ignoring interface.icon_small: icon path must not contain '..'
+2026-05-23T06:40:18.897277Z  WARN codex_core_skills::loader: ignoring interface.icon_large: icon path must not contain '..'
+2026-05-23T06:40:18.897497Z  WARN codex_core_skills::loader: ignoring interface.icon_small: icon path must not contain '..'
+2026-05-23T06:40:18.897499Z  WARN codex_core_skills::loader: ignoring interface.icon_large: icon path must not contain '..'
+2026-05-23T06:40:18.897973Z  WARN codex_core_skills::loader: ignoring interface.icon_small: icon path must not contain '..'
+2026-05-23T06:40:18.897975Z  WARN codex_core_skills::loader: ignoring interface.icon_large: icon path must not contain '..'
+codex
+I’ll stay inside the isolated solver bundle only, read the visible files there, and return the answers as JSONL exactly as requested.
+exec
+/bin/zsh -lc 'pwd && rg --files -uu' in /Users/rohit/Documents/Workspace/Coding/benchbench/experiments/004_feedback_sweep_20260522_225208/run/isolated_solver_gpt_5_5__solved_by__gpt_5_5
+ succeeded in 0ms:
+/Users/rohit/Documents/Workspace/Coding/benchbench/experiments/004_feedback_sweep_20260522_225208/run/isolated_solver_gpt_5_5__solved_by__gpt_5_5
+SOLVER_MANIFEST.json
+items_private_sample.jsonl
+assets/cdor-007.md
+assets/cdor-023.md
+assets/cdor-017.md
+assets/cdor-003.md
+assets/cdor-013.md
+assets/cdor-027.md
+assets/cdor-002.md
+assets/cdor-012.md
+assets/cdor-026.md
+assets/cdor-006.md
+assets/cdor-022.md
+assets/cdor-016.md
+assets/cdor-029.md
+assets/cdor-009.md
+assets/cdor-019.md
+assets/cdor-008.md
+assets/cdor-018.md
+assets/cdor-028.md
+assets/cdor-001.md
+assets/cdor-011.md
+assets/cdor-025.md
+assets/cdor-005.md
+assets/cdor-021.md
+assets/cdor-015.md
+assets/cdor-004.md
+assets/cdor-030.md
+assets/cdor-020.md
+assets/cdor-014.md
+assets/cdor-010.md
+assets/cdor-024.md
+solver_packet.md
+
+2026-05-23T06:40:23.103252Z  WARN codex_core_skills::loader: ignoring interface.icon_small: icon path must not contain '..'
+2026-05-23T06:40:23.103261Z  WARN codex_core_skills::loader: ignoring interface.icon_large: icon path must not contain '..'
+2026-05-23T06:40:23.103505Z  WARN codex_core_skills::loader: ignoring interface.icon_small: icon path must not contain '..'
+2026-05-23T06:40:23.103508Z  WARN codex_core_skills::loader: ignoring interface.icon_large: icon path must not contain '..'
+2026-05-23T06:40:23.103747Z  WARN codex_core_skills::loader: ignoring interface.icon_small: icon path must not contain '..'
+2026-05-23T06:40:23.103750Z  WARN codex_core_skills::loader: ignoring interface.icon_large: icon path must not contain '..'
+2026-05-23T06:40:23.103986Z  WARN codex_core_skills::loader: ignoring interface.icon_small: icon path must not contain '..'
+2026-05-23T06:40:23.103988Z  WARN codex_core_skills::loader: ignoring interface.icon_large: icon path must not contain '..'
+2026-05-23T06:40:23.104226Z  WARN codex_core_skills::loader: ignoring interface.icon_small: icon path must not contain '..'
+2026-05-23T06:40:23.104228Z  WARN codex_core_skills::loader: ignoring interface.icon_large: icon path must not contain '..'
+2026-05-23T06:40:23.104762Z  WARN codex_core_skills::loader: ignoring interface.icon_small: icon path must not contain '..'
+2026-05-23T06:40:23.104765Z  WARN codex_core_skills::loader: ignoring interface.icon_large: icon path must not contain '..'
+codex
+I’ve got the file list. Next I’m reading the manifest, packet, item list, and all asset notes so I can solve against the bundle’s own evidence.
+exec
+/bin/zsh -lc "sed -n '1,220p' SOLVER_MANIFEST.json" in /Users/rohit/Documents/Workspace/Coding/benchbench/experiments/004_feedback_sweep_20260522_225208/run/isolated_solver_gpt_5_5__solved_by__gpt_5_5
+ succeeded in 0ms:
+{
+  "asset_root": "assets",
+  "benchmark": "Cross-Document Obligation Resolution",
+  "forbidden_files": [
+    "gold_private_sample.jsonl",
+    "generator.py",
+    "verifier.py",
+    "scorer.py",
+    "private_audit_traces.jsonl"
+  ],
+  "items_file": "items_private_sample.jsonl",
+  "prediction_schema": {
+    "answer": "canonical JSON string or object",
+    "id": "string"
+  },
+  "sample_count": 30,
+  "version": "1.0"
+}
+
+exec
+/bin/zsh -lc "sed -n '1,260p' solver_packet.md" in /Users/rohit/Documents/Workspace/Coding/benchbench/experiments/004_feedback_sweep_20260522_225208/run/isolated_solver_gpt_5_5__solved_by__gpt_5_5
+ succeeded in 0ms:
+# Cross-Document Obligation Resolution Solver Packet
+
+You receive one markdown dossier per item. Each dossier contains all facts and all live rules needed to answer the item.
+
+For each item, submit one JSONL row with exactly:
+
+```json
+{"id":"cdor-001","answer":{"notify_by":"YYYY-MM-DD","board_review":"required","remediation":"...","hold":"...","evidence_codes":["..."]}}
+```
+
+The `answer` may also be a JSON-encoded string containing the same object. Use only the public dossier. Do not infer from item order or from any generator.
+
+Business days exclude Saturdays and Sundays. No public holidays are used.
+
+exec
+/bin/zsh -lc "sed -n '1,220p' items_private_sample.jsonl" in /Users/rohit/Documents/Workspace/Coding/benchbench/experiments/004_feedback_sweep_20260522_225208/run/isolated_solver_gpt_5_5__solved_by__gpt_5_5
+ succeeded in 0ms:
+{"dossier_path":"assets/cdor-001.md","id":"cdor-001"}
+{"dossier_path":"assets/cdor-002.md","id":"cdor-002"}
+{"dossier_path":"assets/cdor-003.md","id":"cdor-003"}
+{"dossier_path":"assets/cdor-004.md","id":"cdor-004"}
+{"dossier_path":"assets/cdor-005.md","id":"cdor-005"}
+{"dossier_path":"assets/cdor-006.md","id":"cdor-006"}
+{"dossier_path":"assets/cdor-007.md","id":"cdor-007"}
+{"dossier_path":"assets/cdor-008.md","id":"cdor-008"}
+{"dossier_path":"assets/cdor-009.md","id":"cdor-009"}
+{"dossier_path":"assets/cdor-010.md","id":"cdor-010"}
+{"dossier_path":"assets/cdor-011.md","id":"cdor-011"}
+{"dossier_path":"assets/cdor-012.md","id":"cdor-012"}
+{"dossier_path":"assets/cdor-013.md","id":"cdor-013"}
+{"dossier_path":"assets/cdor-014.md","id":"cdor-014"}
+{"dossier_path":"assets/cdor-015.md","id":"cdor-015"}
+{"dossier_path":"assets/cdor-016.md","id":"cdor-016"}
+{"dossier_path":"assets/cdor-017.md","id":"cdor-017"}
+{"dossier_path":"assets/cdor-018.md","id":"cdor-018"}
+{"dossier_path":"assets/cdor-019.md","id":"cdor-019"}
+{"dossier_path":"assets/cdor-020.md","id":"cdor-020"}
+{"dossier_path":"assets/cdor-021.md","id":"cdor-021"}
+{"dossier_path":"assets/cdor-022.md","id":"cdor-022"}
+{"dossier_path":"assets/cdor-023.md","id":"cdor-023"}
+{"dossier_path":"assets/cdor-024.md","id":"cdor-024"}
+{"dossier_path":"assets/cdor-025.md","id":"cdor-025"}
+{"dossier_path":"assets/cdor-026.md","id":"cdor-026"}
+{"dossier_path":"assets/cdor-027.md","id":"cdor-027"}
+{"dossier_path":"assets/cdor-028.md","id":"cdor-028"}
+{"dossier_path":"assets/cdor-029.md","id":"cdor-029"}
+{"dossier_path":"assets/cdor-030.md","id":"cdor-030"}
+
+exec
+/bin/zsh -lc "for f in assets/*.md; do printf '\\n### %s\\n' \""'$f"; sed -n '"'1,220p' \""'$f"; done' in /Users/rohit/Documents/Workspace/Coding/benchbench/experiments/004_feedback_sweep_20260522_225208/run/isolated_solver_gpt_5_5__solved_by__gpt_5_5
+ succeeded in 0ms:
+
+### assets/cdor-001.md
+# Dossier cdor-001: Incident Reconciliation Packet
+## Intake Note
+Region: Westmere. Channel: phone desk. Incident type: record mismatch. Cause logged by intake: software migration.
+The operating date was 2026-04-07; quality office opened the case on 2026-04-07. The affected count currently stands at 123. Severity entered in the local register: red.
+Vulnerable-population flag: no. Cross-region service touch: no. Comparable incidents in the preceding 90 days: 1. Consent repair flag: yes.
+
+## Procedure Manual Excerpt, effective before current amendments
+Manual date 2026-01-15. Amber matters are normally due in 10 business days after discovery; red matters in 5; critical matters in 2. A board review was originally required only for critical matters. Local manager signoff was the ordinary hold.
+
+## Amendment Log
+Amendment posted 2026-03-18. Where affected count is at least 100, notification must be no later than 3 business days. A vulnerable-population flag shortens the outside limit to 4 business days. Cross-region service touch shortens it to 2 business days. Two or more comparable incidents in the prior 90 days shortens it to 1 business day. Apply the strictest live deadline, not the most recent sentence.
+For amber matters caused by vendor outage or software migration, add a 2-business-day grace period only if affected count is below 50 and there is no vulnerable-population flag. This grace rule never extends red or critical cases.
+
+## Board and Hold Rules
+Board review is required for critical matters, cross-region matters, and repeat incidents with at least two comparable incidents in 90 days. For red matters, board review is conditionally required when either count is at least 100 or a vulnerable group is involved. Otherwise it is not required.
+Freeze new intake for critical cases with count at least 100. Require regional supervisor signoff for repeat incidents with two or more prior comparables unless the incident type is missed handoff. For amber client-no-show cases, no hold is imposed. All remaining cases use local manager signoff.
+
+## Remediation Rules
+If consent repair is flagged and a vulnerable group is involved, use individual_notice_and_consent_repair. If the incident is duplicate intake and that first rule does not apply, use merge_and_audit_duplicate_records. If the cause is vendor outage or software migration and neither earlier remediation applies, use system_fix_with_retrospective_sample. All other cases use manager_attestation_only.
+
+## Required Answer Format
+Return one JSON object with exactly these keys: notify_by, board_review, remediation, hold, evidence_codes. Dates must be ISO YYYY-MM-DD. evidence_codes must be a sorted list of the public trigger codes that set the notification deadline.
+
+### assets/cdor-002.md
+# Dossier cdor-002: Incident Reconciliation Packet
+## Intake Note
+Region: South Vale. Channel: partner API. Incident type: record mismatch. Cause logged by intake: vendor outage.
+The operating date was 2026-01-14; quality office opened the case on 2026-01-17. The affected count currently stands at 98. Severity entered in the local register: red.
+Vulnerable-population flag: no. Cross-region service touch: no. Comparable incidents in the preceding 90 days: 0. Consent repair flag: no.
+
+## Procedure Manual Excerpt, effective before current amendments
+Manual date 2025-12-07. Amber matters are normally due in 10 business days after discovery; red matters in 5; critical matters in 2. A board review was originally required only for critical matters. Local manager signoff was the ordinary hold.
+
+## Amendment Log
+Amendment posted 2025-12-27. Where affected count is at least 100, notification must be no later than 3 business days. A vulnerable-population flag shortens the outside limit to 4 business days. Cross-region service touch shortens it to 2 business days. Two or more comparable incidents in the prior 90 days shortens it to 1 business day. Apply the strictest live deadline, not the most recent sentence.
+For amber matters caused by vendor outage or software migration, add a 2-business-day grace period only if affected count is below 50 and there is no vulnerable-population flag. This grace rule never extends red or critical cases.
+
+## Board and Hold Rules
+Board review is required for critical matters, cross-region matters, and repeat incidents with at least two comparable incidents in 90 days. For red matters, board review is conditionally required when either count is at least 100 or a vulnerable group is involved. Otherwise it is not required.
+Freeze new intake for critical cases with count at least 100. Require regional supervisor signoff for repeat incidents with two or more prior comparables unless the incident type is missed handoff. For amber client-no-show cases, no hold is imposed. All remaining cases use local manager signoff.
+
+## Remediation Rules
+If consent repair is flagged and a vulnerable group is involved, use individual_notice_and_consent_repair. If the incident is duplicate intake and that first rule does not apply, use merge_and_audit_duplicate_records. If the cause is vendor outage or software migration and neither earlier remediation applies, use system_fix_with_retrospective_sample. All other cases use manager_attestation_only.
+
+## Required Answer Format
+Return one JSON object with exactly these keys: notify_by, board_review, remediation, hold, evidence_codes. Dates must be ISO YYYY-MM-DD. evidence_codes must be a sorted list of the public trigger codes that set the notification deadline.
+
+### assets/cdor-003.md
+# Dossier cdor-003: Incident Reconciliation Packet
+## Intake Note
+Region: Westmere. Channel: partner API. Incident type: record mismatch. Cause logged by intake: vendor outage.
+The operating date was 2026-03-14; quality office opened the case on 2026-03-16. The affected count currently stands at 117. Severity entered in the local register: amber.
+Vulnerable-population flag: yes. Cross-region service touch: no. Comparable incidents in the preceding 90 days: 1. Consent repair flag: no.
+
+## Procedure Manual Excerpt, effective before current amendments
+Manual date 2026-02-10. Amber matters are normally due in 10 business days after discovery; red matters in 5; critical matters in 2. A board review was originally required only for critical matters. Local manager signoff was the ordinary hold.
+
+## Amendment Log
+Amendment posted 2026-03-03. Where affected count is at least 100, notification must be no later than 3 business days. A vulnerable-population flag shortens the outside limit to 4 business days. Cross-region service touch shortens it to 2 business days. Two or more comparable incidents in the prior 90 days shortens it to 1 business day. Apply the strictest live deadline, not the most recent sentence.
+For amber matters caused by vendor outage or software migration, add a 2-business-day grace period only if affected count is below 50 and there is no vulnerable-population flag. This grace rule never extends red or critical cases.
+
+## Board and Hold Rules
+Board review is required for critical matters, cross-region matters, and repeat incidents with at least two comparable incidents in 90 days. For red matters, board review is conditionally required when either count is at least 100 or a vulnerable group is involved. Otherwise it is not required.
+Freeze new intake for critical cases with count at least 100. Require regional supervisor signoff for repeat incidents with two or more prior comparables unless the incident type is missed handoff. For amber client-no-show cases, no hold is imposed. All remaining cases use local manager signoff.
+
+## Remediation Rules
+If consent repair is flagged and a vulnerable group is involved, use individual_notice_and_consent_repair. If the incident is duplicate intake and that first rule does not apply, use merge_and_audit_duplicate_records. If the cause is vendor outage or software migration and neither earlier remediation applies, use system_fix_with_retrospective_sample. All other cases use manager_attestation_only.
+
+## Required Answer Format
+Return one JSON object with exactly these keys: notify_by, board_review, remediation, hold, evidence_codes. Dates must be ISO YYYY-MM-DD. evidence_codes must be a sorted list of the public trigger codes that set the notification deadline.
+
+### assets/cdor-004.md
+# Dossier cdor-004: Incident Reconciliation Packet
+## Intake Note
+Region: South Vale. Channel: field kiosk. Incident type: record mismatch. Cause logged by intake: software migration.
+The operating date was 2026-04-12; quality office opened the case on 2026-04-13. The affected count currently stands at 120. Severity entered in the local register: red.
+Vulnerable-population flag: no. Cross-region service touch: no. Comparable incidents in the preceding 90 days: 1. Consent repair flag: no.
+
+## Procedure Manual Excerpt, effective before current amendments
+Manual date 2026-03-11. Amber matters are normally due in 10 business days after discovery; red matters in 5; critical matters in 2. A board review was originally required only for critical matters. Local manager signoff was the ordinary hold.
+
+## Amendment Log
+Amendment posted 2026-03-29. Where affected count is at least 100, notification must be no later than 3 business days. A vulnerable-population flag shortens the outside limit to 4 business days. Cross-region service touch shortens it to 2 business days. Two or more comparable incidents in the prior 90 days shortens it to 1 business day. Apply the strictest live deadline, not the most recent sentence.
+For amber matters caused by vendor outage or software migration, add a 2-business-day grace period only if affected count is below 50 and there is no vulnerable-population flag. This grace rule never extends red or critical cases.
+
+## Board and Hold Rules
+Board review is required for critical matters, cross-region matters, and repeat incidents with at least two comparable incidents in 90 days. For red matters, board review is conditionally required when either count is at least 100 or a vulnerable group is involved. Otherwise it is not required.
+Freeze new intake for critical cases with count at least 100. Require regional supervisor signoff for repeat incidents with two or more prior comparables unless the incident type is missed handoff. For amber client-no-show cases, no hold is imposed. All remaining cases use local manager signoff.
+
+## Remediation Rules
+If consent repair is flagged and a vulnerable group is involved, use individual_notice_and_consent_repair. If the incident is duplicate intake and that first rule does not apply, use merge_and_audit_duplicate_records. If the cause is vendor outage or software migration and neither earlier remediation applies, use system_fix_with_retrospective_sample. All other cases use manager_attestation_only.
+
+## Required Answer Format
+Return one JSON object with exactly these keys: notify_by, board_review, remediation, hold, evidence_codes. Dates must be ISO YYYY-MM-DD. evidence_codes must be a sorted list of the public trigger codes that set the notification deadline.
+
+### assets/cdor-005.md
+# Dossier cdor-005: Incident Reconciliation Packet
+## Intake Note
+Region: Westmere. Channel: web portal. Incident type: missed handoff. Cause logged by intake: client no-show.
+The operating date was 2026-02-11; quality office opened the case on 2026-02-13. The affected count currently stands at 168. Severity entered in the local register: amber.
+Vulnerable-population flag: no. Cross-region service touch: no. Comparable incidents in the preceding 90 days: 1. Consent repair flag: no.
+
+## Procedure Manual Excerpt, effective before current amendments
+Manual date 2025-12-12. Amber matters are normally due in 10 business days after discovery; red matters in 5; critical matters in 2. A board review was originally required only for critical matters. Local manager signoff was the ordinary hold.
+
+## Amendment Log
+Amendment posted 2026-02-05. Where affected count is at least 100, notification must be no later than 3 business days. A vulnerable-population flag shortens the outside limit to 4 business days. Cross-region service touch shortens it to 2 business days. Two or more comparable incidents in the prior 90 days shortens it to 1 business day. Apply the strictest live deadline, not the most recent sentence.
+For amber matters caused by vendor outage or software migration, add a 2-business-day grace period only if affected count is below 50 and there is no vulnerable-population flag. This grace rule never extends red or critical cases.
+
+## Board and Hold Rules
+Board review is required for critical matters, cross-region matters, and repeat incidents with at least two comparable incidents in 90 days. For red matters, board review is conditionally required when either count is at least 100 or a vulnerable group is involved. Otherwise it is not required.
+Freeze new intake for critical cases with count at least 100. Require regional supervisor signoff for repeat incidents with two or more prior comparables unless the incident type is missed handoff. For amber client-no-show cases, no hold is imposed. All remaining cases use local manager signoff.
+
+## Remediation Rules
+If consent repair is flagged and a vulnerable group is involved, use individual_notice_and_consent_repair. If the incident is duplicate intake and that first rule does not apply, use merge_and_audit_duplicate_records. If the cause is vendor outage or software migration and neither earlier remediation applies, use system_fix_with_retrospective_sample. All other cases use manager_attestation_only.
+
+## Required Answer Format
+Return one JSON object with exactly these keys: notify_by, board_review, remediation, hold, evidence_codes. Dates must be ISO YYYY-MM-DD. evidence_codes must be a sorted list of the public trigger codes that set the notification deadline.
+
+### assets/cdor-006.md
+# Dossier cdor-006: Incident Reconciliation Packet
+## Intake Note
+Region: Central Borough. Channel: partner API. Incident type: escalation delay. Cause logged by intake: weather closure.
+The operating date was 2026-04-15; quality office opened the case on 2026-04-19. The affected count currently stands at 211. Severity entered in the local register: amber.
+Vulnerable-population flag: no. Cross-region service touch: yes. Comparable incidents in the preceding 90 days: 1. Consent repair flag: yes.
+
+## Procedure Manual Excerpt, effective before current amendments
+Manual date 2026-03-10. Amber matters are normally due in 10 business days after discovery; red matters in 5; critical matters in 2. A board review was originally required only for critical matters. Local manager signoff was the ordinary hold.
+
+## Amendment Log
+Amendment posted 2026-04-04. Where affected count is at least 100, notification must be no later than 3 business days. A vulnerable-population flag shortens the outside limit to 4 business days. Cross-region service touch shortens it to 2 business days. Two or more comparable incidents in the prior 90 days shortens it to 1 business day. Apply the strictest live deadline, not the most recent sentence.
+For amber matters caused by vendor outage or software migration, add a 2-business-day grace period only if affected count is below 50 and there is no vulnerable-population flag. This grace rule never extends red or critical cases.
+
+## Board and Hold Rules
+Board review is required for critical matters, cross-region matters, and repeat incidents with at least two comparable incidents in 90 days. For red matters, board review is conditionally required when either count is at least 100 or a vulnerable group is involved. Otherwise it is not required.
+Freeze new intake for critical cases with count at least 100. Require regional supervisor signoff for repeat incidents with two or more prior comparables unless the incident type is missed handoff. For amber client-no-show cases, no hold is imposed. All remaining cases use local manager signoff.
+
+## Remediation Rules
+If consent repair is flagged and a vulnerable group is involved, use individual_notice_and_consent_repair. If the incident is duplicate intake and that first rule does not apply, use merge_and_audit_duplicate_records. If the cause is vendor outage or software migration and neither earlier remediation applies, use system_fix_with_retrospective_sample. All other cases use manager_attestation_only.
+
+## Required Answer Format
+Return one JSON object with exactly these keys: notify_by, board_review, remediation, hold, evidence_codes. Dates must be ISO YYYY-MM-DD. evidence_codes must be a sorted list of the public trigger codes that set the notification deadline.
+
+### assets/cdor-007.md
+# Dossier cdor-007: Incident Reconciliation Packet
+## Intake Note
+Region: Northbridge. Channel: phone desk. Incident type: escalation delay. Cause logged by intake: weather closure.
+The operating date was 2026-02-17; quality office opened the case on 2026-02-19. The affected count currently stands at 40. Severity entered in the local register: red.
+Vulnerable-population flag: yes. Cross-region service touch: yes. Comparable incidents in the preceding 90 days: 2. Consent repair flag: no.
+
+## Procedure Manual Excerpt, effective before current amendments
+Manual date 2026-01-08. Amber matters are normally due in 10 business days after discovery; red matters in 5; critical matters in 2. A board review was originally required only for critical matters. Local manager signoff was the ordinary hold.
+
+## Amendment Log
+Amendment posted 2026-02-10. Where affected count is at least 100, notification must be no later than 3 business days. A vulnerable-population flag shortens the outside limit to 4 business days. Cross-region service touch shortens it to 2 business days. Two or more comparable incidents in the prior 90 days shortens it to 1 business day. Apply the strictest live deadline, not the most recent sentence.
+For amber matters caused by vendor outage or software migration, add a 2-business-day grace period only if affected count is below 50 and there is no vulnerable-population flag. This grace rule never extends red or critical cases.
+
+## Board and Hold Rules
+Board review is required for critical matters, cross-region matters, and repeat incidents with at least two comparable incidents in 90 days. For red matters, board review is conditionally required when either count is at least 100 or a vulnerable group is involved. Otherwise it is not required.
+Freeze new intake for critical cases with count at least 100. Require regional supervisor signoff for repeat incidents with two or more prior comparables unless the incident type is missed handoff. For amber client-no-show cases, no hold is imposed. All remaining cases use local manager signoff.
+
+## Remediation Rules
+If consent repair is flagged and a vulnerable group is involved, use individual_notice_and_consent_repair. If the incident is duplicate intake and that first rule does not apply, use merge_and_audit_duplicate_records. If the cause is vendor outage or software migration and neither earlier remediation applies, use system_fix_with_retrospective_sample. All other cases use manager_attestation_only.
+
+## Required Answer Format
+Return one JSON object with exactly these keys: notify_by, board_review, remediation, hold, evidence_codes. Dates must be ISO YYYY-MM-DD. evidence_codes must be a sorted list of the public trigger codes that set the notification deadline.
+
+### assets/cdor-008.md
+# Dossier cdor-008: Incident Reconciliation Packet
+## Intake Note
+Region: South Vale. Channel: field kiosk. Incident type: late consent. Cause logged by intake: software migration.
+The operating date was 2026-04-10; quality office opened the case on 2026-04-11. The affected count currently stands at 104. Severity entered in the local register: critical.
+Vulnerable-population flag: yes. Cross-region service touch: no. Comparable incidents in the preceding 90 days: 0. Consent repair flag: yes.
+
+## Procedure Manual Excerpt, effective before current amendments
+Manual date 2026-03-09. Amber matters are normally due in 10 business days after discovery; red matters in 5; critical matters in 2. A board review was originally required only for critical matters. Local manager signoff was the ordinary hold.
+
+## Amendment Log
+Amendment posted 2026-03-26. Where affected count is at least 100, notification must be no later than 3 business days. A vulnerable-population flag shortens the outside limit to 4 business days. Cross-region service touch shortens it to 2 business days. Two or more comparable incidents in the prior 90 days shortens it to 1 business day. Apply the strictest live deadline, not the most recent sentence.
+For amber matters caused by vendor outage or software migration, add a 2-business-day grace period only if affected count is below 50 and there is no vulnerable-population flag. This grace rule never extends red or critical cases.
+
+## Board and Hold Rules
+Board review is required for critical matters, cross-region matters, and repeat incidents with at least two comparable incidents in 90 days. For red matters, board review is conditionally required when either count is at least 100 or a vulnerable group is involved. Otherwise it is not required.
+Freeze new intake for critical cases with count at least 100. Require regional supervisor signoff for repeat incidents with two or more prior comparables unless the incident type is missed handoff. For amber client-no-show cases, no hold is imposed. All remaining cases use local manager signoff.
+
+## Remediation Rules
+If consent repair is flagged and a vulnerable group is involved, use individual_notice_and_consent_repair. If the incident is duplicate intake and that first rule does not apply, use merge_and_audit_duplicate_records. If the cause is vendor outage or software migration and neither earlier remediation applies, use system_fix_with_retrospective_sample. All other cases use manager_attestation_only.
+
+## Required Answer Format
+Return one JSON object with exactly these keys: notify_by, board_review, remediation, hold, evidence_codes. Dates must be ISO YYYY-MM-DD. evidence_codes must be a sorted list of the public trigger codes that set the notification deadline.
+
+### assets/cdor-009.md
+# Dossier cdor-009: Incident Reconciliation Packet
+## Intake Note
+Region: Central Borough. Channel: field kiosk. Incident type: late consent. Cause logged by intake: software migration.
+The operating date was 2026-03-11; quality office opened the case on 2026-03-14. The affected count currently stands at 89. Severity entered in the local register: amber.
+Vulnerable-population flag: yes. Cross-region service touch: no. Comparable incidents in the preceding 90 days: 1. Consent repair flag: yes.
+
+## Procedure Manual Excerpt, effective before current amendments
+Manual date 2025-12-28. Amber matters are normally due in 10 business days after discovery; red matters in 5; critical matters in 2. A board review was originally required only for critical matters. Local manager signoff was the ordinary hold.
+
+## Amendment Log
+Amendment posted 2026-02-26. Where affected count is at least 100, notification must be no later than 3 business days. A vulnerable-population flag shortens the outside limit to 4 business days. Cross-region service touch shortens it to 2 business days. Two or more comparable incidents in the prior 90 days shortens it to 1 business day. Apply the strictest live deadline, not the most recent sentence.
+For amber matters caused by vendor outage or software migration, add a 2-business-day grace period only if affected count is below 50 and there is no vulnerable-population flag. This grace rule never extends red or critical cases.
+
+## Board and Hold Rules
+Board review is required for critical matters, cross-region matters, and repeat incidents with at least two comparable incidents in 90 days. For red matters, board review is conditionally required when either count is at least 100 or a vulnerable group is involved. Otherwise it is not required.
+Freeze new intake for critical cases with count at least 100. Require regional supervisor signoff for repeat incidents with two or more prior comparables unless the incident type is missed handoff. For amber client-no-show cases, no hold is imposed. All remaining cases use local manager signoff.
+
+## Remediation Rules
+If consent repair is flagged and a vulnerable group is involved, use individual_notice_and_consent_repair. If the incident is duplicate intake and that first rule does not apply, use merge_and_audit_duplicate_records. If the cause is vendor outage or software migration and neither earlier remediation applies, use system_fix_with_retrospective_sample. All other cases use manager_attestation_only.
+
+## Required Answer Format
+Return one JSON object with exactly these keys: notify_by, board_review, remediation, hold, evidence_codes. Dates must be ISO YYYY-MM-DD. evidence_codes must be a sorted list of the public trigger codes that set the notification deadline.
+
+### assets/cdor-010.md
+# Dossier cdor-010: Incident Reconciliation Packet
+## Intake Note
+Region: Westmere. Channel: clinic. Incident type: missed handoff. Cause logged by intake: vendor outage.
+The operating date was 2026-03-04; quality office opened the case on 2026-03-06. The affected count currently stands at 46. Severity entered in the local register: critical.
+Vulnerable-population flag: no. Cross-region service touch: no. Comparable incidents in the preceding 90 days: 1. Consent repair flag: no.
+
+## Procedure Manual Excerpt, effective before current amendments
+Manual date 2026-01-02. Amber matters are normally due in 10 business days after discovery; red matters in 5; critical matters in 2. A board review was originally required only for critical matters. Local manager signoff was the ordinary hold.
+
+## Amendment Log
+Amendment posted 2026-02-23. Where affected count is at least 100, notification must be no later than 3 business days. A vulnerable-population flag shortens the outside limit to 4 business days. Cross-region service touch shortens it to 2 business days. Two or more comparable incidents in the prior 90 days shortens it to 1 business day. Apply the strictest live deadline, not the most recent sentence.
+For amber matters caused by vendor outage or software migration, add a 2-business-day grace period only if affected count is below 50 and there is no vulnerable-population flag. This grace rule never extends red or critical cases.
+
+## Board and Hold Rules
+Board review is required for critical matters, cross-region matters, and repeat incidents with at least two comparable incidents in 90 days. For red matters, board review is conditionally required when either count is at least 100 or a vulnerable group is involved. Otherwise it is not required.
+Freeze new intake for critical cases with count at least 100. Require regional supervisor signoff for repeat incidents with two or more prior comparables unless the incident type is missed handoff. For amber client-no-show cases, no hold is imposed. All remaining cases use local manager signoff.
+
+## Remediation Rules
+If consent repair is flagged and a vulnerable group is involved, use individual_notice_and_consent_repair. If the incident is duplicate intake and that first rule does not apply, use merge_and_audit_duplicate_records. If the cause is vendor outage or software migration and neither earlier remediation applies, use system_fix_with_retrospective_sample. All other cases use manager_attestation_only.
+
+## Required Answer Format
+Return one JSON object with exactly these keys: notify_by, board_review, remediation, hold, evidence_codes. Dates must be ISO YYYY-MM-DD. evidence_codes must be a sorted list of the public trigger codes that set the notification deadline.
+
+### assets/cdor-011.md
+# Dossier cdor-011: Incident Reconciliation Packet
+## Intake Note
+Region: Northbridge. Channel: phone desk. Incident type: record mismatch. Cause logged by intake: client no-show.
+The operating date was 2026-04-05; quality office opened the case on 2026-04-06. The affected count currently stands at 41. Severity entered in the local register: amber.
+Vulnerable-population flag: yes. Cross-region service touch: no. Comparable incidents in the preceding 90 days: 0. Consent repair flag: no.
+
+## Procedure Manual Excerpt, effective before current amendments
+Manual date 2026-02-12. Amber matters are normally due in 10 business days after discovery; red matters in 5; critical matters in 2. A board review was originally required only for critical matters. Local manager signoff was the ordinary hold.
+
+## Amendment Log
+Amendment posted 2026-03-17. Where affected count is at least 100, notification must be no later than 3 business days. A vulnerable-population flag shortens the outside limit to 4 business days. Cross-region service touch shortens it to 2 business days. Two or more comparable incidents in the prior 90 days shortens it to 1 business day. Apply the strictest live deadline, not the most recent sentence.
+For amber matters caused by vendor outage or software migration, add a 2-business-day grace period only if affected count is below 50 and there is no vulnerable-population flag. This grace rule never extends red or critical cases.
+
+## Board and Hold Rules
+Board review is required for critical matters, cross-region matters, and repeat incidents with at least two comparable incidents in 90 days. For red matters, board review is conditionally required when either count is at least 100 or a vulnerable group is involved. Otherwise it is not required.
+Freeze new intake for critical cases with count at least 100. Require regional supervisor signoff for repeat incidents with two or more prior comparables unless the incident type is missed handoff. For amber client-no-show cases, no hold is imposed. All remaining cases use local manager signoff.
+
+## Remediation Rules
+If consent repair is flagged and a vulnerable group is involved, use individual_notice_and_consent_repair. If the incident is duplicate intake and that first rule does not apply, use merge_and_audit_duplicate_records. If the cause is vendor outage or software migration and neither earlier remediation applies, use system_fix_with_retrospective_sample. All other cases use manager_attestation_only.
+
+## Required Answer Format
+Return one JSON object with exactly these keys: notify_by, board_review, remediation, hold, evidence_codes. Dates must be ISO YYYY-MM-DD. evidence_codes must be a sorted list of the public trigger codes that set the notification deadline.
+
+### assets/cdor-012.md
+# Dossier cdor-012: Incident Reconciliation Packet
+## Intake Note
+Region: South Vale. Channel: field kiosk. Incident type: missed handoff. Cause logged by intake: weather closure.
+The operating date was 2026-01-13; quality office opened the case on 2026-01-16. The affected count currently stands at 223. Severity entered in the local register: red.
+Vulnerable-population flag: yes. Cross-region service touch: no. Comparable incidents in the preceding 90 days: 1. Consent repair flag: no.
+
+## Procedure Manual Excerpt, effective before current amendments
+Manual date 2025-11-16. Amber matters are normally due in 10 business days after discovery; red matters in 5; critical matters in 2. A board review was originally required only for critical matters. Local manager signoff was the ordinary hold.
+
+## Amendment Log
+Amendment posted 2026-01-03. Where affected count is at least 100, notification must be no later than 3 business days. A vulnerable-population flag shortens the outside limit to 4 business days. Cross-region service touch shortens it to 2 business days. Two or more comparable incidents in the prior 90 days shortens it to 1 business day. Apply the strictest live deadline, not the most recent sentence.
+For amber matters caused by vendor outage or software migration, add a 2-business-day grace period only if affected count is below 50 and there is no vulnerable-population flag. This grace rule never extends red or critical cases.
+
+## Board and Hold Rules
+Board review is required for critical matters, cross-region matters, and repeat incidents with at least two comparable incidents in 90 days. For red matters, board review is conditionally required when either count is at least 100 or a vulnerable group is involved. Otherwise it is not required.
+Freeze new intake for critical cases with count at least 100. Require regional supervisor signoff for repeat incidents with two or more prior comparables unless the incident type is missed handoff. For amber client-no-show cases, no hold is imposed. All remaining cases use local manager signoff.
+
+## Remediation Rules
+If consent repair is flagged and a vulnerable group is involved, use individual_notice_and_consent_repair. If the incident is duplicate intake and that first rule does not apply, use merge_and_audit_duplicate_records. If the cause is vendor outage or software migration and neither earlier remediation applies, use system_fix_with_retrospective_sample. All other cases use manager_attestation_only.
+
+## Required Answer Format
+Return one JSON object with exactly these keys: notify_by, board_review, remediation, hold, evidence_codes. Dates must be ISO YYYY-MM-DD. evidence_codes must be a sorted list of the public trigger codes that set the notification deadline.
+
+### assets/cdor-013.md
+# Dossier cdor-013: Incident Reconciliation Packet
+## Intake Note
+Region: Central Borough. Channel: clinic. Incident type: late consent. Cause logged by intake: client no-show.
+The operating date was 2026-01-05; quality office opened the case on 2026-01-05. The affected count currently stands at 185. Severity entered in the local register: amber.
+Vulnerable-population flag: yes. Cross-region service touch: yes. Comparable incidents in the preceding 90 days: 2. Consent repair flag: yes.
+
+## Procedure Manual Excerpt, effective before current amendments
+Manual date 2025-10-13. Amber matters are normally due in 10 business days after discovery; red matters in 5; critical matters in 2. A board review was originally required only for critical matters. Local manager signoff was the ordinary hold.
+
+## Amendment Log
+Amendment posted 2025-12-21. Where affected count is at least 100, notification must be no later than 3 business days. A vulnerable-population flag shortens the outside limit to 4 business days. Cross-region service touch shortens it to 2 business days. Two or more comparable incidents in the prior 90 days shortens it to 1 business day. Apply the strictest live deadline, not the most recent sentence.
+For amber matters caused by vendor outage or software migration, add a 2-business-day grace period only if affected count is below 50 and there is no vulnerable-population flag. This grace rule never extends red or critical cases.
+
+## Board and Hold Rules
+Board review is required for critical matters, cross-region matters, and repeat incidents with at least two comparable incidents in 90 days. For red matters, board review is conditionally required when either count is at least 100 or a vulnerable group is involved. Otherwise it is not required.
+Freeze new intake for critical cases with count at least 100. Require regional supervisor signoff for repeat incidents with two or more prior comparables unless the incident type is missed handoff. For amber client-no-show cases, no hold is imposed. All remaining cases use local manager signoff.
+
+## Remediation Rules
+If consent repair is flagged and a vulnerable group is involved, use individual_notice_and_consent_repair. If the incident is duplicate intake and that first rule does not apply, use merge_and_audit_duplicate_records. If the cause is vendor outage or software migration and neither earlier remediation applies, use system_fix_with_retrospective_sample. All other cases use manager_attestation_only.
+
+## Required Answer Format
+Return one JSON object with exactly these keys: notify_by, board_review, remediation, hold, evidence_codes. Dates must be ISO YYYY-MM-DD. evidence_codes must be a sorted list of the public trigger codes that set the notification deadline.
+
+### assets/cdor-014.md
+# Dossier cdor-014: Incident Reconciliation Packet
+## Intake Note
+Region: Eastport. Channel: partner API. Incident type: escalation delay. Cause logged by intake: staffing shortfall.
+The operating date was 2026-02-17; quality office opened the case on 2026-02-20. The affected count currently stands at 196. Severity entered in the local register: critical.
+Vulnerable-population flag: yes. Cross-region service touch: yes. Comparable incidents in the preceding 90 days: 2. Consent repair flag: no.
+
+## Procedure Manual Excerpt, effective before current amendments
+Manual date 2025-12-01. Amber matters are normally due in 10 business days after discovery; red matters in 5; critical matters in 2. A board review was originally required only for critical matters. Local manager signoff was the ordinary hold.
+
+## Amendment Log
+Amendment posted 2026-02-11. Where affected count is at least 100, notification must be no later than 3 business days. A vulnerable-population flag shortens the outside limit to 4 business days. Cross-region service touch shortens it to 2 business days. Two or more comparable incidents in the prior 90 days shortens it to 1 business day. Apply the strictest live deadline, not the most recent sentence.
+For amber matters caused by vendor outage or software migration, add a 2-business-day grace period only if affected count is below 50 and there is no vulnerable-population flag. This grace rule never extends red or critical cases.
+
+## Board and Hold Rules
+Board review is required for critical matters, cross-region matters, and repeat incidents with at least two comparable incidents in 90 days. For red matters, board review is conditionally required when either count is at least 100 or a vulnerable group is involved. Otherwise it is not required.
+Freeze new intake for critical cases with count at least 100. Require regional supervisor signoff for repeat incidents with two or more prior comparables unless the incident type is missed handoff. For amber client-no-show cases, no hold is imposed. All remaining cases use local manager signoff.
+
+## Remediation Rules
+If consent repair is flagged and a vulnerable group is involved, use individual_notice_and_consent_repair. If the incident is duplicate intake and that first rule does not apply, use merge_and_audit_duplicate_records. If the cause is vendor outage or software migration and neither earlier remediation applies, use system_fix_with_retrospective_sample. All other cases use manager_attestation_only.
+
+## Required Answer Format
+Return one JSON object with exactly these keys: notify_by, board_review, remediation, hold, evidence_codes. Dates must be ISO YYYY-MM-DD. evidence_codes must be a sorted list of the public trigger codes that set the notification deadline.
+
+### assets/cdor-015.md
+# Dossier cdor-015: Incident Reconciliation Packet
+## Intake Note
+Region: Eastport. Channel: web portal. Incident type: duplicate intake. Cause logged by intake: vendor outage.
+The operating date was 2026-04-10; quality office opened the case on 2026-04-13. The affected count currently stands at 18. Severity entered in the local register: amber.
+Vulnerable-population flag: yes. Cross-region service touch: no. Comparable incidents in the preceding 90 days: 2. Consent repair flag: no.
+
+## Procedure Manual Excerpt, effective before current amendments
+Manual date 2026-01-26. Amber matters are normally due in 10 business days after discovery; red matters in 5; critical matters in 2. A board review was originally required only for critical matters. Local manager signoff was the ordinary hold.
+
+## Amendment Log
+Amendment posted 2026-03-25. Where affected count is at least 100, notification must be no later than 3 business days. A vulnerable-population flag shortens the outside limit to 4 business days. Cross-region service touch shortens it to 2 business days. Two or more comparable incidents in the prior 90 days shortens it to 1 business day. Apply the strictest live deadline, not the most recent sentence.
+For amber matters caused by vendor outage or software migration, add a 2-business-day grace period only if affected count is below 50 and there is no vulnerable-population flag. This grace rule never extends red or critical cases.
+
+## Board and Hold Rules
+Board review is required for critical matters, cross-region matters, and repeat incidents with at least two comparable incidents in 90 days. For red matters, board review is conditionally required when either count is at least 100 or a vulnerable group is involved. Otherwise it is not required.
+Freeze new intake for critical cases with count at least 100. Require regional supervisor signoff for repeat incidents with two or more prior comparables unless the incident type is missed handoff. For amber client-no-show cases, no hold is imposed. All remaining cases use local manager signoff.
+
+## Remediation Rules
+If consent repair is flagged and a vulnerable group is involved, use individual_notice_and_consent_repair. If the incident is duplicate intake and that first rule does not apply, use merge_and_audit_duplicate_records. If the cause is vendor outage or software migration and neither earlier remediation applies, use system_fix_with_retrospective_sample. All other cases use manager_attestation_only.
+
+## Required Answer Format
+Return one JSON object with exactly these keys: notify_by, board_review, remediation, hold, evidence_codes. Dates must be ISO YYYY-MM-DD. evidence_codes must be a sorted list of the public trigger codes that set the notification deadline.
+
+### assets/cdor-016.md
+# Dossier cdor-016: Incident Reconciliation Packet
+## Intake Note
+Region: South Vale. Channel: web portal. Incident type: escalation delay. Cause logged by intake: software migration.
+The operating date was 2026-02-10; quality office opened the case on 2026-02-10. The affected count currently stands at 77. Severity entered in the local register: amber.
+Vulnerable-population flag: no. Cross-region service touch: yes. Comparable incidents in the preceding 90 days: 1. Consent repair flag: no.
+
+## Procedure Manual Excerpt, effective before current amendments
+Manual date 2025-12-27. Amber matters are normally due in 10 business days after discovery; red matters in 5; critical matters in 2. A board review was originally required only for critical matters. Local manager signoff was the ordinary hold.
+
+## Amendment Log
+Amendment posted 2026-02-04. Where affected count is at least 100, notification must be no later than 3 business days. A vulnerable-population flag shortens the outside limit to 4 business days. Cross-region service touch shortens it to 2 business days. Two or more comparable incidents in the prior 90 days shortens it to 1 business day. Apply the strictest live deadline, not the most recent sentence.
+For amber matters caused by vendor outage or software migration, add a 2-business-day grace period only if affected count is below 50 and there is no vulnerable-population flag. This grace rule never extends red or critical cases.
+
+## Board and Hold Rules
+Board review is required for critical matters, cross-region matters, and repeat incidents with at least two comparable incidents in 90 days. For red matters, board review is conditionally required when either count is at least 100 or a vulnerable group is involved. Otherwise it is not required.
+Freeze new intake for critical cases with count at least 100. Require regional supervisor signoff for repeat incidents with two or more prior comparables unless the incident type is missed handoff. For amber client-no-show cases, no hold is imposed. All remaining cases use local manager signoff.
+
+## Remediation Rules
+If consent repair is flagged and a vulnerable group is involved, use individual_notice_and_consent_repair. If the incident is duplicate intake and that first rule does not apply, use merge_and_audit_duplicate_records. If the cause is vendor outage or software migration and neither earlier remediation applies, use system_fix_with_retrospective_sample. All other cases use manager_attestation_only.
+
+## Required Answer Format
+Return one JSON object with exactly these keys: notify_by, board_review, remediation, hold, evidence_codes. Dates must be ISO YYYY-MM-DD. evidence_codes must be a sorted list of the public trigger codes that set the notification deadline.
+
+### assets/cdor-017.md
+# Dossier cdor-017: Incident Reconciliation Packet
+## Intake Note
+Region: Northbridge. Channel: field kiosk. Incident type: missed handoff. Cause logged by intake: client no-show.
+The operating date was 2026-01-21; quality office opened the case on 2026-01-25. The affected count currently stands at 60. Severity entered in the local register: amber.
+Vulnerable-population flag: yes. Cross-region service touch: yes. Comparable incidents in the preceding 90 days: 1. Consent repair flag: no.
+
+## Procedure Manual Excerpt, effective before current amendments
+Manual date 2025-11-04. Amber matters are normally due in 10 business days after discovery; red matters in 5; critical matters in 2. A board review was originally required only for critical matters. Local manager signoff was the ordinary hold.
+
+## Amendment Log
+Amendment posted 2026-01-13. Where affected count is at least 100, notification must be no later than 3 business days. A vulnerable-population flag shortens the outside limit to 4 business days. Cross-region service touch shortens it to 2 business days. Two or more comparable incidents in the prior 90 days shortens it to 1 business day. Apply the strictest live deadline, not the most recent sentence.
+For amber matters caused by vendor outage or software migration, add a 2-business-day grace period only if affected count is below 50 and there is no vulnerable-population flag. This grace rule never extends red or critical cases.
+
+## Board and Hold Rules
+Board review is required for critical matters, cross-region matters, and repeat incidents with at least two comparable incidents in 90 days. For red matters, board review is conditionally required when either count is at least 100 or a vulnerable group is involved. Otherwise it is not required.
+Freeze new intake for critical cases with count at least 100. Require regional supervisor signoff for repeat incidents with two or more prior comparables unless the incident type is missed handoff. For amber client-no-show cases, no hold is imposed. All remaining cases use local manager signoff.
+
+## Remediation Rules
+If consent repair is flagged and a vulnerable group is involved, use individual_notice_and_consent_repair. If the incident is duplicate intake and that first rule does not apply, use merge_and_audit_duplicate_records. If the cause is vendor outage or software migration and neither earlier remediation applies, use system_fix_with_retrospective_sample. All other cases use manager_attestation_only.
+
+## Required Answer Format
+Return one JSON object with exactly these keys: notify_by, board_review, remediation, hold, evidence_codes. Dates must be ISO YYYY-MM-DD. evidence_codes must be a sorted list of the public trigger codes that set the notification deadline.
+
+### assets/cdor-018.md
+# Dossier cdor-018: Incident Reconciliation Packet
+## Intake Note
+Region: Eastport. Channel: web portal. Incident type: record mismatch. Cause logged by intake: vendor outage.
+The operating date was 2026-01-23; quality office opened the case on 2026-01-23. The affected count currently stands at 93. Severity entered in the local register: critical.
+Vulnerable-population flag: no. Cross-region service touch: yes. Comparable incidents in the preceding 90 days: 1. Consent repair flag: no.
+
+## Procedure Manual Excerpt, effective before current amendments
+Manual date 2025-11-11. Amber matters are normally due in 10 business days after discovery; red matters in 5; critical matters in 2. A board review was originally required only for critical matters. Local manager signoff was the ordinary hold.
+
+## Amendment Log
+Amendment posted 2026-01-13. Where affected count is at least 100, notification must be no later than 3 business days. A vulnerable-population flag shortens the outside limit to 4 business days. Cross-region service touch shortens it to 2 business days. Two or more comparable incidents in the prior 90 days shortens it to 1 business day. Apply the strictest live deadline, not the most recent sentence.
+For amber matters caused by vendor outage or software migration, add a 2-business-day grace period only if affected count is below 50 and there is no vulnerable-population flag. This grace rule never extends red or critical cases.
+
+## Board and Hold Rules
+Board review is required for critical matters, cross-region matters, and repeat incidents with at least two comparable incidents in 90 days. For red matters, board review is conditionally required when either count is at least 100 or a vulnerable group is involved. Otherwise it is not required.
+Freeze new intake for critical cases with count at least 100. Require regional supervisor signoff for repeat incidents with two or more prior comparables unless the incident type is missed handoff. For amber client-no-show cases, no hold is imposed. All remaining cases use local manager signoff.
+
+## Remediation Rules
+If consent repair is flagged and a vulnerable group is involved, use individual_notice_and_consent_repair. If the incident is duplicate intake and that first rule does not apply, use merge_and_audit_duplicate_records. If the cause is vendor outage or software migration and neither earlier remediation applies, use system_fix_with_retrospective_sample. All other cases use manager_attestation_only.
+
+## Required Answer Format
+Return one JSON object with exactly these keys: notify_by, board_review, remediation, hold, evidence_codes. Dates must be ISO YYYY-MM-DD. evidence_codes must be a sorted list of the public trigger codes that set the notification deadline.
+
+### assets/cdor-019.md
+# Dossier cdor-019: Incident Reconciliation Packet
+## Intake Note
+Region: Eastport. Channel: partner API. Incident type: record mismatch. Cause logged by intake: weather closure.
+The operating date was 2026-02-13; quality office opened the case on 2026-02-14. The affected count currently stands at 204. Severity entered in the local register: critical.
+Vulnerable-population flag: yes. Cross-region service touch: yes. Comparable incidents in the preceding 90 days: 0. Consent repair flag: no.
+
+## Procedure Manual Excerpt, effective before current amendments
+Manual date 2025-11-23. Amber matters are normally due in 10 business days after discovery; red matters in 5; critical matters in 2. A board review was originally required only for critical matters. Local manager signoff was the ordinary hold.
+
+## Amendment Log
+Amendment posted 2026-02-07. Where affected count is at least 100, notification must be no later than 3 business days. A vulnerable-population flag shortens the outside limit to 4 business days. Cross-region service touch shortens it to 2 business days. Two or more comparable incidents in the prior 90 days shortens it to 1 business day. Apply the strictest live deadline, not the most recent sentence.
+For amber matters caused by vendor outage or software migration, add a 2-business-day grace period only if affected count is below 50 and there is no vulnerable-population flag. This grace rule never extends red or critical cases.
+
+## Board and Hold Rules
+Board review is required for critical matters, cross-region matters, and repeat incidents with at least two comparable incidents in 90 days. For red matters, board review is conditionally required when either count is at least 100 or a vulnerable group is involved. Otherwise it is not required.
+Freeze new intake for critical cases with count at least 100. Require regional supervisor signoff for repeat incidents with two or more prior comparables unless the incident type is missed handoff. For amber client-no-show cases, no hold is imposed. All remaining cases use local manager signoff.
+
+## Remediation Rules
+If consent repair is flagged and a vulnerable group is involved, use individual_notice_and_consent_repair. If the incident is duplicate intake and that first rule does not apply, use merge_and_audit_duplicate_records. If the cause is vendor outage or software migration and neither earlier remediation applies, use system_fix_with_retrospective_sample. All other cases use manager_attestation_only.
+
+## Required Answer Format
+Return one JSON object with exactly these keys: notify_by, board_review, remediation, hold, evidence_codes. Dates must be ISO YYYY-MM-DD. evidence_codes must be a sorted list of the public trigger codes that set the notification deadline.
+
+### assets/cdor-020.md
+# Dossier cdor-020: Incident Reconciliation Packet
+## Intake Note
+Region: Northbridge. Channel: phone desk. Incident type: late consent. Cause logged by intake: weather closure.
+The operating date was 2026-01-24; quality office opened the case on 2026-01-26. The affected count currently stands at 135. Severity entered in the local register: red.
+Vulnerable-population flag: no. Cross-region service touch: no. Comparable incidents in the preceding 90 days: 1. Consent repair flag: yes.
+
+## Procedure Manual Excerpt, effective before current amendments
+Manual date 2025-11-16. Amber matters are normally due in 10 business days after discovery; red matters in 5; critical matters in 2. A board review was originally required only for critical matters. Local manager signoff was the ordinary hold.
+
+## Amendment Log
+Amendment posted 2026-01-18. Where affected count is at least 100, notification must be no later than 3 business days. A vulnerable-population flag shortens the outside limit to 4 business days. Cross-region service touch shortens it to 2 business days. Two or more comparable incidents in the prior 90 days shortens it to 1 business day. Apply the strictest live deadline, not the most recent sentence.
+For amber matters caused by vendor outage or software migration, add a 2-business-day grace period only if affected count is below 50 and there is no vulnerable-population flag. This grace rule never extends red or critical cases.
+
+## Board and Hold Rules
+Board review is required for critical matters, cross-region matters, and repeat incidents with at least two comparable incidents in 90 days. For red matters, board review is conditionally required when either count is at least 100 or a vulnerable group is involved. Otherwise it is not required.
+Freeze new intake for critical cases with count at least 100. Require regional supervisor signoff for repeat incidents with two or more prior comparables unless the incident type is missed handoff. For amber client-no-show cases, no hold is imposed. All remaining cases use local manager signoff.
+
+## Remediation Rules
+If consent repair is flagged and a vulnerable group is involved, use individual_notice_and_consent_repair. If the incident is duplicate intake and that first rule does not apply, use merge_and_audit_duplicate_records. If the cause is vendor outage or software migration and neither earlier remediation applies, use system_fix_with_retrospective_sample. All other cases use manager_attestation_only.
+
+## Required Answer Format
+Return one JSON object with exactly these keys: notify_by, board_review, remediation, hold, evidence_codes. Dates must be ISO YYYY-MM-DD. evidence_codes must be a sorted list of the public trigger codes that set the notification deadline.
+
+### assets/cdor-021.md
+# Dossier cdor-021: Incident Reconciliation Packet
+## Intake Note
+Region: Northbridge. Channel: phone desk. Incident type: escalation delay. Cause logged by intake: software migration.
+The operating date was 2026-03-05; quality office opened the case on 2026-03-09. The affected count currently stands at 122. Severity entered in the local register: critical.
+Vulnerable-population flag: no. Cross-region service touch: no. Comparable incidents in the preceding 90 days: 0. Consent repair flag: no.
+
+## Procedure Manual Excerpt, effective before current amendments
+Manual date 2025-12-31. Amber matters are normally due in 10 business days after discovery; red matters in 5; critical matters in 2. A board review was originally required only for critical matters. Local manager signoff was the ordinary hold.
+
+## Amendment Log
+Amendment posted 2026-02-16. Where affected count is at least 100, notification must be no later than 3 business days. A vulnerable-population flag shortens the outside limit to 4 business days. Cross-region service touch shortens it to 2 business days. Two or more comparable incidents in the prior 90 days shortens it to 1 business day. Apply the strictest live deadline, not the most recent sentence.
+For amber matters caused by vendor outage or software migration, add a 2-business-day grace period only if affected count is below 50 and there is no vulnerable-population flag. This grace rule never extends red or critical cases.
+
+## Board and Hold Rules
+Board review is required for critical matters, cross-region matters, and repeat incidents with at least two comparable incidents in 90 days. For red matters, board review is conditionally required when either count is at least 100 or a vulnerable group is involved. Otherwise it is not required.
+Freeze new intake for critical cases with count at least 100. Require regional supervisor signoff for repeat incidents with two or more prior comparables unless the incident type is missed handoff. For amber client-no-show cases, no hold is imposed. All remaining cases use local manager signoff.
+
+## Remediation Rules
+If consent repair is flagged and a vulnerable group is involved, use individual_notice_and_consent_repair. If the incident is duplicate intake and that first rule does not apply, use merge_and_audit_duplicate_records. If the cause is vendor outage or software migration and neither earlier remediation applies, use system_fix_with_retrospective_sample. All other cases use manager_attestation_only.
+
+## Required Answer Format
+Return one JSON object with exactly these keys: notify_by, board_review, remediation, hold, evidence_codes. Dates must be ISO YYYY-MM-DD. evidence_codes must be a sorted list of the public trigger codes that set the notification deadline.
+
+### assets/cdor-022.md
+# Dossier cdor-022: Incident Reconciliation Packet
+## Intake Note
+Region: South Vale. Channel: field kiosk. Incident type: late consent. Cause logged by intake: weather closure.
+The operating date was 2026-01-17; quality office opened the case on 2026-01-17. The affected count currently stands at 88. Severity entered in the local register: amber.
+Vulnerable-population flag: yes. Cross-region service touch: no. Comparable incidents in the preceding 90 days: 2. Consent repair flag: yes.
+
+## Procedure Manual Excerpt, effective before current amendments
+Manual date 2025-11-19. Amber matters are normally due in 10 business days after discovery; red matters in 5; critical matters in 2. A board review was originally required only for critical matters. Local manager signoff was the ordinary hold.
+
+## Amendment Log
+Amendment posted 2026-01-05. Where affected count is at least 100, notification must be no later than 3 business days. A vulnerable-population flag shortens the outside limit to 4 business days. Cross-region service touch shortens it to 2 business days. Two or more comparable incidents in the prior 90 days shortens it to 1 business day. Apply the strictest live deadline, not the most recent sentence.
+For amber matters caused by vendor outage or software migration, add a 2-business-day grace period only if affected count is below 50 and there is no vulnerable-population flag. This grace rule never extends red or critical cases.
+
+## Board and Hold Rules
+Board review is required for critical matters, cross-region matters, and repeat incidents with at least two comparable incidents in 90 days. For red matters, board review is conditionally required when either count is at least 100 or a vulnerable group is involved. Otherwise it is not required.
+Freeze new intake for critical cases with count at least 100. Require regional supervisor signoff for repeat incidents with two or more prior comparables unless the incident type is missed handoff. For amber client-no-show cases, no hold is imposed. All remaining cases use local manager signoff.
+
+## Remediation Rules
+If consent repair is flagged and a vulnerable group is involved, use individual_notice_and_consent_repair. If the incident is duplicate intake and that first rule does not apply, use merge_and_audit_duplicate_records. If the cause is vendor outage or software migration and neither earlier remediation applies, use system_fix_with_retrospective_sample. All other cases use manager_attestation_only.
+
+## Required Answer Format
+Return one JSON object with exactly these keys: notify_by, board_review, remediation, hold, evidence_codes. Dates must be ISO YYYY-MM-DD. evidence_codes must be a sorted list of the public trigger codes that set the notification deadline.
+
+### assets/cdor-023.md
+# Dossier cdor-023: Incident Reconciliation Packet
+## Intake Note
+Region: Westmere. Channel: web portal. Incident type: escalation delay. Cause logged by intake: staffing shortfall.
+The operating date was 2026-04-06; quality office opened the case on 2026-04-06. The affected count currently stands at 222. Severity entered in the local register: critical.
+Vulnerable-population flag: yes. Cross-region service touch: no. Comparable incidents in the preceding 90 days: 2. Consent repair flag: no.
+
+## Procedure Manual Excerpt, effective before current amendments
+Manual date 2026-01-20. Amber matters are normally due in 10 business days after discovery; red matters in 5; critical matters in 2. A board review was originally required only for critical matters. Local manager signoff was the ordinary hold.
+
+## Amendment Log
+Amendment posted 2026-03-27. Where affected count is at least 100, notification must be no later than 3 business days. A vulnerable-population flag shortens the outside limit to 4 business days. Cross-region service touch shortens it to 2 business days. Two or more comparable incidents in the prior 90 days shortens it to 1 business day. Apply the strictest live deadline, not the most recent sentence.
+For amber matters caused by vendor outage or software migration, add a 2-business-day grace period only if affected count is below 50 and there is no vulnerable-population flag. This grace rule never extends red or critical cases.
+
+## Board and Hold Rules
+Board review is required for critical matters, cross-region matters, and repeat incidents with at least two comparable incidents in 90 days. For red matters, board review is conditionally required when either count is at least 100 or a vulnerable group is involved. Otherwise it is not required.
+Freeze new intake for critical cases with count at least 100. Require regional supervisor signoff for repeat incidents with two or more prior comparables unless the incident type is missed handoff. For amber client-no-show cases, no hold is imposed. All remaining cases use local manager signoff.
+
+## Remediation Rules
+If consent repair is flagged and a vulnerable group is involved, use individual_notice_and_consent_repair. If the incident is duplicate intake and that first rule does not apply, use merge_and_audit_duplicate_records. If the cause is vendor outage or software migration and neither earlier remediation applies, use system_fix_with_retrospective_sample. All other cases use manager_attestation_only.
+
+## Required Answer Format
+Return one JSON object with exactly these keys: notify_by, board_review, remediation, hold, evidence_codes. Dates must be ISO YYYY-MM-DD. evidence_codes must be a sorted list of the public trigger codes that set the notification deadline.
+
+### assets/cdor-024.md
+# Dossier cdor-024: Incident Reconciliation Packet
+## Intake Note
+Region: South Vale. Channel: web portal. Incident type: missed handoff. Cause logged by intake: vendor outage.
+The operating date was 2026-03-07; quality office opened the case on 2026-03-11. The affected count currently stands at 49. Severity entered in the local register: critical.
+Vulnerable-population flag: yes. Cross-region service touch: no. Comparable incidents in the preceding 90 days: 1. Consent repair flag: no.
+
+## Procedure Manual Excerpt, effective before current amendments
+Manual date 2026-01-27. Amber matters are normally due in 10 business days after discovery; red matters in 5; critical matters in 2. A board review was originally required only for critical matters. Local manager signoff was the ordinary hold.
+
+## Amendment Log
+Amendment posted 2026-02-20. Where affected count is at least 100, notification must be no later than 3 business days. A vulnerable-population flag shortens the outside limit to 4 business days. Cross-region service touch shortens it to 2 business days. Two or more comparable incidents in the prior 90 days shortens it to 1 business day. Apply the strictest live deadline, not the most recent sentence.
+For amber matters caused by vendor outage or software migration, add a 2-business-day grace period only if affected count is below 50 and there is no vulnerable-population flag. This grace rule never extends red or critical cases.
+
+## Board and Hold Rules
+Board review is required for critical matters, cross-region matters, and repeat incidents with at least two comparable incidents in 90 days. For red matters, board review is conditionally required when either count is at least 100 or a vulnerable group is involved. Otherwise it is not required.
+Freeze new intake for critical cases with count at least 100. Require regional supervisor signoff for repeat incidents with two or more prior comparables unless the incident type is missed handoff. For amber client-no-show cases, no hold is imposed. All remaining cases use local manager signoff.
+
+## Remediation Rules
+If consent repair is flagged and a vulnerable group is involved, use individual_notice_and_consent_repair. If the incident is duplicate intake and that first rule does not apply, use merge_and_audit_duplicate_records. If the cause is vendor outage or software migration and neither earlier remediation applies, use system_fix_with_retrospective_sample. All other cases use manager_attestation_only.
+
+## Required Answer Format
+Return one JSON object with exactly these keys: notify_by, board_review, remediation, hold, evidence_codes. Dates must be ISO YYYY-MM-DD. evidence_codes must be a sorted list of the public trigger codes that set the notification deadline.
+
+### assets/cdor-025.md
+# Dossier cdor-025: Incident Reconciliation Packet
+## Intake Note
+Region: Eastport. Channel: web portal. Incident type: duplicate intake. Cause logged by intake: software migration.
+The operating date was 2026-04-12; quality office opened the case on 2026-04-16. The affected count currently stands at 211. Severity entered in the local register: red.
+Vulnerable-population flag: yes. Cross-region service touch: yes. Comparable incidents in the preceding 90 days: 2. Consent repair flag: yes.
+
+## Procedure Manual Excerpt, effective before current amendments
+Manual date 2026-02-08. Amber matters are normally due in 10 business days after discovery; red matters in 5; critical matters in 2. A board review was originally required only for critical matters. Local manager signoff was the ordinary hold.
+
+## Amendment Log
+Amendment posted 2026-04-02. Where affected count is at least 100, notification must be no later than 3 business days. A vulnerable-population flag shortens the outside limit to 4 business days. Cross-region service touch shortens it to 2 business days. Two or more comparable incidents in the prior 90 days shortens it to 1 business day. Apply the strictest live deadline, not the most recent sentence.
+For amber matters caused by vendor outage or software migration, add a 2-business-day grace period only if affected count is below 50 and there is no vulnerable-population flag. This grace rule never extends red or critical cases.
+
+## Board and Hold Rules
+Board review is required for critical matters, cross-region matters, and repeat incidents with at least two comparable incidents in 90 days. For red matters, board review is conditionally required when either count is at least 100 or a vulnerable group is involved. Otherwise it is not required.
+Freeze new intake for critical cases with count at least 100. Require regional supervisor signoff for repeat incidents with two or more prior comparables unless the incident type is missed handoff. For amber client-no-show cases, no hold is imposed. All remaining cases use local manager signoff.
+
+## Remediation Rules
+If consent repair is flagged and a vulnerable group is involved, use individual_notice_and_consent_repair. If the incident is duplicate intake and that first rule does not apply, use merge_and_audit_duplicate_records. If the cause is vendor outage or software migration and neither earlier remediation applies, use system_fix_with_retrospective_sample. All other cases use manager_attestation_only.
+
+## Required Answer Format
+Return one JSON object with exactly these keys: notify_by, board_review, remediation, hold, evidence_codes. Dates must be ISO YYYY-MM-DD. evidence_codes must be a sorted list of the public trigger codes that set the notification deadline.
+
+### assets/cdor-026.md
+# Dossier cdor-026: Incident Reconciliation Packet
+## Intake Note
+Region: Central Borough. Channel: web portal. Incident type: late consent. Cause logged by intake: staffing shortfall.
+The operating date was 2026-02-10; quality office opened the case on 2026-02-14. The affected count currently stands at 191. Severity entered in the local register: red.
+Vulnerable-population flag: no. Cross-region service touch: yes. Comparable incidents in the preceding 90 days: 0. Consent repair flag: yes.
+
+## Procedure Manual Excerpt, effective before current amendments
+Manual date 2026-01-07. Amber matters are normally due in 10 business days after discovery; red matters in 5; critical matters in 2. A board review was originally required only for critical matters. Local manager signoff was the ordinary hold.
+
+## Amendment Log
+Amendment posted 2026-01-31. Where affected count is at least 100, notification must be no later than 3 business days. A vulnerable-population flag shortens the outside limit to 4 business days. Cross-region service touch shortens it to 2 business days. Two or more comparable incidents in the prior 90 days shortens it to 1 business day. Apply the strictest live deadline, not the most recent sentence.
+For amber matters caused by vendor outage or software migration, add a 2-business-day grace period only if affected count is below 50 and there is no vulnerable-population flag. This grace rule never extends red or critical cases.
+
+## Board and Hold Rules
+Board review is required for critical matters, cross-region matters, and repeat incidents with at least two comparable incidents in 90 days. For red matters, board review is conditionally required when either count is at least 100 or a vulnerable group is involved. Otherwise it is not required.
+Freeze new intake for critical cases with count at least 100. Require regional supervisor signoff for repeat incidents with two or more prior comparables unless the incident type is missed handoff. For amber client-no-show cases, no hold is imposed. All remaining cases use local manager signoff.
+
+## Remediation Rules
+If consent repair is flagged and a vulnerable group is involved, use individual_notice_and_consent_repair. If the incident is duplicate intake and that first rule does not apply, use merge_and_audit_duplicate_records. If the cause is vendor outage or software migration and neither earlier remediation applies, use system_fix_with_retrospective_sample. All other cases use manager_attestation_only.
+
+## Required Answer Format
+Return one JSON object with exactly these keys: notify_by, board_review, remediation, hold, evidence_codes. Dates must be ISO YYYY-MM-DD. evidence_codes must be a sorted list of the public trigger codes that set the notification deadline.
+
+### assets/cdor-027.md
+# Dossier cdor-027: Incident Reconciliation Packet
+## Intake Note
+Region: Northbridge. Channel: partner API. Incident type: record mismatch. Cause logged by intake: staffing shortfall.
+The operating date was 2026-04-12; quality office opened the case on 2026-04-14. The affected count currently stands at 103. Severity entered in the local register: critical.
+Vulnerable-population flag: yes. Cross-region service touch: yes. Comparable incidents in the preceding 90 days: 1. Consent repair flag: no.
+
+## Procedure Manual Excerpt, effective before current amendments
+Manual date 2026-03-04. Amber matters are normally due in 10 business days after discovery; red matters in 5; critical matters in 2. A board review was originally required only for critical matters. Local manager signoff was the ordinary hold.
+
+## Amendment Log
+Amendment posted 2026-04-03. Where affected count is at least 100, notification must be no later than 3 business days. A vulnerable-population flag shortens the outside limit to 4 business days. Cross-region service touch shortens it to 2 business days. Two or more comparable incidents in the prior 90 days shortens it to 1 business day. Apply the strictest live deadline, not the most recent sentence.
+For amber matters caused by vendor outage or software migration, add a 2-business-day grace period only if affected count is below 50 and there is no vulnerable-population flag. This grace rule never extends red or critical cases.
+
+## Board and Hold Rules
+Board review is required for critical matters, cross-region matters, and repeat incidents with at least two comparable incidents in 90 days. For red matters, board review is conditionally required when either count is at least 100 or a vulnerable group is involved. Otherwise it is not required.
+Freeze new intake for critical cases with count at least 100. Require regional supervisor signoff for repeat incidents with two or more prior comparables unless the incident type is missed handoff. For amber client-no-show cases, no hold is imposed. All remaining cases use local manager signoff.
+
+## Remediation Rules
+If consent repair is flagged and a vulnerable group is involved, use individual_notice_and_consent_repair. If the incident is duplicate intake and that first rule does not apply, use merge_and_audit_duplicate_records. If the cause is vendor outage or software migration and neither earlier remediation applies, use system_fix_with_retrospective_sample. All other cases use manager_attestation_only.
+
+## Required Answer Format
+Return one JSON object with exactly these keys: notify_by, board_review, remediation, hold, evidence_codes. Dates must be ISO YYYY-MM-DD. evidence_codes must be a sorted list of the public trigger codes that set the notification deadline.
+
+### assets/cdor-028.md
+# Dossier cdor-028: Incident Reconciliation Packet
+## Intake Note
+Region: Eastport. Channel: web portal. Incident type: late consent. Cause logged by intake: vendor outage.
+The operating date was 2026-02-10; quality office opened the case on 2026-02-10. The affected count currently stands at 207. Severity entered in the local register: amber.
+Vulnerable-population flag: no. Cross-region service touch: yes. Comparable incidents in the preceding 90 days: 1. Consent repair flag: yes.
+
+## Procedure Manual Excerpt, effective before current amendments
+Manual date 2026-01-05. Amber matters are normally due in 10 business days after discovery; red matters in 5; critical matters in 2. A board review was originally required only for critical matters. Local manager signoff was the ordinary hold.
+
+## Amendment Log
+Amendment posted 2026-01-26. Where affected count is at least 100, notification must be no later than 3 business days. A vulnerable-population flag shortens the outside limit to 4 business days. Cross-region service touch shortens it to 2 business days. Two or more comparable incidents in the prior 90 days shortens it to 1 business day. Apply the strictest live deadline, not the most recent sentence.
+For amber matters caused by vendor outage or software migration, add a 2-business-day grace period only if affected count is below 50 and there is no vulnerable-population flag. This grace rule never extends red or critical cases.
+
+## Board and Hold Rules
+Board review is required for critical matters, cross-region matters, and repeat incidents with at least two comparable incidents in 90 days. For red matters, board review is conditionally required when either count is at least 100 or a vulnerable group is involved. Otherwise it is not required.
+Freeze new intake for critical cases with count at least 100. Require regional supervisor signoff for repeat incidents with two or more prior comparables unless the incident type is missed handoff. For amber client-no-show cases, no hold is imposed. All remaining cases use local manager signoff.
+
+## Remediation Rules
+If consent repair is flagged and a vulnerable group is involved, use individual_notice_and_consent_repair. If the incident is duplicate intake and that first rule does not apply, use merge_and_audit_duplicate_records. If the cause is vendor outage or software migration and neither earlier remediation applies, use system_fix_with_retrospective_sample. All other cases use manager_attestation_only.
+
+## Required Answer Format
+Return one JSON object with exactly these keys: notify_by, board_review, remediation, hold, evidence_codes. Dates must be ISO YYYY-MM-DD. evidence_codes must be a sorted list of the public trigger codes that set the notification deadline.
+
+### assets/cdor-029.md
+# Dossier cdor-029: Incident Reconciliation Packet
+## Intake Note
+Region: Northbridge. Channel: partner API. Incident type: duplicate intake. Cause logged by intake: vendor outage.
+The operating date was 2026-02-11; quality office opened the case on 2026-02-13. The affected count currently stands at 174. Severity entered in the local register: red.
+Vulnerable-population flag: no. Cross-region service touch: no. Comparable incidents in the preceding 90 days: 1. Consent repair flag: yes.
+
+## Procedure Manual Excerpt, effective before current amendments
+Manual date 2026-01-08. Amber matters are normally due in 10 business days after discovery; red matters in 5; critical matters in 2. A board review was originally required only for critical matters. Local manager signoff was the ordinary hold.
+
+## Amendment Log
+Amendment posted 2026-01-30. Where affected count is at least 100, notification must be no later than 3 business days. A vulnerable-population flag shortens the outside limit to 4 business days. Cross-region service touch shortens it to 2 business days. Two or more comparable incidents in the prior 90 days shortens it to 1 business day. Apply the strictest live deadline, not the most recent sentence.
+For amber matters caused by vendor outage or software migration, add a 2-business-day grace period only if affected count is below 50 and there is no vulnerable-population flag. This grace rule never extends red or critical cases.
+
+## Board and Hold Rules
+Board review is required for critical matters, cross-region matters, and repeat incidents with at least two comparable incidents in 90 days. For red matters, board review is conditionally required when either count is at least 100 or a vulnerable group is involved. Otherwise it is not required.
+Freeze new intake for critical cases with count at least 100. Require regional supervisor signoff for repeat incidents with two or more prior comparables unless the incident type is missed handoff. For amber client-no-show cases, no hold is imposed. All remaining cases use local manager signoff.
+
+## Remediation Rules
+If consent repair is flagged and a vulnerable group is involved, use individual_notice_and_consent_repair. If the incident is duplicate intake and that first rule does not apply, use merge_and_audit_duplicate_records. If the cause is vendor outage or software migration and neither earlier remediation applies, use system_fix_with_retrospective_sample. All other cases use manager_attestation_only.
+
+## Required Answer Format
+Return one JSON object with exactly these keys: notify_by, board_review, remediation, hold, evidence_codes. Dates must be ISO YYYY-MM-DD. evidence_codes must be a sorted list of the public trigger codes that set the notification deadline.
+
+### assets/cdor-030.md
+# Dossier cdor-030: Incident Reconciliation Packet
+## Intake Note
+Region: Northbridge. Channel: phone desk. Incident type: duplicate intake. Cause logged by intake: weather closure.
+The operating date was 2026-01-14; quality office opened the case on 2026-01-15. The affected count currently stands at 56. Severity entered in the local register: amber.
+Vulnerable-population flag: no. Cross-region service touch: yes. Comparable incidents in the preceding 90 days: 0. Consent repair flag: no.
+
+## Procedure Manual Excerpt, effective before current amendments
+Manual date 2025-11-01. Amber matters are normally due in 10 business days after discovery; red matters in 5; critical matters in 2. A board review was originally required only for critical matters. Local manager signoff was the ordinary hold.
+
+## Amendment Log
+Amendment posted 2026-01-04. Where affected count is at least 100, notification must be no later than 3 business days. A vulnerable-population flag shortens the outside limit to 4 business days. Cross-region service touch shortens it to 2 business days. Two or more comparable incidents in the prior 90 days shortens it to 1 business day. Apply the strictest live deadline, not the most recent sentence.
+For amber matters caused by vendor outage or software migration, add a 2-business-day grace period only if affected count is below 50 and there is no vulnerable-population flag. This grace rule never extends red or critical cases.
+
+## Board and Hold Rules
+Board review is required for critical matters, cross-region matters, and repeat incidents with at least two comparable incidents in 90 days. For red matters, board review is conditionally required when either count is at least 100 or a vulnerable group is involved. Otherwise it is not required.
+Freeze new intake for critical cases with count at least 100. Require regional supervisor signoff for repeat incidents with two or more prior comparables unless the incident type is missed handoff. For amber client-no-show cases, no hold is imposed. All remaining cases use local manager signoff.
+
+## Remediation Rules
+If consent repair is flagged and a vulnerable group is involved, use individual_notice_and_consent_repair. If the incident is duplicate intake and that first rule does not apply, use merge_and_audit_duplicate_records. If the cause is vendor outage or software migration and neither earlier remediation applies, use system_fix_with_retrospective_sample. All other cases use manager_attestation_only.
+
+## Required Answer Format
+Return one JSON object with exactly these keys: notify_by, board_review, remediation, hold, evidence_codes. Dates must be ISO YYYY-MM-DD. evidence_codes must be a sorted list of the public trigger codes that set the notification deadline.
+
+2026-05-23T06:40:32.259606Z  WARN codex_core_skills::loader: ignoring interface.icon_small: icon path must not contain '..'
+2026-05-23T06:40:32.259614Z  WARN codex_core_skills::loader: ignoring interface.icon_large: icon path must not contain '..'
+2026-05-23T06:40:32.259987Z  WARN codex_core_skills::loader: ignoring interface.icon_small: icon path must not contain '..'
+2026-05-23T06:40:32.259991Z  WARN codex_core_skills::loader: ignoring interface.icon_large: icon path must not contain '..'
+2026-05-23T06:40:32.260289Z  WARN codex_core_skills::loader: ignoring interface.icon_small: icon path must not contain '..'
+2026-05-23T06:40:32.260294Z  WARN codex_core_skills::loader: ignoring interface.icon_large: icon path must not contain '..'
+2026-05-23T06:40:32.260584Z  WARN codex_core_skills::loader: ignoring interface.icon_small: icon path must not contain '..'
+2026-05-23T06:40:32.260588Z  WARN codex_core_skills::loader: ignoring interface.icon_large: icon path must not contain '..'
+2026-05-23T06:40:32.260873Z  WARN codex_core_skills::loader: ignoring interface.icon_small: icon path must not contain '..'
+2026-05-23T06:40:32.260876Z  WARN codex_core_skills::loader: ignoring interface.icon_large: icon path must not contain '..'
+2026-05-23T06:40:32.261473Z  WARN codex_core_skills::loader: ignoring interface.icon_small: icon path must not contain '..'
+2026-05-23T06:40:32.261476Z  WARN codex_core_skills::loader: ignoring interface.icon_large: icon path must not contain '..'
+exec
+/bin/zsh -lc "python3 - <<'PY'
+import re, glob
+for p in sorted(glob.glob('assets/*.md')):
+    s=open(p).read()
+    id=re.search(r'cdor-\\d+', p).group()
+    opened=re.search(r'opened the case on (\\d{4}-\\d{2}-\\d{2})',s).group(1)
+    count=int(re.search(r'affected count currently stands at (\\d+)',s).group(1))
+    sev=re.search(r'Severity entered .*: (\\w+)',s).group(1)
+    vuln=re.search(r'Vulnerable-population flag: (yes|no)',s).group(1)=='yes'
+    cross=re.search(r'Cross-region service touch: (yes|no)',s).group(1)=='yes'
+    comp=int(re.search(r'Comparable incidents .*: (\\d+)',s).group(1))
+    consent=re.search(r'Consent repair flag: (yes|no)',s).group(1)=='yes'
+    incident=re.search(r'Incident type: (["'^.]+)'"\\.',s).group(1)
+    cause=re.search(r'Cause logged by intake: (["'^.]+)'"\\.',s).group(1)
+    print(id, opened, sev, count, 'vuln',vuln,'cross',cross,'comp',comp,'consent',consent,'incident',incident,'cause',cause)
+PY" in /Users/rohit/Documents/Workspace/Coding/benchbench/experiments/004_feedback_sweep_20260522_225208/run/isolated_solver_gpt_5_5__solved_by__gpt_5_5
+ succeeded in 0ms:
+cdor-001 2026-04-07 red 123 vuln False cross False comp 1 consent True incident record mismatch cause software migration
+cdor-002 2026-01-17 red 98 vuln False cross False comp 0 consent False incident record mismatch cause vendor outage
+cdor-003 2026-03-16 amber 117 vuln True cross False comp 1 consent False incident record mismatch cause vendor outage
+cdor-004 2026-04-13 red 120 vuln False cross False comp 1 consent False incident record mismatch cause software migration
+cdor-005 2026-02-13 amber 168 vuln False cross False comp 1 consent False incident missed handoff cause client no-show
+cdor-006 2026-04-19 amber 211 vuln False cross True comp 1 consent True incident escalation delay cause weather closure
+cdor-007 2026-02-19 red 40 vuln True cross True comp 2 consent False incident escalation delay cause weather closure
+cdor-008 2026-04-11 critical 104 vuln True cross False comp 0 consent True incident late consent cause software migration
+cdor-009 2026-03-14 amber 89 vuln True cross False comp 1 consent True incident late consent cause software migration
+cdor-010 2026-03-06 critical 46 vuln False cross False comp 1 consent False incident missed handoff cause vendor outage
+cdor-011 2026-04-06 amber 41 vuln True cross False comp 0 consent False incident record mismatch cause client no-show
+cdor-012 2026-01-16 red 223 vuln True cross False comp 1 consent False incident missed handoff cause weather closure
+cdor-013 2026-01-05 amber 185 vuln True cross True comp 2 consent True incident late consent cause client no-show
+cdor-014 2026-02-20 critical 196 vuln True cross True comp 2 consent False incident escalation delay cause staffing shortfall
+cdor-015 2026-04-13 amber 18 vuln True cross False comp 2 consent False incident duplicate intake cause vendor outage
+cdor-016 2026-02-10 amber 77 vuln False cross True comp 1 consent False incident escalation delay cause software migration
+cdor-017 2026-01-25 amber 60 vuln True cross True comp 1 consent False incident missed handoff cause client no-show
+cdor-018 2026-01-23 critical 93 vuln False cross True comp 1 consent False incident record mismatch cause vendor outage
+cdor-019 2026-02-14 critical 204 vuln True cross True comp 0 consent False incident record mismatch cause weather closure
+cdor-020 2026-01-26 red 135 vuln False cross False comp 1 consent True incident late consent cause weather closure
+cdor-021 2026-03-09 critical 122 vuln False cross False comp 0 consent False incident escalation delay cause software migration
+cdor-022 2026-01-17 amber 88 vuln True cross False comp 2 consent True incident late consent cause weather closure
+cdor-023 2026-04-06 critical 222 vuln True cross False comp 2 consent False incident escalation delay cause staffing shortfall
+cdor-024 2026-03-11 critical 49 vuln True cross False comp 1 consent False incident missed handoff cause vendor outage
+cdor-025 2026-04-16 red 211 vuln True cross True comp 2 consent True incident duplicate intake cause software migration
+cdor-026 2026-02-14 red 191 vuln False cross True comp 0 consent True incident late consent cause staffing shortfall
+cdor-027 2026-04-14 critical 103 vuln True cross True comp 1 consent False incident record mismatch cause staffing shortfall
+cdor-028 2026-02-10 amber 207 vuln False cross True comp 1 consent True incident late consent cause vendor outage
+cdor-029 2026-02-13 red 174 vuln False cross False comp 1 consent True incident duplicate intake cause vendor outage
+cdor-030 2026-01-15 amber 56 vuln False cross True comp 0 consent False incident duplicate intake cause weather closure
+
+2026-05-23T06:40:44.269271Z  WARN codex_core_skills::loader: ignoring interface.icon_small: icon path must not contain '..'
+2026-05-23T06:40:44.269280Z  WARN codex_core_skills::loader: ignoring interface.icon_large: icon path must not contain '..'
+2026-05-23T06:40:44.269503Z  WARN codex_core_skills::loader: ignoring interface.icon_small: icon path must not contain '..'
+2026-05-23T06:40:44.269506Z  WARN codex_core_skills::loader: ignoring interface.icon_large: icon path must not contain '..'
+2026-05-23T06:40:44.269726Z  WARN codex_core_skills::loader: ignoring interface.icon_small: icon path must not contain '..'
+2026-05-23T06:40:44.269729Z  WARN codex_core_skills::loader: ignoring interface.icon_large: icon path must not contain '..'
+2026-05-23T06:40:44.269955Z  WARN codex_core_skills::loader: ignoring interface.icon_small: icon path must not contain '..'
+2026-05-23T06:40:44.269957Z  WARN codex_core_skills::loader: ignoring interface.icon_large: icon path must not contain '..'
+2026-05-23T06:40:44.270223Z  WARN codex_core_skills::loader: ignoring interface.icon_small: icon path must not contain '..'
+2026-05-23T06:40:44.270226Z  WARN codex_core_skills::loader: ignoring interface.icon_large: icon path must not contain '..'
+2026-05-23T06:40:44.270740Z  WARN codex_core_skills::loader: ignoring interface.icon_small: icon path must not contain '..'
+2026-05-23T06:40:44.270743Z  WARN codex_core_skills::loader: ignoring interface.icon_large: icon path must not contain '..'
+codex
+The dossiers all share one rule set, so I’m extracting the fields mechanically and applying the strictest business-day deadline per item. I’m treating “after discovery” as exclusive business-day addition from the case-open date, with weekends skipped and no holidays, as the packet states.
+exec
+/bin/zsh -lc "python3 - <<'PY'
+from datetime import date,timedelta
+import re, glob, json
+
+def add_bdays(d,n):
+    y,m,dd=map(int,d.split('-')); cur=date(y,m,dd); c=0
+    while c<n:
+        cur += timedelta(days=1)
+        if cur.weekday()<5: c+=1
+    return cur.isoformat()
+
+for p in sorted(glob.glob('assets/*.md')):
+    s=open(p).read(); id=re.search(r'cdor-\\d+', p).group()
+    opened=re.search(r'opened the case on (\\d{4}-\\d{2}-\\d{2})',s).group(1)
+    count=int(re.search(r'affected count currently stands at (\\d+)',s).group(1))
+    sev=re.search(r'Severity entered .*: (\\w+)',s).group(1)
+    vuln='Vulnerable-population flag: yes' in s
+    cross='Cross-region service touch: yes' in s
+    comp=int(re.search(r'Comparable incidents .*: (\\d+)',s).group(1))
+    consent='Consent repair flag: yes' in s
+    incident=re.search(r'Incident type: (["'^.]+)'"\\.',s).group(1)
+    cause=re.search(r'Cause logged by intake: (["'^.]+)'"\\.',s).group(1)
+    opts=[]
+    base={'amber':10,'red':5,'critical':2}[sev]
+    if sev=='amber' and cause in ('vendor outage','software migration') and count<50 and not vuln:
+        base+=2
+    opts.append((base,'severity_'+sev))
+    if count>=100: opts.append((3,'affected_count_ge_100'))
+    if vuln: opts.append((4,'vulnerable_population'))
+    if cross: opts.append((2,'cross_region'))
+    if comp>=2: opts.append((1,'repeat_incidents_ge_2'))
+    mind=min(x[0] for x in opts)
+    evidence=sorted(code for days,code in opts if days==mind)
+    board = (sev=='critical') or cross or comp>=2 or (sev=='red' and (count>=100 or vuln))
+    if sev=='critical' and count>=100:
+        hold='freeze_new_intake'
+    elif comp>=2 and incident"'!='"'missed handoff':
+        hold='regional_supervisor_signoff'
+    elif sev=='amber' and cause=='client no-show': # Wait rule: amber client-no-show cases, no hold; says incident type? \"For amber client-no-show cases\" means cause client no-show likely.
+        hold='no_hold'
+    else:
+        hold='local_manager_signoff'
+    if consent and vuln:
+        remediation='individual_notice_and_consent_repair'
+    elif incident=='duplicate intake':
+        remediation='merge_and_audit_duplicate_records'
+    elif cause in ('vendor outage','software migration'):
+        remediation='system_fix_with_retrospective_sample'
+    else:
+        remediation='manager_attestation_only'
+    ans={'notify_by':add_bdays(opened,mind),'board_review':'required' if board else 'not_required','remediation':remediation,'hold':hold,'evidence_codes':evidence}
+    print(json.dumps({'id':id,'answer':ans}, separators=(',',':')))
+PY" in /Users/rohit/Documents/Workspace/Coding/benchbench/experiments/004_feedback_sweep_20260522_225208/run/isolated_solver_gpt_5_5__solved_by__gpt_5_5
+ succeeded in 0ms:
+{"id":"cdor-001","answer":{"notify_by":"2026-04-10","board_review":"required","remediation":"system_fix_with_retrospective_sample","hold":"local_manager_signoff","evidence_codes":["affected_count_ge_100"]}}
+{"id":"cdor-002","answer":{"notify_by":"2026-01-23","board_review":"not_required","remediation":"system_fix_with_retrospective_sample","hold":"local_manager_signoff","evidence_codes":["severity_red"]}}
+{"id":"cdor-003","answer":{"notify_by":"2026-03-19","board_review":"not_required","remediation":"system_fix_with_retrospective_sample","hold":"local_manager_signoff","evidence_codes":["affected_count_ge_100"]}}
+{"id":"cdor-004","answer":{"notify_by":"2026-04-16","board_review":"required","remediation":"system_fix_with_retrospective_sample","hold":"local_manager_signoff","evidence_codes":["affected_count_ge_100"]}}
+{"id":"cdor-005","answer":{"notify_by":"2026-02-18","board_review":"not_required","remediation":"manager_attestation_only","hold":"no_hold","evidence_codes":["affected_count_ge_100"]}}
+{"id":"cdor-006","answer":{"notify_by":"2026-04-21","board_review":"required","remediation":"manager_attestation_only","hold":"local_manager_signoff","evidence_codes":["cross_region"]}}
+{"id":"cdor-007","answer":{"notify_by":"2026-02-20","board_review":"required","remediation":"manager_attestation_only","hold":"regional_supervisor_signoff","evidence_codes":["repeat_incidents_ge_2"]}}
+{"id":"cdor-008","answer":{"notify_by":"2026-04-14","board_review":"required","remediation":"individual_notice_and_consent_repair","hold":"freeze_new_intake","evidence_codes":["severity_critical"]}}
+{"id":"cdor-009","answer":{"notify_by":"2026-03-19","board_review":"not_required","remediation":"individual_notice_and_consent_repair","hold":"local_manager_signoff","evidence_codes":["vulnerable_population"]}}
+{"id":"cdor-010","answer":{"notify_by":"2026-03-10","board_review":"required","remediation":"system_fix_with_retrospective_sample","hold":"local_manager_signoff","evidence_codes":["severity_critical"]}}
+{"id":"cdor-011","answer":{"notify_by":"2026-04-10","board_review":"not_required","remediation":"manager_attestation_only","hold":"no_hold","evidence_codes":["vulnerable_population"]}}
+{"id":"cdor-012","answer":{"notify_by":"2026-01-21","board_review":"required","remediation":"manager_attestation_only","hold":"local_manager_signoff","evidence_codes":["affected_count_ge_100"]}}
+{"id":"cdor-013","answer":{"notify_by":"2026-01-06","board_review":"required","remediation":"individual_notice_and_consent_repair","hold":"regional_supervisor_signoff","evidence_codes":["repeat_incidents_ge_2"]}}
+{"id":"cdor-014","answer":{"notify_by":"2026-02-23","board_review":"required","remediation":"manager_attestation_only","hold":"freeze_new_intake","evidence_codes":["repeat_incidents_ge_2"]}}
+{"id":"cdor-015","answer":{"notify_by":"2026-04-14","board_review":"required","remediation":"merge_and_audit_duplicate_records","hold":"regional_supervisor_signoff","evidence_codes":["repeat_incidents_ge_2"]}}
+{"id":"cdor-016","answer":{"notify_by":"2026-02-12","board_review":"required","remediation":"system_fix_with_retrospective_sample","hold":"local_manager_signoff","evidence_codes":["cross_region"]}}
+{"id":"cdor-017","answer":{"notify_by":"2026-01-27","board_review":"required","remediation":"manager_attestation_only","hold":"no_hold","evidence_codes":["cross_region"]}}
+{"id":"cdor-018","answer":{"notify_by":"2026-01-27","board_review":"required","remediation":"system_fix_with_retrospective_sample","hold":"local_manager_signoff","evidence_codes":["cross_region","severity_critical"]}}
+{"id":"cdor-019","answer":{"notify_by":"2026-02-17","board_review":"required","remediation":"manager_attestation_only","hold":"freeze_new_intake","evidence_codes":["cross_region","severity_critical"]}}
+{"id":"cdor-020","answer":{"notify_by":"2026-01-29","board_review":"required","remediation":"manager_attestation_only","hold":"local_manager_signoff","evidence_codes":["affected_count_ge_100"]}}
+{"id":"cdor-021","answer":{"notify_by":"2026-03-11","board_review":"required","remediation":"system_fix_with_retrospective_sample","hold":"freeze_new_intake","evidence_codes":["severity_critical"]}}
+{"id":"cdor-022","answer":{"notify_by":"2026-01-19","board_review":"required","remediation":"individual_notice_and_consent_repair","hold":"regional_supervisor_signoff","evidence_codes":["repeat_incidents_ge_2"]}}
+{"id":"cdor-023","answer":{"notify_by":"2026-04-07","board_review":"required","remediation":"manager_attestation_only","hold":"freeze_new_intake","evidence_codes":["repeat_incidents_ge_2"]}}
+{"id":"cdor-024","answer":{"notify_by":"2026-03-13","board_review":"required","remediation":"system_fix_with_retrospective_sample","hold":"local_manager_signoff","evidence_codes":["severity_critical"]}}
+{"id":"cdor-025","answer":{"notify_by":"2026-04-17","board_review":"required","remediation":"individual_notice_and_consent_repair","hold":"regional_supervisor_signoff","evidence_codes":["repeat_incidents_ge_2"]}}
+{"id":"cdor-026","answer":{"notify_by":"2026-02-17","board_review":"required","remediation":"manager_attestation_only","hold":"local_manager_signoff","evidence_codes":["cross_region"]}}
+{"id":"cdor-027","answer":{"notify_by":"2026-04-16","board_review":"required","remediation":"manager_attestation_only","hold":"freeze_new_intake","evidence_codes":["cross_region","severity_critical"]}}
+{"id":"cdor-028","answer":{"notify_by":"2026-02-12","board_review":"required","remediation":"system_fix_with_retrospective_sample","hold":"local_manager_signoff","evidence_codes":["cross_region"]}}
+{"id":"cdor-029","answer":{"notify_by":"2026-02-18","board_review":"required","remediation":"merge_and_audit_duplicate_records","hold":"local_manager_signoff","evidence_codes":["affected_count_ge_100"]}}
+{"id":"cdor-030","answer":{"notify_by":"2026-01-19","board_review":"required","remediation":"merge_and_audit_duplicate_records","hold":"local_manager_signoff","evidence_codes":["cross_region"]}}
+
+2026-05-23T06:41:11.286018Z  WARN codex_core_skills::loader: ignoring interface.icon_small: icon path must not contain '..'
+2026-05-23T06:41:11.286031Z  WARN codex_core_skills::loader: ignoring interface.icon_large: icon path must not contain '..'
+2026-05-23T06:41:11.286463Z  WARN codex_core_skills::loader: ignoring interface.icon_small: icon path must not contain '..'
+2026-05-23T06:41:11.286466Z  WARN codex_core_skills::loader: ignoring interface.icon_large: icon path must not contain '..'
+2026-05-23T06:41:11.287003Z  WARN codex_core_skills::loader: ignoring interface.icon_small: icon path must not contain '..'
+2026-05-23T06:41:11.287005Z  WARN codex_core_skills::loader: ignoring interface.icon_large: icon path must not contain '..'
+2026-05-23T06:41:11.287667Z  WARN codex_core_skills::loader: ignoring interface.icon_small: icon path must not contain '..'
+2026-05-23T06:41:11.287671Z  WARN codex_core_skills::loader: ignoring interface.icon_large: icon path must not contain '..'
+2026-05-23T06:41:11.287953Z  WARN codex_core_skills::loader: ignoring interface.icon_small: icon path must not contain '..'
+2026-05-23T06:41:11.287956Z  WARN codex_core_skills::loader: ignoring interface.icon_large: icon path must not contain '..'
+2026-05-23T06:41:11.289313Z  WARN codex_core_skills::loader: ignoring interface.icon_small: icon path must not contain '..'
+2026-05-23T06:41:11.289315Z  WARN codex_core_skills::loader: ignoring interface.icon_large: icon path must not contain '..'
+codex
+{"id":"cdor-001","answer":{"notify_by":"2026-04-10","board_review":"required","remediation":"system_fix_with_retrospective_sample","hold":"local_manager_signoff","evidence_codes":["affected_count_ge_100"]}}
+{"id":"cdor-002","answer":{"notify_by":"2026-01-23","board_review":"not_required","remediation":"system_fix_with_retrospective_sample","hold":"local_manager_signoff","evidence_codes":["severity_red"]}}
+{"id":"cdor-003","answer":{"notify_by":"2026-03-19","board_review":"not_required","remediation":"system_fix_with_retrospective_sample","hold":"local_manager_signoff","evidence_codes":["affected_count_ge_100"]}}
+{"id":"cdor-004","answer":{"notify_by":"2026-04-16","board_review":"required","remediation":"system_fix_with_retrospective_sample","hold":"local_manager_signoff","evidence_codes":["affected_count_ge_100"]}}
+{"id":"cdor-005","answer":{"notify_by":"2026-02-18","board_review":"not_required","remediation":"manager_attestation_only","hold":"no_hold","evidence_codes":["affected_count_ge_100"]}}
+{"id":"cdor-006","answer":{"notify_by":"2026-04-21","board_review":"required","remediation":"manager_attestation_only","hold":"local_manager_signoff","evidence_codes":["cross_region"]}}
+{"id":"cdor-007","answer":{"notify_by":"2026-02-20","board_review":"required","remediation":"manager_attestation_only","hold":"regional_supervisor_signoff","evidence_codes":["repeat_incidents_ge_2"]}}
+{"id":"cdor-008","answer":{"notify_by":"2026-04-14","board_review":"required","remediation":"individual_notice_and_consent_repair","hold":"freeze_new_intake","evidence_codes":["severity_critical"]}}
+{"id":"cdor-009","answer":{"notify_by":"2026-03-19","board_review":"not_required","remediation":"individual_notice_and_consent_repair","hold":"local_manager_signoff","evidence_codes":["vulnerable_population"]}}
+{"id":"cdor-010","answer":{"notify_by":"2026-03-10","board_review":"required","remediation":"system_fix_with_retrospective_sample","hold":"local_manager_signoff","evidence_codes":["severity_critical"]}}
+{"id":"cdor-011","answer":{"notify_by":"2026-04-10","board_review":"not_required","remediation":"manager_attestation_only","hold":"no_hold","evidence_codes":["vulnerable_population"]}}
+{"id":"cdor-012","answer":{"notify_by":"2026-01-21","board_review":"required","remediation":"manager_attestation_only","hold":"local_manager_signoff","evidence_codes":["affected_count_ge_100"]}}
+{"id":"cdor-013","answer":{"notify_by":"2026-01-06","board_review":"required","remediation":"individual_notice_and_consent_repair","hold":"regional_supervisor_signoff","evidence_codes":["repeat_incidents_ge_2"]}}
+{"id":"cdor-014","answer":{"notify_by":"2026-02-23","board_review":"required","remediation":"manager_attestation_only","hold":"freeze_new_intake","evidence_codes":["repeat_incidents_ge_2"]}}
+{"id":"cdor-015","answer":{"notify_by":"2026-04-14","board_review":"required","remediation":"merge_and_audit_duplicate_records","hold":"regional_supervisor_signoff","evidence_codes":["repeat_incidents_ge_2"]}}
+{"id":"cdor-016","answer":{"notify_by":"2026-02-12","board_review":"required","remediation":"system_fix_with_retrospective_sample","hold":"local_manager_signoff","evidence_codes":["cross_region"]}}
+{"id":"cdor-017","answer":{"notify_by":"2026-01-27","board_review":"required","remediation":"manager_attestation_only","hold":"no_hold","evidence_codes":["cross_region"]}}
+{"id":"cdor-018","answer":{"notify_by":"2026-01-27","board_review":"required","remediation":"system_fix_with_retrospective_sample","hold":"local_manager_signoff","evidence_codes":["cross_region","severity_critical"]}}
+{"id":"cdor-019","answer":{"notify_by":"2026-02-17","board_review":"required","remediation":"manager_attestation_only","hold":"freeze_new_intake","evidence_codes":["cross_region","severity_critical"]}}
+{"id":"cdor-020","answer":{"notify_by":"2026-01-29","board_review":"required","remediation":"manager_attestation_only","hold":"local_manager_signoff","evidence_codes":["affected_count_ge_100"]}}
+{"id":"cdor-021","answer":{"notify_by":"2026-03-11","board_review":"required","remediation":"system_fix_with_retrospective_sample","hold":"freeze_new_intake","evidence_codes":["severity_critical"]}}
+{"id":"cdor-022","answer":{"notify_by":"2026-01-19","board_review":"required","remediation":"individual_notice_and_consent_repair","hold":"regional_supervisor_signoff","evidence_codes":["repeat_incidents_ge_2"]}}
+{"id":"cdor-023","answer":{"notify_by":"2026-04-07","board_review":"required","remediation":"manager_attestation_only","hold":"freeze_new_intake","evidence_codes":["repeat_incidents_ge_2"]}}
+{"id":"cdor-024","answer":{"notify_by":"2026-03-13","board_review":"required","remediation":"system_fix_with_retrospective_sample","hold":"local_manager_signoff","evidence_codes":["severity_critical"]}}
+{"id":"cdor-025","answer":{"notify_by":"2026-04-17","board_review":"required","remediation":"individual_notice_and_consent_repair","hold":"regional_supervisor_signoff","evidence_codes":["repeat_incidents_ge_2"]}}
+{"id":"cdor-026","answer":{"notify_by":"2026-02-17","board_review":"required","remediation":"manager_attestation_only","hold":"local_manager_signoff","evidence_codes":["cross_region"]}}
+{"id":"cdor-027","answer":{"notify_by":"2026-04-16","board_review":"required","remediation":"manager_attestation_only","hold":"freeze_new_intake","evidence_codes":["cross_region","severity_critical"]}}
+{"id":"cdor-028","answer":{"notify_by":"2026-02-12","board_review":"required","remediation":"system_fix_with_retrospective_sample","hold":"local_manager_signoff","evidence_codes":["cross_region"]}}
+{"id":"cdor-029","answer":{"notify_by":"2026-02-18","board_review":"required","remediation":"merge_and_audit_duplicate_records","hold":"local_manager_signoff","evidence_codes":["affected_count_ge_100"]}}
+{"id":"cdor-030","answer":{"notify_by":"2026-01-19","board_review":"required","remediation":"merge_and_audit_duplicate_records","hold":"local_manager_signoff","evidence_codes":["cross_region"]}}
+tokens used
+81,319

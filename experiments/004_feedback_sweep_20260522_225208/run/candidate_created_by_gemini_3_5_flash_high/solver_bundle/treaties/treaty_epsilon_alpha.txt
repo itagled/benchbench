@@ -1,0 +1,45 @@
+==============================================================
+BILATERAL TRADE AND TARIFF AGREEMENT BETWEEN EPSILON AND ALPHA
+==============================================================
+Signed: 2020-01-01 | Effective: 2020-03-01
+
+PREAMBLE:
+The Sovereign Governments of Nation Epsilon and Nation Alpha, seeking to maximize trade efficiency and maintain fair competitive grounds, hereby agree to the following tariff schedules and trade rules.
+
+SECTION 1: BASE TARIFF RATES
+Article 1: Nation Alpha shall apply a base tariff rate of 8.4% on the import of Agriculture from Nation Epsilon.
+Article 2: Nation Alpha shall apply a base tariff rate of 6.9% on the import of Chemicals from Nation Epsilon.
+Article 3: Nation Alpha shall apply a base tariff rate of 7.1% on the import of ConsumerElectronics from Nation Epsilon.
+Article 4: Nation Alpha shall apply a base tariff rate of 7.9% on the import of Electronics from Nation Epsilon.
+Article 5: Nation Alpha shall apply a base tariff rate of 7.9% on the import of FinishedApparel from Nation Epsilon.
+Article 6: Nation Alpha shall apply a base tariff rate of 6.3% on the import of FreshProduce from Nation Epsilon.
+Article 7: Nation Alpha shall apply a base tariff rate of 5.0% on the import of GrainsAndCereals from Nation Epsilon.
+Article 8: Nation Alpha shall apply a base tariff rate of 8.0% on the import of HeavyEquipment from Nation Epsilon.
+Article 9: Nation Alpha shall apply a base tariff rate of 8.3% on the import of IndustrialSemiconductors from Nation Epsilon.
+Article 10: Nation Alpha shall apply a base tariff rate of 6.6% on the import of Machinery from Nation Epsilon.
+Article 11: Nation Alpha shall apply a base tariff rate of 6.1% on the import of OrganicSolvents from Nation Epsilon.
+Article 12: Nation Alpha shall apply a base tariff rate of 6.2% on the import of PrecisionTools from Nation Epsilon.
+Article 13: Nation Alpha shall apply a base tariff rate of 7.7% on the import of RawFabrics from Nation Epsilon.
+Article 14: Nation Alpha shall apply a base tariff rate of 9.0% on the import of SyntheticPolymers from Nation Epsilon.
+Article 15: Nation Alpha shall apply a base tariff rate of 9.6% on the import of Textiles from Nation Epsilon.
+Article 16: Nation Epsilon shall apply a base tariff rate of 9.2% on the import of Agriculture from Nation Alpha.
+Article 17: Nation Epsilon shall apply a base tariff rate of 5.9% on the import of Chemicals from Nation Alpha.
+Article 18: Nation Epsilon shall apply a base tariff rate of 6.4% on the import of ConsumerElectronics from Nation Alpha.
+Article 19: Nation Epsilon shall apply a base tariff rate of 8.6% on the import of Electronics from Nation Alpha.
+Article 20: Nation Epsilon shall apply a base tariff rate of 5.3% on the import of FinishedApparel from Nation Alpha.
+Article 21: Nation Epsilon shall apply a base tariff rate of 5.8% on the import of FreshProduce from Nation Alpha.
+Article 22: Nation Epsilon shall apply a base tariff rate of 9.3% on the import of GrainsAndCereals from Nation Alpha.
+Article 23: Nation Epsilon shall apply a base tariff rate of 8.3% on the import of HeavyEquipment from Nation Alpha.
+Article 24: Nation Epsilon shall apply a base tariff rate of 6.9% on the import of IndustrialSemiconductors from Nation Alpha.
+Article 25: Nation Epsilon shall apply a base tariff rate of 9.2% on the import of Machinery from Nation Alpha.
+Article 26: Nation Epsilon shall apply a base tariff rate of 7.6% on the import of OrganicSolvents from Nation Alpha.
+Article 27: Nation Epsilon shall apply a base tariff rate of 7.6% on the import of PrecisionTools from Nation Alpha.
+Article 28: Nation Epsilon shall apply a base tariff rate of 5.3% on the import of RawFabrics from Nation Alpha.
+Article 29: Nation Epsilon shall apply a base tariff rate of 6.0% on the import of SyntheticPolymers from Nation Alpha.
+Article 30: Nation Epsilon shall apply a base tariff rate of 5.5% on the import of Textiles from Nation Alpha.
+
+SECTION 2: MOST FAVORED NATION CLAUSES
+Article 31 (MFN): If Nation Epsilon grants a tariff rate on GrainsAndCereals imported from any third nation that is lower than the tariff rate applied on imports from Nation Alpha, then the tariff rate applied on imports from Nation Alpha for GrainsAndCereals shall be reduced to match that rate, plus a margin of 0.2%, subject to a minimum floor of 2.5%.
+Article 32 (MFN): If Nation Alpha grants a tariff rate on HeavyEquipment imported from any third nation that is lower than the tariff rate applied on imports from Nation Epsilon, then the tariff rate applied on imports from Nation Epsilon for HeavyEquipment shall be reduced to match that rate multiplied by a factor of 1.00, subject to a minimum floor of 1.4%.
+
+--------------------------------------------------------------

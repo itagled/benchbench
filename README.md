@@ -69,6 +69,13 @@ controller extracts matching prediction rows and scores them with the
 candidate's scorer. Missing rows, malformed rows, wrong item ids, and timeouts
 all count against the solver.
 
+BenchBench can also run a feedback loop. After a sweep, we write a short
+failure report that names what broke: near-perfect solver scores, all-zero
+solvability warnings, model-specific collapses, timeouts, parse failures, and
+obvious shortcut strategies. The next creator sweep can receive that report as
+extra context. This tests whether models can improve their benchmark-invention
+strategy after seeing how the previous candidates failed.
+
 The basic acceptance logic is conservative:
 
 - If many strong solvers get high scores, the candidate is too easy.
@@ -88,8 +95,10 @@ run against the same public bundles and private scorers.
 We have run two small 3x3 creator/solver sweeps through Codex, added Gemini
 solver columns through Antigravity, and run one fresh five-model creator/solver
 sweep across GPT-5.2, GPT-5.4, GPT-5.5, Gemini 3.1 Pro, and Gemini 3.5 Flash.
-In each row, the creator model built a benchmark package and the solver models
-tried to solve the public solver bundle.
+We then ran a second five-model sweep where creators were shown the Experiment
+003 failure report and asked to build a benchmark that survived those solver
+strategies. In each row, the creator model built a benchmark package and the
+solver models tried to solve the public solver bundle.
 
 ### Experiment 001: Visual/Topology-Attracted Pilot
 
@@ -163,6 +172,30 @@ own Mutative Assembly Inversion benchmark, but the stronger solvers solved it
 perfectly. Under the current acceptance rule, none of these fresh candidates
 should be promoted to the stable bank yet.
 
+### Experiment 004: Feedback-Driven Five-Model Sweep
+
+This run gave all five creators the outside-in benchmark landscape plus the
+Experiment 003 failure report. The prompt said, in effect: your last benchmarks
+were breakable; make one that is still externally solvable but survives those
+solver strategies.
+
+Full artifact:
+`experiments/004_feedback_sweep_20260522_225208/summary.md`.
+
+| creator | generated benchmark | solver GPT-5.2 | solver GPT-5.4 | solver GPT-5.5 | solver Gemini 3.1 Pro | solver Gemini 3.5 Flash | status |
+|---|---|---:|---:|---:|---:|---:|---|
+| GPT-5.2 | Reimbursement Forensics (ReiFor) | 10/30 | 14/30 | 11/30 | 12/30 | 11/30 | best current candidate; audit next |
+| GPT-5.4 | release_packet_arbitration | 27/30 | 25/30 | 27/30 | 0/30 | 27/30 | mostly too easy; Gemini Pro failure is diagnostic |
+| GPT-5.5 | Cross-Document Obligation Resolution | 0/30 | 0/30 | 0/30 | 0/30 | 0/30 | solvability warning |
+| Gemini 3.1 Pro | Corrupted LZ77 Recovery | 0/30 | 22/30 | 17/30 | 0/30 | 0/30 | mixed; reliability and solvability audit needed |
+| Gemini 3.5 Flash | MFN-Cascade | 30/30 | 30/30 | 30/30 | 30/30 | 30/30 | too easy |
+
+The strongest result was GPT-5.2's Reimbursement Forensics benchmark. Every
+solver recovered some answers, so it does not look purely unknowable, but no
+solver got close to saturation. That is the shape BenchBench is looking for.
+It should be audited for leakage, answer evidence, and human solvability before
+being promoted to the stable bank.
+
 ## What We Think We Learned
 
 - The broad prompt is better than the visual-attractor prompt: it produced
@@ -180,6 +213,12 @@ should be promoted to the stable bank yet.
   Adjudication exposed a GPT-5.2 weakness, and Polyhedral Surface Traversal
   exposed a GPT-5.4 weakness. These are not benchmark acceptances, but they are
   good leads for future creator prompts.
+- Feedback helped. In Experiment 003 every fresh candidate was solved at 30/30
+  by at least one solver. In Experiment 004, GPT-5.2 created a candidate where
+  all five solvers scored between 10/30 and 14/30.
+- Feedback did not solve the whole problem. One candidate was still saturated
+  at 30/30, one was all-zero, and two had split results that require audit
+  before they can be treated as useful measurements.
 - A benchmark can fail by being too easy: Spectrum Assembly looked formal, but
   every solver got 30/30 once the right search abstraction was obvious.
 - A benchmark can also fail by being too unknowable: Protocol Archaeology may
@@ -203,6 +242,8 @@ should be promoted to the stable bank yet.
 - `experiments/002_broad_sweep_20260515_220653/`: broad prompt 3-model sweep.
 - `experiments/003_five_model_sweep_20260522_195526/`: full five-model
   creator/solver sweep with GPT and Gemini models.
+- `experiments/004_feedback_sweep_20260522_225208/`: feedback-driven
+  five-model creator/solver sweep.
 
 ## Running A Sweep
 
@@ -218,6 +259,14 @@ sweep, pass an Antigravity model spec:
 
 ```bash
 python run_broad_three_model_sweep.py \
+  --models gpt-5.2 gpt-5.4 gpt-5.5 agy:gemini-3.1-pro agy:gemini-3.5-flash-high
+```
+
+To give creator models a prior failure report, pass it as feedback context:
+
+```bash
+python run_broad_three_model_sweep.py \
+  --feedback-context experiments/003_five_model_sweep_20260522_195526/feedback_for_next_sweep.md \
   --models gpt-5.2 gpt-5.4 gpt-5.5 agy:gemini-3.1-pro agy:gemini-3.5-flash-high
 ```
 

@@ -13,7 +13,7 @@ from benchbench_model_backends import (
     run_cmd,
     safe_name,
 )
-from run_broad_three_model_sweep import score_summary
+from run_broad_three_model_sweep import candidate_status, score_summary
 from scripts.build_benchmark_landscape_pack import model_from_safe_slug, solver_model_from_score_path
 
 
@@ -107,6 +107,19 @@ class ModelBackendTests(unittest.TestCase):
             score_text = tmp_path / "score.txt"
             score_text.write_text("Score: 6/30\n", encoding="utf-8")
             self.assertEqual(score_summary(score_text), {"total": 30, "correct": 6, "accuracy": 0.2})
+
+            score_exact = tmp_path / "score_exact.json"
+            score_exact.write_text('{"total_gold": 30, "exact_match": 22, "accuracy": 0.7333333333333333}\n', encoding="utf-8")
+            self.assertEqual(score_summary(score_exact), {"total": 30, "correct": 22, "accuracy": 0.7333333333333333})
+
+            score_predictions = tmp_path / "score_predictions.json"
+            score_predictions.write_text('{"total_items": 30, "correct_predictions": 11, "accuracy": 0.36666666666666664}\n', encoding="utf-8")
+            self.assertEqual(score_summary(score_predictions), {"total": 30, "correct": 11, "accuracy": 0.36666666666666664})
+
+    def test_candidate_status_flags_all_zero_for_audit(self) -> None:
+        self.assertEqual(candidate_status([{"total": 30, "correct": 0, "accuracy": 0.0}]), "solvability_audit")
+        self.assertEqual(candidate_status([{"total": 30, "correct": 14, "accuracy": 14 / 30}]), "accept")
+        self.assertEqual(candidate_status([{"total": 30, "correct": 15, "accuracy": 0.5}]), "reject")
 
 
 if __name__ == "__main__":

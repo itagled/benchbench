@@ -1,0 +1,6 @@
+{
+  "benchmark_name": "Corrupted LZ77 Recovery",
+  "version": "1.0",
+  "entry_point": "items_private_sample.jsonl",
+  "task": "For each corrupted bin file, recover the original 1600-byte uncompressed data and return its hex-encoded SHA256 hash."
+}

@@ -1,0 +1,45 @@
+==============================================================
+BILATERAL TRADE AND TARIFF AGREEMENT BETWEEN DELTA AND EPSILON
+==============================================================
+Signed: 2020-01-01 | Effective: 2020-03-01
+
+PREAMBLE:
+The Sovereign Governments of Nation Delta and Nation Epsilon, seeking to maximize trade efficiency and maintain fair competitive grounds, hereby agree to the following tariff schedules and trade rules.
+
+SECTION 1: BASE TARIFF RATES
+Article 1: Nation Delta shall apply a base tariff rate of 5.5% on the import of Agriculture from Nation Epsilon.
+Article 2: Nation Delta shall apply a base tariff rate of 6.0% on the import of Chemicals from Nation Epsilon.
+Article 3: Nation Delta shall apply a base tariff rate of 9.0% on the import of ConsumerElectronics from Nation Epsilon.
+Article 4: Nation Delta shall apply a base tariff rate of 5.3% on the import of Electronics from Nation Epsilon.
+Article 5: Nation Delta shall apply a base tariff rate of 9.0% on the import of FinishedApparel from Nation Epsilon.
+Article 6: Nation Delta shall apply a base tariff rate of 8.5% on the import of FreshProduce from Nation Epsilon.
+Article 7: Nation Delta shall apply a base tariff rate of 8.4% on the import of GrainsAndCereals from Nation Epsilon.
+Article 8: Nation Delta shall apply a base tariff rate of 7.2% on the import of HeavyEquipment from Nation Epsilon.
+Article 9: Nation Delta shall apply a base tariff rate of 6.3% on the import of IndustrialSemiconductors from Nation Epsilon.
+Article 10: Nation Delta shall apply a base tariff rate of 6.7% on the import of Machinery from Nation Epsilon.
+Article 11: Nation Delta shall apply a base tariff rate of 7.2% on the import of OrganicSolvents from Nation Epsilon.
+Article 12: Nation Delta shall apply a base tariff rate of 5.7% on the import of PrecisionTools from Nation Epsilon.
+Article 13: Nation Delta shall apply a base tariff rate of 9.4% on the import of RawFabrics from Nation Epsilon.
+Article 14: Nation Delta shall apply a base tariff rate of 6.8% on the import of SyntheticPolymers from Nation Epsilon.
+Article 15: Nation Delta shall apply a base tariff rate of 9.1% on the import of Textiles from Nation Epsilon.
+Article 16: Nation Epsilon shall apply a base tariff rate of 8.7% on the import of Agriculture from Nation Delta.
+Article 17: Nation Epsilon shall apply a base tariff rate of 9.3% on the import of Chemicals from Nation Delta.
+Article 18: Nation Epsilon shall apply a base tariff rate of 8.4% on the import of ConsumerElectronics from Nation Delta.
+Article 19: Nation Epsilon shall apply a base tariff rate of 9.2% on the import of Electronics from Nation Delta.
+Article 20: Nation Epsilon shall apply a base tariff rate of 7.1% on the import of FinishedApparel from Nation Delta.
+Article 21: Nation Epsilon shall apply a base tariff rate of 6.7% on the import of FreshProduce from Nation Delta.
+Article 22: Nation Epsilon shall apply a base tariff rate of 9.8% on the import of GrainsAndCereals from Nation Delta.
+Article 23: Nation Epsilon shall apply a base tariff rate of 9.1% on the import of HeavyEquipment from Nation Delta.
+Article 24: Nation Epsilon shall apply a base tariff rate of 7.2% on the import of IndustrialSemiconductors from Nation Delta.
+Article 25: Nation Epsilon shall apply a base tariff rate of 6.7% on the import of Machinery from Nation Delta.
+Article 26: Nation Epsilon shall apply a base tariff rate of 7.2% on the import of OrganicSolvents from Nation Delta.
+Article 27: Nation Epsilon shall apply a base tariff rate of 5.5% on the import of PrecisionTools from Nation Delta.
+Article 28: Nation Epsilon shall apply a base tariff rate of 5.8% on the import of RawFabrics from Nation Delta.
+Article 29: Nation Epsilon shall apply a base tariff rate of 5.3% on the import of SyntheticPolymers from Nation Delta.
+Article 30: Nation Epsilon shall apply a base tariff rate of 8.0% on the import of Textiles from Nation Delta.
+
+SECTION 2: MOST FAVORED NATION CLAUSES
+Article 31 (MFN): If Nation Delta grants a tariff rate on Machinery imported from any third nation that is lower than the tariff rate applied on imports from Nation Epsilon, then the tariff rate applied on imports from Nation Epsilon for Machinery shall be reduced to match that rate multiplied by a factor of 1.00, subject to a minimum floor of 2.5%.
+Article 32 (MFN): If Nation Epsilon grants a tariff rate on PrecisionTools imported from any third nation that is lower than the tariff rate applied on imports from Nation Delta, then the tariff rate applied on imports from Nation Delta for PrecisionTools shall be reduced to match that rate multiplied by a factor of 1.05, subject to a minimum floor of 2.7%.
+
+--------------------------------------------------------------

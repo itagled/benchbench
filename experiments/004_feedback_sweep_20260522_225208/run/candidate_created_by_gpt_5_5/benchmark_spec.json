@@ -1,0 +1,25 @@
+{
+  "benchmark_name": "Cross-Document Obligation Resolution",
+  "short_name": "CDOR",
+  "version": "1.0",
+  "capability_claim": "Measures whether a solver can reconcile complete but messy procedural evidence across multiple short documents, including superseded rules, precedence, date arithmetic, exceptions, and cross-field consistency.",
+  "modality": "text",
+  "sample_size": 30,
+  "answer_format": {
+    "id": "string",
+    "answer": {
+      "notify_by": "ISO date",
+      "board_review": "required | conditional_required | not_required",
+      "remediation": "one remediation code",
+      "hold": "one hold code",
+      "evidence_codes": "sorted list of trigger codes"
+    }
+  },
+  "grading": "Exact match after parsing JSON answer objects and sorting evidence_codes.",
+  "closest_existing_benchmarks": [
+    "GAIA, because the solver must combine scattered evidence rather than answer from a single fact.",
+    "DocVQA/document-understanding tasks, because the answer is grounded in a supplied packet.",
+    "Instruction-following/evaluation-framework tasks, because output schema and exact constraints matter."
+  ],
+  "not_a_duplicate_reason": "CDOR is not a visual or factual QA benchmark and does not ask for generic document extraction. It tests procedural reconciliation under amendment precedence and edge-case exceptions, with deterministic answers and no hidden external knowledge."
+}

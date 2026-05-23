@@ -1,0 +1,30 @@
+{"id":"cdor-001","answer":{"notify_by":"2026-04-10","board_review":"required","remediation":"system_fix_with_retrospective_sample","hold":"local manager signoff","evidence_codes":[]}}
+{"id":"cdor-002","answer":{"notify_by":"2026-01-23","board_review":"not required","remediation":"system_fix_with_retrospective_sample","hold":"local manager signoff","evidence_codes":[]}}
+{"id":"cdor-003","answer":{"notify_by":"2026-03-19","board_review":"not required","remediation":"system_fix_with_retrospective_sample","hold":"local manager signoff","evidence_codes":[]}}
+{"id":"cdor-004","answer":{"notify_by":"2026-04-16","board_review":"required","remediation":"system_fix_with_retrospective_sample","hold":"local manager signoff","evidence_codes":[]}}
+{"id":"cdor-005","answer":{"notify_by":"2026-02-18","board_review":"not required","remediation":"manager_attestation_only","hold":"local manager signoff","evidence_codes":[]}}
+{"id":"cdor-006","answer":{"notify_by":"2026-04-21","board_review":"required","remediation":"manager_attestation_only","hold":"local manager signoff","evidence_codes":[]}}
+{"id":"cdor-007","answer":{"notify_by":"2026-02-20","board_review":"required","remediation":"manager_attestation_only","hold":"regional supervisor signoff","evidence_codes":[]}}
+{"id":"cdor-008","answer":{"notify_by":"2026-04-14","board_review":"required","remediation":"individual_notice_and_consent_repair","hold":"freeze new intake","evidence_codes":[]}}
+{"id":"cdor-009","answer":{"notify_by":"2026-03-19","board_review":"not required","remediation":"individual_notice_and_consent_repair","hold":"local manager signoff","evidence_codes":[]}}
+{"id":"cdor-010","answer":{"notify_by":"2026-03-10","board_review":"required","remediation":"system_fix_with_retrospective_sample","hold":"local manager signoff","evidence_codes":[]}}
+{"id":"cdor-011","answer":{"notify_by":"2026-04-10","board_review":"not required","remediation":"manager_attestation_only","hold":"local manager signoff","evidence_codes":[]}}
+{"id":"cdor-012","answer":{"notify_by":"2026-01-21","board_review":"required","remediation":"manager_attestation_only","hold":"local manager signoff","evidence_codes":[]}}
+{"id":"cdor-013","answer":{"notify_by":"2026-01-06","board_review":"required","remediation":"individual_notice_and_consent_repair","hold":"regional supervisor signoff","evidence_codes":[]}}
+{"id":"cdor-014","answer":{"notify_by":"2026-02-23","board_review":"required","remediation":"manager_attestation_only","hold":"freeze new intake","evidence_codes":[]}}
+{"id":"cdor-015","answer":{"notify_by":"2026-04-14","board_review":"required","remediation":"merge_and_audit_duplicate_records","hold":"regional supervisor signoff","evidence_codes":[]}}
+{"id":"cdor-016","answer":{"notify_by":"2026-02-12","board_review":"required","remediation":"system_fix_with_retrospective_sample","hold":"local manager signoff","evidence_codes":[]}}
+{"id":"cdor-017","answer":{"notify_by":"2026-01-27","board_review":"required","remediation":"manager_attestation_only","hold":"local manager signoff","evidence_codes":[]}}
+{"id":"cdor-018","answer":{"notify_by":"2026-01-27","board_review":"required","remediation":"system_fix_with_retrospective_sample","hold":"local manager signoff","evidence_codes":[]}}
+{"id":"cdor-019","answer":{"notify_by":"2026-02-17","board_review":"required","remediation":"manager_attestation_only","hold":"freeze new intake","evidence_codes":[]}}
+{"id":"cdor-020","answer":{"notify_by":"2026-01-29","board_review":"required","remediation":"manager_attestation_only","hold":"local manager signoff","evidence_codes":[]}}
+{"id":"cdor-021","answer":{"notify_by":"2026-03-11","board_review":"required","remediation":"system_fix_with_retrospective_sample","hold":"freeze new intake","evidence_codes":[]}}
+{"id":"cdor-022","answer":{"notify_by":"2026-01-19","board_review":"required","remediation":"individual_notice_and_consent_repair","hold":"regional supervisor signoff","evidence_codes":[]}}
+{"id":"cdor-023","answer":{"notify_by":"2026-04-07","board_review":"required","remediation":"manager_attestation_only","hold":"freeze new intake","evidence_codes":[]}}
+{"id":"cdor-024","answer":{"notify_by":"2026-03-13","board_review":"required","remediation":"system_fix_with_retrospective_sample","hold":"local manager signoff","evidence_codes":[]}}
+{"id":"cdor-025","answer":{"notify_by":"2026-04-17","board_review":"required","remediation":"individual_notice_and_consent_repair","hold":"regional supervisor signoff","evidence_codes":[]}}
+{"id":"cdor-026","answer":{"notify_by":"2026-02-17","board_review":"required","remediation":"manager_attestation_only","hold":"local manager signoff","evidence_codes":[]}}
+{"id":"cdor-027","answer":{"notify_by":"2026-04-16","board_review":"required","remediation":"manager_attestation_only","hold":"freeze new intake","evidence_codes":[]}}
+{"id":"cdor-028","answer":{"notify_by":"2026-02-12","board_review":"required","remediation":"system_fix_with_retrospective_sample","hold":"local manager signoff","evidence_codes":[]}}
+{"id":"cdor-029","answer":{"notify_by":"2026-02-18","board_review":"required","remediation":"merge_and_audit_duplicate_records","hold":"local manager signoff","evidence_codes":[]}}
+{"id":"cdor-030","answer":{"notify_by":"2026-01-19","board_review":"required","remediation":"merge_and_audit_duplicate_records","hold":"local manager signoff","evidence_codes":[]}}

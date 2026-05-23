@@ -1,0 +1,723 @@
+{
+  "accuracy": 0.0,
+  "details": [
+    {
+      "correct": false,
+      "gold": {
+        "board_review": "conditional_required",
+        "evidence_codes": [
+          "severity:red",
+          "volume>=100"
+        ],
+        "hold": "local_manager_signoff",
+        "notify_by": "2026-04-10",
+        "remediation": "system_fix_with_retrospective_sample"
+      },
+      "id": "cdor-001",
+      "prediction": {
+        "board_review": "not_required",
+        "evidence_codes": [
+          "severity:red"
+        ],
+        "hold": "local_manager_signoff",
+        "notify_by": "2026-04-14",
+        "remediation": "manager_attestation_only"
+      }
+    },
+    {
+      "correct": false,
+      "gold": {
+        "board_review": "not_required",
+        "evidence_codes": [
+          "severity:red"
+        ],
+        "hold": "local_manager_signoff",
+        "notify_by": "2026-01-23",
+        "remediation": "system_fix_with_retrospective_sample"
+      },
+      "id": "cdor-002",
+      "prediction": {
+        "board_review": "not_required",
+        "evidence_codes": [
+          "severity:red"
+        ],
+        "hold": "local_manager_signoff",
+        "notify_by": "2026-01-23",
+        "remediation": "manager_attestation_only"
+      }
+    },
+    {
+      "correct": false,
+      "gold": {
+        "board_review": "not_required",
+        "evidence_codes": [
+          "severity:amber",
+          "volume>=100",
+          "vulnerable_population"
+        ],
+        "hold": "local_manager_signoff",
+        "notify_by": "2026-03-19",
+        "remediation": "system_fix_with_retrospective_sample"
+      },
+      "id": "cdor-003",
+      "prediction": {
+        "board_review": "not_required",
+        "evidence_codes": [
+          "severity:amber"
+        ],
+        "hold": "local_manager_signoff",
+        "notify_by": "2026-03-30",
+        "remediation": "manager_attestation_only"
+      }
+    },
+    {
+      "correct": false,
+      "gold": {
+        "board_review": "conditional_required",
+        "evidence_codes": [
+          "severity:red",
+          "volume>=100"
+        ],
+        "hold": "local_manager_signoff",
+        "notify_by": "2026-04-16",
+        "remediation": "system_fix_with_retrospective_sample"
+      },
+      "id": "cdor-004",
+      "prediction": {
+        "board_review": "not_required",
+        "evidence_codes": [
+          "severity:red"
+        ],
+        "hold": "local_manager_signoff",
+        "notify_by": "2026-04-20",
+        "remediation": "manager_attestation_only"
+      }
+    },
+    {
+      "correct": false,
+      "gold": {
+        "board_review": "not_required",
+        "evidence_codes": [
+          "severity:amber",
+          "volume>=100"
+        ],
+        "hold": "none",
+        "notify_by": "2026-02-18",
+        "remediation": "manager_attestation_only"
+      },
+      "id": "cdor-005",
+      "prediction": {
+        "board_review": "not_required",
+        "evidence_codes": [
+          "severity:amber"
+        ],
+        "hold": "local_manager_signoff",
+        "notify_by": "2026-02-27",
+        "remediation": "manager_attestation_only"
+      }
+    },
+    {
+      "correct": false,
+      "gold": {
+        "board_review": "required",
+        "evidence_codes": [
+          "cross_region",
+          "severity:amber",
+          "volume>=100"
+        ],
+        "hold": "local_manager_signoff",
+        "notify_by": "2026-04-21",
+        "remediation": "manager_attestation_only"
+      },
+      "id": "cdor-006",
+      "prediction": {
+        "board_review": "not_required",
+        "evidence_codes": [
+          "severity:amber"
+        ],
+        "hold": "local_manager_signoff",
+        "notify_by": "2026-05-01",
+        "remediation": "manager_attestation_only"
+      }
+    },
+    {
+      "correct": false,
+      "gold": {
+        "board_review": "required",
+        "evidence_codes": [
+          "cross_region",
+          "repeat_incident",
+          "severity:red",
+          "vulnerable_population"
+        ],
+        "hold": "regional_supervisor_signoff",
+        "notify_by": "2026-02-20",
+        "remediation": "manager_attestation_only"
+      },
+      "id": "cdor-007",
+      "prediction": {
+        "board_review": "not_required",
+        "evidence_codes": [
+          "severity:red"
+        ],
+        "hold": "local_manager_signoff",
+        "notify_by": "2026-02-26",
+        "remediation": "manager_attestation_only"
+      }
+    },
+    {
+      "correct": false,
+      "gold": {
+        "board_review": "required",
+        "evidence_codes": [
+          "severity:critical",
+          "volume>=100",
+          "vulnerable_population"
+        ],
+        "hold": "freeze_new_intake",
+        "notify_by": "2026-04-14",
+        "remediation": "individual_notice_and_consent_repair"
+      },
+      "id": "cdor-008",
+      "prediction": {
+        "board_review": "required",
+        "evidence_codes": [
+          "severity:critical"
+        ],
+        "hold": "local_manager_signoff",
+        "notify_by": "2026-04-14",
+        "remediation": "manager_attestation_only"
+      }
+    },
+    {
+      "correct": false,
+      "gold": {
+        "board_review": "not_required",
+        "evidence_codes": [
+          "severity:amber",
+          "vulnerable_population"
+        ],
+        "hold": "local_manager_signoff",
+        "notify_by": "2026-03-19",
+        "remediation": "individual_notice_and_consent_repair"
+      },
+      "id": "cdor-009",
+      "prediction": {
+        "board_review": "not_required",
+        "evidence_codes": [
+          "severity:amber"
+        ],
+        "hold": "local_manager_signoff",
+        "notify_by": "2026-03-27",
+        "remediation": "manager_attestation_only"
+      }
+    },
+    {
+      "correct": false,
+      "gold": {
+        "board_review": "required",
+        "evidence_codes": [
+          "severity:critical"
+        ],
+        "hold": "local_manager_signoff",
+        "notify_by": "2026-03-10",
+        "remediation": "system_fix_with_retrospective_sample"
+      },
+      "id": "cdor-010",
+      "prediction": {
+        "board_review": "required",
+        "evidence_codes": [
+          "severity:critical"
+        ],
+        "hold": "local_manager_signoff",
+        "notify_by": "2026-03-10",
+        "remediation": "manager_attestation_only"
+      }
+    },
+    {
+      "correct": false,
+      "gold": {
+        "board_review": "not_required",
+        "evidence_codes": [
+          "severity:amber",
+          "vulnerable_population"
+        ],
+        "hold": "none",
+        "notify_by": "2026-04-10",
+        "remediation": "manager_attestation_only"
+      },
+      "id": "cdor-011",
+      "prediction": {
+        "board_review": "not_required",
+        "evidence_codes": [
+          "severity:amber"
+        ],
+        "hold": "local_manager_signoff",
+        "notify_by": "2026-04-20",
+        "remediation": "manager_attestation_only"
+      }
+    },
+    {
+      "correct": false,
+      "gold": {
+        "board_review": "conditional_required",
+        "evidence_codes": [
+          "severity:red",
+          "volume>=100",
+          "vulnerable_population"
+        ],
+        "hold": "local_manager_signoff",
+        "notify_by": "2026-01-21",
+        "remediation": "manager_attestation_only"
+      },
+      "id": "cdor-012",
+      "prediction": {
+        "board_review": "not_required",
+        "evidence_codes": [
+          "severity:red"
+        ],
+        "hold": "local_manager_signoff",
+        "notify_by": "2026-01-23",
+        "remediation": "manager_attestation_only"
+      }
+    },
+    {
+      "correct": false,
+      "gold": {
+        "board_review": "required",
+        "evidence_codes": [
+          "cross_region",
+          "repeat_incident",
+          "severity:amber",
+          "volume>=100",
+          "vulnerable_population"
+        ],
+        "hold": "regional_supervisor_signoff",
+        "notify_by": "2026-01-06",
+        "remediation": "individual_notice_and_consent_repair"
+      },
+      "id": "cdor-013",
+      "prediction": {
+        "board_review": "not_required",
+        "evidence_codes": [
+          "severity:amber"
+        ],
+        "hold": "local_manager_signoff",
+        "notify_by": "2026-01-19",
+        "remediation": "manager_attestation_only"
+      }
+    },
+    {
+      "correct": false,
+      "gold": {
+        "board_review": "required",
+        "evidence_codes": [
+          "cross_region",
+          "repeat_incident",
+          "severity:critical",
+          "volume>=100",
+          "vulnerable_population"
+        ],
+        "hold": "freeze_new_intake",
+        "notify_by": "2026-02-23",
+        "remediation": "manager_attestation_only"
+      },
+      "id": "cdor-014",
+      "prediction": {
+        "board_review": "required",
+        "evidence_codes": [
+          "severity:critical"
+        ],
+        "hold": "local_manager_signoff",
+        "notify_by": "2026-02-24",
+        "remediation": "manager_attestation_only"
+      }
+    },
+    {
+      "correct": false,
+      "gold": {
+        "board_review": "required",
+        "evidence_codes": [
+          "repeat_incident",
+          "severity:amber",
+          "vulnerable_population"
+        ],
+        "hold": "regional_supervisor_signoff",
+        "notify_by": "2026-04-14",
+        "remediation": "merge_and_audit_duplicate_records"
+      },
+      "id": "cdor-015",
+      "prediction": {
+        "board_review": "not_required",
+        "evidence_codes": [
+          "severity:amber"
+        ],
+        "hold": "local_manager_signoff",
+        "notify_by": "2026-04-27",
+        "remediation": "manager_attestation_only"
+      }
+    },
+    {
+      "correct": false,
+      "gold": {
+        "board_review": "required",
+        "evidence_codes": [
+          "cross_region",
+          "severity:amber"
+        ],
+        "hold": "local_manager_signoff",
+        "notify_by": "2026-02-12",
+        "remediation": "system_fix_with_retrospective_sample"
+      },
+      "id": "cdor-016",
+      "prediction": {
+        "board_review": "not_required",
+        "evidence_codes": [
+          "severity:amber"
+        ],
+        "hold": "local_manager_signoff",
+        "notify_by": "2026-02-24",
+        "remediation": "manager_attestation_only"
+      }
+    },
+    {
+      "correct": false,
+      "gold": {
+        "board_review": "required",
+        "evidence_codes": [
+          "cross_region",
+          "severity:amber",
+          "vulnerable_population"
+        ],
+        "hold": "none",
+        "notify_by": "2026-01-27",
+        "remediation": "manager_attestation_only"
+      },
+      "id": "cdor-017",
+      "prediction": {
+        "board_review": "not_required",
+        "evidence_codes": [
+          "severity:amber"
+        ],
+        "hold": "local_manager_signoff",
+        "notify_by": "2026-02-06",
+        "remediation": "manager_attestation_only"
+      }
+    },
+    {
+      "correct": false,
+      "gold": {
+        "board_review": "required",
+        "evidence_codes": [
+          "cross_region",
+          "severity:critical"
+        ],
+        "hold": "local_manager_signoff",
+        "notify_by": "2026-01-27",
+        "remediation": "system_fix_with_retrospective_sample"
+      },
+      "id": "cdor-018",
+      "prediction": {
+        "board_review": "required",
+        "evidence_codes": [
+          "severity:critical"
+        ],
+        "hold": "local_manager_signoff",
+        "notify_by": "2026-01-27",
+        "remediation": "manager_attestation_only"
+      }
+    },
+    {
+      "correct": false,
+      "gold": {
+        "board_review": "required",
+        "evidence_codes": [
+          "cross_region",
+          "severity:critical",
+          "volume>=100",
+          "vulnerable_population"
+        ],
+        "hold": "freeze_new_intake",
+        "notify_by": "2026-02-17",
+        "remediation": "manager_attestation_only"
+      },
+      "id": "cdor-019",
+      "prediction": {
+        "board_review": "required",
+        "evidence_codes": [
+          "severity:critical"
+        ],
+        "hold": "local_manager_signoff",
+        "notify_by": "2026-02-17",
+        "remediation": "manager_attestation_only"
+      }
+    },
+    {
+      "correct": false,
+      "gold": {
+        "board_review": "conditional_required",
+        "evidence_codes": [
+          "severity:red",
+          "volume>=100"
+        ],
+        "hold": "local_manager_signoff",
+        "notify_by": "2026-01-29",
+        "remediation": "manager_attestation_only"
+      },
+      "id": "cdor-020",
+      "prediction": {
+        "board_review": "not_required",
+        "evidence_codes": [
+          "severity:red"
+        ],
+        "hold": "local_manager_signoff",
+        "notify_by": "2026-02-02",
+        "remediation": "manager_attestation_only"
+      }
+    },
+    {
+      "correct": false,
+      "gold": {
+        "board_review": "required",
+        "evidence_codes": [
+          "severity:critical",
+          "volume>=100"
+        ],
+        "hold": "freeze_new_intake",
+        "notify_by": "2026-03-11",
+        "remediation": "system_fix_with_retrospective_sample"
+      },
+      "id": "cdor-021",
+      "prediction": {
+        "board_review": "required",
+        "evidence_codes": [
+          "severity:critical"
+        ],
+        "hold": "local_manager_signoff",
+        "notify_by": "2026-03-11",
+        "remediation": "manager_attestation_only"
+      }
+    },
+    {
+      "correct": false,
+      "gold": {
+        "board_review": "required",
+        "evidence_codes": [
+          "repeat_incident",
+          "severity:amber",
+          "vulnerable_population"
+        ],
+        "hold": "regional_supervisor_signoff",
+        "notify_by": "2026-01-19",
+        "remediation": "individual_notice_and_consent_repair"
+      },
+      "id": "cdor-022",
+      "prediction": {
+        "board_review": "not_required",
+        "evidence_codes": [
+          "severity:amber"
+        ],
+        "hold": "local_manager_signoff",
+        "notify_by": "2026-01-30",
+        "remediation": "manager_attestation_only"
+      }
+    },
+    {
+      "correct": false,
+      "gold": {
+        "board_review": "required",
+        "evidence_codes": [
+          "repeat_incident",
+          "severity:critical",
+          "volume>=100",
+          "vulnerable_population"
+        ],
+        "hold": "freeze_new_intake",
+        "notify_by": "2026-04-07",
+        "remediation": "manager_attestation_only"
+      },
+      "id": "cdor-023",
+      "prediction": {
+        "board_review": "required",
+        "evidence_codes": [
+          "severity:critical"
+        ],
+        "hold": "local_manager_signoff",
+        "notify_by": "2026-04-08",
+        "remediation": "manager_attestation_only"
+      }
+    },
+    {
+      "correct": false,
+      "gold": {
+        "board_review": "required",
+        "evidence_codes": [
+          "severity:critical",
+          "vulnerable_population"
+        ],
+        "hold": "local_manager_signoff",
+        "notify_by": "2026-03-13",
+        "remediation": "system_fix_with_retrospective_sample"
+      },
+      "id": "cdor-024",
+      "prediction": {
+        "board_review": "required",
+        "evidence_codes": [
+          "severity:critical"
+        ],
+        "hold": "local_manager_signoff",
+        "notify_by": "2026-03-13",
+        "remediation": "manager_attestation_only"
+      }
+    },
+    {
+      "correct": false,
+      "gold": {
+        "board_review": "required",
+        "evidence_codes": [
+          "cross_region",
+          "repeat_incident",
+          "severity:red",
+          "volume>=100",
+          "vulnerable_population"
+        ],
+        "hold": "regional_supervisor_signoff",
+        "notify_by": "2026-04-17",
+        "remediation": "individual_notice_and_consent_repair"
+      },
+      "id": "cdor-025",
+      "prediction": {
+        "board_review": "not_required",
+        "evidence_codes": [
+          "severity:red"
+        ],
+        "hold": "local_manager_signoff",
+        "notify_by": "2026-04-23",
+        "remediation": "manager_attestation_only"
+      }
+    },
+    {
+      "correct": false,
+      "gold": {
+        "board_review": "required",
+        "evidence_codes": [
+          "cross_region",
+          "severity:red",
+          "volume>=100"
+        ],
+        "hold": "local_manager_signoff",
+        "notify_by": "2026-02-17",
+        "remediation": "system_fix_with_retrospective_sample"
+      },
+      "id": "cdor-026",
+      "prediction": {
+        "board_review": "not_required",
+        "evidence_codes": [
+          "severity:red"
+        ],
+        "hold": "local_manager_signoff",
+        "notify_by": "2026-02-20",
+        "remediation": "manager_attestation_only"
+      }
+    },
+    {
+      "correct": false,
+      "gold": {
+        "board_review": "required",
+        "evidence_codes": [
+          "cross_region",
+          "severity:critical",
+          "volume>=100",
+          "vulnerable_population"
+        ],
+        "hold": "freeze_new_intake",
+        "notify_by": "2026-04-16",
+        "remediation": "system_fix_with_retrospective_sample"
+      },
+      "id": "cdor-027",
+      "prediction": {
+        "board_review": "required",
+        "evidence_codes": [
+          "severity:critical"
+        ],
+        "hold": "local_manager_signoff",
+        "notify_by": "2026-04-16",
+        "remediation": "manager_attestation_only"
+      }
+    },
+    {
+      "correct": false,
+      "gold": {
+        "board_review": "required",
+        "evidence_codes": [
+          "cross_region",
+          "severity:amber",
+          "volume>=100"
+        ],
+        "hold": "local_manager_signoff",
+        "notify_by": "2026-02-12",
+        "remediation": "system_fix_with_retrospective_sample"
+      },
+      "id": "cdor-028",
+      "prediction": {
+        "board_review": "not_required",
+        "evidence_codes": [
+          "severity:amber"
+        ],
+        "hold": "local_manager_signoff",
+        "notify_by": "2026-02-24",
+        "remediation": "manager_attestation_only"
+      }
+    },
+    {
+      "correct": false,
+      "gold": {
+        "board_review": "conditional_required",
+        "evidence_codes": [
+          "severity:red",
+          "volume>=100"
+        ],
+        "hold": "local_manager_signoff",
+        "notify_by": "2026-02-18",
+        "remediation": "merge_and_audit_duplicate_records"
+      },
+      "id": "cdor-029",
+      "prediction": {
+        "board_review": "not_required",
+        "evidence_codes": [
+          "severity:red"
+        ],
+        "hold": "local_manager_signoff",
+        "notify_by": "2026-02-20",
+        "remediation": "manager_attestation_only"
+      }
+    },
+    {
+      "correct": false,
+      "gold": {
+        "board_review": "required",
+        "evidence_codes": [
+          "cross_region",
+          "severity:amber"
+        ],
+        "hold": "local_manager_signoff",
+        "notify_by": "2026-01-19",
+        "remediation": "merge_and_audit_duplicate_records"
+      },
+      "id": "cdor-030",
+      "prediction": {
+        "board_review": "not_required",
+        "evidence_codes": [
+          "severity:amber"
+        ],
+        "hold": "local_manager_signoff",
+        "notify_by": "2026-01-29",
+        "remediation": "manager_attestation_only"
+      }
+    }
+  ],
+  "extra_ids": [],
+  "missing_ids": [],
+  "score": 0,
+  "total": 30
+}
