@@ -10,6 +10,7 @@ from benchbench_model_backends import (
     antigravity_model_setting,
     claude_cache_summary,
     claude_tokens_used,
+    cursor_tokens_used,
     parse_antigravity_selected_label,
     parse_model_spec,
     run_cmd,
@@ -55,6 +56,13 @@ class ModelBackendTests(unittest.TestCase):
         self.assertEqual(spec.claude_model, "sonnet")
         self.assertEqual(spec.agent_label, "Claude Sonnet+Claude Code")
 
+    def test_cursor_model_spec(self) -> None:
+        spec = parse_model_spec("cursor:claude-opus")
+        self.assertEqual(spec.provider, "cursor")
+        self.assertEqual(spec.name, "claude-opus")
+        self.assertEqual(spec.cursor_model, "claude-4.6-opus-high-thinking")
+        self.assertEqual(spec.agent_label, "Claude Opus 4.6 Thinking+Cursor")
+
     def test_claude_usage_parser_counts_cache_tokens(self) -> None:
         data = {
             "usage": {
@@ -91,6 +99,17 @@ class ModelBackendTests(unittest.TestCase):
             claude_cache_summary(with_model_usage),
             {"cache_creation_input_tokens": 17, "cache_read_input_tokens": 19},
         )
+
+    def test_cursor_usage_parser_counts_cache_tokens(self) -> None:
+        data = {
+            "usage": {
+                "inputTokens": 3,
+                "cacheWriteTokens": 5,
+                "cacheReadTokens": 7,
+                "outputTokens": 11,
+            }
+        }
+        self.assertEqual(cursor_tokens_used(data), 26)
 
     def test_antigravity_label_parser_uses_last_label(self) -> None:
         text = '\n'.join(

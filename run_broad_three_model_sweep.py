@@ -728,15 +728,15 @@ def write_summary(manifest: list[dict[str, Any]], validations: dict[str, dict[st
     lines.append("")
     lines.append("## Calls")
     lines.append("")
-    lines.append("| phase | creator | solver/model | rows | score | tokens | Claude cost | Claude cache read | returncode |")
-    lines.append("|---|---|---:|---:|---:|---:|---:|---:|---:|")
+    lines.append("| phase | creator | solver/model | rows | score | tokens | cost | cache read | cache write | returncode |")
+    lines.append("|---|---|---:|---:|---:|---:|---:|---:|---:|---:|")
     for item in manifest:
         score = item.get("score_summary") or {}
         score_text = "NA"
         if score:
             score_text = f"{score.get('correct')}/{score.get('total')}"
         lines.append(
-            "| {phase} | {creator} | {model} | {rows} | {score} | {tokens} | {cost} | {cache_read} | {rc} |".format(
+            "| {phase} | {creator} | {model} | {rows} | {score} | {tokens} | {cost} | {cache_read} | {cache_write} | {rc} |".format(
                 phase=item.get("phase"),
                 creator=item.get("creator_model", ""),
                 model=item.get("solver_display_model", item.get("display_model", item.get("solver_model", item.get("model", "")))),
@@ -744,7 +744,8 @@ def write_summary(manifest: list[dict[str, Any]], validations: dict[str, dict[st
                 score=score_text,
                 tokens=item.get("tokens_used", 0),
                 cost=item.get("claude_total_cost_usd", ""),
-                cache_read=item.get("claude_cache_read_input_tokens", ""),
+                cache_read=item.get("claude_cache_read_input_tokens", item.get("cursor_cache_read_tokens", "")),
+                cache_write=item.get("claude_cache_creation_input_tokens", item.get("cursor_cache_write_tokens", "")),
                 rc=item.get("returncode"),
             )
         )
@@ -773,7 +774,8 @@ def parse_args() -> argparse.Namespace:
         help=(
             "Creator and solver model specs. Unprefixed specs use Codex. "
             "Use agy:gemini-3.5-flash-high, agy:gemini-3.1-pro, or agy:current for Antigravity. "
-            "Use claude:sonnet or claude:opus for Claude Code."
+            "Use claude:sonnet or claude:opus for Claude Code. "
+            "Use cursor:claude-opus for Claude Opus through Cursor Agent."
         ),
     )
     parser.add_argument("--run-root", type=Path, default=None, help="Optional output experiment directory.")

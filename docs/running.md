@@ -39,9 +39,9 @@ python run_broad_three_model_sweep.py \
 For the next full all-model run, use the current 6x6 feedback packet:
 
 ```bash
-BENCHBENCH_CLAUDE_MAX_BUDGET_USD=25 python run_broad_three_model_sweep.py \
+python run_broad_three_model_sweep.py \
   --feedback-context experiments/feedback_for_next_full_6x6_sweep_20260523.md \
-  --models gpt-5.2 gpt-5.4 gpt-5.5 agy:gemini-3.1-pro agy:gemini-3.5-flash-high claude:opus
+  --models gpt-5.2 gpt-5.4 gpt-5.5 agy:gemini-3.1-pro agy:gemini-3.5-flash-high cursor:claude-opus
 ```
 
 ## Adding Solvers To Existing Runs
@@ -83,6 +83,25 @@ BenchBench uses native Claude Code calls for `claude:` specs.
   calls and stdin prompts.
 - The creator prompt keeps large stable context before volatile artifact paths
   so repeated Claude creator calls can reuse more of the prefix cache.
+
+## Cursor Backend
+
+BenchBench can use Cursor Agent for `cursor:` specs.
+
+- `cursor:claude-opus` maps to Cursor model
+  `claude-4.6-opus-high-thinking`, preserving comparability with the current
+  Claude Opus 4.6 runs.
+- `cursor:claude-opus-4.7-thinking-high` maps to Cursor model
+  `claude-opus-4-7-thinking-high` if a newer Opus row is desired.
+- Calls use `cursor-agent --print --output-format json --force --trust
+  --sandbox disabled --workspace <run-dir>` and pass the prompt on stdin, so
+  long feedback packets do not depend on shell argument length.
+- Cursor JSON reports `usage.inputTokens`, `usage.outputTokens`,
+  `usage.cacheReadTokens`, and `usage.cacheWriteTokens`; BenchBench records
+  those fields in the manifest.
+
+If Cursor is unavailable, the closest fallback for Claude Opus is
+`agy:claude-opus-4.6-thinking`.
 
 ## Antigravity Backend
 

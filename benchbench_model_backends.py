@@ -38,6 +38,16 @@ KNOWN_CLAUDE_MODELS = {
     "claude-haiku-4-5": ("claude-haiku-4-5", "Claude Haiku 4.5"),
 }
 
+KNOWN_CURSOR_MODELS = {
+    "claude-opus": ("claude-4.6-opus-high-thinking", "Claude Opus 4.6 Thinking"),
+    "opus": ("claude-4.6-opus-high-thinking", "Claude Opus 4.6 Thinking"),
+    "claude-opus-4.6-thinking": ("claude-4.6-opus-high-thinking", "Claude Opus 4.6 Thinking"),
+    "claude-4.6-opus-high-thinking": ("claude-4.6-opus-high-thinking", "Claude Opus 4.6 Thinking"),
+    "claude-opus-4.7-thinking-high": ("claude-opus-4-7-thinking-high", "Claude Opus 4.7 High Thinking"),
+    "claude-opus-4-7-thinking-high": ("claude-opus-4-7-thinking-high", "Claude Opus 4.7 High Thinking"),
+    "opus-4.7-thinking-high": ("claude-opus-4-7-thinking-high", "Claude Opus 4.7 High Thinking"),
+}
+
 ANTIGRAVITY_SETTINGS_PATH = Path.home() / ".gemini" / "antigravity-cli" / "settings.json"
 ANTIGRAVITY_SETTINGS_LOCK_PATH = Path.home() / ".gemini" / "antigravity-cli" / "benchbench_model.lock"
 DEFAULT_CLAUDE_MAX_BUDGET_USD = "25"
@@ -53,6 +63,7 @@ class ModelSpec:
     codex_model: str | None = None
     antigravity_expected_label: str | None = None
     claude_model: str | None = None
+    cursor_model: str | None = None
 
     @property
     def agent_label(self) -> str:
@@ -62,6 +73,8 @@ class ModelSpec:
             return f"{self.display_name}+Antigravity"
         if self.provider == "claude":
             return f"{self.display_name}+Claude Code"
+        if self.provider == "cursor":
+            return f"{self.display_name}+Cursor"
         return self.display_name
 
 
@@ -78,6 +91,7 @@ def parse_model_spec(value: str) -> ModelSpec:
     Unprefixed values are Codex model names, preserving the historical runner
     behavior. Antigravity specs use `agy:<model>` or `antigravity:<model>`.
     Claude Code specs use `claude:<model>` or `anthropic:<model>`.
+    Cursor specs use `cursor:<model>`.
     Because `agy --print` does not expose a model flag, Antigravity specs are
     checked after the run against the selected model label in the CLI log.
     """
@@ -110,6 +124,20 @@ def parse_model_spec(value: str) -> ModelSpec:
                 provider="claude",
                 display_name=display,
                 claude_model=claude_model,
+            )
+    for prefix in ("cursor:", "cursor-agent:"):
+        if lowered.startswith(prefix):
+            requested = raw[len(prefix) :].strip()
+            model_id = requested.lower() or "claude-opus"
+            cursor_model, display = KNOWN_CURSOR_MODELS.get(
+                model_id,
+                (requested or "claude-4.6-opus-high-thinking", requested or "Cursor model"),
+            )
+            return ModelSpec(
+                name=model_id,
+                provider="cursor",
+                display_name=display,
+                cursor_model=cursor_model,
             )
     return ModelSpec(name=raw, provider="codex", display_name=raw, codex_model=raw)
 
@@ -193,6 +221,26 @@ def claude_metadata(data: dict[str, Any], spec: ModelSpec) -> dict[str, Any]:
         "claude_model_usage": data.get("modelUsage") if isinstance(data.get("modelUsage"), dict) else {},
         "claude_cache_creation_input_tokens": cache_summary["cache_creation_input_tokens"],
         "claude_cache_read_input_tokens": cache_summary["cache_read_input_tokens"],
+    }
+
+
+def cursor_tokens_used(data: dict[str, Any]) -> int:
+    usage = data.get("usage")
+    if not isinstance(usage, dict):
+        return 0
+    return sum(
+        int(usage.get(key) or 0)
+        for key in ["inputTokens", "cacheWriteTokens", "cacheReadTokens", "outputTokens"]
+    )
+
+
+def cursor_metadata(data: dict[str, Any], spec: ModelSpec) -> dict[str, Any]:
+    usage = data.get("usage") if isinstance(data.get("usage"), dict) else {}
+    return {
+        "cursor_model": spec.cursor_model or spec.name,
+        "cursor_usage": usage,
+        "cursor_cache_write_tokens": int(usage.get("cacheWriteTokens") or 0),
+        "cursor_cache_read_tokens": int(usage.get("cacheReadTokens") or 0),
     }
 
 
@@ -516,6 +564,83 @@ def run_claude_model(spec: ModelSpec, prompt: str, out_path: Path, cwd: Path, ef
     }
 
 
+def run_cursor_model(spec: ModelSpec, prompt: str, out_path: Path, cwd: Path, effort: str, timeout: int) -> dict[str, Any]:
+    prompt_path = out_path.with_suffix(".prompt.txt")
+    stdout_path = out_path.with_suffix(".stdout.txt")
+    stderr_path = out_path.with_suffix(".stderr.txt")
+    prompt_path.write_text(prompt, encoding="utf-8")
+
+    cursor_agent = shutil.which("cursor-agent")
+    if not cursor_agent:
+        message = "Cursor Agent CLI `cursor-agent` was not found on PATH.\n"
+        out_path.write_text("", encoding="utf-8")
+        stdout_path.write_text("", encoding="utf-8")
+        stderr_path.write_text(message, encoding="utf-8")
+        return {
+            "model": spec.name,
+            "display_model": spec.display_name,
+            "provider": spec.provider,
+            "returncode": 127,
+            "tokens_used": 0,
+            "out_path": str(out_path),
+            "stdout_path": str(stdout_path),
+            "stderr_path": str(stderr_path),
+            "prompt_path": str(prompt_path),
+            "effort": effort,
+        }
+
+    cmd = [
+        cursor_agent,
+        "--print",
+        "--output-format",
+        "json",
+        "--model",
+        spec.cursor_model or spec.name,
+        "--force",
+        "--trust",
+        "--sandbox",
+        "disabled",
+        "--workspace",
+        str(cwd),
+    ]
+    try:
+        completed = run_cmd(cmd, cwd, stdin_text=prompt, timeout=timeout)
+        stdout = completed.stdout
+        stderr = completed.stderr
+        returncode = completed.returncode
+    except subprocess.TimeoutExpired as exc:
+        stdout, stderr, returncode = _timeout_result(exc, timeout)
+
+    stdout_path.write_text(stdout, encoding="utf-8")
+    stderr_path.write_text(stderr, encoding="utf-8")
+    data: dict[str, Any] = {}
+    try:
+        parsed = json.loads(stdout)
+        if isinstance(parsed, dict):
+            data = parsed
+    except json.JSONDecodeError:
+        data = {}
+
+    result_text = data.get("result") if isinstance(data.get("result"), str) else stdout
+    out_path.write_text(result_text, encoding="utf-8")
+    if data.get("is_error") and returncode == 0:
+        returncode = 1
+
+    return {
+        "model": spec.name,
+        "display_model": spec.display_name,
+        "provider": spec.provider,
+        "returncode": returncode,
+        "tokens_used": cursor_tokens_used(data),
+        "out_path": str(out_path),
+        "stdout_path": str(stdout_path),
+        "stderr_path": str(stderr_path),
+        "prompt_path": str(prompt_path),
+        "effort": effort,
+        **cursor_metadata(data, spec),
+    }
+
+
 def run_model(spec: ModelSpec, prompt: str, out_path: Path, cwd: Path, effort: str, timeout: int) -> dict[str, Any]:
     if spec.provider == "codex":
         return run_codex_model(spec, prompt, out_path, cwd, effort, timeout)
@@ -523,4 +648,6 @@ def run_model(spec: ModelSpec, prompt: str, out_path: Path, cwd: Path, effort: s
         return run_antigravity_model(spec, prompt, out_path, cwd, effort, timeout)
     if spec.provider == "claude":
         return run_claude_model(spec, prompt, out_path, cwd, effort, timeout)
+    if spec.provider == "cursor":
+        return run_cursor_model(spec, prompt, out_path, cwd, effort, timeout)
     raise ValueError(f"Unsupported model provider: {spec.provider}")
