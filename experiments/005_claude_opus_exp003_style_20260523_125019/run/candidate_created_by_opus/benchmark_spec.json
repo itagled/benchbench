@@ -1,0 +1,19 @@
+{
+  "name": "String Rewriting Distance",
+  "short_id": "srd_v1",
+  "version": "1.0.0",
+  "capability_claim": "Ability to compute shortest-path distance in an unlabelled state space defined by local string-rewriting rules: read a small set of 2-character pattern rewrites, search the implicit graph of reachable strings, and return the minimum number of rule applications transforming an initial string into a target string under a fixed length cap.",
+  "task_type": "integer regression (exact-match)",
+  "alphabet": ["A", "B", "C", "D"],
+  "rule_format": "list of [pattern, replacement] pairs; pattern is length 2; replacement is length 1 or 2",
+  "operation": "One step replaces one occurrence of some rule's pattern in the current string with that rule's replacement, anywhere it appears. Multiple rules may share characters; you choose which rule and which occurrence to apply at each step.",
+  "length_cap": 12,
+  "search_horizon": 25,
+  "scoring": "exact-match on integer minimum number of rule applications; per-item 1/0; reported as correct/total.",
+  "data_contract": {
+    "items": {"required_fields": ["id", "initial", "target", "rules"]},
+    "gold": {"required_fields": ["id", "answer"]},
+    "predictions": {"required_fields": ["id", "answer"]}
+  },
+  "relationship_to_existing_benchmarks": "Closest in spirit to BIG-Bench Hard 'tracking_shuffled_objects' and 'web_of_lies' (multi-step state tracking) and to ARC-style program-trace puzzles. It is *not* a duplicate: the state space is an unbounded string space rather than a fixed enumeration, the answer is a numeric shortest-path distance rather than a classification, items are procedurally generated and gold is mechanically verified by BFS, and no narrative or world-knowledge component is present. Unlike GSM8K/MATH it has no arithmetic word-problem framing; unlike SWE-bench it has no codebase; unlike GPQA it has no domain knowledge. The capability isolated is pure local-rewrite shortest-path reasoning under a length cap."
+}

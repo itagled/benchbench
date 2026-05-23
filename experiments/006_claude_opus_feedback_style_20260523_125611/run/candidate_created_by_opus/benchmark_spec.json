@@ -1,0 +1,12 @@
+{
+  "name": "Conlang Rosetta",
+  "version": "1.0",
+  "capability_claim": "Reliably induce a small, novel morphological+syntactic system from ~7 interlinear-glossed example sentences and produce a single exact-string translation that correctly applies word order, suffix ordering, adjective placement, tense, and negation.",
+  "task_format": "One-shot translation: solver outputs predictions.jsonl with {id, answer} for each of 30 items.",
+  "scoring": "Exact normalized-string match (lowercase, single-spaced, punctuation stripped). 30 items, 1 point each.",
+  "closest_existing_benchmarks": [
+    "Linguistics Olympiad (UKLO/NACLO/IOL) translation problems",
+    "LINGOLY / Linguini benchmarks for LLM linguistic reasoning"
+  ],
+  "novelty_argument": "Linguistics-Olympiad-style items have been used in research benchmarks, but those use a small fixed set of real or human-authored languages and known answer keys that can leak. Conlang Rosetta procedurally generates fresh fictional languages per seed with no real-world precedent, eliminating training-data contamination. Unlike clean search/simulation benchmarks (e.g. the prior 005/004 candidates), there is no single obvious algorithm: the solver must perform abductive grammatical inference, identify suffix-ordering interactions, and apply chained rules to a held-out gloss. Each item exposes a different randomly-sampled grammar so a single brittle script cannot solve all 30."
+}

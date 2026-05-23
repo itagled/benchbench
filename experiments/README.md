@@ -7,6 +7,41 @@ the main result.
 
 ## Current Evidence
 
+### Full 6x6 result set
+
+The complete current result set is reconstructed from the two five-model
+sweeps plus Claude Opus extension runs:
+
+- `result_grids_6x6_20260523.md`: full tables and SVG heatmaps.
+- `feedback_for_next_full_6x6_sweep_20260523.md`: the feedback packet to use
+  for the next all-model creator sweep.
+
+The key result is stable after adding Claude Opus: Reimbursement Forensics is
+the only current candidate where every tested solver lands in the low nonzero
+band. The two Claude-created benchmarks are valid packages, but both are too
+easy once tested against the full solver set.
+
+### Claude Opus extensions
+
+Claude Opus was added after the two five-model sweeps.
+
+Creator runs:
+
+| run | benchmark | full solver result | result |
+|---|---|---|---|
+| `005_claude_opus_exp003_style_20260523_125019` | String Rewriting Distance | 0, 0, 30, 30, 30, 30 | scorer type artifact; otherwise saturated |
+| `006_claude_opus_feedback_style_20260523_125611` | Conlang Rosetta | 30, 30, 30, 30, 30, 30 | saturated |
+
+The full solver result order is GPT-5.2, GPT-5.4, GPT-5.5, Gemini 3.1 Pro,
+Gemini 3.5 Flash, Claude Opus.
+
+Solver extension:
+
+| source run | notable Claude Opus result |
+|---|---|
+| Experiment 003 | 11/30 on Ledger Canonical Reconciliation; 30/30 on the other four |
+| Experiment 004 | 11/30 on Reimbursement Forensics, 25/30 on release_packet_arbitration, 30/30 on MFN-Cascade, operational 0/30 on Corrupted LZ77 Recovery; Cross-Document Obligation Resolution skipped because it was already audited as a scoring-contract failure |
+
 ### `003_five_model_sweep_20260522_195526`
 
 The first full 5x5 run across GPT-5.2, GPT-5.4, GPT-5.5, Gemini 3.1 Pro, and

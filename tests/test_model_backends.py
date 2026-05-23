@@ -9,6 +9,8 @@ from benchbench_model_backends import (
     antigravity_model_id_from_label,
     antigravity_model_setting,
     parse_antigravity_selected_label,
+    claude_cache_summary,
+    claude_tokens_used,
     parse_model_spec,
     run_cmd,
     safe_name,
@@ -37,6 +39,53 @@ class ModelBackendTests(unittest.TestCase):
         self.assertEqual(spec.name, "gemini-3.1-pro")
         self.assertEqual(spec.antigravity_expected_label, "Gemini 3.1 Pro (High)")
         self.assertEqual(spec.agent_label, "Gemini 3.1 Pro (High)+Antigravity")
+
+    def test_antigravity_claude_model_spec(self) -> None:
+        spec = parse_model_spec("agy:claude-sonnet-4.6-thinking")
+        self.assertEqual(spec.provider, "antigravity")
+        self.assertEqual(spec.name, "claude-sonnet-4.6-thinking")
+        self.assertEqual(spec.antigravity_expected_label, "Claude Sonnet 4.6 (Thinking)")
+        self.assertEqual(spec.agent_label, "Claude Sonnet 4.6 (Thinking)+Antigravity")
+
+    def test_claude_model_spec(self) -> None:
+        spec = parse_model_spec("claude:sonnet")
+        self.assertEqual(spec.provider, "claude")
+        self.assertEqual(spec.name, "sonnet")
+        self.assertEqual(spec.claude_model, "sonnet")
+        self.assertEqual(spec.agent_label, "Claude Sonnet+Claude Code")
+
+    def test_claude_usage_parser_counts_cache_tokens(self) -> None:
+        data = {
+            "usage": {
+                "input_tokens": 3,
+                "cache_creation_input_tokens": 5,
+                "cache_read_input_tokens": 7,
+                "output_tokens": 11,
+            }
+        }
+        self.assertEqual(claude_tokens_used(data), 26)
+        self.assertEqual(
+            claude_cache_summary(data),
+            {"cache_creation_input_tokens": 5, "cache_read_input_tokens": 7},
+        )
+
+        with_model_usage = {
+            "usage": {
+                "input_tokens": 0,
+                "cache_creation_input_tokens": 0,
+                "cache_read_input_tokens": 0,
+                "output_tokens": 0,
+            },
+            "modelUsage": {
+                "claude-sonnet": {
+                    "inputTokens": 13,
+                    "cacheCreationInputTokens": 17,
+                    "cacheReadInputTokens": 19,
+                    "outputTokens": 23,
+                }
+            },
+        }
+        self.assertEqual(claude_tokens_used(with_model_usage), 72)
 
     def test_antigravity_label_parser_uses_last_label(self) -> None:
         text = '\n'.join(
@@ -115,6 +164,17 @@ class ModelBackendTests(unittest.TestCase):
             score_predictions = tmp_path / "score_predictions.json"
             score_predictions.write_text('{"total_items": 30, "correct_predictions": 11, "accuracy": 0.36666666666666664}\n', encoding="utf-8")
             self.assertEqual(score_summary(score_predictions), {"total": 30, "correct": 11, "accuracy": 0.36666666666666664})
+
+            score_string = tmp_path / "score_string.json"
+            score_string.write_text('{"total": 30, "score": "2/30"}\n', encoding="utf-8")
+            self.assertEqual(score_summary(score_string), {"total": 30, "correct": 2, "accuracy": 2 / 30})
+
+            score_details = tmp_path / "score_details.json"
+            score_details.write_text(
+                '{"accuracy": 0.5, "details": [{"correct": true}, {"correct": false}]}\n',
+                encoding="utf-8",
+            )
+            self.assertEqual(score_summary(score_details), {"total": 2, "correct": 1, "accuracy": 0.5})
 
     def test_candidate_status_flags_all_zero_for_audit(self) -> None:
         self.assertEqual(candidate_status([{"total": 30, "correct": 0, "accuracy": 0.0}]), "solvability_audit")

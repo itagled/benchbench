@@ -1,0 +1,1 @@
+All 30 items solved. The solver inferred per-language rules (word order, adjective position, plural/accusative suffixes and their order, past suffix, negation particle and position) from the seven examples, then applied them to each test gloss. Output is in `predictions.jsonl`.

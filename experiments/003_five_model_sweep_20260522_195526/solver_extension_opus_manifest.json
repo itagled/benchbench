@@ -1,0 +1,442 @@
+[
+  {
+    "antigravity_actual_label": null,
+    "antigravity_expected_label": null,
+    "antigravity_log_path": null,
+    "benchmark": "Polyhedral Surface Traversal",
+    "claude_cache_creation_input_tokens": 28017,
+    "claude_cache_read_input_tokens": 176862,
+    "claude_model": "opus",
+    "claude_model_usage": {
+      "claude-haiku-4-5-20251001": {
+        "cacheCreationInputTokens": 0,
+        "cacheReadInputTokens": 0,
+        "contextWindow": 200000,
+        "costUSD": 0.000772,
+        "inputTokens": 692,
+        "maxOutputTokens": 32000,
+        "outputTokens": 16,
+        "webSearchRequests": 0
+      },
+      "claude-opus-4-7": {
+        "cacheCreationInputTokens": 28017,
+        "cacheReadInputTokens": 176862,
+        "contextWindow": 1000000,
+        "costUSD": 0.8230622500000001,
+        "inputTokens": 10,
+        "maxOutputTokens": 64000,
+        "outputTokens": 22379,
+        "webSearchRequests": 0
+      }
+    },
+    "claude_total_cost_usd": 0.8238342500000001,
+    "claude_usage": {
+      "cache_creation": {
+        "ephemeral_1h_input_tokens": 0,
+        "ephemeral_5m_input_tokens": 28017
+      },
+      "cache_creation_input_tokens": 28017,
+      "cache_read_input_tokens": 176862,
+      "inference_geo": "",
+      "input_tokens": 10,
+      "iterations": [
+        {
+          "cache_creation": {
+            "ephemeral_1h_input_tokens": 0,
+            "ephemeral_5m_input_tokens": 1078
+          },
+          "cache_creation_input_tokens": 1078,
+          "cache_read_input_tokens": 48901,
+          "input_tokens": 1,
+          "output_tokens": 868,
+          "type": "message"
+        }
+      ],
+      "output_tokens": 22379,
+      "server_tool_use": {
+        "web_fetch_requests": 0,
+        "web_search_requests": 0
+      },
+      "service_tier": "standard",
+      "speed": "standard"
+    },
+    "creator_model": "gemini-3.1-pro",
+    "display_model": "Claude Opus",
+    "model": "opus",
+    "model_mismatch": false,
+    "out_path": "/Users/rohit/Documents/Workspace/Coding/benchbench/experiments/003_five_model_sweep_20260522_195526/run/solver_gemini_3_1_pro__solved_by__opus.jsonl",
+    "phase": "solver_extension",
+    "prediction_rows": 30,
+    "predictions_path": "/Users/rohit/Documents/Workspace/Coding/benchbench/experiments/003_five_model_sweep_20260522_195526/run/candidate_created_by_gemini_3_1_pro/predictions_solver_opus.jsonl",
+    "prompt_path": "/Users/rohit/Documents/Workspace/Coding/benchbench/experiments/003_five_model_sweep_20260522_195526/run/solver_gemini_3_1_pro__solved_by__opus.prompt.txt",
+    "provider": "claude",
+    "returncode": 0,
+    "score_path": "/Users/rohit/Documents/Workspace/Coding/benchbench/experiments/003_five_model_sweep_20260522_195526/run/candidate_created_by_gemini_3_1_pro/score_solver_opus.json",
+    "score_returncode": 0,
+    "score_stderr": "existing score reused; pass --force to rerun",
+    "score_stdout": "",
+    "score_summary": {
+      "accuracy": 1.0,
+      "correct": 30,
+      "total": 30
+    },
+    "skipped_existing": true,
+    "solver_display_model": "Claude Opus",
+    "solver_model": "opus",
+    "stderr_path": "/Users/rohit/Documents/Workspace/Coding/benchbench/experiments/003_five_model_sweep_20260522_195526/run/solver_gemini_3_1_pro__solved_by__opus.stderr.txt",
+    "stdout_path": "/Users/rohit/Documents/Workspace/Coding/benchbench/experiments/003_five_model_sweep_20260522_195526/run/solver_gemini_3_1_pro__solved_by__opus.stdout.txt",
+    "tokens_used": 227976
+  },
+  {
+    "antigravity_actual_label": null,
+    "antigravity_expected_label": null,
+    "antigravity_log_path": null,
+    "benchmark": "Mutative Assembly Inversion (MAI)",
+    "claude_cache_creation_input_tokens": 10038,
+    "claude_cache_read_input_tokens": 190757,
+    "claude_model": "opus",
+    "claude_model_usage": {
+      "claude-haiku-4-5-20251001": {
+        "cacheCreationInputTokens": 0,
+        "cacheReadInputTokens": 0,
+        "contextWindow": 200000,
+        "costUSD": 0.000775,
+        "inputTokens": 695,
+        "maxOutputTokens": 32000,
+        "outputTokens": 16,
+        "webSearchRequests": 0
+      },
+      "claude-opus-4-7": {
+        "cacheCreationInputTokens": 10038,
+        "cacheReadInputTokens": 190757,
+        "contextWindow": 1000000,
+        "costUSD": 0.238346,
+        "inputTokens": 11,
+        "maxOutputTokens": 64000,
+        "outputTokens": 3207,
+        "webSearchRequests": 0
+      }
+    },
+    "claude_total_cost_usd": 0.23912099999999997,
+    "claude_usage": {
+      "cache_creation": {
+        "ephemeral_1h_input_tokens": 0,
+        "ephemeral_5m_input_tokens": 10038
+      },
+      "cache_creation_input_tokens": 10038,
+      "cache_read_input_tokens": 190757,
+      "inference_geo": "",
+      "input_tokens": 11,
+      "iterations": [
+        {
+          "cache_creation": {
+            "ephemeral_1h_input_tokens": 0,
+            "ephemeral_5m_input_tokens": 1343
+          },
+          "cache_creation_input_tokens": 1343,
+          "cache_read_input_tokens": 30657,
+          "input_tokens": 1,
+          "output_tokens": 813,
+          "type": "message"
+        }
+      ],
+      "output_tokens": 3207,
+      "server_tool_use": {
+        "web_fetch_requests": 0,
+        "web_search_requests": 0
+      },
+      "service_tier": "standard",
+      "speed": "standard"
+    },
+    "creator_model": "gemini-3.5-flash-high",
+    "display_model": "Claude Opus",
+    "model": "opus",
+    "model_mismatch": false,
+    "out_path": "/Users/rohit/Documents/Workspace/Coding/benchbench/experiments/003_five_model_sweep_20260522_195526/run/solver_gemini_3_5_flash_high__solved_by__opus.jsonl",
+    "phase": "solver_extension",
+    "prediction_rows": 30,
+    "predictions_path": "/Users/rohit/Documents/Workspace/Coding/benchbench/experiments/003_five_model_sweep_20260522_195526/run/candidate_created_by_gemini_3_5_flash_high/predictions_solver_opus.jsonl",
+    "prompt_path": "/Users/rohit/Documents/Workspace/Coding/benchbench/experiments/003_five_model_sweep_20260522_195526/run/solver_gemini_3_5_flash_high__solved_by__opus.prompt.txt",
+    "provider": "claude",
+    "returncode": 0,
+    "score_path": "/Users/rohit/Documents/Workspace/Coding/benchbench/experiments/003_five_model_sweep_20260522_195526/run/candidate_created_by_gemini_3_5_flash_high/score_solver_opus.json",
+    "score_returncode": 0,
+    "score_stderr": "existing score reused; pass --force to rerun",
+    "score_stdout": "",
+    "score_summary": {
+      "accuracy": 1.0,
+      "correct": 30,
+      "total": 30
+    },
+    "skipped_existing": true,
+    "solver_display_model": "Claude Opus",
+    "solver_model": "opus",
+    "stderr_path": "/Users/rohit/Documents/Workspace/Coding/benchbench/experiments/003_five_model_sweep_20260522_195526/run/solver_gemini_3_5_flash_high__solved_by__opus.stderr.txt",
+    "stdout_path": "/Users/rohit/Documents/Workspace/Coding/benchbench/experiments/003_five_model_sweep_20260522_195526/run/solver_gemini_3_5_flash_high__solved_by__opus.stdout.txt",
+    "tokens_used": 204724
+  },
+  {
+    "antigravity_actual_label": null,
+    "antigravity_expected_label": null,
+    "antigravity_log_path": null,
+    "benchmark": "Ledger Canonical Reconciliation (LCR) v1",
+    "claude_cache_creation_input_tokens": 12865,
+    "claude_cache_read_input_tokens": 217057,
+    "claude_model": "opus",
+    "claude_model_usage": {
+      "claude-haiku-4-5-20251001": {
+        "cacheCreationInputTokens": 0,
+        "cacheReadInputTokens": 0,
+        "contextWindow": 200000,
+        "costUSD": 0.00077,
+        "inputTokens": 690,
+        "maxOutputTokens": 32000,
+        "outputTokens": 16,
+        "webSearchRequests": 0
+      },
+      "claude-opus-4-7": {
+        "cacheCreationInputTokens": 12865,
+        "cacheReadInputTokens": 217057,
+        "contextWindow": 1000000,
+        "costUSD": 0.33716975,
+        "inputTokens": 12,
+        "maxOutputTokens": 64000,
+        "outputTokens": 5927,
+        "webSearchRequests": 0
+      }
+    },
+    "claude_total_cost_usd": 0.33793975,
+    "claude_usage": {
+      "cache_creation": {
+        "ephemeral_1h_input_tokens": 0,
+        "ephemeral_5m_input_tokens": 12865
+      },
+      "cache_creation_input_tokens": 12865,
+      "cache_read_input_tokens": 217057,
+      "inference_geo": "",
+      "input_tokens": 12,
+      "iterations": [
+        {
+          "cache_creation": {
+            "ephemeral_1h_input_tokens": 0,
+            "ephemeral_5m_input_tokens": 3518
+          },
+          "cache_creation_input_tokens": 3518,
+          "cache_read_input_tokens": 31309,
+          "input_tokens": 1,
+          "output_tokens": 3272,
+          "type": "message"
+        }
+      ],
+      "output_tokens": 5927,
+      "server_tool_use": {
+        "web_fetch_requests": 0,
+        "web_search_requests": 0
+      },
+      "service_tier": "standard",
+      "speed": "standard"
+    },
+    "creator_model": "gpt-5.2",
+    "display_model": "Claude Opus",
+    "model": "opus",
+    "model_mismatch": false,
+    "out_path": "/Users/rohit/Documents/Workspace/Coding/benchbench/experiments/003_five_model_sweep_20260522_195526/run/solver_gpt_5_2__solved_by__opus.jsonl",
+    "phase": "solver_extension",
+    "prediction_rows": 30,
+    "predictions_path": "/Users/rohit/Documents/Workspace/Coding/benchbench/experiments/003_five_model_sweep_20260522_195526/run/candidate_created_by_gpt_5_2/predictions_solver_opus.jsonl",
+    "prompt_path": "/Users/rohit/Documents/Workspace/Coding/benchbench/experiments/003_five_model_sweep_20260522_195526/run/solver_gpt_5_2__solved_by__opus.prompt.txt",
+    "provider": "claude",
+    "returncode": 0,
+    "score_path": "/Users/rohit/Documents/Workspace/Coding/benchbench/experiments/003_five_model_sweep_20260522_195526/run/candidate_created_by_gpt_5_2/score_solver_opus.json",
+    "score_returncode": 0,
+    "score_stderr": "existing score reused; pass --force to rerun",
+    "score_stdout": "",
+    "score_summary": {
+      "accuracy": 0.36666666666666664,
+      "correct": 11,
+      "total": 30
+    },
+    "skipped_existing": true,
+    "solver_display_model": "Claude Opus",
+    "solver_model": "opus",
+    "stderr_path": "/Users/rohit/Documents/Workspace/Coding/benchbench/experiments/003_five_model_sweep_20260522_195526/run/solver_gpt_5_2__solved_by__opus.stderr.txt",
+    "stdout_path": "/Users/rohit/Documents/Workspace/Coding/benchbench/experiments/003_five_model_sweep_20260522_195526/run/solver_gpt_5_2__solved_by__opus.stdout.txt",
+    "tokens_used": 236567
+  },
+  {
+    "antigravity_actual_label": null,
+    "antigravity_expected_label": null,
+    "antigravity_log_path": null,
+    "benchmark": "Patchwork Ordinance Adjudication (POA) v1",
+    "claude_cache_creation_input_tokens": 30380,
+    "claude_cache_read_input_tokens": 433160,
+    "claude_model": "opus",
+    "claude_model_usage": {
+      "claude-haiku-4-5-20251001": {
+        "cacheCreationInputTokens": 0,
+        "cacheReadInputTokens": 0,
+        "contextWindow": 200000,
+        "costUSD": 0.0007830000000000001,
+        "inputTokens": 688,
+        "maxOutputTokens": 32000,
+        "outputTokens": 19,
+        "webSearchRequests": 0
+      },
+      "claude-opus-4-7": {
+        "cacheCreationInputTokens": 30380,
+        "cacheReadInputTokens": 433160,
+        "contextWindow": 1000000,
+        "costUSD": 0.66408,
+        "inputTokens": 15,
+        "maxOutputTokens": 64000,
+        "outputTokens": 10302,
+        "webSearchRequests": 0
+      }
+    },
+    "claude_total_cost_usd": 0.664863,
+    "claude_usage": {
+      "cache_creation": {
+        "ephemeral_1h_input_tokens": 0,
+        "ephemeral_5m_input_tokens": 30380
+      },
+      "cache_creation_input_tokens": 30380,
+      "cache_read_input_tokens": 433160,
+      "inference_geo": "",
+      "input_tokens": 15,
+      "iterations": [
+        {
+          "cache_creation": {
+            "ephemeral_1h_input_tokens": 0,
+            "ephemeral_5m_input_tokens": 1474
+          },
+          "cache_creation_input_tokens": 1474,
+          "cache_read_input_tokens": 50868,
+          "input_tokens": 1,
+          "output_tokens": 1089,
+          "type": "message"
+        }
+      ],
+      "output_tokens": 10302,
+      "server_tool_use": {
+        "web_fetch_requests": 0,
+        "web_search_requests": 0
+      },
+      "service_tier": "standard",
+      "speed": "standard"
+    },
+    "creator_model": "gpt-5.4",
+    "display_model": "Claude Opus",
+    "model": "opus",
+    "model_mismatch": false,
+    "out_path": "/Users/rohit/Documents/Workspace/Coding/benchbench/experiments/003_five_model_sweep_20260522_195526/run/solver_gpt_5_4__solved_by__opus.jsonl",
+    "phase": "solver_extension",
+    "prediction_rows": 30,
+    "predictions_path": "/Users/rohit/Documents/Workspace/Coding/benchbench/experiments/003_five_model_sweep_20260522_195526/run/candidate_created_by_gpt_5_4/predictions_solver_opus.jsonl",
+    "prompt_path": "/Users/rohit/Documents/Workspace/Coding/benchbench/experiments/003_five_model_sweep_20260522_195526/run/solver_gpt_5_4__solved_by__opus.prompt.txt",
+    "provider": "claude",
+    "returncode": 0,
+    "score_path": "/Users/rohit/Documents/Workspace/Coding/benchbench/experiments/003_five_model_sweep_20260522_195526/run/candidate_created_by_gpt_5_4/score_solver_opus.json",
+    "score_returncode": 0,
+    "score_stderr": "existing score reused; pass --force to rerun",
+    "score_stdout": "",
+    "score_summary": {
+      "accuracy": 1.0,
+      "correct": 30,
+      "total": 30
+    },
+    "skipped_existing": true,
+    "solver_display_model": "Claude Opus",
+    "solver_model": "opus",
+    "stderr_path": "/Users/rohit/Documents/Workspace/Coding/benchbench/experiments/003_five_model_sweep_20260522_195526/run/solver_gpt_5_4__solved_by__opus.stderr.txt",
+    "stdout_path": "/Users/rohit/Documents/Workspace/Coding/benchbench/experiments/003_five_model_sweep_20260522_195526/run/solver_gpt_5_4__solved_by__opus.stdout.txt",
+    "tokens_used": 474564
+  },
+  {
+    "antigravity_actual_label": null,
+    "antigravity_expected_label": null,
+    "antigravity_log_path": null,
+    "benchmark": "Amendment Ledger Reconciliation",
+    "claude_cache_creation_input_tokens": 13632,
+    "claude_cache_read_input_tokens": 253684,
+    "claude_model": "opus",
+    "claude_model_usage": {
+      "claude-haiku-4-5-20251001": {
+        "cacheCreationInputTokens": 0,
+        "cacheReadInputTokens": 0,
+        "contextWindow": 200000,
+        "costUSD": 0.0007840000000000001,
+        "inputTokens": 689,
+        "maxOutputTokens": 32000,
+        "outputTokens": 19,
+        "webSearchRequests": 0
+      },
+      "claude-opus-4-7": {
+        "cacheCreationInputTokens": 13632,
+        "cacheReadInputTokens": 253684,
+        "contextWindow": 1000000,
+        "costUSD": 0.364457,
+        "inputTokens": 13,
+        "maxOutputTokens": 64000,
+        "outputTokens": 6094,
+        "webSearchRequests": 0
+      }
+    },
+    "claude_total_cost_usd": 0.365241,
+    "claude_usage": {
+      "cache_creation": {
+        "ephemeral_1h_input_tokens": 0,
+        "ephemeral_5m_input_tokens": 13632
+      },
+      "cache_creation_input_tokens": 13632,
+      "cache_read_input_tokens": 253684,
+      "inference_geo": "",
+      "input_tokens": 13,
+      "iterations": [
+        {
+          "cache_creation": {
+            "ephemeral_1h_input_tokens": 0,
+            "ephemeral_5m_input_tokens": 1862
+          },
+          "cache_creation_input_tokens": 1862,
+          "cache_read_input_tokens": 33732,
+          "input_tokens": 1,
+          "output_tokens": 1646,
+          "type": "message"
+        }
+      ],
+      "output_tokens": 6094,
+      "server_tool_use": {
+        "web_fetch_requests": 0,
+        "web_search_requests": 0
+      },
+      "service_tier": "standard",
+      "speed": "standard"
+    },
+    "creator_model": "gpt-5.5",
+    "display_model": "Claude Opus",
+    "model": "opus",
+    "model_mismatch": false,
+    "out_path": "/Users/rohit/Documents/Workspace/Coding/benchbench/experiments/003_five_model_sweep_20260522_195526/run/solver_gpt_5_5__solved_by__opus.jsonl",
+    "phase": "solver_extension",
+    "prediction_rows": 30,
+    "predictions_path": "/Users/rohit/Documents/Workspace/Coding/benchbench/experiments/003_five_model_sweep_20260522_195526/run/candidate_created_by_gpt_5_5/predictions_solver_opus.jsonl",
+    "prompt_path": "/Users/rohit/Documents/Workspace/Coding/benchbench/experiments/003_five_model_sweep_20260522_195526/run/solver_gpt_5_5__solved_by__opus.prompt.txt",
+    "provider": "claude",
+    "returncode": 0,
+    "score_path": "/Users/rohit/Documents/Workspace/Coding/benchbench/experiments/003_five_model_sweep_20260522_195526/run/candidate_created_by_gpt_5_5/score_solver_opus.json",
+    "score_returncode": 0,
+    "score_stderr": "existing score reused; pass --force to rerun",
+    "score_stdout": "",
+    "score_summary": {
+      "accuracy": 1.0,
+      "correct": 30,
+      "total": 30
+    },
+    "skipped_existing": true,
+    "solver_display_model": "Claude Opus",
+    "solver_model": "opus",
+    "stderr_path": "/Users/rohit/Documents/Workspace/Coding/benchbench/experiments/003_five_model_sweep_20260522_195526/run/solver_gpt_5_5__solved_by__opus.stderr.txt",
+    "stdout_path": "/Users/rohit/Documents/Workspace/Coding/benchbench/experiments/003_five_model_sweep_20260522_195526/run/solver_gpt_5_5__solved_by__opus.stdout.txt",
+    "tokens_used": 274131
+  }
+]

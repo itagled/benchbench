@@ -55,18 +55,6 @@ CREATOR_FEEDBACK_CONTEXT_PATH: Path | None = None
 CREATOR_PROMPT = """
 You are {agent_label} acting as a BenchBench creator.
 
-Your empty artifact directory is:
-
-{artifact_dir}
-
-Use that exact directory as the working directory for every shell command and
-file read/write. Antigravity may open a global scratch directory by default;
-ignore that scratch directory and build the benchmark package only in the
-artifact directory above.
-
-You may use local computation and internet research if useful. Do not browse or
-research forever: the output must be a working package.
-
 Your task, in the broadest terms:
 
 Create the best possible new benchmark you can: valid, deterministic or
@@ -120,6 +108,20 @@ Required isolated solver bundle:
 - solver_bundle/README.md or solver_bundle/solver_packet.md
 - any solver-visible assets needed for the task
 
+Execution target:
+
+Your empty artifact directory is:
+
+{artifact_dir}
+
+Use that exact directory as the working directory for every shell command and
+file read/write. Some agent CLIs may open a global scratch directory by
+default; ignore that scratch directory and build the benchmark package only in
+the artifact directory above.
+
+You may use local computation and internet research if useful. Do not browse or
+research forever: the output must be a working package.
+
 Strict CLI contract from this directory:
 - `{python} generator.py --sample-count 30 --seed {seed} --out-dir .`
 - `{python} verifier.py --items solver_bundle/items_private_sample.jsonl --gold gold_private_sample.jsonl`
@@ -160,9 +162,9 @@ The candidate artifact directory is:
 {artifact_dir}
 
 Use that exact directory as the working directory for every shell command and
-file read/write. Antigravity may open a global scratch directory by default;
-ignore that scratch directory and repair the benchmark package only in the
-artifact directory above.
+file read/write. Some agent CLIs may open a global scratch directory by
+default; ignore that scratch directory and repair the benchmark package only in
+the artifact directory above.
 
 The controller validation found problems:
 
@@ -185,8 +187,9 @@ You are in an isolated solver bundle at:
 {solver_bundle_path}
 
 Use that exact directory as the working directory for every shell command and
-file read/write. Antigravity may open a global scratch directory by default;
-ignore that scratch directory and work only in the solver bundle above.
+file read/write. Some agent CLIs may open a global scratch directory by
+default; ignore that scratch directory and work only in the solver bundle
+above.
 
 You may use any local computation, shell scripts, installed packages, OCR,
 image processing, code, and internet access if useful. Try your best to solve
@@ -234,6 +237,15 @@ def score_summary(path: Path) -> dict[str, Any] | None:
             data.get("n_correct", data.get("score", data.get("exact_match", data.get("correct_predictions")))),
         )
         accuracy = data.get("accuracy")
+        details = data.get("details")
+        if (total is None or correct is None) and isinstance(details, list):
+            total = len(details)
+            correct = sum(1 for row in details if isinstance(row, dict) and row.get("correct") is True)
+        if isinstance(correct, str):
+            match = re.search(r"(?<![\d.])(\d+)\s*/\s*(\d+)(?![\d.])", correct)
+            if match:
+                correct = int(match.group(1))
+                total = int(match.group(2))
         if total is not None and correct is not None:
             if accuracy is None:
                 accuracy = 0.0 if int(total) == 0 else float(correct) / float(total)
@@ -467,11 +479,28 @@ def extract_predictions(raw: str, item_ids: list[str]) -> list[dict[str, Any]]:
     return [{"id": row_id, "answer": by_id[row_id]} for row_id in item_ids if row_id in by_id]
 
 
+def extract_solver_predictions(raw_out_path: Path, solver_dir: Path, item_ids: list[str]) -> tuple[list[dict[str, Any]], str]:
+    raw = raw_out_path.read_text(encoding="utf-8") if raw_out_path.exists() else ""
+    stdout_predictions = extract_predictions(raw, item_ids)
+
+    file_path = solver_dir / "predictions.jsonl"
+    file_predictions: list[dict[str, Any]] = []
+    if file_path.exists():
+        file_predictions = extract_predictions(file_path.read_text(encoding="utf-8", errors="replace"), item_ids)
+
+    if len(file_predictions) > len(stdout_predictions):
+        return file_predictions, str(file_path)
+    if stdout_predictions:
+        return stdout_predictions, str(raw_out_path)
+
+    return [], str(raw_out_path)
+
+
 def run_solver(creator_model: str, solver_spec: ModelSpec, candidate_dir: Path) -> dict[str, Any]:
     slug = f"{safe_name(creator_model)}__solved_by__{safe_name(solver_spec.name)}"
     solver_dir = RUN_DIR / f"isolated_solver_{slug}"
     antigravity_temp_dir: Path | None = None
-    if solver_spec.provider == "antigravity":
+    if solver_spec.provider in {"antigravity", "claude"}:
         antigravity_temp_dir = Path(tempfile.mkdtemp(prefix=f"benchbench_{slug}_"))
         solver_dir = antigravity_temp_dir
         shutil.copytree(candidate_dir / "solver_bundle", solver_dir, dirs_exist_ok=True)
@@ -490,16 +519,30 @@ def run_solver(creator_model: str, solver_spec: ModelSpec, candidate_dir: Path) 
         SOLVER_EFFORT,
         SOLVER_TIMEOUT_SECONDS,
     )
-    raw = out_path.read_text(encoding="utf-8") if out_path.exists() else ""
-    predictions = [] if result.get("model_mismatch") else extract_predictions(raw, item_ids)
+    predictions, prediction_source = (
+        ([], str(out_path))
+        if result.get("model_mismatch")
+        else extract_solver_predictions(out_path, solver_dir, item_ids)
+    )
     predictions_path = candidate_dir / f"predictions_solver_{safe_name(solver_spec.name)}.jsonl"
     write_jsonl(predictions_path, predictions)
     score_path = candidate_dir / f"score_solver_{safe_name(solver_spec.name)}.json"
     if result.get("model_mismatch"):
-        completed = subprocess.CompletedProcess([], 86, "", "skipped scoring because Antigravity selected-model check failed")
+        completed = subprocess.CompletedProcess(
+            [], 86, "", "skipped scoring because Antigravity selected-model check failed"
+        )
     else:
         completed = run_cmd(
-            [PYTHON, "scorer.py", "--gold", "gold_private_sample.jsonl", "--predictions", str(predictions_path), "--out", str(score_path)],
+            [
+                PYTHON,
+                "scorer.py",
+                "--gold",
+                "gold_private_sample.jsonl",
+                "--predictions",
+                str(predictions_path),
+                "--out",
+                str(score_path),
+            ],
             candidate_dir,
             timeout=420,
         )
@@ -512,6 +555,7 @@ def run_solver(creator_model: str, solver_spec: ModelSpec, candidate_dir: Path) 
             "solver_model": solver_spec.name,
             "solver_display_model": solver_spec.display_name,
             "prediction_rows": len(predictions),
+            "prediction_source": prediction_source,
             "predictions_path": str(predictions_path),
             "score_path": str(score_path),
             "score_returncode": completed.returncode,
@@ -636,26 +680,31 @@ def write_summary(manifest: list[dict[str, Any]], validations: dict[str, dict[st
     lines.append("")
     lines.append("## Calls")
     lines.append("")
-    lines.append("| phase | creator | solver/model | rows | score | tokens | returncode |")
-    lines.append("|---|---|---:|---:|---:|---:|---:|")
+    lines.append("| phase | creator | solver/model | rows | score | tokens | Claude cost | Claude cache read | returncode |")
+    lines.append("|---|---|---:|---:|---:|---:|---:|---:|---:|")
     for item in manifest:
         score = item.get("score_summary") or {}
         score_text = "NA"
         if score:
             score_text = f"{score.get('correct')}/{score.get('total')}"
         lines.append(
-            "| {phase} | {creator} | {model} | {rows} | {score} | {tokens} | {rc} |".format(
+            "| {phase} | {creator} | {model} | {rows} | {score} | {tokens} | {cost} | {cache_read} | {rc} |".format(
                 phase=item.get("phase"),
                 creator=item.get("creator_model", ""),
                 model=item.get("solver_display_model", item.get("display_model", item.get("solver_model", item.get("model", "")))),
                 rows=item.get("prediction_rows", ""),
                 score=score_text,
                 tokens=item.get("tokens_used", 0),
+                cost=item.get("claude_total_cost_usd", ""),
+                cache_read=item.get("claude_cache_read_input_tokens", ""),
                 rc=item.get("returncode"),
             )
         )
     lines.append("")
     lines.append(f"Total reported tokens: `{sum(int(item.get('tokens_used') or 0) for item in manifest)}`")
+    claude_cost = sum(float(item.get("claude_total_cost_usd") or 0) for item in manifest)
+    if claude_cost:
+        lines.append(f"Total reported Claude cost: `${claude_cost:.4f}`")
     lines.append("")
     (RUN_ROOT / "summary.md").write_text("\n".join(lines) + "\n", encoding="utf-8")
     (RUN_ROOT / "manifest.json").write_text(json.dumps(manifest, indent=2, sort_keys=True) + "\n", encoding="utf-8")
@@ -674,7 +723,8 @@ def parse_args() -> argparse.Namespace:
         default=DEFAULT_MODELS,
         help=(
             "Creator and solver model specs. Unprefixed specs use Codex. "
-            "Use agy:gemini-3.5-flash-high, agy:gemini-3.1-pro, or agy:current for Antigravity."
+            "Use agy:gemini-3.5-flash-high, agy:gemini-3.1-pro, or agy:current for Antigravity. "
+            "Use claude:sonnet or claude:opus for Claude Code."
         ),
     )
     parser.add_argument("--run-root", type=Path, default=None, help="Optional output experiment directory.")

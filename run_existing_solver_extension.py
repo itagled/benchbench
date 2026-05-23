@@ -9,6 +9,7 @@ from __future__ import annotations
 
 import argparse
 import json
+import os
 import re
 import shutil
 import subprocess
@@ -19,6 +20,8 @@ from typing import Any
 from benchbench_model_backends import (
     ModelSpec,
     antigravity_model_id_from_label,
+    claude_cache_summary,
+    claude_tokens_used,
     parse_antigravity_selected_label,
     parse_model_spec,
     run_cmd,
@@ -40,8 +43,9 @@ You are in an isolated solver bundle at:
 {solver_bundle_path}
 
 Use that exact directory as the working directory for every shell command and
-file read/write. Antigravity may open a global scratch directory by default;
-ignore that scratch directory and work only in the solver bundle above.
+file read/write. Some agent CLIs may open a global scratch directory by
+default; ignore that scratch directory and work only in the solver bundle
+above.
 
 You may use any local computation, shell scripts, installed packages, OCR,
 image processing, code, and internet access if useful. Try your best to solve
@@ -81,18 +85,57 @@ def extract_predictions(raw: str, item_ids: list[str]) -> list[dict[str, Any]]:
     return [{"id": item_id, "answer": by_id[item_id]} for item_id in item_ids if item_id in by_id]
 
 
+def extract_solver_predictions(raw_out_path: Path, solver_dir: Path, item_ids: list[str]) -> tuple[list[dict[str, Any]], str]:
+    raw = raw_out_path.read_text(encoding="utf-8") if raw_out_path.exists() else ""
+    stdout_predictions = extract_predictions(raw, item_ids)
+
+    file_path = solver_dir / "predictions.jsonl"
+    file_predictions: list[dict[str, Any]] = []
+    if file_path.exists():
+        file_predictions = extract_predictions(file_path.read_text(encoding="utf-8", errors="replace"), item_ids)
+
+    if len(file_predictions) > len(stdout_predictions):
+        return file_predictions, str(file_path)
+    if stdout_predictions:
+        return stdout_predictions, str(raw_out_path)
+
+    return [], str(raw_out_path)
+
+
 def score_summary(path: Path) -> dict[str, Any] | None:
     if not path.exists():
         return None
     try:
-        data = json.loads(path.read_text(encoding="utf-8"))
+        text = path.read_text(encoding="utf-8")
+        data = json.loads(text)
     except Exception:
-        return None
-    total = data.get("total", data.get("n_items"))
-    correct = data.get("correct", data.get("n_correct"))
+        text = path.read_text(encoding="utf-8", errors="replace")
+        data = None
+    if not isinstance(data, dict):
+        match = re.search(r"(?<![\d.])(\d+)\s*/\s*(\d+)(?![\d.])", text)
+        if not match:
+            return None
+        correct = int(match.group(1))
+        total = int(match.group(2))
+        return {"total": total, "correct": correct, "accuracy": 0.0 if total == 0 else correct / total}
+    total = data.get("total", data.get("n_items", data.get("total_gold", data.get("total_items"))))
+    correct = data.get("correct", data.get("n_correct", data.get("exact_match", data.get("correct_predictions"))))
     accuracy = data.get("accuracy")
-    if total is None or correct is None or accuracy is None:
+    details = data.get("details")
+    if (total is None or correct is None) and isinstance(details, list):
+        total = len(details)
+        correct = sum(1 for row in details if isinstance(row, dict) and row.get("correct") is True)
+    if correct is None and isinstance(data.get("score"), (int, float)):
+        correct = data["score"]
+    if correct is None and isinstance(data.get("score"), str):
+        match = re.search(r"(?<![\d.])(\d+)\s*/\s*(\d+)(?![\d.])", data["score"])
+        if match:
+            correct = int(match.group(1))
+            total = int(match.group(2))
+    if total is None or correct is None:
         return None
+    if accuracy is None:
+        accuracy = 0.0 if int(total) == 0 else int(correct) / int(total)
     return {"total": total, "correct": correct, "accuracy": accuracy}
 
 
@@ -159,21 +202,48 @@ def run_one(
 
     if solver_spec.name != "current" and provisional_score_path.exists() and not force:
         existing_score = score_summary(provisional_score_path)
+        prediction_rows = None
+        if provisional_predictions_path.exists():
+            try:
+                prediction_rows = len(read_jsonl(provisional_predictions_path))
+            except Exception:
+                prediction_rows = None
         log_path = raw_out_path.with_suffix(".agy.log")
+        stdout_path = raw_out_path.with_suffix(".stdout.txt")
+        stderr_path = raw_out_path.with_suffix(".stderr.txt")
+        prompt_path = raw_out_path.with_suffix(".prompt.txt")
         actual_label = None
         if log_path.exists():
             actual_label = parse_antigravity_selected_label(log_path.read_text(encoding="utf-8", errors="replace"))
-        return {
+        tokens_used = 0
+        claude_fields: dict[str, Any] = {}
+        if solver_spec.provider == "claude" and stdout_path.exists():
+            try:
+                data = json.loads(stdout_path.read_text(encoding="utf-8"))
+            except Exception:
+                data = {}
+            if isinstance(data, dict):
+                cache_summary = claude_cache_summary(data)
+                tokens_used = claude_tokens_used(data)
+                claude_fields = {
+                    "claude_model": solver_spec.claude_model or solver_spec.name,
+                    "claude_total_cost_usd": data.get("total_cost_usd"),
+                    "claude_usage": data.get("usage") if isinstance(data.get("usage"), dict) else {},
+                    "claude_model_usage": data.get("modelUsage") if isinstance(data.get("modelUsage"), dict) else {},
+                    "claude_cache_creation_input_tokens": cache_summary["cache_creation_input_tokens"],
+                    "claude_cache_read_input_tokens": cache_summary["cache_read_input_tokens"],
+                }
+        result = {
             "phase": "solver_extension",
             "model": solver_spec.name,
             "display_model": solver_spec.display_name,
             "provider": solver_spec.provider,
             "returncode": 0,
-            "tokens_used": 0,
+            "tokens_used": tokens_used,
             "out_path": str(raw_out_path),
-            "stdout_path": str(raw_out_path.with_suffix(".stdout.txt")),
-            "stderr_path": str(raw_out_path.with_suffix(".stderr.txt")),
-            "prompt_path": str(raw_out_path.with_suffix(".prompt.txt")),
+            "stdout_path": str(stdout_path),
+            "stderr_path": str(stderr_path),
+            "prompt_path": str(prompt_path),
             "antigravity_log_path": str(log_path) if log_path.exists() else None,
             "antigravity_expected_label": solver_spec.antigravity_expected_label,
             "antigravity_actual_label": actual_label,
@@ -182,7 +252,7 @@ def run_one(
             "solver_model": solver_spec.name,
             "solver_display_model": solver_spec.display_name,
             "benchmark": candidate_title(candidate_dir),
-            "prediction_rows": existing_score.get("total") if existing_score else None,
+            "prediction_rows": prediction_rows,
             "predictions_path": str(provisional_predictions_path),
             "score_path": str(provisional_score_path),
             "score_returncode": 0,
@@ -191,9 +261,11 @@ def run_one(
             "score_summary": existing_score,
             "skipped_existing": True,
         }
+        result.update(claude_fields)
+        return result
 
     antigravity_temp_dir: Path | None = None
-    if solver_spec.provider == "antigravity":
+    if solver_spec.provider in {"antigravity", "claude"}:
         antigravity_temp_dir = Path(tempfile.mkdtemp(prefix=f"benchbench_{raw_slug}_"))
         solver_dir = antigravity_temp_dir
         shutil.copytree(candidate_dir / "solver_bundle", solver_dir, dirs_exist_ok=True)
@@ -238,14 +310,28 @@ def run_one(
         )
         return result
 
-    raw = raw_out_path.read_text(encoding="utf-8") if raw_out_path.exists() else ""
-    predictions = [] if result.get("model_mismatch") else extract_predictions(raw, item_ids)
+    predictions, prediction_source = (
+        ([], str(raw_out_path))
+        if result.get("model_mismatch")
+        else extract_solver_predictions(raw_out_path, solver_dir, item_ids)
+    )
     write_jsonl(predictions_path, predictions)
     if result.get("model_mismatch"):
-        completed = subprocess.CompletedProcess([], 86, "", "skipped scoring because Antigravity selected-model check failed")
+        completed = subprocess.CompletedProcess(
+            [], 86, "", "skipped scoring because Antigravity selected-model check failed"
+        )
     else:
         completed = run_cmd(
-            [PYTHON, "scorer.py", "--gold", "gold_private_sample.jsonl", "--predictions", str(predictions_path), "--out", str(score_path)],
+            [
+                PYTHON,
+                "scorer.py",
+                "--gold",
+                "gold_private_sample.jsonl",
+                "--predictions",
+                str(predictions_path),
+                "--out",
+                str(score_path),
+            ],
             candidate_dir,
             timeout=420,
         )
@@ -260,6 +346,7 @@ def run_one(
             "solver_display_model": solver_spec.display_name,
             "benchmark": candidate_title(candidate_dir),
             "prediction_rows": len(predictions),
+            "prediction_source": prediction_source,
             "predictions_path": str(predictions_path),
             "score_path": str(score_path),
             "score_returncode": completed.returncode,
@@ -282,26 +369,34 @@ def write_summary(run_root: Path, solver_spec: ModelSpec, manifest: list[dict[st
     lines.append(f"Provider: `{solver_spec.provider}`")
     if solver_spec.provider == "antigravity":
         lines.append(f"Expected Antigravity model label: `{solver_spec.antigravity_expected_label or 'current selected model'}`")
+    if solver_spec.provider == "claude":
+        lines.append(f"Claude max budget per call: `${os.getenv('BENCHBENCH_CLAUDE_MAX_BUDGET_USD', '25')}`")
     lines.append("")
-    lines.append("| creator | benchmark | rows | score | accuracy | returncode | actual model |")
-    lines.append("|---|---|---:|---:|---:|---:|---|")
+    lines.append("| creator | benchmark | rows | score | accuracy | Claude cost | Claude cache read | returncode | actual model |")
+    lines.append("|---|---|---:|---:|---:|---:|---:|---:|---|")
     for item in manifest:
         score = item.get("score_summary") or {}
         actual = item.get("antigravity_actual_label") or item.get("solver_display_model") or item.get("solver_model")
         rows = item.get("prediction_rows")
         lines.append(
-            "| {creator} | {bench} | {rows} | {correct}/{total} | {acc} | {rc} | {actual} |".format(
+            "| {creator} | {bench} | {rows} | {correct}/{total} | {acc} | {cost} | {cache_read} | {rc} | {actual} |".format(
                 creator=item.get("creator_model"),
                 bench=item.get("benchmark"),
                 rows=rows,
                 correct=score.get("correct", "NA"),
                 total=score.get("total", "NA"),
                 acc=score.get("accuracy", "NA"),
+                cost=item.get("claude_total_cost_usd", ""),
+                cache_read=item.get("claude_cache_read_input_tokens", ""),
                 rc=item.get("returncode"),
                 actual=actual,
             )
         )
     lines.append("")
+    claude_cost = sum(float(item.get("claude_total_cost_usd") or 0) for item in manifest)
+    if claude_cost:
+        lines.append(f"Total reported Claude cost: `${claude_cost:.4f}`")
+        lines.append("")
     summary_path.write_text("\n".join(lines) + "\n", encoding="utf-8")
     manifest_path.write_text(json.dumps(manifest, indent=2, sort_keys=True) + "\n", encoding="utf-8")
     return summary_path
@@ -313,7 +408,7 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument(
         "--solver",
         default="agy:current",
-        help="Solver model spec. Examples: agy:gemini-3.5-flash-high, agy:gemini-3.1-pro, gpt-5.5.",
+        help="Solver model spec. Examples: agy:gemini-3.5-flash-high, agy:gemini-3.1-pro, claude:sonnet, gpt-5.5.",
     )
     parser.add_argument("--creator-models", nargs="*", default=None, help="Optional creator model names to include.")
     parser.add_argument("--effort", default="low", help="Codex reasoning effort; metadata only for Antigravity.")

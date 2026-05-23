@@ -1,0 +1,34 @@
+[
+  {
+    "antigravity_actual_label": null,
+    "antigravity_expected_label": null,
+    "antigravity_log_path": null,
+    "benchmark": "Conlang Rosetta",
+    "creator_model": "opus",
+    "display_model": "gpt-5.2",
+    "model": "gpt-5.2",
+    "model_mismatch": false,
+    "out_path": "/Users/rohit/Documents/Workspace/Coding/benchbench/experiments/006_claude_opus_feedback_style_20260523_125611/run/solver_opus__solved_by__gpt_5_2.jsonl",
+    "phase": "solver_extension",
+    "prediction_rows": 30,
+    "predictions_path": "/Users/rohit/Documents/Workspace/Coding/benchbench/experiments/006_claude_opus_feedback_style_20260523_125611/run/candidate_created_by_opus/predictions_solver_gpt_5_2.jsonl",
+    "prompt_path": "/Users/rohit/Documents/Workspace/Coding/benchbench/experiments/006_claude_opus_feedback_style_20260523_125611/run/solver_opus__solved_by__gpt_5_2.prompt.txt",
+    "provider": "codex",
+    "returncode": 0,
+    "score_path": "/Users/rohit/Documents/Workspace/Coding/benchbench/experiments/006_claude_opus_feedback_style_20260523_125611/run/candidate_created_by_opus/score_solver_gpt_5_2.json",
+    "score_returncode": 0,
+    "score_stderr": "existing score reused; pass --force to rerun",
+    "score_stdout": "",
+    "score_summary": {
+      "accuracy": 1.0,
+      "correct": 30,
+      "total": 30
+    },
+    "skipped_existing": true,
+    "solver_display_model": "gpt-5.2",
+    "solver_model": "gpt-5.2",
+    "stderr_path": "/Users/rohit/Documents/Workspace/Coding/benchbench/experiments/006_claude_opus_feedback_style_20260523_125611/run/solver_opus__solved_by__gpt_5_2.stderr.txt",
+    "stdout_path": "/Users/rohit/Documents/Workspace/Coding/benchbench/experiments/006_claude_opus_feedback_style_20260523_125611/run/solver_opus__solved_by__gpt_5_2.stdout.txt",
+    "tokens_used": 0
+  }
+]

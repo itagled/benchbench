@@ -1,0 +1,30 @@
+{"id": "srd_000", "initial": "ABBCBCB", "target": "AB", "rules": [["AA", "A"], ["CB", "AB"], ["BA", "A"], ["CA", "AA"], ["CD", "BC"]]}
+{"id": "srd_001", "initial": "CCCDDD", "target": "CDAD", "rules": [["CD", "AD"], ["CB", "A"], ["CA", "DA"], ["DD", "B"], ["AA", "B"]]}
+{"id": "srd_002", "initial": "CDDCBA", "target": "CCB", "rules": [["BA", "D"], ["DD", "BA"], ["BD", "A"], ["CB", "D"], ["DA", "CB"]]}
+{"id": "srd_003", "initial": "DDBCB", "target": "BBA", "rules": [["CB", "BD"], ["CA", "BB"], ["CD", "AA"], ["BA", "D"], ["DD", "BB"], ["BB", "C"]]}
+{"id": "srd_004", "initial": "ABCCDD", "target": "CCC", "rules": [["CD", "C"], ["DC", "D"], ["AC", "A"], ["AB", "C"], ["DD", "C"]]}
+{"id": "srd_005", "initial": "BBDBBAC", "target": "BB", "rules": [["AC", "DC"], ["DC", "BD"], ["BD", "B"], ["BC", "DC"], ["BB", "C"]]}
+{"id": "srd_006", "initial": "CCCCCDD", "target": "CAD", "rules": [["BC", "B"], ["DB", "D"], ["CA", "C"], ["AD", "C"], ["CD", "AD"]]}
+{"id": "srd_007", "initial": "DCDDBBB", "target": "CB", "rules": [["DD", "B"], ["CB", "C"], ["DC", "C"], ["AD", "DB"]]}
+{"id": "srd_008", "initial": "ADCCCCD", "target": "CA", "rules": [["AD", "CA"], ["CC", "C"], ["AC", "D"], ["CA", "AA"], ["DA", "C"]]}
+{"id": "srd_009", "initial": "CDDBB", "target": "BD", "rules": [["DB", "CD"], ["AC", "DD"], ["BD", "CB"], ["CB", "B"], ["CC", "BD"], ["CD", "C"]]}
+{"id": "srd_010", "initial": "CDAADD", "target": "BB", "rules": [["DD", "B"], ["CD", "B"], ["BA", "A"], ["CC", "DA"], ["BD", "A"], ["AD", "D"]]}
+{"id": "srd_011", "initial": "BDCBC", "target": "CA", "rules": [["AC", "C"], ["BC", "A"], ["BD", "A"], ["DA", "A"], ["AA", "A"]]}
+{"id": "srd_012", "initial": "DBBCB", "target": "DB", "rules": [["AB", "CC"], ["DD", "D"], ["BA", "A"], ["BB", "B"], ["AD", "D"], ["BC", "B"]]}
+{"id": "srd_013", "initial": "ABABBCB", "target": "AD", "rules": [["AB", "A"], ["BC", "A"], ["BA", "D"], ["DD", "D"], ["AD", "BA"]]}
+{"id": "srd_014", "initial": "AACBBB", "target": "BBD", "rules": [["CB", "B"], ["DD", "DA"], ["BB", "BD"], ["CC", "D"], ["AB", "B"]]}
+{"id": "srd_015", "initial": "DABCB", "target": "BCAB", "rules": [["CB", "CC"], ["CC", "BA"], ["DC", "B"], ["AB", "CB"], ["DA", "CA"]]}
+{"id": "srd_016", "initial": "BDCCDA", "target": "CCA", "rules": [["AC", "BA"], ["BD", "C"], ["DA", "A"], ["DC", "D"], ["AB", "CD"], ["CB", "C"]]}
+{"id": "srd_017", "initial": "CCDBAA", "target": "DA", "rules": [["CD", "AA"], ["DD", "A"], ["BA", "D"], ["CA", "B"], ["CC", "AA"], ["AA", "CA"]]}
+{"id": "srd_018", "initial": "BADBBA", "target": "DCC", "rules": [["BC", "C"], ["DD", "AC"], ["BA", "DC"], ["AA", "C"], ["DC", "AA"]]}
+{"id": "srd_019", "initial": "CADBDB", "target": "CB", "rules": [["BC", "BD"], ["DB", "B"], ["AD", "DB"], ["CB", "C"], ["BD", "A"], ["CA", "C"]]}
+{"id": "srd_020", "initial": "AABBBAD", "target": "CBBC", "rules": [["DA", "BA"], ["AA", "C"], ["BD", "C"], ["CC", "D"], ["AD", "D"], ["DB", "D"]]}
+{"id": "srd_021", "initial": "CCDADC", "target": "BC", "rules": [["CD", "C"], ["BA", "B"], ["BD", "A"], ["CC", "BA"], ["DD", "D"], ["AD", "A"]]}
+{"id": "srd_022", "initial": "AACBB", "target": "BC", "rules": [["DD", "C"], ["AA", "B"], ["BC", "D"], ["CD", "AA"], ["BB", "BC"], ["BA", "C"]]}
+{"id": "srd_023", "initial": "BABDBDA", "target": "AA", "rules": [["AA", "D"], ["BD", "A"], ["AC", "BD"], ["AB", "B"]]}
+{"id": "srd_024", "initial": "AADCD", "target": "DAC", "rules": [["DA", "C"], ["CB", "BA"], ["BC", "B"], ["CC", "DA"], ["AD", "DA"]]}
+{"id": "srd_025", "initial": "BCACACC", "target": "BCDA", "rules": [["DC", "BA"], ["BD", "D"], ["BA", "BB"], ["AC", "D"], ["BB", "A"]]}
+{"id": "srd_026", "initial": "DACAC", "target": "DDC", "rules": [["BC", "C"], ["DA", "AA"], ["CC", "AA"], ["DC", "C"], ["AA", "D"], ["AC", "D"]]}
+{"id": "srd_027", "initial": "CACABDD", "target": "AAB", "rules": [["CA", "AA"], ["AA", "C"], ["AD", "B"], ["AC", "B"], ["BD", "D"]]}
+{"id": "srd_028", "initial": "ACDCBA", "target": "ACC", "rules": [["BB", "C"], ["DC", "B"], ["BA", "DC"], ["AC", "AB"], ["CD", "B"], ["DD", "C"]]}
+{"id": "srd_029", "initial": "BCBCAAC", "target": "CC", "rules": [["AC", "C"], ["DC", "BA"], ["BA", "DB"], ["CB", "D"], ["BD", "AA"]]}

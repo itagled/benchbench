@@ -21,10 +21,26 @@ KNOWN_ANTIGRAVITY_MODELS = {
     "gemini-3.1-pro": ("Gemini 3.1 Pro (High)", "Gemini 3.1 Pro (High)"),
     "gemini-3.1-pro-high": ("Gemini 3.1 Pro (High)", "Gemini 3.1 Pro (High)"),
     "gemini-3.1-pro-low": ("Gemini 3.1 Pro (Low)", "Gemini 3.1 Pro (Low)"),
+    "claude-sonnet-4.6-thinking": ("Claude Sonnet 4.6 (Thinking)", "Claude Sonnet 4.6 (Thinking)"),
+    "claude-sonnet-4.6": ("Claude Sonnet 4.6 (Thinking)", "Claude Sonnet 4.6 (Thinking)"),
+    "claude-sonnet": ("Claude Sonnet 4.6 (Thinking)", "Claude Sonnet 4.6 (Thinking)"),
+    "claude-opus-4.6-thinking": ("Claude Opus 4.6 (Thinking)", "Claude Opus 4.6 (Thinking)"),
+    "claude-opus-4.6": ("Claude Opus 4.6 (Thinking)", "Claude Opus 4.6 (Thinking)"),
+    "claude-opus": ("Claude Opus 4.6 (Thinking)", "Claude Opus 4.6 (Thinking)"),
+}
+
+KNOWN_CLAUDE_MODELS = {
+    "sonnet": ("sonnet", "Claude Sonnet"),
+    "opus": ("opus", "Claude Opus"),
+    "haiku": ("haiku", "Claude Haiku"),
+    "claude-sonnet-4-6": ("claude-sonnet-4-6", "Claude Sonnet 4.6"),
+    "claude-opus-4-6": ("claude-opus-4-6", "Claude Opus 4.6"),
+    "claude-haiku-4-5": ("claude-haiku-4-5", "Claude Haiku 4.5"),
 }
 
 ANTIGRAVITY_SETTINGS_PATH = Path.home() / ".gemini" / "antigravity-cli" / "settings.json"
 ANTIGRAVITY_SETTINGS_LOCK_PATH = Path.home() / ".gemini" / "antigravity-cli" / "benchbench_model.lock"
+DEFAULT_CLAUDE_MAX_BUDGET_USD = "25"
 
 
 @dataclass(frozen=True)
@@ -36,6 +52,7 @@ class ModelSpec:
     display_name: str
     codex_model: str | None = None
     antigravity_expected_label: str | None = None
+    claude_model: str | None = None
 
     @property
     def agent_label(self) -> str:
@@ -43,6 +60,8 @@ class ModelSpec:
             return f"{self.display_name}+Codex"
         if self.provider == "antigravity":
             return f"{self.display_name}+Antigravity"
+        if self.provider == "claude":
+            return f"{self.display_name}+Claude Code"
         return self.display_name
 
 
@@ -58,6 +77,7 @@ def parse_model_spec(value: str) -> ModelSpec:
 
     Unprefixed values are Codex model names, preserving the historical runner
     behavior. Antigravity specs use `agy:<model>` or `antigravity:<model>`.
+    Claude Code specs use `claude:<model>` or `anthropic:<model>`.
     Because `agy --print` does not expose a model flag, Antigravity specs are
     checked after the run against the selected model label in the CLI log.
     """
@@ -77,6 +97,20 @@ def parse_model_spec(value: str) -> ModelSpec:
                 display_name=display,
                 antigravity_expected_label=expected,
             )
+    for prefix in ("claude:", "anthropic:"):
+        if lowered.startswith(prefix):
+            requested = raw[len(prefix) :].strip()
+            model_id = requested.lower() or "sonnet"
+            claude_model, display = KNOWN_CLAUDE_MODELS.get(
+                model_id,
+                (requested or "sonnet", requested or "Claude Sonnet"),
+            )
+            return ModelSpec(
+                name=model_id,
+                provider="claude",
+                display_name=display,
+                claude_model=claude_model,
+            )
     return ModelSpec(name=raw, provider="codex", display_name=raw, codex_model=raw)
 
 
@@ -88,6 +122,49 @@ def parse_tokens(text: str) -> int:
 def parse_antigravity_selected_label(log_text: str) -> str | None:
     matches = re.findall(r'Propagating selected model override to backend: label="([^"]+)"', log_text)
     return matches[-1] if matches else None
+
+
+def claude_tokens_used(data: dict[str, Any]) -> int:
+    model_usage = data.get("modelUsage")
+    if isinstance(model_usage, dict):
+        total = 0
+        for usage_item in model_usage.values():
+            if not isinstance(usage_item, dict):
+                continue
+            total += sum(
+                int(usage_item.get(key) or 0)
+                for key in [
+                    "inputTokens",
+                    "cacheCreationInputTokens",
+                    "cacheReadInputTokens",
+                    "outputTokens",
+                ]
+            )
+        if total:
+            return total
+
+    usage = data.get("usage")
+    if not isinstance(usage, dict):
+        return 0
+    return sum(
+        int(usage.get(key) or 0)
+        for key in [
+            "input_tokens",
+            "cache_creation_input_tokens",
+            "cache_read_input_tokens",
+            "output_tokens",
+        ]
+    )
+
+
+def claude_cache_summary(data: dict[str, Any]) -> dict[str, int]:
+    usage = data.get("usage")
+    if not isinstance(usage, dict):
+        return {"cache_creation_input_tokens": 0, "cache_read_input_tokens": 0}
+    return {
+        "cache_creation_input_tokens": int(usage.get("cache_creation_input_tokens") or 0),
+        "cache_read_input_tokens": int(usage.get("cache_read_input_tokens") or 0),
+    }
 
 
 def antigravity_model_id_from_label(label: str) -> str:
@@ -330,7 +407,97 @@ def run_antigravity_model(
     }
 
 
+def run_claude_model(spec: ModelSpec, prompt: str, out_path: Path, cwd: Path, effort: str, timeout: int) -> dict[str, Any]:
+    prompt_path = out_path.with_suffix(".prompt.txt")
+    stdout_path = out_path.with_suffix(".stdout.txt")
+    stderr_path = out_path.with_suffix(".stderr.txt")
+    prompt_path.write_text(prompt, encoding="utf-8")
+
+    claude = shutil.which("claude")
+    if not claude:
+        message = "Claude Code CLI `claude` was not found on PATH.\n"
+        out_path.write_text("", encoding="utf-8")
+        stdout_path.write_text("", encoding="utf-8")
+        stderr_path.write_text(message, encoding="utf-8")
+        return {
+            "model": spec.name,
+            "display_model": spec.display_name,
+            "provider": spec.provider,
+            "returncode": 127,
+            "tokens_used": 0,
+            "out_path": str(out_path),
+            "stdout_path": str(stdout_path),
+            "stderr_path": str(stderr_path),
+            "prompt_path": str(prompt_path),
+            "effort": effort,
+        }
+
+    max_budget_usd = os.getenv("BENCHBENCH_CLAUDE_MAX_BUDGET_USD", DEFAULT_CLAUDE_MAX_BUDGET_USD)
+    cmd = [
+        claude,
+        "-p",
+        "--model",
+        spec.claude_model or spec.name,
+        "--effort",
+        effort if effort in {"low", "medium", "high", "xhigh", "max"} else "low",
+        "--permission-mode",
+        "bypassPermissions",
+        "--output-format",
+        "json",
+        "--no-session-persistence",
+        "--exclude-dynamic-system-prompt-sections",
+        "--max-budget-usd",
+        max_budget_usd,
+    ]
+    try:
+        completed = run_cmd(cmd, cwd, stdin_text=prompt, timeout=timeout)
+        stdout = completed.stdout
+        stderr = completed.stderr
+        returncode = completed.returncode
+    except subprocess.TimeoutExpired as exc:
+        stdout, stderr, returncode = _timeout_result(exc, timeout)
+
+    stdout_path.write_text(stdout, encoding="utf-8")
+    stderr_path.write_text(stderr, encoding="utf-8")
+    data: dict[str, Any] = {}
+    try:
+        parsed = json.loads(stdout)
+        if isinstance(parsed, dict):
+            data = parsed
+    except json.JSONDecodeError:
+        data = {}
+
+    result_text = data.get("result") if isinstance(data.get("result"), str) else stdout
+    out_path.write_text(result_text, encoding="utf-8")
+    if data.get("is_error") and returncode == 0:
+        returncode = 1
+
+    cache_summary = claude_cache_summary(data)
+    return {
+        "model": spec.name,
+        "display_model": spec.display_name,
+        "provider": spec.provider,
+        "returncode": returncode,
+        "tokens_used": claude_tokens_used(data),
+        "out_path": str(out_path),
+        "stdout_path": str(stdout_path),
+        "stderr_path": str(stderr_path),
+        "prompt_path": str(prompt_path),
+        "effort": effort,
+        "claude_model": spec.claude_model or spec.name,
+        "claude_total_cost_usd": data.get("total_cost_usd"),
+        "claude_usage": data.get("usage") if isinstance(data.get("usage"), dict) else {},
+        "claude_model_usage": data.get("modelUsage") if isinstance(data.get("modelUsage"), dict) else {},
+        "claude_cache_creation_input_tokens": cache_summary["cache_creation_input_tokens"],
+        "claude_cache_read_input_tokens": cache_summary["cache_read_input_tokens"],
+    }
+
+
 def run_model(spec: ModelSpec, prompt: str, out_path: Path, cwd: Path, effort: str, timeout: int) -> dict[str, Any]:
+    if spec.provider == "codex":
+        return run_codex_model(spec, prompt, out_path, cwd, effort, timeout)
     if spec.provider == "antigravity":
         return run_antigravity_model(spec, prompt, out_path, cwd, effort, timeout)
-    return run_codex_model(spec, prompt, out_path, cwd, effort, timeout)
+    if spec.provider == "claude":
+        return run_claude_model(spec, prompt, out_path, cwd, effort, timeout)
+    raise ValueError(f"Unsupported model provider: {spec.provider}")

@@ -1,0 +1,156 @@
+[
+  {
+    "claude_cache_creation_input_tokens": 53092,
+    "claude_cache_read_input_tokens": 610568,
+    "claude_model": "opus",
+    "claude_model_usage": {
+      "claude-haiku-4-5-20251001": {
+        "cacheCreationInputTokens": 0,
+        "cacheReadInputTokens": 0,
+        "contextWindow": 200000,
+        "costUSD": 0.005414,
+        "inputTokens": 5334,
+        "maxOutputTokens": 32000,
+        "outputTokens": 16,
+        "webSearchRequests": 0
+      },
+      "claude-opus-4-7": {
+        "cacheCreationInputTokens": 53092,
+        "cacheReadInputTokens": 610568,
+        "contextWindow": 1000000,
+        "costUSD": 1.107804,
+        "inputTokens": 19,
+        "maxOutputTokens": 64000,
+        "outputTokens": 18824,
+        "webSearchRequests": 0
+      }
+    },
+    "claude_total_cost_usd": 1.113218,
+    "claude_usage": {
+      "cache_creation": {
+        "ephemeral_1h_input_tokens": 0,
+        "ephemeral_5m_input_tokens": 53092
+      },
+      "cache_creation_input_tokens": 53092,
+      "cache_read_input_tokens": 610568,
+      "inference_geo": "",
+      "input_tokens": 19,
+      "iterations": [
+        {
+          "cache_creation": {
+            "ephemeral_1h_input_tokens": 0,
+            "ephemeral_5m_input_tokens": 1438
+          },
+          "cache_creation_input_tokens": 1438,
+          "cache_read_input_tokens": 51654,
+          "input_tokens": 1,
+          "output_tokens": 358,
+          "type": "message"
+        }
+      ],
+      "output_tokens": 18824,
+      "server_tool_use": {
+        "web_fetch_requests": 0,
+        "web_search_requests": 0
+      },
+      "service_tier": "standard",
+      "speed": "standard"
+    },
+    "creator_display_model": "Claude Opus",
+    "creator_model": "opus",
+    "display_model": "Claude Opus",
+    "effort": "low",
+    "model": "opus",
+    "out_path": "/Users/rohit/Documents/Workspace/Coding/benchbench/experiments/005_claude_opus_exp003_style_20260523_125019/run/creator_opus.md",
+    "phase": "creator",
+    "prompt_path": "/Users/rohit/Documents/Workspace/Coding/benchbench/experiments/005_claude_opus_exp003_style_20260523_125019/run/creator_opus.prompt.txt",
+    "provider": "claude",
+    "returncode": 0,
+    "stderr_path": "/Users/rohit/Documents/Workspace/Coding/benchbench/experiments/005_claude_opus_exp003_style_20260523_125019/run/creator_opus.stderr.txt",
+    "stdout_path": "/Users/rohit/Documents/Workspace/Coding/benchbench/experiments/005_claude_opus_exp003_style_20260523_125019/run/creator_opus.stdout.txt",
+    "tokens_used": 687853
+  },
+  {
+    "claude_cache_creation_input_tokens": 7228,
+    "claude_cache_read_input_tokens": 156521,
+    "claude_model": "opus",
+    "claude_model_usage": {
+      "claude-haiku-4-5-20251001": {
+        "cacheCreationInputTokens": 0,
+        "cacheReadInputTokens": 0,
+        "contextWindow": 200000,
+        "costUSD": 0.000765,
+        "inputTokens": 685,
+        "maxOutputTokens": 32000,
+        "outputTokens": 16,
+        "webSearchRequests": 0
+      },
+      "claude-opus-4-7": {
+        "cacheCreationInputTokens": 7228,
+        "cacheReadInputTokens": 156521,
+        "contextWindow": 1000000,
+        "costUSD": 0.1696605,
+        "inputTokens": 10,
+        "maxOutputTokens": 64000,
+        "outputTokens": 1847,
+        "webSearchRequests": 0
+      }
+    },
+    "claude_total_cost_usd": 0.1704255,
+    "claude_usage": {
+      "cache_creation": {
+        "ephemeral_1h_input_tokens": 0,
+        "ephemeral_5m_input_tokens": 7228
+      },
+      "cache_creation_input_tokens": 7228,
+      "cache_read_input_tokens": 156521,
+      "inference_geo": "",
+      "input_tokens": 10,
+      "iterations": [
+        {
+          "cache_creation": {
+            "ephemeral_1h_input_tokens": 0,
+            "ephemeral_5m_input_tokens": 768
+          },
+          "cache_creation_input_tokens": 768,
+          "cache_read_input_tokens": 28422,
+          "input_tokens": 1,
+          "output_tokens": 582,
+          "type": "message"
+        }
+      ],
+      "output_tokens": 1847,
+      "server_tool_use": {
+        "web_fetch_requests": 0,
+        "web_search_requests": 0
+      },
+      "service_tier": "standard",
+      "speed": "standard"
+    },
+    "creator_model": "opus",
+    "display_model": "Claude Opus",
+    "effort": "low",
+    "model": "opus",
+    "out_path": "/Users/rohit/Documents/Workspace/Coding/benchbench/experiments/005_claude_opus_exp003_style_20260523_125019/run/solver_opus__solved_by__opus.jsonl",
+    "phase": "solver",
+    "prediction_rows": 30,
+    "predictions_path": "/Users/rohit/Documents/Workspace/Coding/benchbench/experiments/005_claude_opus_exp003_style_20260523_125019/run/candidate_created_by_opus/predictions_solver_opus.jsonl",
+    "prompt_path": "/Users/rohit/Documents/Workspace/Coding/benchbench/experiments/005_claude_opus_exp003_style_20260523_125019/run/solver_opus__solved_by__opus.prompt.txt",
+    "provider": "claude",
+    "returncode": 0,
+    "score_path": "/Users/rohit/Documents/Workspace/Coding/benchbench/experiments/005_claude_opus_exp003_style_20260523_125019/run/candidate_created_by_opus/score_solver_opus.json",
+    "score_returncode": 0,
+    "score_stderr": "",
+    "score_stdout": "Score: 30/30\n",
+    "score_summary": {
+      "accuracy": 1.0,
+      "correct": 30,
+      "total": 30
+    },
+    "solver_display_model": "Claude Opus",
+    "solver_model": "opus",
+    "stderr_path": "/Users/rohit/Documents/Workspace/Coding/benchbench/experiments/005_claude_opus_exp003_style_20260523_125019/run/solver_opus__solved_by__opus.stderr.txt",
+    "stdout_path": "/Users/rohit/Documents/Workspace/Coding/benchbench/experiments/005_claude_opus_exp003_style_20260523_125019/run/solver_opus__solved_by__opus.stdout.txt",
+    "tokens_used": 166307
+  }
+]

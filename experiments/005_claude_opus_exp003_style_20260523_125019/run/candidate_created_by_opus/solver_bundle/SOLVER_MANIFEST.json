@@ -1,0 +1,20 @@
+{
+  "benchmark": "String Rewriting Distance",
+  "short_id": "srd_v1",
+  "version": "1.0.0",
+  "items_file": "items_private_sample.jsonl",
+  "task": "For each item, output the minimum number of rule applications needed to transform `initial` into `target`, under the constraint that no intermediate string may exceed 12 characters.",
+  "alphabet": ["A", "B", "C", "D"],
+  "rules_format": {
+    "shape": "list of [pattern, replacement] pairs",
+    "pattern_length": 2,
+    "replacement_length_in": [1, 2]
+  },
+  "operation_semantics": "A step picks any rule (pat, rep) and any index i such that current_string[i:i+2] == pat, and replaces those two characters with rep, producing current_string[:i] + rep + current_string[i+2:]. Exactly one rule application per step. Intermediate strings must stay non-empty and length <= 12.",
+  "answer_format": {
+    "field": "answer",
+    "type": "integer",
+    "meaning": "minimum number of steps to reach target. Range [0, 25]. Answer is guaranteed reachable; you do not need to output -1 on any item in this sample."
+  },
+  "prediction_file": "Submit `predictions.jsonl` with one JSON per line: {\"id\": <item_id>, \"answer\": <int>}."
+}

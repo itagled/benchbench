@@ -1,0 +1,190 @@
+{
+  "correct": 11,
+  "exact_match": 0.36666666666666664,
+  "missing": 0,
+  "per_item": [
+    {
+      "correct": false,
+      "gold": "15991",
+      "id": "reifor_0000",
+      "pred": "16651"
+    },
+    {
+      "correct": false,
+      "gold": "62756",
+      "id": "reifor_0001",
+      "pred": "59243"
+    },
+    {
+      "correct": true,
+      "gold": "87396",
+      "id": "reifor_0002",
+      "pred": "87396"
+    },
+    {
+      "correct": true,
+      "gold": "89126",
+      "id": "reifor_0003",
+      "pred": "89126"
+    },
+    {
+      "correct": false,
+      "gold": "77063",
+      "id": "reifor_0004",
+      "pred": "81969"
+    },
+    {
+      "correct": true,
+      "gold": "128979",
+      "id": "reifor_0005",
+      "pred": "128979"
+    },
+    {
+      "correct": false,
+      "gold": "56636",
+      "id": "reifor_0006",
+      "pred": "61201"
+    },
+    {
+      "correct": false,
+      "gold": "36717",
+      "id": "reifor_0007",
+      "pred": "29560"
+    },
+    {
+      "correct": false,
+      "gold": "68889",
+      "id": "reifor_0008",
+      "pred": "69981"
+    },
+    {
+      "correct": false,
+      "gold": "214443",
+      "id": "reifor_0009",
+      "pred": "221069"
+    },
+    {
+      "correct": true,
+      "gold": "60832",
+      "id": "reifor_0010",
+      "pred": "60832"
+    },
+    {
+      "correct": true,
+      "gold": "64158",
+      "id": "reifor_0011",
+      "pred": "64158"
+    },
+    {
+      "correct": true,
+      "gold": "35897",
+      "id": "reifor_0012",
+      "pred": "35897"
+    },
+    {
+      "correct": false,
+      "gold": "28815",
+      "id": "reifor_0013",
+      "pred": "35046"
+    },
+    {
+      "correct": false,
+      "gold": "16434",
+      "id": "reifor_0014",
+      "pred": "13557"
+    },
+    {
+      "correct": true,
+      "gold": "155775",
+      "id": "reifor_0015",
+      "pred": "155775"
+    },
+    {
+      "correct": false,
+      "gold": "27796",
+      "id": "reifor_0016",
+      "pred": "27808"
+    },
+    {
+      "correct": true,
+      "gold": "23350",
+      "id": "reifor_0017",
+      "pred": "23350"
+    },
+    {
+      "correct": false,
+      "gold": "188684",
+      "id": "reifor_0018",
+      "pred": "193601"
+    },
+    {
+      "correct": false,
+      "gold": "117087",
+      "id": "reifor_0019",
+      "pred": "118228"
+    },
+    {
+      "correct": false,
+      "gold": "3339",
+      "id": "reifor_0020",
+      "pred": "3715"
+    },
+    {
+      "correct": false,
+      "gold": "48096",
+      "id": "reifor_0021",
+      "pred": "48962"
+    },
+    {
+      "correct": true,
+      "gold": "48424",
+      "id": "reifor_0022",
+      "pred": "48424"
+    },
+    {
+      "correct": false,
+      "gold": "11170",
+      "id": "reifor_0023",
+      "pred": "13394"
+    },
+    {
+      "correct": false,
+      "gold": "38548",
+      "id": "reifor_0024",
+      "pred": "43721"
+    },
+    {
+      "correct": true,
+      "gold": "5649",
+      "id": "reifor_0025",
+      "pred": "5649"
+    },
+    {
+      "correct": true,
+      "gold": "10450",
+      "id": "reifor_0026",
+      "pred": "10450"
+    },
+    {
+      "correct": false,
+      "gold": "67891",
+      "id": "reifor_0027",
+      "pred": "35949"
+    },
+    {
+      "correct": false,
+      "gold": "63059",
+      "id": "reifor_0028",
+      "pred": "74915"
+    },
+    {
+      "correct": false,
+      "gold": "30627",
+      "id": "reifor_0029",
+      "pred": "32141"
+    }
+  ],
+  "score": "11/30",
+  "total": 30,
+  "wrong": 19
+}

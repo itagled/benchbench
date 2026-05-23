@@ -1,0 +1,187 @@
+{
+  "score": 0,
+  "total": 30,
+  "accuracy": 0.0,
+  "per_item": [
+    {
+      "id": "srd_000",
+      "gold": 7,
+      "pred": 3,
+      "correct": false
+    },
+    {
+      "id": "srd_001",
+      "gold": 3,
+      "pred": 6,
+      "correct": false
+    },
+    {
+      "id": "srd_002",
+      "gold": 6,
+      "pred": 10,
+      "correct": false
+    },
+    {
+      "id": "srd_003",
+      "gold": 6,
+      "pred": 10,
+      "correct": false
+    },
+    {
+      "id": "srd_004",
+      "gold": 3,
+      "pred": 6,
+      "correct": false
+    },
+    {
+      "id": "srd_005",
+      "gold": 10,
+      "pred": 9,
+      "correct": false
+    },
+    {
+      "id": "srd_006",
+      "gold": 9,
+      "pred": 5,
+      "correct": false
+    },
+    {
+      "id": "srd_007",
+      "gold": 5,
+      "pred": 4,
+      "correct": false
+    },
+    {
+      "id": "srd_008",
+      "gold": 9,
+      "pred": 5,
+      "correct": false
+    },
+    {
+      "id": "srd_009",
+      "gold": 6,
+      "pred": 10,
+      "correct": false
+    },
+    {
+      "id": "srd_010",
+      "gold": 4,
+      "pred": 7,
+      "correct": false
+    },
+    {
+      "id": "srd_011",
+      "gold": 3,
+      "pred": 6,
+      "correct": false
+    },
+    {
+      "id": "srd_012",
+      "gold": 3,
+      "pred": 6,
+      "correct": false
+    },
+    {
+      "id": "srd_013",
+      "gold": 5,
+      "pred": 4,
+      "correct": false
+    },
+    {
+      "id": "srd_014",
+      "gold": 4,
+      "pred": 7,
+      "correct": false
+    },
+    {
+      "id": "srd_015",
+      "gold": 5,
+      "pred": 4,
+      "correct": false
+    },
+    {
+      "id": "srd_016",
+      "gold": 3,
+      "pred": 6,
+      "correct": false
+    },
+    {
+      "id": "srd_017",
+      "gold": 6,
+      "pred": 10,
+      "correct": false
+    },
+    {
+      "id": "srd_018",
+      "gold": 7,
+      "pred": 3,
+      "correct": false
+    },
+    {
+      "id": "srd_019",
+      "gold": 4,
+      "pred": 7,
+      "correct": false
+    },
+    {
+      "id": "srd_020",
+      "gold": 3,
+      "pred": 6,
+      "correct": false
+    },
+    {
+      "id": "srd_021",
+      "gold": 5,
+      "pred": 4,
+      "correct": false
+    },
+    {
+      "id": "srd_022",
+      "gold": 6,
+      "pred": 10,
+      "correct": false
+    },
+    {
+      "id": "srd_023",
+      "gold": 5,
+      "pred": 4,
+      "correct": false
+    },
+    {
+      "id": "srd_024",
+      "gold": 6,
+      "pred": 10,
+      "correct": false
+    },
+    {
+      "id": "srd_025",
+      "gold": 5,
+      "pred": 4,
+      "correct": false
+    },
+    {
+      "id": "srd_026",
+      "gold": 3,
+      "pred": 6,
+      "correct": false
+    },
+    {
+      "id": "srd_027",
+      "gold": 6,
+      "pred": 10,
+      "correct": false
+    },
+    {
+      "id": "srd_028",
+      "gold": 4,
+      "pred": 7,
+      "correct": false
+    },
+    {
+      "id": "srd_029",
+      "gold": 6,
+      "pred": 10,
+      "correct": false
+    }
+  ]
+}

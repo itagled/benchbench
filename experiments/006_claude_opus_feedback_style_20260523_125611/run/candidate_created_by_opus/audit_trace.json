@@ -1,0 +1,722 @@
+[
+  {
+    "id": "item_000",
+    "grammar": {
+      "word_order": "SOV",
+      "adj_position": "post",
+      "neg_placement": "before_verb",
+      "noun_suffix_order": "plural_then_case",
+      "acc_suf": "li",
+      "pl_suf": "shu",
+      "past_suf": "ki",
+      "neg": "mai"
+    },
+    "test_spec": {
+      "subj_eng": "book",
+      "subj_pl": false,
+      "subj_adj": "red",
+      "verb_eng": "give",
+      "verb_past": true,
+      "verb_neg": false,
+      "obj_eng": "bird",
+      "obj_pl": true,
+      "obj_adj": "big"
+    }
+  },
+  {
+    "id": "item_001",
+    "grammar": {
+      "word_order": "SVO",
+      "adj_position": "post",
+      "neg_placement": "after_verb",
+      "noun_suffix_order": "case_then_plural",
+      "acc_suf": "ka",
+      "pl_suf": "vi",
+      "past_suf": "ki",
+      "neg": "oru"
+    },
+    "test_spec": {
+      "subj_eng": "stone",
+      "subj_pl": false,
+      "subj_adj": "small",
+      "verb_eng": "eat",
+      "verb_past": true,
+      "verb_neg": false,
+      "obj_eng": "house",
+      "obj_pl": true,
+      "obj_adj": "old"
+    }
+  },
+  {
+    "id": "item_002",
+    "grammar": {
+      "word_order": "SVO",
+      "adj_position": "post",
+      "neg_placement": "before_verb",
+      "noun_suffix_order": "plural_then_case",
+      "acc_suf": "ro",
+      "pl_suf": "wo",
+      "past_suf": "be",
+      "neg": "mai"
+    },
+    "test_spec": {
+      "subj_eng": "child",
+      "subj_pl": false,
+      "subj_adj": null,
+      "verb_eng": "give",
+      "verb_past": false,
+      "verb_neg": true,
+      "obj_eng": "stone",
+      "obj_pl": false,
+      "obj_adj": "red"
+    }
+  },
+  {
+    "id": "item_003",
+    "grammar": {
+      "word_order": "SOV",
+      "adj_position": "post",
+      "neg_placement": "before_verb",
+      "noun_suffix_order": "case_then_plural",
+      "acc_suf": "mi",
+      "pl_suf": "ta",
+      "past_suf": "ki",
+      "neg": "nok"
+    },
+    "test_spec": {
+      "subj_eng": "dog",
+      "subj_pl": false,
+      "subj_adj": null,
+      "verb_eng": "find",
+      "verb_past": true,
+      "verb_neg": false,
+      "obj_eng": "water",
+      "obj_pl": false,
+      "obj_adj": "small"
+    }
+  },
+  {
+    "id": "item_004",
+    "grammar": {
+      "word_order": "OVS",
+      "adj_position": "post",
+      "neg_placement": "before_verb",
+      "noun_suffix_order": "case_then_plural",
+      "acc_suf": "ro",
+      "pl_suf": "wo",
+      "past_suf": "mo",
+      "neg": "nok"
+    },
+    "test_spec": {
+      "subj_eng": "child",
+      "subj_pl": false,
+      "subj_adj": null,
+      "verb_eng": "love",
+      "verb_past": false,
+      "verb_neg": true,
+      "obj_eng": "book",
+      "obj_pl": true,
+      "obj_adj": null
+    }
+  },
+  {
+    "id": "item_005",
+    "grammar": {
+      "word_order": "SVO",
+      "adj_position": "post",
+      "neg_placement": "after_verb",
+      "noun_suffix_order": "case_then_plural",
+      "acc_suf": "ka",
+      "pl_suf": "vi",
+      "past_suf": "be",
+      "neg": "mai"
+    },
+    "test_spec": {
+      "subj_eng": "bird",
+      "subj_pl": false,
+      "subj_adj": null,
+      "verb_eng": "hit",
+      "verb_past": false,
+      "verb_neg": false,
+      "obj_eng": "woman",
+      "obj_pl": false,
+      "obj_adj": "good"
+    }
+  },
+  {
+    "id": "item_006",
+    "grammar": {
+      "word_order": "OVS",
+      "adj_position": "pre",
+      "neg_placement": "before_verb",
+      "noun_suffix_order": "case_then_plural",
+      "acc_suf": "ka",
+      "pl_suf": "ta",
+      "past_suf": "ki",
+      "neg": "mai"
+    },
+    "test_spec": {
+      "subj_eng": "tree",
+      "subj_pl": false,
+      "subj_adj": null,
+      "verb_eng": "eat",
+      "verb_past": false,
+      "verb_neg": false,
+      "obj_eng": "bird",
+      "obj_pl": false,
+      "obj_adj": "old"
+    }
+  },
+  {
+    "id": "item_007",
+    "grammar": {
+      "word_order": "SVO",
+      "adj_position": "pre",
+      "neg_placement": "before_verb",
+      "noun_suffix_order": "case_then_plural",
+      "acc_suf": "sa",
+      "pl_suf": "shu",
+      "past_suf": "pe",
+      "neg": "mai"
+    },
+    "test_spec": {
+      "subj_eng": "fish",
+      "subj_pl": false,
+      "subj_adj": "red",
+      "verb_eng": "hit",
+      "verb_past": false,
+      "verb_neg": false,
+      "obj_eng": "dog",
+      "obj_pl": false,
+      "obj_adj": "good"
+    }
+  },
+  {
+    "id": "item_008",
+    "grammar": {
+      "word_order": "SVO",
+      "adj_position": "post",
+      "neg_placement": "before_verb",
+      "noun_suffix_order": "plural_then_case",
+      "acc_suf": "ka",
+      "pl_suf": "ne",
+      "past_suf": "pe",
+      "neg": "kep"
+    },
+    "test_spec": {
+      "subj_eng": "water",
+      "subj_pl": true,
+      "subj_adj": "old",
+      "verb_eng": "find",
+      "verb_past": true,
+      "verb_neg": false,
+      "obj_eng": "dog",
+      "obj_pl": false,
+      "obj_adj": "big"
+    }
+  },
+  {
+    "id": "item_009",
+    "grammar": {
+      "word_order": "OVS",
+      "adj_position": "post",
+      "neg_placement": "before_verb",
+      "noun_suffix_order": "plural_then_case",
+      "acc_suf": "ka",
+      "pl_suf": "ta",
+      "past_suf": "be",
+      "neg": "zi"
+    },
+    "test_spec": {
+      "subj_eng": "cat",
+      "subj_pl": true,
+      "subj_adj": "good",
+      "verb_eng": "see",
+      "verb_past": true,
+      "verb_neg": true,
+      "obj_eng": "dog",
+      "obj_pl": true,
+      "obj_adj": null
+    }
+  },
+  {
+    "id": "item_010",
+    "grammar": {
+      "word_order": "VSO",
+      "adj_position": "pre",
+      "neg_placement": "before_verb",
+      "noun_suffix_order": "case_then_plural",
+      "acc_suf": "tu",
+      "pl_suf": "wo",
+      "past_suf": "ki",
+      "neg": "nok"
+    },
+    "test_spec": {
+      "subj_eng": "child",
+      "subj_pl": false,
+      "subj_adj": "big",
+      "verb_eng": "give",
+      "verb_past": true,
+      "verb_neg": false,
+      "obj_eng": "dog",
+      "obj_pl": false,
+      "obj_adj": "old"
+    }
+  },
+  {
+    "id": "item_011",
+    "grammar": {
+      "word_order": "VSO",
+      "adj_position": "post",
+      "neg_placement": "after_verb",
+      "noun_suffix_order": "case_then_plural",
+      "acc_suf": "sa",
+      "pl_suf": "wo",
+      "past_suf": "nu",
+      "neg": "nok"
+    },
+    "test_spec": {
+      "subj_eng": "bird",
+      "subj_pl": false,
+      "subj_adj": "small",
+      "verb_eng": "carry",
+      "verb_past": true,
+      "verb_neg": false,
+      "obj_eng": "dog",
+      "obj_pl": false,
+      "obj_adj": null
+    }
+  },
+  {
+    "id": "item_012",
+    "grammar": {
+      "word_order": "OVS",
+      "adj_position": "pre",
+      "neg_placement": "before_verb",
+      "noun_suffix_order": "plural_then_case",
+      "acc_suf": "mi",
+      "pl_suf": "ne",
+      "past_suf": "mo",
+      "neg": "mai"
+    },
+    "test_spec": {
+      "subj_eng": "dog",
+      "subj_pl": true,
+      "subj_adj": "old",
+      "verb_eng": "love",
+      "verb_past": true,
+      "verb_neg": false,
+      "obj_eng": "water",
+      "obj_pl": false,
+      "obj_adj": null
+    }
+  },
+  {
+    "id": "item_013",
+    "grammar": {
+      "word_order": "OVS",
+      "adj_position": "post",
+      "neg_placement": "after_verb",
+      "noun_suffix_order": "plural_then_case",
+      "acc_suf": "mi",
+      "pl_suf": "wo",
+      "past_suf": "pe",
+      "neg": "oru"
+    },
+    "test_spec": {
+      "subj_eng": "dog",
+      "subj_pl": true,
+      "subj_adj": "red",
+      "verb_eng": "love",
+      "verb_past": true,
+      "verb_neg": false,
+      "obj_eng": "tree",
+      "obj_pl": true,
+      "obj_adj": "small"
+    }
+  },
+  {
+    "id": "item_014",
+    "grammar": {
+      "word_order": "VSO",
+      "adj_position": "pre",
+      "neg_placement": "after_verb",
+      "noun_suffix_order": "plural_then_case",
+      "acc_suf": "ka",
+      "pl_suf": "vi",
+      "past_suf": "be",
+      "neg": "zi"
+    },
+    "test_spec": {
+      "subj_eng": "book",
+      "subj_pl": true,
+      "subj_adj": null,
+      "verb_eng": "carry",
+      "verb_past": false,
+      "verb_neg": false,
+      "obj_eng": "man",
+      "obj_pl": true,
+      "obj_adj": null
+    }
+  },
+  {
+    "id": "item_015",
+    "grammar": {
+      "word_order": "SVO",
+      "adj_position": "pre",
+      "neg_placement": "before_verb",
+      "noun_suffix_order": "plural_then_case",
+      "acc_suf": "ro",
+      "pl_suf": "vi",
+      "past_suf": "pe",
+      "neg": "nok"
+    },
+    "test_spec": {
+      "subj_eng": "woman",
+      "subj_pl": false,
+      "subj_adj": null,
+      "verb_eng": "hear",
+      "verb_past": true,
+      "verb_neg": true,
+      "obj_eng": "man",
+      "obj_pl": false,
+      "obj_adj": null
+    }
+  },
+  {
+    "id": "item_016",
+    "grammar": {
+      "word_order": "SVO",
+      "adj_position": "post",
+      "neg_placement": "before_verb",
+      "noun_suffix_order": "plural_then_case",
+      "acc_suf": "ro",
+      "pl_suf": "wo",
+      "past_suf": "ki",
+      "neg": "nok"
+    },
+    "test_spec": {
+      "subj_eng": "tree",
+      "subj_pl": true,
+      "subj_adj": null,
+      "verb_eng": "see",
+      "verb_past": true,
+      "verb_neg": true,
+      "obj_eng": "water",
+      "obj_pl": false,
+      "obj_adj": "red"
+    }
+  },
+  {
+    "id": "item_017",
+    "grammar": {
+      "word_order": "SVO",
+      "adj_position": "post",
+      "neg_placement": "before_verb",
+      "noun_suffix_order": "plural_then_case",
+      "acc_suf": "na",
+      "pl_suf": "shu",
+      "past_suf": "be",
+      "neg": "oru"
+    },
+    "test_spec": {
+      "subj_eng": "tree",
+      "subj_pl": false,
+      "subj_adj": "old",
+      "verb_eng": "love",
+      "verb_past": false,
+      "verb_neg": true,
+      "obj_eng": "book",
+      "obj_pl": false,
+      "obj_adj": null
+    }
+  },
+  {
+    "id": "item_018",
+    "grammar": {
+      "word_order": "SOV",
+      "adj_position": "post",
+      "neg_placement": "after_verb",
+      "noun_suffix_order": "plural_then_case",
+      "acc_suf": "li",
+      "pl_suf": "vi",
+      "past_suf": "nu",
+      "neg": "mai"
+    },
+    "test_spec": {
+      "subj_eng": "man",
+      "subj_pl": true,
+      "subj_adj": null,
+      "verb_eng": "love",
+      "verb_past": false,
+      "verb_neg": false,
+      "obj_eng": "dog",
+      "obj_pl": true,
+      "obj_adj": null
+    }
+  },
+  {
+    "id": "item_019",
+    "grammar": {
+      "word_order": "OVS",
+      "adj_position": "pre",
+      "neg_placement": "after_verb",
+      "noun_suffix_order": "case_then_plural",
+      "acc_suf": "na",
+      "pl_suf": "vi",
+      "past_suf": "pe",
+      "neg": "zi"
+    },
+    "test_spec": {
+      "subj_eng": "book",
+      "subj_pl": true,
+      "subj_adj": "small",
+      "verb_eng": "find",
+      "verb_past": false,
+      "verb_neg": false,
+      "obj_eng": "tree",
+      "obj_pl": true,
+      "obj_adj": null
+    }
+  },
+  {
+    "id": "item_020",
+    "grammar": {
+      "word_order": "OVS",
+      "adj_position": "pre",
+      "neg_placement": "after_verb",
+      "noun_suffix_order": "plural_then_case",
+      "acc_suf": "na",
+      "pl_suf": "vi",
+      "past_suf": "nu",
+      "neg": "nok"
+    },
+    "test_spec": {
+      "subj_eng": "bird",
+      "subj_pl": true,
+      "subj_adj": "big",
+      "verb_eng": "hear",
+      "verb_past": false,
+      "verb_neg": false,
+      "obj_eng": "book",
+      "obj_pl": false,
+      "obj_adj": null
+    }
+  },
+  {
+    "id": "item_021",
+    "grammar": {
+      "word_order": "SVO",
+      "adj_position": "pre",
+      "neg_placement": "before_verb",
+      "noun_suffix_order": "plural_then_case",
+      "acc_suf": "mi",
+      "pl_suf": "vi",
+      "past_suf": "nu",
+      "neg": "nok"
+    },
+    "test_spec": {
+      "subj_eng": "bird",
+      "subj_pl": true,
+      "subj_adj": null,
+      "verb_eng": "give",
+      "verb_past": true,
+      "verb_neg": false,
+      "obj_eng": "fish",
+      "obj_pl": false,
+      "obj_adj": "old"
+    }
+  },
+  {
+    "id": "item_022",
+    "grammar": {
+      "word_order": "SOV",
+      "adj_position": "post",
+      "neg_placement": "after_verb",
+      "noun_suffix_order": "plural_then_case",
+      "acc_suf": "ka",
+      "pl_suf": "ne",
+      "past_suf": "be",
+      "neg": "zi"
+    },
+    "test_spec": {
+      "subj_eng": "woman",
+      "subj_pl": true,
+      "subj_adj": null,
+      "verb_eng": "carry",
+      "verb_past": false,
+      "verb_neg": true,
+      "obj_eng": "water",
+      "obj_pl": true,
+      "obj_adj": null
+    }
+  },
+  {
+    "id": "item_023",
+    "grammar": {
+      "word_order": "OVS",
+      "adj_position": "pre",
+      "neg_placement": "before_verb",
+      "noun_suffix_order": "plural_then_case",
+      "acc_suf": "na",
+      "pl_suf": "vi",
+      "past_suf": "ki",
+      "neg": "oru"
+    },
+    "test_spec": {
+      "subj_eng": "cat",
+      "subj_pl": false,
+      "subj_adj": null,
+      "verb_eng": "love",
+      "verb_past": false,
+      "verb_neg": false,
+      "obj_eng": "child",
+      "obj_pl": true,
+      "obj_adj": null
+    }
+  },
+  {
+    "id": "item_024",
+    "grammar": {
+      "word_order": "SOV",
+      "adj_position": "post",
+      "neg_placement": "after_verb",
+      "noun_suffix_order": "plural_then_case",
+      "acc_suf": "na",
+      "pl_suf": "wo",
+      "past_suf": "be",
+      "neg": "kep"
+    },
+    "test_spec": {
+      "subj_eng": "woman",
+      "subj_pl": true,
+      "subj_adj": null,
+      "verb_eng": "hear",
+      "verb_past": false,
+      "verb_neg": false,
+      "obj_eng": "child",
+      "obj_pl": true,
+      "obj_adj": null
+    }
+  },
+  {
+    "id": "item_025",
+    "grammar": {
+      "word_order": "SVO",
+      "adj_position": "pre",
+      "neg_placement": "before_verb",
+      "noun_suffix_order": "case_then_plural",
+      "acc_suf": "na",
+      "pl_suf": "ta",
+      "past_suf": "ki",
+      "neg": "mai"
+    },
+    "test_spec": {
+      "subj_eng": "bird",
+      "subj_pl": true,
+      "subj_adj": null,
+      "verb_eng": "eat",
+      "verb_past": false,
+      "verb_neg": false,
+      "obj_eng": "tree",
+      "obj_pl": false,
+      "obj_adj": null
+    }
+  },
+  {
+    "id": "item_026",
+    "grammar": {
+      "word_order": "SVO",
+      "adj_position": "post",
+      "neg_placement": "after_verb",
+      "noun_suffix_order": "case_then_plural",
+      "acc_suf": "ro",
+      "pl_suf": "shu",
+      "past_suf": "nu",
+      "neg": "kep"
+    },
+    "test_spec": {
+      "subj_eng": "stone",
+      "subj_pl": false,
+      "subj_adj": null,
+      "verb_eng": "hear",
+      "verb_past": true,
+      "verb_neg": false,
+      "obj_eng": "bird",
+      "obj_pl": false,
+      "obj_adj": "red"
+    }
+  },
+  {
+    "id": "item_027",
+    "grammar": {
+      "word_order": "VSO",
+      "adj_position": "pre",
+      "neg_placement": "before_verb",
+      "noun_suffix_order": "plural_then_case",
+      "acc_suf": "na",
+      "pl_suf": "ta",
+      "past_suf": "be",
+      "neg": "nok"
+    },
+    "test_spec": {
+      "subj_eng": "book",
+      "subj_pl": false,
+      "subj_adj": null,
+      "verb_eng": "want",
+      "verb_past": true,
+      "verb_neg": true,
+      "obj_eng": "house",
+      "obj_pl": true,
+      "obj_adj": null
+    }
+  },
+  {
+    "id": "item_028",
+    "grammar": {
+      "word_order": "VSO",
+      "adj_position": "pre",
+      "neg_placement": "before_verb",
+      "noun_suffix_order": "case_then_plural",
+      "acc_suf": "mi",
+      "pl_suf": "vi",
+      "past_suf": "pe",
+      "neg": "oru"
+    },
+    "test_spec": {
+      "subj_eng": "dog",
+      "subj_pl": true,
+      "subj_adj": "old",
+      "verb_eng": "want",
+      "verb_past": false,
+      "verb_neg": false,
+      "obj_eng": "child",
+      "obj_pl": true,
+      "obj_adj": null
+    }
+  },
+  {
+    "id": "item_029",
+    "grammar": {
+      "word_order": "VSO",
+      "adj_position": "post",
+      "neg_placement": "before_verb",
+      "noun_suffix_order": "case_then_plural",
+      "acc_suf": "sa",
+      "pl_suf": "ne",
+      "past_suf": "ki",
+      "neg": "nok"
+    },
+    "test_spec": {
+      "subj_eng": "water",
+      "subj_pl": false,
+      "subj_adj": null,
+      "verb_eng": "carry",
+      "verb_past": false,
+      "verb_neg": true,
+      "obj_eng": "fish",
+      "obj_pl": false,
+      "obj_adj": "big"
+    }
+  }
+]

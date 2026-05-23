@@ -1,0 +1,7 @@
+{
+  "benchmark": "Conlang Rosetta",
+  "version": "1.0",
+  "items_file": "items_private_sample.jsonl",
+  "output_format": "predictions.jsonl with one JSON object per line: {\"id\": str, \"answer\": str}",
+  "answer_format": "exact lowercase space-separated conlang sentence; no punctuation; tokens normalized to single spaces"
+}

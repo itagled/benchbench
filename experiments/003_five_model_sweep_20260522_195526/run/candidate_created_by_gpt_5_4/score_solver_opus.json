@@ -1,0 +1,187 @@
+{
+  "accuracy": 1.0,
+  "details": [
+    {
+      "correct": true,
+      "gold": "verdict=DENY;lane=RED;fee=46",
+      "id": "poa_000",
+      "pred": "verdict=DENY;lane=RED;fee=46"
+    },
+    {
+      "correct": true,
+      "gold": "verdict=DENY;lane=RED;fee=32",
+      "id": "poa_001",
+      "pred": "verdict=DENY;lane=RED;fee=32"
+    },
+    {
+      "correct": true,
+      "gold": "verdict=DENY;lane=RED;fee=51",
+      "id": "poa_002",
+      "pred": "verdict=DENY;lane=RED;fee=51"
+    },
+    {
+      "correct": true,
+      "gold": "verdict=DENY;lane=GREEN;fee=8",
+      "id": "poa_003",
+      "pred": "verdict=DENY;lane=GREEN;fee=8"
+    },
+    {
+      "correct": true,
+      "gold": "verdict=DENY;lane=AMBER;fee=18",
+      "id": "poa_004",
+      "pred": "verdict=DENY;lane=AMBER;fee=18"
+    },
+    {
+      "correct": true,
+      "gold": "verdict=DENY;lane=AMBER;fee=20",
+      "id": "poa_005",
+      "pred": "verdict=DENY;lane=AMBER;fee=20"
+    },
+    {
+      "correct": true,
+      "gold": "verdict=DENY;lane=RED;fee=46",
+      "id": "poa_006",
+      "pred": "verdict=DENY;lane=RED;fee=46"
+    },
+    {
+      "correct": true,
+      "gold": "verdict=REVIEW;lane=RED;fee=41",
+      "id": "poa_007",
+      "pred": "verdict=REVIEW;lane=RED;fee=41"
+    },
+    {
+      "correct": true,
+      "gold": "verdict=REVIEW;lane=RED;fee=40",
+      "id": "poa_008",
+      "pred": "verdict=REVIEW;lane=RED;fee=40"
+    },
+    {
+      "correct": true,
+      "gold": "verdict=DENY;lane=RED;fee=35",
+      "id": "poa_009",
+      "pred": "verdict=DENY;lane=RED;fee=35"
+    },
+    {
+      "correct": true,
+      "gold": "verdict=DENY;lane=RED;fee=28",
+      "id": "poa_010",
+      "pred": "verdict=DENY;lane=RED;fee=28"
+    },
+    {
+      "correct": true,
+      "gold": "verdict=DENY;lane=AMBER;fee=11",
+      "id": "poa_011",
+      "pred": "verdict=DENY;lane=AMBER;fee=11"
+    },
+    {
+      "correct": true,
+      "gold": "verdict=REVIEW;lane=RED;fee=49",
+      "id": "poa_012",
+      "pred": "verdict=REVIEW;lane=RED;fee=49"
+    },
+    {
+      "correct": true,
+      "gold": "verdict=DENY;lane=RED;fee=58",
+      "id": "poa_013",
+      "pred": "verdict=DENY;lane=RED;fee=58"
+    },
+    {
+      "correct": true,
+      "gold": "verdict=REVIEW;lane=RED;fee=30",
+      "id": "poa_014",
+      "pred": "verdict=REVIEW;lane=RED;fee=30"
+    },
+    {
+      "correct": true,
+      "gold": "verdict=DENY;lane=RED;fee=45",
+      "id": "poa_015",
+      "pred": "verdict=DENY;lane=RED;fee=45"
+    },
+    {
+      "correct": true,
+      "gold": "verdict=ALLOW;lane=AMBER;fee=20",
+      "id": "poa_016",
+      "pred": "verdict=ALLOW;lane=AMBER;fee=20"
+    },
+    {
+      "correct": true,
+      "gold": "verdict=REVIEW;lane=GREEN;fee=9",
+      "id": "poa_017",
+      "pred": "verdict=REVIEW;lane=GREEN;fee=9"
+    },
+    {
+      "correct": true,
+      "gold": "verdict=DENY;lane=GREEN;fee=4",
+      "id": "poa_018",
+      "pred": "verdict=DENY;lane=GREEN;fee=4"
+    },
+    {
+      "correct": true,
+      "gold": "verdict=DENY;lane=RED;fee=45",
+      "id": "poa_019",
+      "pred": "verdict=DENY;lane=RED;fee=45"
+    },
+    {
+      "correct": true,
+      "gold": "verdict=DENY;lane=AMBER;fee=21",
+      "id": "poa_020",
+      "pred": "verdict=DENY;lane=AMBER;fee=21"
+    },
+    {
+      "correct": true,
+      "gold": "verdict=DENY;lane=RED;fee=55",
+      "id": "poa_021",
+      "pred": "verdict=DENY;lane=RED;fee=55"
+    },
+    {
+      "correct": true,
+      "gold": "verdict=DENY;lane=RED;fee=41",
+      "id": "poa_022",
+      "pred": "verdict=DENY;lane=RED;fee=41"
+    },
+    {
+      "correct": true,
+      "gold": "verdict=DENY;lane=RED;fee=46",
+      "id": "poa_023",
+      "pred": "verdict=DENY;lane=RED;fee=46"
+    },
+    {
+      "correct": true,
+      "gold": "verdict=DENY;lane=AMBER;fee=19",
+      "id": "poa_024",
+      "pred": "verdict=DENY;lane=AMBER;fee=19"
+    },
+    {
+      "correct": true,
+      "gold": "verdict=DENY;lane=AMBER;fee=24",
+      "id": "poa_025",
+      "pred": "verdict=DENY;lane=AMBER;fee=24"
+    },
+    {
+      "correct": true,
+      "gold": "verdict=DENY;lane=RED;fee=56",
+      "id": "poa_026",
+      "pred": "verdict=DENY;lane=RED;fee=56"
+    },
+    {
+      "correct": true,
+      "gold": "verdict=DENY;lane=RED;fee=26",
+      "id": "poa_027",
+      "pred": "verdict=DENY;lane=RED;fee=26"
+    },
+    {
+      "correct": true,
+      "gold": "verdict=DENY;lane=AMBER;fee=20",
+      "id": "poa_028",
+      "pred": "verdict=DENY;lane=AMBER;fee=20"
+    },
+    {
+      "correct": true,
+      "gold": "verdict=REVIEW;lane=RED;fee=49",
+      "id": "poa_029",
+      "pred": "verdict=REVIEW;lane=RED;fee=49"
+    }
+  ],
+  "score": 30,
+  "total": 30
+}

@@ -1,0 +1,34 @@
+[
+  {
+    "antigravity_actual_label": "Gemini 3.1 Pro (High)",
+    "antigravity_expected_label": "Gemini 3.1 Pro (High)",
+    "antigravity_log_path": "/Users/rohit/Documents/Workspace/Coding/benchbench/experiments/005_claude_opus_exp003_style_20260523_125019/run/solver_opus__solved_by__gemini_3_1_pro.agy.log",
+    "benchmark": "String Rewriting Distance",
+    "creator_model": "opus",
+    "display_model": "Gemini 3.1 Pro (High)",
+    "model": "gemini-3.1-pro",
+    "model_mismatch": false,
+    "out_path": "/Users/rohit/Documents/Workspace/Coding/benchbench/experiments/005_claude_opus_exp003_style_20260523_125019/run/solver_opus__solved_by__gemini_3_1_pro.jsonl",
+    "phase": "solver_extension",
+    "prediction_rows": 30,
+    "predictions_path": "/Users/rohit/Documents/Workspace/Coding/benchbench/experiments/005_claude_opus_exp003_style_20260523_125019/run/candidate_created_by_opus/predictions_solver_gemini_3_1_pro.jsonl",
+    "prompt_path": "/Users/rohit/Documents/Workspace/Coding/benchbench/experiments/005_claude_opus_exp003_style_20260523_125019/run/solver_opus__solved_by__gemini_3_1_pro.prompt.txt",
+    "provider": "antigravity",
+    "returncode": 0,
+    "score_path": "/Users/rohit/Documents/Workspace/Coding/benchbench/experiments/005_claude_opus_exp003_style_20260523_125019/run/candidate_created_by_opus/score_solver_gemini_3_1_pro.json",
+    "score_returncode": 0,
+    "score_stderr": "existing score reused; pass --force to rerun",
+    "score_stdout": "",
+    "score_summary": {
+      "accuracy": 1.0,
+      "correct": 30,
+      "total": 30
+    },
+    "skipped_existing": true,
+    "solver_display_model": "Gemini 3.1 Pro (High)",
+    "solver_model": "gemini-3.1-pro",
+    "stderr_path": "/Users/rohit/Documents/Workspace/Coding/benchbench/experiments/005_claude_opus_exp003_style_20260523_125019/run/solver_opus__solved_by__gemini_3_1_pro.stderr.txt",
+    "stdout_path": "/Users/rohit/Documents/Workspace/Coding/benchbench/experiments/005_claude_opus_exp003_style_20260523_125019/run/solver_opus__solved_by__gemini_3_1_pro.stdout.txt",
+    "tokens_used": 0
+  }
+]

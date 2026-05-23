@@ -95,13 +95,40 @@ run against the same public bundles and private scorers.
 
 The current headline evidence is Experiments 003 and 004: two full five-model
 creator/solver sweeps across GPT-5.2, GPT-5.4, GPT-5.5, Gemini 3.1 Pro, and
-Gemini 3.5 Flash. Experiment 004 is the most important run because it tested
+Gemini 3.5 Flash. Claude Opus has now been added as an extension creator and
+solver. Experiment 004 is still the most important run because it tested
 whether creators could improve after seeing the failure report from Experiment
 003.
 
 Experiments 001 and 002 are historical support. They explain why the prompt was
 broadened, how the Gemini backend was smoke-tested against fixed benchmark
 packages, and what failure modes to avoid. They are not the main result.
+
+### Full 6x6 Result Set
+
+The current full result set is a reconstructed 6x6 grid: the two original
+five-model sweeps plus Claude Opus creator and solver extension runs. It is
+reconstructed rather than simultaneous because Claude was added after the
+five-model sweeps had already run.
+
+Full tables and notes:
+`experiments/result_grids_6x6_20260523.md`.
+
+![Exp003-style 6x6 solver grid](experiments/figures/exp003_style_6x6_heatmap.svg)
+
+![Feedback-style 6x6 solver grid](experiments/figures/exp004_feedback_6x6_heatmap.svg)
+
+The short read: Reimbursement Forensics is still the only current candidate
+with the shape BenchBench wants. All six solvers land in the low nonzero band,
+from 10/30 to 14/30. The Claude-created benchmarks do not change the winner:
+String Rewriting Distance had a scorer type-strictness artifact and was solved
+30/30 by four solvers; Conlang Rosetta was solved 30/30 by all six.
+
+Claude's feedback-style creator run did receive the Experiment 003 failures,
+the Experiment 004 audit, and Claude's own first-run failure. It did not receive
+the completed 6x6 grids because they did not exist yet. The next creator sweep
+should use `experiments/feedback_for_next_full_6x6_sweep_20260523.md`, which
+packages the full current evidence.
 
 ### Experiment 003: First Five-Model Sweep
 
@@ -164,6 +191,57 @@ failure, not a keeper. Gemini 3.1 Pro's Corrupted LZ77 Recovery is not
 unsolvable: GPT-5.4 solved 22/30 and GPT-5.5 solved 17/30. Its weak cells are
 mostly blank outputs, no parsed rows, or timeout behavior.
 
+### Claude Opus Extension
+
+Claude Opus was tested after the five-model sweeps. Antigravity Claude Opus
+worked for small print-mode calls, but the full creator attempt through
+Antigravity produced no files after a long wait, so the full extension used
+native Claude Code Opus. Native Claude reports cost and cache telemetry.
+
+Claude Opus creator runs:
+
+| pass | generated benchmark | full solver result | result |
+|---|---|---|---|
+| Exp003-style starting prompt | String Rewriting Distance | 0, 0, 30, 30, 30, 30 | reject; scorer type artifact plus saturation |
+| feedback-style prompt | Conlang Rosetta | 30, 30, 30, 30, 30, 30 | reject; saturated |
+
+The full solver result order is GPT-5.2, GPT-5.4, GPT-5.5, Gemini 3.1 Pro,
+Gemini 3.5 Flash, Claude Opus.
+
+Artifacts:
+
+- `experiments/005_claude_opus_exp003_style_20260523_125019/`
+- `experiments/006_claude_opus_feedback_style_20260523_125611/`
+- `experiments/result_grids_6x6_20260523.md`
+- `experiments/feedback_for_next_full_6x6_sweep_20260523.md`
+
+Claude Opus as solver on Experiment 003:
+
+| creator | benchmark | Claude Opus |
+|---|---|---:|
+| GPT-5.2 | Ledger Canonical Reconciliation | 11/30 |
+| GPT-5.4 | Patchwork Ordinance Adjudication | 30/30 |
+| GPT-5.5 | Amendment Ledger Reconciliation | 30/30 |
+| Gemini 3.1 Pro | Polyhedral Surface Traversal | 30/30 |
+| Gemini 3.5 Flash | Mutative Assembly Inversion | 30/30 |
+
+Claude Opus as solver on Experiment 004:
+
+| creator | benchmark | Claude Opus |
+|---|---|---:|
+| GPT-5.2 | Reimbursement Forensics | 11/30 |
+| GPT-5.4 | release_packet_arbitration | 25/30 |
+| GPT-5.5 | Cross-Document Obligation Resolution | skipped; scoring-contract failure |
+| Gemini 3.1 Pro | Corrupted LZ77 Recovery | 0/30; stopped after extended operational stall |
+| Gemini 3.5 Flash | MFN-Cascade | 30/30 |
+
+Interpretation: Claude Opus did not create a keeper in these two attempts. It
+did strengthen the solver evidence. Reimbursement Forensics remains the best
+current candidate because Opus also landed in the low nonzero band at 11/30.
+MFN-Cascade and the Claude-created candidates are too easy. Corrupted LZ77
+remains more of an operationally brittle technical-recovery task than a clean
+broad reasoning benchmark.
+
 ### Historical Support: Experiments 001 And 002
 
 These runs are worth keeping as evidence, but they should be read as archive
@@ -217,7 +295,11 @@ task is under-specified, not that the benchmark found a deep missing capability.
   good leads for future creator prompts.
 - Feedback helped. In Experiment 003 every fresh candidate was solved at 30/30
   by at least one solver. In Experiment 004, GPT-5.2 created a candidate where
-  all five solvers scored between 10/30 and 14/30.
+  all six tested solvers, including Claude Opus, scored between 10/30 and
+  14/30.
+- Claude Opus did not create a stronger benchmark in these two attempts. Its
+  first task collapsed to an obvious search problem, and its feedback task was
+  solved perfectly by every solver.
 - Feedback did not solve the whole problem. One candidate was still saturated
   at 30/30, one all-zero row turned out to be an under-specified scoring
   contract, and two had split results that require audit before they can be
@@ -240,7 +322,7 @@ task is under-specified, not that the benchmark found a deep missing capability.
 - `benchmark_landscape/`: researched eval catalog, public score tables, model
   score matrix, and similarity method.
 - `run_broad_three_model_sweep.py`: creator/solver sweep harness, now with
-  Codex and Antigravity model backends.
+  Codex, Antigravity, and Claude Code model backends.
 - `run_existing_solver_extension.py`: adds extra solver columns to an existing
   saved sweep without regenerating creator packages.
 - `run_broad_xhigh_sanity.py`: extra high-effort solver sanity harness.
@@ -251,6 +333,16 @@ task is under-specified, not that the benchmark found a deep missing capability.
   creator/solver sweep with GPT and Gemini models.
 - `experiments/004_feedback_sweep_20260522_225208/`: feedback-driven
   five-model creator/solver sweep.
+- `experiments/005_claude_opus_exp003_style_20260523_125019/`: Claude Opus
+  creator run with the Exp003-style starting prompt.
+- `experiments/006_claude_opus_feedback_style_20260523_125611/`: Claude Opus
+  creator run with feedback from prior failures and the first Claude run.
+- `experiments/result_grids_6x6_20260523.md`: reconstructed full 6x6 result
+  grids and generated heatmaps.
+- `experiments/feedback_for_next_full_6x6_sweep_20260523.md`: feedback packet
+  for the next all-model creator sweep.
+- `experiments/claude_opus_extension_20260523.md`: concise Claude Opus creator
+  and solver extension summary.
 
 ## Running A Sweep
 
@@ -277,6 +369,40 @@ python run_broad_three_model_sweep.py \
   --models gpt-5.2 gpt-5.4 gpt-5.5 agy:gemini-3.1-pro agy:gemini-3.5-flash-high
 ```
 
+To include Claude as a creator and solver in the normal symmetric grid, add a
+Claude model spec:
+
+```bash
+BENCHBENCH_CLAUDE_MAX_BUDGET_USD=25 python run_broad_three_model_sweep.py \
+  --feedback-context experiments/feedback_for_next_full_6x6_sweep_20260523.md \
+  --models gpt-5.2 gpt-5.4 gpt-5.5 agy:gemini-3.1-pro agy:gemini-3.5-flash-high claude:opus
+```
+
+Claude can also be called through Antigravity:
+
+```bash
+python run_broad_three_model_sweep.py \
+  --models gpt-5.2 gpt-5.4 gpt-5.5 agy:gemini-3.1-pro agy:gemini-3.5-flash-high agy:claude-opus-4.6-thinking
+```
+
+Current Claude Code status:
+
+- BenchBench uses native Claude Code calls, not Antigravity, for Claude specs.
+- `claude:sonnet`, `claude:opus`, and `claude:haiku` map to
+  `claude -p --model ... --output-format json`.
+- The runner writes the JSON `result` field to the normal output file and keeps
+  the full Claude JSON in the `.stdout.txt` sidecar.
+- Claude JSON reports `total_cost_usd`, `modelUsage`, cache creation tokens,
+  and cache read tokens. BenchBench records those fields in the manifest and
+  summary tables.
+- `BENCHBENCH_CLAUDE_MAX_BUDGET_USD` caps each Claude Code call. The default is
+  `$25` per call unless overridden.
+- Native Claude Code prompt caching is preserved by using normal print-mode
+  calls and stdin prompts. Repeated calls record cache-read tokens when Claude
+  reuses cached prompt/system context.
+- The creator prompt keeps the large stable context before volatile artifact
+  paths so repeated Claude creator calls can reuse more of the prefix cache.
+
 Current Antigravity status:
 
 - `agy --print` works for non-interactive creator and solver calls.
@@ -288,14 +414,21 @@ Current Antigravity status:
   accepting the result.
 - `agy:gemini-3.1-pro` selects `Gemini 3.1 Pro (High)`.
 - `agy:gemini-3.5-flash-high` selects `Gemini 3.5 Flash (High)`.
+- `agy:claude-sonnet-4.6-thinking` selects `Claude Sonnet 4.6 (Thinking)`.
+- `agy:claude-opus-4.6-thinking` selects `Claude Opus 4.6 (Thinking)`.
+- The Claude Antigravity labels were smoke-tested on 2026-05-23 with exact
+  print-mode responses and selected-model log checks.
+- Antigravity-Claude is usable for grid parity, but the current Antigravity
+  path does not report Claude `total_cost_usd` or cache-read tokens. Native
+  Claude Code is the better path when cost and caching telemetry matter.
 - Antigravity terminal tools open in a global scratch directory by default, so
   the creator and solver prompts include the exact artifact or isolated bundle
   path and instruct the model to use that path for all file and shell work.
 
 ## Adding Solvers To The Existing Sweep
 
-The stable-bank Gemini path is to keep the existing OpenAI-created benchmark
-packages fixed and add Gemini as extra solver columns:
+The stable-bank path is to keep existing benchmark packages fixed and add new
+models as extra solver columns:
 
 ```bash
 python run_existing_solver_extension.py --solver agy:gemini-3.5-flash-high
@@ -305,6 +438,14 @@ To add Gemini 3.1 Pro:
 
 ```bash
 python run_existing_solver_extension.py --solver agy:gemini-3.1-pro
+```
+
+To add Claude Sonnet as an extra solver column on a saved run:
+
+```bash
+BENCHBENCH_CLAUDE_MAX_BUDGET_USD=25 python run_existing_solver_extension.py \
+  --run-root experiments/004_feedback_sweep_20260522_225208 \
+  --solver claude:sonnet
 ```
 
 ## Similarity / Novelty Check
