@@ -1,0 +1,15 @@
+{
+  "benchmark": "Amendment Ledger Reconciliation",
+  "item_file": "items_private_sample.jsonl",
+  "prediction_schema": {
+    "answer": "string",
+    "id": "string"
+  },
+  "sample_count": 30,
+  "solver_visible_files": [
+    "items_private_sample.jsonl",
+    "solver_packet.md",
+    "SOLVER_MANIFEST.json"
+  ],
+  "version": "1.0"
+}

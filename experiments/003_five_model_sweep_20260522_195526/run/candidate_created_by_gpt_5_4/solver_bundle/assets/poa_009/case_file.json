@@ -1,0 +1,17 @@
+{
+  "category": "Transit",
+  "declared_units": 3,
+  "escort": true,
+  "flags": [
+    "field"
+  ],
+  "id": "poa_009",
+  "manual_note": false,
+  "preclear": false,
+  "quantity": 6,
+  "record_age": 7,
+  "seal": "Ember",
+  "tier": "T1",
+  "weekend": false,
+  "zone": "East"
+}

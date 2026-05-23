@@ -1,0 +1,2033 @@
+2026-05-23T04:14:14.658638Z  WARN codex_rollout::list: state db discrepancy during find_thread_path_by_id_str_in_subdir: falling_back
+2026-05-23T04:14:14.682926Z  WARN codex_rollout::list: state db discrepancy during find_thread_path_by_id_str_in_subdir: falling_back
+OpenAI Codex v0.130.0
+--------
+workdir: /Users/rohit/Documents/Workspace/Coding/benchbench/experiments/003_five_model_sweep_20260522_195526/run/isolated_solver_gpt_5_4__solved_by__gpt_5_5
+model: gpt-5.5
+provider: openai
+approval: never
+sandbox: workspace-write [workdir, /tmp, $TMPDIR, /Users/rohit/.codex/memories] (network access enabled)
+reasoning effort: low
+reasoning summaries: none
+session id: 019e530a-7466-7173-aa23-537b670b8244
+--------
+user
+
+You are gpt-5.5+Codex acting as a blind BenchBench solver.
+
+You are in an isolated solver bundle at:
+
+/Users/rohit/Documents/Workspace/Coding/benchbench/experiments/003_five_model_sweep_20260522_195526/run/isolated_solver_gpt_5_4__solved_by__gpt_5_5
+
+Use that exact directory as the working directory for every shell command and
+file read/write. Antigravity may open a global scratch directory by default;
+ignore that scratch directory and work only in the solver bundle above.
+
+You may use any local computation, shell scripts, installed packages, OCR,
+image processing, code, and internet access if useful. Try your best to solve
+the benchmark.
+
+The only forbidden action is inspecting parent directories or files outside this
+isolated solver bundle. Do not look for gold files, generators, scorers, private
+traces, or answer keys outside this directory.
+
+Read every visible file in this bundle and solve every item.
+
+Return only JSONL, one object per item, with exactly:
+{"id":"...","answer":"..."}
+
+2026-05-23T04:14:14.705355Z  WARN codex_rollout::list: state db discrepancy during find_thread_path_by_id_str_in_subdir: falling_back
+2026-05-23T04:14:14.718581Z  WARN codex_rollout::list: state db discrepancy during find_thread_path_by_id_str_in_subdir: falling_back
+deprecated: `[features].codex_hooks` is deprecated. Use `[features].hooks` instead.
+Enable it with `--enable hooks` or `[features].hooks` in config.toml. See https://developers.openai.com/codex/config-basic#feature-flags for details.
+2026-05-23T04:14:14.744183Z  WARN codex_rollout::list: state db discrepancy during find_thread_path_by_id_str_in_subdir: falling_back
+2026-05-23T04:14:14.768611Z  WARN codex_rollout::list: state db discrepancy during find_thread_path_by_id_str_in_subdir: falling_back
+2026-05-23T04:14:14.793058Z  WARN codex_rollout::list: state db discrepancy during find_thread_path_by_id_str_in_subdir: falling_back
+2026-05-23T04:14:14.816566Z  WARN codex_rollout::list: state db discrepancy during find_thread_path_by_id_str_in_subdir: falling_back
+2026-05-23T04:14:14.839624Z  WARN codex_rollout::list: state db discrepancy during find_thread_path_by_id_str_in_subdir: falling_back
+2026-05-23T04:14:14.863775Z  WARN codex_rollout::list: state db discrepancy during find_thread_path_by_id_str_in_subdir: falling_back
+2026-05-23T04:14:14.894312Z  WARN codex_rollout::list: state db discrepancy during find_thread_path_by_id_str_in_subdir: falling_back
+2026-05-23T04:14:14.916973Z  WARN codex_rollout::list: state db discrepancy during find_thread_path_by_id_str_in_subdir: falling_back
+2026-05-23T04:14:14.940755Z  WARN codex_rollout::list: state db discrepancy during find_thread_path_by_id_str_in_subdir: falling_back
+2026-05-23T04:14:14.964655Z  WARN codex_rollout::list: state db discrepancy during find_thread_path_by_id_str_in_subdir: falling_back
+2026-05-23T04:14:14.987071Z  WARN codex_rollout::list: state db discrepancy during find_thread_path_by_id_str_in_subdir: falling_back
+2026-05-23T04:14:15.008839Z  WARN codex_rollout::list: state db discrepancy during find_thread_path_by_id_str_in_subdir: falling_back
+2026-05-23T04:14:15.032386Z  WARN codex_rollout::list: state db discrepancy during find_thread_path_by_id_str_in_subdir: falling_back
+2026-05-23T04:14:15.055958Z  WARN codex_rollout::list: state db discrepancy during find_thread_path_by_id_str_in_subdir: falling_back
+2026-05-23T04:14:15.079858Z  WARN codex_rollout::list: state db discrepancy during find_thread_path_by_id_str_in_subdir: falling_back
+2026-05-23T04:14:15.103730Z  WARN codex_rollout::list: state db discrepancy during find_thread_path_by_id_str_in_subdir: falling_back
+2026-05-23T04:14:15.127884Z  WARN codex_rollout::list: state db discrepancy during find_thread_path_by_id_str_in_subdir: falling_back
+2026-05-23T04:14:15.150083Z  WARN codex_rollout::list: state db discrepancy during find_thread_path_by_id_str_in_subdir: falling_back
+2026-05-23T04:14:15.174466Z  WARN codex_rollout::list: state db discrepancy during find_thread_path_by_id_str_in_subdir: falling_back
+2026-05-23T04:14:15.198346Z  WARN codex_rollout::list: state db discrepancy during find_thread_path_by_id_str_in_subdir: falling_back
+2026-05-23T04:14:15.220381Z  WARN codex_rollout::list: state db discrepancy during find_thread_path_by_id_str_in_subdir: falling_back
+2026-05-23T04:14:15.244344Z  WARN codex_rollout::list: state db discrepancy during find_thread_path_by_id_str_in_subdir: falling_back
+2026-05-23T04:14:15.266692Z  WARN codex_rollout::list: state db discrepancy during find_thread_path_by_id_str_in_subdir: falling_back
+2026-05-23T04:14:15.290902Z  WARN codex_rollout::list: state db discrepancy during find_thread_path_by_id_str_in_subdir: falling_back
+2026-05-23T04:14:16.161929Z  WARN codex_core_skills::loader: ignoring interface.icon_small: icon path must not contain '..'
+2026-05-23T04:14:16.161954Z  WARN codex_core_skills::loader: ignoring interface.icon_large: icon path must not contain '..'
+2026-05-23T04:14:16.162449Z  WARN codex_core_skills::loader: ignoring interface.icon_small: icon path must not contain '..'
+2026-05-23T04:14:16.162455Z  WARN codex_core_skills::loader: ignoring interface.icon_large: icon path must not contain '..'
+2026-05-23T04:14:16.162940Z  WARN codex_core_skills::loader: ignoring interface.icon_small: icon path must not contain '..'
+2026-05-23T04:14:16.162947Z  WARN codex_core_skills::loader: ignoring interface.icon_large: icon path must not contain '..'
+2026-05-23T04:14:16.163423Z  WARN codex_core_skills::loader: ignoring interface.icon_small: icon path must not contain '..'
+2026-05-23T04:14:16.163429Z  WARN codex_core_skills::loader: ignoring interface.icon_large: icon path must not contain '..'
+2026-05-23T04:14:16.163889Z  WARN codex_core_skills::loader: ignoring interface.icon_small: icon path must not contain '..'
+2026-05-23T04:14:16.163894Z  WARN codex_core_skills::loader: ignoring interface.icon_large: icon path must not contain '..'
+2026-05-23T04:14:16.164904Z  WARN codex_core_skills::loader: ignoring interface.icon_small: icon path must not contain '..'
+2026-05-23T04:14:16.164908Z  WARN codex_core_skills::loader: ignoring interface.icon_large: icon path must not contain '..'
+2026-05-23T04:14:17.125815Z  WARN codex_core_skills::loader: ignoring interface.icon_small: icon path must not contain '..'
+2026-05-23T04:14:17.125837Z  WARN codex_core_skills::loader: ignoring interface.icon_large: icon path must not contain '..'
+2026-05-23T04:14:17.126336Z  WARN codex_core_skills::loader: ignoring interface.icon_small: icon path must not contain '..'
+2026-05-23T04:14:17.126344Z  WARN codex_core_skills::loader: ignoring interface.icon_large: icon path must not contain '..'
+2026-05-23T04:14:17.126868Z  WARN codex_core_skills::loader: ignoring interface.icon_small: icon path must not contain '..'
+2026-05-23T04:14:17.126872Z  WARN codex_core_skills::loader: ignoring interface.icon_large: icon path must not contain '..'
+2026-05-23T04:14:17.127342Z  WARN codex_core_skills::loader: ignoring interface.icon_small: icon path must not contain '..'
+2026-05-23T04:14:17.127346Z  WARN codex_core_skills::loader: ignoring interface.icon_large: icon path must not contain '..'
+2026-05-23T04:14:17.127825Z  WARN codex_core_skills::loader: ignoring interface.icon_small: icon path must not contain '..'
+2026-05-23T04:14:17.127829Z  WARN codex_core_skills::loader: ignoring interface.icon_large: icon path must not contain '..'
+2026-05-23T04:14:17.128842Z  WARN codex_core_skills::loader: ignoring interface.icon_small: icon path must not contain '..'
+2026-05-23T04:14:17.128848Z  WARN codex_core_skills::loader: ignoring interface.icon_large: icon path must not contain '..'
+codex
+I’ll work only inside the isolated solver bundle and inspect the visible files there before producing the JSONL answers.
+exec
+/bin/zsh -lc 'pwd; rg --files -uu' in /Users/rohit/Documents/Workspace/Coding/benchbench/experiments/003_five_model_sweep_20260522_195526/run/isolated_solver_gpt_5_4__solved_by__gpt_5_5
+ succeeded in 0ms:
+/Users/rohit/Documents/Workspace/Coding/benchbench/experiments/003_five_model_sweep_20260522_195526/run/isolated_solver_gpt_5_4__solved_by__gpt_5_5
+README.md
+SOLVER_MANIFEST.json
+items_private_sample.jsonl
+shared_rules.md
+assets/poa_003/amendments.md
+assets/poa_003/charter.md
+assets/poa_003/case_file.json
+assets/poa_004/amendments.md
+assets/poa_004/charter.md
+assets/poa_004/case_file.json
+assets/poa_005/amendments.md
+assets/poa_005/charter.md
+assets/poa_005/case_file.json
+assets/poa_002/amendments.md
+assets/poa_002/charter.md
+assets/poa_002/case_file.json
+assets/poa_011/amendments.md
+assets/poa_011/charter.md
+assets/poa_011/case_file.json
+assets/poa_029/amendments.md
+assets/poa_029/charter.md
+assets/poa_029/case_file.json
+assets/poa_016/amendments.md
+assets/poa_016/charter.md
+assets/poa_016/case_file.json
+assets/poa_020/amendments.md
+assets/poa_020/charter.md
+assets/poa_020/case_file.json
+assets/poa_018/amendments.md
+assets/poa_018/charter.md
+assets/poa_018/case_file.json
+assets/poa_027/amendments.md
+assets/poa_027/charter.md
+assets/poa_027/case_file.json
+assets/poa_019/amendments.md
+assets/poa_019/charter.md
+assets/poa_019/case_file.json
+assets/poa_026/amendments.md
+assets/poa_026/charter.md
+assets/poa_026/case_file.json
+assets/poa_021/amendments.md
+assets/poa_021/charter.md
+assets/poa_021/case_file.json
+assets/poa_028/amendments.md
+assets/poa_028/charter.md
+assets/poa_028/case_file.json
+assets/poa_017/amendments.md
+assets/poa_017/charter.md
+assets/poa_017/case_file.json
+assets/poa_010/amendments.md
+assets/poa_010/charter.md
+assets/poa_010/case_file.json
+assets/poa_009/amendments.md
+assets/poa_009/charter.md
+assets/poa_009/case_file.json
+assets/poa_007/amendments.md
+assets/poa_007/charter.md
+assets/poa_007/case_file.json
+assets/poa_000/amendments.md
+assets/poa_000/charter.md
+assets/poa_000/case_file.json
+assets/poa_001/amendments.md
+assets/poa_001/charter.md
+assets/poa_001/case_file.json
+assets/poa_006/amendments.md
+assets/poa_006/charter.md
+assets/poa_006/case_file.json
+assets/poa_008/amendments.md
+assets/poa_008/charter.md
+assets/poa_008/case_file.json
+assets/poa_015/amendments.md
+assets/poa_015/charter.md
+assets/poa_015/case_file.json
+assets/poa_012/amendments.md
+assets/poa_012/charter.md
+assets/poa_012/case_file.json
+assets/poa_024/amendments.md
+assets/poa_024/charter.md
+assets/poa_024/case_file.json
+assets/poa_023/amendments.md
+assets/poa_023/charter.md
+assets/poa_023/case_file.json
+assets/poa_022/amendments.md
+assets/poa_022/charter.md
+assets/poa_022/case_file.json
+assets/poa_025/amendments.md
+assets/poa_025/charter.md
+assets/poa_025/case_file.json
+assets/poa_013/case_file.json
+assets/poa_013/amendments.md
+assets/poa_013/charter.md
+assets/poa_014/amendments.md
+assets/poa_014/charter.md
+assets/poa_014/case_file.json
+
+2026-05-23T04:14:21.126072Z  WARN codex_core_skills::loader: ignoring interface.icon_small: icon path must not contain '..'
+2026-05-23T04:14:21.126087Z  WARN codex_core_skills::loader: ignoring interface.icon_large: icon path must not contain '..'
+2026-05-23T04:14:21.126550Z  WARN codex_core_skills::loader: ignoring interface.icon_small: icon path must not contain '..'
+2026-05-23T04:14:21.126554Z  WARN codex_core_skills::loader: ignoring interface.icon_large: icon path must not contain '..'
+2026-05-23T04:14:21.127007Z  WARN codex_core_skills::loader: ignoring interface.icon_small: icon path must not contain '..'
+2026-05-23T04:14:21.127014Z  WARN codex_core_skills::loader: ignoring interface.icon_large: icon path must not contain '..'
+2026-05-23T04:14:21.127462Z  WARN codex_core_skills::loader: ignoring interface.icon_small: icon path must not contain '..'
+2026-05-23T04:14:21.127466Z  WARN codex_core_skills::loader: ignoring interface.icon_large: icon path must not contain '..'
+2026-05-23T04:14:21.127906Z  WARN codex_core_skills::loader: ignoring interface.icon_small: icon path must not contain '..'
+2026-05-23T04:14:21.127910Z  WARN codex_core_skills::loader: ignoring interface.icon_large: icon path must not contain '..'
+2026-05-23T04:14:21.128857Z  WARN codex_core_skills::loader: ignoring interface.icon_small: icon path must not contain '..'
+2026-05-23T04:14:21.128860Z  WARN codex_core_skills::loader: ignoring interface.icon_large: icon path must not contain '..'
+codex
+I see a compact rules-and-case bundle: one item list plus thirty `poa_*` asset folders. I’m going to read the rules and case structure, then compute the answers case-by-case so the final output is just JSONL.
+exec
+/bin/zsh -lc "sed -n '1,220p' README.md" in /Users/rohit/Documents/Workspace/Coding/benchbench/experiments/003_five_model_sweep_20260522_195526/run/isolated_solver_gpt_5_4__solved_by__gpt_5_5
+ succeeded in 0ms:
+# Solver Bundle for Patchwork Ordinance Adjudication (POA) v1
+
+Each item is a fictional compliance packet. The answer for every item must be a single string:
+
+`verdict=<ALLOW|REVIEW|DENY>;lane=<GREEN|AMBER|RED>;fee=<integer>`
+
+Use:
+- `shared_rules.md` for global interpretation rules,
+- the per-item `charter.md`,
+- the per-item `amendments.md`,
+- and the per-item `case_file.json`.
+
+The authoritative item index is `items_private_sample.jsonl`. All asset paths inside it are relative to this solver bundle.
+
+Nothing outside this directory is needed to solve the benchmark in principle.
+
+exec
+/bin/zsh -lc "sed -n '1,260p' shared_rules.md" in /Users/rohit/Documents/Workspace/Coding/benchbench/experiments/003_five_model_sweep_20260522_195526/run/isolated_solver_gpt_5_4__solved_by__gpt_5_5
+ succeeded in 0ms:
+# Patchwork Ordinance Adjudication (POA) v1
+
+You are adjudicating one filing under a fictional municipal ordinance.
+
+Each item contains:
+- `charter.md`: the base ordinance.
+- `amendments.md`: later amendments, clarifications, and exception rules.
+- `case_file.json`: the filing to adjudicate.
+
+Your task is to compute the final answer string in this exact format:
+
+`verdict=<ALLOW|REVIEW|DENY>;lane=<GREEN|AMBER|RED>;fee=<integer>`
+
+Interpretation rules:
+1. Start from the base values in `charter.md`.
+2. Apply later rules from `amendments.md` according to their stated priority.
+3. If multiple rules could change the fee, apply them in this order:
+   - replace fee if a replacement rule applies,
+   - then add all additive adjustments that apply,
+   - then apply the one capped waiver with the largest absolute reduction,
+   - then floor the fee at 0.
+4. `verdict` is determined from the final risk score:
+   - score <= allow_max -> `ALLOW`
+   - allow_max < score <= review_max -> `REVIEW`
+   - score > review_max -> `DENY`
+5. `lane` is determined from the final fee:
+   - fee <= green_max -> `GREEN`
+   - green_max < fee <= amber_max -> `AMBER`
+   - fee > amber_max -> `RED`
+6. Every condition in the documents is literal. There are no hidden norms.
+7. When an amendment says it overrides an earlier rule, it wins for its scope only.
+8. All category names, zones, and seals are case-sensitive exact strings.
+
+exec
+/bin/zsh -lc "sed -n '1,220p' SOLVER_MANIFEST.json" in /Users/rohit/Documents/Workspace/Coding/benchbench/experiments/003_five_model_sweep_20260522_195526/run/isolated_solver_gpt_5_4__solved_by__gpt_5_5
+ succeeded in 0ms:
+{
+  "answer_format": "verdict=<ALLOW|REVIEW|DENY>;lane=<GREEN|AMBER|RED>;fee=<integer>",
+  "benchmark_id": "patchwork_ordinance_adjudication_v1",
+  "item_count": 30,
+  "items": [
+    {
+      "files": {
+        "amendments": {
+          "path": "assets/poa_000/amendments.md",
+          "sha256": "ac36d8221b6c8837c9df3a245ce06411a8901f32f4628c7769811cf37ab8870f"
+        },
+        "case_file": {
+          "path": "assets/poa_000/case_file.json",
+          "sha256": "04d2875d94ea6b1d33c40ab8fbc91bcca691f831ce32530050808b15eb114e81"
+        },
+        "charter": {
+          "path": "assets/poa_000/charter.md",
+          "sha256": "0902bf223f3d530a8a018ed5b86b0c345d59564caef2daf1b4adb4e5c683363d"
+        }
+      },
+      "id": "poa_000"
+    },
+    {
+      "files": {
+        "amendments": {
+          "path": "assets/poa_001/amendments.md",
+          "sha256": "6b67803401622829891b36302b4fce5834b31850ddef073eeb39187891fbec3b"
+        },
+        "case_file": {
+          "path": "assets/poa_001/case_file.json",
+          "sha256": "c2922de857e1bf13c7c14fe1187405cd7959f26d7830362c325feb7c047ea205"
+        },
+        "charter": {
+          "path": "assets/poa_001/charter.md",
+          "sha256": "4184ffb771b51ef244f79beb5ef9940bbf445c310bf6579a7849d0f54b637f46"
+        }
+      },
+      "id": "poa_001"
+    },
+    {
+      "files": {
+        "amendments": {
+          "path": "assets/poa_002/amendments.md",
+          "sha256": "53bc2ea9d1dd1517a48d306e45d55b90695647203c163fa75ae0f4c48bda16c5"
+        },
+        "case_file": {
+          "path": "assets/poa_002/case_file.json",
+          "sha256": "e35551cd6358a05e9ea22cf7340e94770d2513551af6d1fe8e61c1b5111ae71e"
+        },
+        "charter": {
+          "path": "assets/poa_002/charter.md",
+          "sha256": "afabdf65ae0436da89ac422026d901f40fb769282cebf8ea6afc3a1a3c0c784a"
+        }
+      },
+      "id": "poa_002"
+    },
+    {
+      "files": {
+        "amendments": {
+          "path": "assets/poa_003/amendments.md",
+          "sha256": "f25b662c6804a14aee7e46c8dc13ca4dfa3c59d6cb1b9c52d6cbb281dd6dde2e"
+        },
+        "case_file": {
+          "path": "assets/poa_003/case_file.json",
+          "sha256": "d30972ede8b12e62a0c4b38e8ac3a679ba9141399477feb3b57b6eae359b6cb9"
+        },
+        "charter": {
+          "path": "assets/poa_003/charter.md",
+          "sha256": "0caea53508692ca099f70d7ac7a0f8e5367e6cfb7c9f921c90ae6788e202db98"
+        }
+      },
+      "id": "poa_003"
+    },
+    {
+      "files": {
+        "amendments": {
+          "path": "assets/poa_004/amendments.md",
+          "sha256": "a23700f8cc1788b9552eb53a026e564b5c2926e4f9521000bffd98be7abeba27"
+        },
+        "case_file": {
+          "path": "assets/poa_004/case_file.json",
+          "sha256": "d81168eb6180fd96f81a08ce8aa2e375121c35fc9a2062210b7a2020163d3e7a"
+        },
+        "charter": {
+          "path": "assets/poa_004/charter.md",
+          "sha256": "8a095a54f99e1bd739c64948243468e391d9da3df8c29959d92305b2d8f1ab81"
+        }
+      },
+      "id": "poa_004"
+    },
+    {
+      "files": {
+        "amendments": {
+          "path": "assets/poa_005/amendments.md",
+          "sha256": "25bff9ada6cb9af9ead1cde678c0ad7190fc6dc1373851c9a66c91a3fe7d89e5"
+        },
+        "case_file": {
+          "path": "assets/poa_005/case_file.json",
+          "sha256": "46a3f28dd512072538dffdfdb72d8db0c98d7be5a3d0b223e9058cb73f2cd3e4"
+        },
+        "charter": {
+          "path": "assets/poa_005/charter.md",
+          "sha256": "c3d96b487a9b15bb6313d62aa2d90614539d8e4ecabe6b24959e0d3e0a9aceeb"
+        }
+      },
+      "id": "poa_005"
+    },
+    {
+      "files": {
+        "amendments": {
+          "path": "assets/poa_006/amendments.md",
+          "sha256": "3e25ddddc11f3be7c93b2028d173999aa94cc267c10a1be59751f054bbd8008f"
+        },
+        "case_file": {
+          "path": "assets/poa_006/case_file.json",
+          "sha256": "9a16a0f80202d4acf46ef1a8303a15849d25281099f37fc52f06973c57a707a2"
+        },
+        "charter": {
+          "path": "assets/poa_006/charter.md",
+          "sha256": "258d27e2873b92582853ad309089d8a745ae1ca7deea6660e5beefd9917e1380"
+        }
+      },
+      "id": "poa_006"
+    },
+    {
+      "files": {
+        "amendments": {
+          "path": "assets/poa_007/amendments.md",
+          "sha256": "7a7f7f7727e10c776ccc538007ce73ff13917b1d4e9d38cfef3a5734eb4b1b65"
+        },
+        "case_file": {
+          "path": "assets/poa_007/case_file.json",
+          "sha256": "d27c59dfa6e737e5b414c8f11995134a767cbd887c34ff6bfb7f6a9413d35cef"
+        },
+        "charter": {
+          "path": "assets/poa_007/charter.md",
+          "sha256": "16022bc165f26eaa1fe575d698b36b94ca2460f7f2a9ff7b0ce91c25dc590e78"
+        }
+      },
+      "id": "poa_007"
+    },
+    {
+      "files": {
+        "amendments": {
+          "path": "assets/poa_008/amendments.md",
+          "sha256": "5cf04414475c0d47e4bbeb824ce4d9f87d6acfa282f9df6373ef423f4b11dfe1"
+        },
+        "case_file": {
+          "path": "assets/poa_008/case_file.json",
+          "sha256": "7a07827af23cf3319a9fb3283e8ee23a51fd4b67fd6c7678fa1735b41b8184ee"
+        },
+        "charter": {
+          "path": "assets/poa_008/charter.md",
+          "sha256": "8c00f069cb11b991686504feff0ce58c449b81846d9918b82ce58711b5ca91c2"
+        }
+      },
+      "id": "poa_008"
+    },
+    {
+      "files": {
+        "amendments": {
+          "path": "assets/poa_009/amendments.md",
+          "sha256": "05bbc025358f966393327c2bbcece6ae87efc509196490e440abe2374d488991"
+        },
+        "case_file": {
+          "path": "assets/poa_009/case_file.json",
+          "sha256": "21bb3f0bfb4e6e9e90e88b1cc38255f5f2878a7fabc090e2bdf82b6c41563531"
+        },
+        "charter": {
+          "path": "assets/poa_009/charter.md",
+          "sha256": "7ba342982ef0c260b5579f2bf9c03b3b48eba048c69299fa681da2d9750c5af8"
+        }
+      },
+      "id": "poa_009"
+    },
+    {
+      "files": {
+        "amendments": {
+          "path": "assets/poa_010/amendments.md",
+          "sha256": "d493f2df43eda176410e201a0095ba5d0798341e01a0f3fb02bb990e1f5f0c48"
+        },
+        "case_file": {
+          "path": "assets/poa_010/case_file.json",
+          "sha256": "e09684ecc10467ae846fcf059ea5b9473840edd8cf300b0f159cddcc0008b322"
+        },
+        "charter": {
+          "path": "assets/poa_010/charter.md",
+          "sha256": "e48fc366323a2a011e71cf7a7086524fb6152f508632dc326c95979bc389d1b0"
+        }
+      },
+      "id": "poa_010"
+    },
+    {
+      "files": {
+        "amendments": {
+          "path": "assets/poa_011/amendments.md",
+          "sha256": "61cb970efde39fb61e89b46e7d76d70e4d5af02c7d80b0b6a7dab2b1598b3ac3"
+        },
+        "case_file": {
+          "path": "assets/poa_011/case_file.json",
+          "sha256": "1e02357695f76cad67d7499eaae3a78c5ecb34ef5c3696819b139a068398947d"
+        },
+        "charter": {
+          "path": "assets/poa_011/charter.md",
+          "sha256": "514a916be2137036530cad7092d7b30b0a262d919e4f4541058ece6a1904ca2d"
+        }
+      },
+      "id": "poa_011"
+    },
+    {
+      "files": {
+        "amendments": {
+          "path": "assets/poa_012/amendments.md",
+          "sha256": "0ee933185f369633d0ddf3b3b1fe40ae68a51b9072510a3823d06ccfcd5fe4cc"
+        },
+        "case_file": {
+          "path": "assets/poa_012/case_file.json",
+          "sha256": "a4136e56f2ba6e1f74911237ecb5f47c2cb66e92149814f1a16caeb3324da7b7"
+        },
+        "charter": {
+
+exec
+/bin/zsh -lc "sed -n '1,260p' items_private_sample.jsonl" in /Users/rohit/Documents/Workspace/Coding/benchbench/experiments/003_five_model_sweep_20260522_195526/run/isolated_solver_gpt_5_4__solved_by__gpt_5_5
+ succeeded in 0ms:
+{"amendments": "assets/poa_000/amendments.md", "case_file": "assets/poa_000/case_file.json", "charter": "assets/poa_000/charter.md", "id": "poa_000", "shared_rules": "shared_rules.md"}
+{"amendments": "assets/poa_001/amendments.md", "case_file": "assets/poa_001/case_file.json", "charter": "assets/poa_001/charter.md", "id": "poa_001", "shared_rules": "shared_rules.md"}
+{"amendments": "assets/poa_002/amendments.md", "case_file": "assets/poa_002/case_file.json", "charter": "assets/poa_002/charter.md", "id": "poa_002", "shared_rules": "shared_rules.md"}
+{"amendments": "assets/poa_003/amendments.md", "case_file": "assets/poa_003/case_file.json", "charter": "assets/poa_003/charter.md", "id": "poa_003", "shared_rules": "shared_rules.md"}
+{"amendments": "assets/poa_004/amendments.md", "case_file": "assets/poa_004/case_file.json", "charter": "assets/poa_004/charter.md", "id": "poa_004", "shared_rules": "shared_rules.md"}
+{"amendments": "assets/poa_005/amendments.md", "case_file": "assets/poa_005/case_file.json", "charter": "assets/poa_005/charter.md", "id": "poa_005", "shared_rules": "shared_rules.md"}
+{"amendments": "assets/poa_006/amendments.md", "case_file": "assets/poa_006/case_file.json", "charter": "assets/poa_006/charter.md", "id": "poa_006", "shared_rules": "shared_rules.md"}
+{"amendments": "assets/poa_007/amendments.md", "case_file": "assets/poa_007/case_file.json", "charter": "assets/poa_007/charter.md", "id": "poa_007", "shared_rules": "shared_rules.md"}
+{"amendments": "assets/poa_008/amendments.md", "case_file": "assets/poa_008/case_file.json", "charter": "assets/poa_008/charter.md", "id": "poa_008", "shared_rules": "shared_rules.md"}
+{"amendments": "assets/poa_009/amendments.md", "case_file": "assets/poa_009/case_file.json", "charter": "assets/poa_009/charter.md", "id": "poa_009", "shared_rules": "shared_rules.md"}
+{"amendments": "assets/poa_010/amendments.md", "case_file": "assets/poa_010/case_file.json", "charter": "assets/poa_010/charter.md", "id": "poa_010", "shared_rules": "shared_rules.md"}
+{"amendments": "assets/poa_011/amendments.md", "case_file": "assets/poa_011/case_file.json", "charter": "assets/poa_011/charter.md", "id": "poa_011", "shared_rules": "shared_rules.md"}
+{"amendments": "assets/poa_012/amendments.md", "case_file": "assets/poa_012/case_file.json", "charter": "assets/poa_012/charter.md", "id": "poa_012", "shared_rules": "shared_rules.md"}
+{"amendments": "assets/poa_013/amendments.md", "case_file": "assets/poa_013/case_file.json", "charter": "assets/poa_013/charter.md", "id": "poa_013", "shared_rules": "shared_rules.md"}
+{"amendments": "assets/poa_014/amendments.md", "case_file": "assets/poa_014/case_file.json", "charter": "assets/poa_014/charter.md", "id": "poa_014", "shared_rules": "shared_rules.md"}
+{"amendments": "assets/poa_015/amendments.md", "case_file": "assets/poa_015/case_file.json", "charter": "assets/poa_015/charter.md", "id": "poa_015", "shared_rules": "shared_rules.md"}
+{"amendments": "assets/poa_016/amendments.md", "case_file": "assets/poa_016/case_file.json", "charter": "assets/poa_016/charter.md", "id": "poa_016", "shared_rules": "shared_rules.md"}
+{"amendments": "assets/poa_017/amendments.md", "case_file": "assets/poa_017/case_file.json", "charter": "assets/poa_017/charter.md", "id": "poa_017", "shared_rules": "shared_rules.md"}
+{"amendments": "assets/poa_018/amendments.md", "case_file": "assets/poa_018/case_file.json", "charter": "assets/poa_018/charter.md", "id": "poa_018", "shared_rules": "shared_rules.md"}
+{"amendments": "assets/poa_019/amendments.md", "case_file": "assets/poa_019/case_file.json", "charter": "assets/poa_019/charter.md", "id": "poa_019", "shared_rules": "shared_rules.md"}
+{"amendments": "assets/poa_020/amendments.md", "case_file": "assets/poa_020/case_file.json", "charter": "assets/poa_020/charter.md", "id": "poa_020", "shared_rules": "shared_rules.md"}
+{"amendments": "assets/poa_021/amendments.md", "case_file": "assets/poa_021/case_file.json", "charter": "assets/poa_021/charter.md", "id": "poa_021", "shared_rules": "shared_rules.md"}
+{"amendments": "assets/poa_022/amendments.md", "case_file": "assets/poa_022/case_file.json", "charter": "assets/poa_022/charter.md", "id": "poa_022", "shared_rules": "shared_rules.md"}
+{"amendments": "assets/poa_023/amendments.md", "case_file": "assets/poa_023/case_file.json", "charter": "assets/poa_023/charter.md", "id": "poa_023", "shared_rules": "shared_rules.md"}
+{"amendments": "assets/poa_024/amendments.md", "case_file": "assets/poa_024/case_file.json", "charter": "assets/poa_024/charter.md", "id": "poa_024", "shared_rules": "shared_rules.md"}
+{"amendments": "assets/poa_025/amendments.md", "case_file": "assets/poa_025/case_file.json", "charter": "assets/poa_025/charter.md", "id": "poa_025", "shared_rules": "shared_rules.md"}
+{"amendments": "assets/poa_026/amendments.md", "case_file": "assets/poa_026/case_file.json", "charter": "assets/poa_026/charter.md", "id": "poa_026", "shared_rules": "shared_rules.md"}
+{"amendments": "assets/poa_027/amendments.md", "case_file": "assets/poa_027/case_file.json", "charter": "assets/poa_027/charter.md", "id": "poa_027", "shared_rules": "shared_rules.md"}
+{"amendments": "assets/poa_028/amendments.md", "case_file": "assets/poa_028/case_file.json", "charter": "assets/poa_028/charter.md", "id": "poa_028", "shared_rules": "shared_rules.md"}
+{"amendments": "assets/poa_029/amendments.md", "case_file": "assets/poa_029/case_file.json", "charter": "assets/poa_029/charter.md", "id": "poa_029", "shared_rules": "shared_rules.md"}
+
+2026-05-23T04:14:30.676943Z  WARN codex_core_skills::loader: ignoring interface.icon_small: icon path must not contain '..'
+2026-05-23T04:14:30.676956Z  WARN codex_core_skills::loader: ignoring interface.icon_large: icon path must not contain '..'
+2026-05-23T04:14:30.677409Z  WARN codex_core_skills::loader: ignoring interface.icon_small: icon path must not contain '..'
+2026-05-23T04:14:30.677413Z  WARN codex_core_skills::loader: ignoring interface.icon_large: icon path must not contain '..'
+2026-05-23T04:14:30.677877Z  WARN codex_core_skills::loader: ignoring interface.icon_small: icon path must not contain '..'
+2026-05-23T04:14:30.677885Z  WARN codex_core_skills::loader: ignoring interface.icon_large: icon path must not contain '..'
+2026-05-23T04:14:30.678335Z  WARN codex_core_skills::loader: ignoring interface.icon_small: icon path must not contain '..'
+2026-05-23T04:14:30.678340Z  WARN codex_core_skills::loader: ignoring interface.icon_large: icon path must not contain '..'
+2026-05-23T04:14:30.678786Z  WARN codex_core_skills::loader: ignoring interface.icon_small: icon path must not contain '..'
+2026-05-23T04:14:30.678790Z  WARN codex_core_skills::loader: ignoring interface.icon_large: icon path must not contain '..'
+2026-05-23T04:14:30.679738Z  WARN codex_core_skills::loader: ignoring interface.icon_small: icon path must not contain '..'
+2026-05-23T04:14:30.679742Z  WARN codex_core_skills::loader: ignoring interface.icon_large: icon path must not contain '..'
+exec
+/bin/zsh -lc 'for f in $(rg --files -uu assets | sort); do printf '"'\\n===== %s =====\\n' \""'$f"; sed -n '"'1,220p' \""'$f"; done' in /Users/rohit/Documents/Workspace/Coding/benchbench/experiments/003_five_model_sweep_20260522_195526/run/isolated_solver_gpt_5_4__solved_by__gpt_5_5
+2026-05-23T04:14:35.498400Z  WARN codex_core_skills::loader: ignoring interface.icon_small: icon path must not contain '..'
+2026-05-23T04:14:35.498417Z  WARN codex_core_skills::loader: ignoring interface.icon_large: icon path must not contain '..'
+2026-05-23T04:14:35.498875Z  WARN codex_core_skills::loader: ignoring interface.icon_small: icon path must not contain '..'
+2026-05-23T04:14:35.498884Z  WARN codex_core_skills::loader: ignoring interface.icon_large: icon path must not contain '..'
+2026-05-23T04:14:35.499356Z  WARN codex_core_skills::loader: ignoring interface.icon_small: icon path must not contain '..'
+2026-05-23T04:14:35.499362Z  WARN codex_core_skills::loader: ignoring interface.icon_large: icon path must not contain '..'
+2026-05-23T04:14:35.500133Z  WARN codex_core_skills::loader: ignoring interface.icon_small: icon path must not contain '..'
+2026-05-23T04:14:35.500137Z  WARN codex_core_skills::loader: ignoring interface.icon_large: icon path must not contain '..'
+2026-05-23T04:14:35.500830Z  WARN codex_core_skills::loader: ignoring interface.icon_small: icon path must not contain '..'
+2026-05-23T04:14:35.500840Z  WARN codex_core_skills::loader: ignoring interface.icon_large: icon path must not contain '..'
+2026-05-23T04:14:35.501861Z  WARN codex_core_skills::loader: ignoring interface.icon_small: icon path must not contain '..'
+2026-05-23T04:14:35.501868Z  WARN codex_core_skills::loader: ignoring interface.icon_large: icon path must not contain '..'
+ succeeded in 212ms:
+{
+  "category": "Archives",
+  "declared_units": 7,
+  "escort": true,
+  "flags": [
+    "field",
+    "relay",
+    "vault"
+  ],
+  "id": "poa_015",
+  "manual_note": false,
+  "preclear": false,
+  "quantity": 8,
+  "record_age": 1,
+  "seal": "Birch",
+  "tier": "T1",
+  "weekend": true,
+  "zone": "North"
+}
+
+===== assets/poa_015/charter.md =====
+# Charter
+
+Decision thresholds:
+- `ALLOW` if final risk score <= 5
+- `REVIEW` if final risk score <= 7 and greater than 5
+- `DENY` if final risk score > 7
+
+Lane thresholds:
+- `GREEN` if final fee <= 12
+- `AMBER` if final fee <= 23 and greater than 12
+- `RED` if final fee > 23
+
+Base risk score components:
+- zone `East`: 7
+- zone `West`: 6
+- zone `South`: 6
+- zone `North`: 8
+- tier `T1`: 0
+- tier `T2`: 3
+- tier `T3`: 4
+- category `Research`: 3
+- category `Transit`: 1
+- category `Medical`: 3
+- category `Archives`: 0
+- category `Agriculture`: 2
+
+Base fee:
+- start with 11
+- add `quantity * 4`
+
+Standing operational penalties:
+- add risk `4` if flag `vault` is present
+- add risk `1` if flag `relay` is present
+- add risk `4` if flag `field` is present
+- add risk `1` if flag `dock` is present
+- if `declared_units != quantity`, add risk `3`
+- if `record_age >= 6`, add risk `4`
+- if `weekend = true`, add fee `4`
+
+===== assets/poa_016/amendments.md =====
+# Amendments
+
+Priority order inside this packet:
+1. Replacement rules
+2. Additive rules
+3. Waivers
+4. Final review trigger
+
+Replacement rules:
+- If zone is `West` and category is `Research`, replace the entire risk score with `1`.
+- If zone is `North` and category is `Medical`, replace the running fee with `12`.
+- If zone is `East` and `preclear = true`, replace the risk score with the smaller of its current value and `1`; then add fee `2`.
+
+Additive rules:
+- If seal is `Cinder`, subtract fee `6` if flag `dock` is absent.
+- If zone is `South` and category is `Archives`, add fee `3`.
+- If `quantity >= 4`, add risk `2`.
+
+Waivers:
+- If `quantity <= 6` and `escort = true`, subtract fee `4`.
+- If `declared_units != quantity` and `preclear = true`, subtract fee `2`.
+- If multiple waivers apply, use only the single waiver with the largest reduction.
+
+Final review trigger:
+- If `manual_note = true` and final fee before lane assignment is at least `26`, force the final risk score to be at least `7`.
+
+===== assets/poa_016/case_file.json =====
+{
+  "category": "Medical",
+  "declared_units": 7,
+  "escort": true,
+  "flags": [
+    "dock",
+    "field"
+  ],
+  "id": "poa_016",
+  "manual_note": true,
+  "preclear": true,
+  "quantity": 5,
+  "record_age": 1,
+  "seal": "Cinder",
+  "tier": "T3",
+  "weekend": false,
+  "zone": "East"
+}
+
+===== assets/poa_016/charter.md =====
+# Charter
+
+Decision thresholds:
+- `ALLOW` if final risk score <= 3
+- `REVIEW` if final risk score <= 7 and greater than 3
+- `DENY` if final risk score > 7
+
+Lane thresholds:
+- `GREEN` if final fee <= 13
+- `AMBER` if final fee <= 25 and greater than 13
+- `RED` if final fee > 25
+
+Base risk score components:
+- zone `West`: 6
+- zone `North`: 3
+- zone `South`: 3
+- zone `East`: 4
+- tier `T1`: 1
+- tier `T2`: 2
+- tier `T3`: 5
+- category `Research`: 3
+- category `Archives`: 2
+- category `Medical`: 2
+- category `Transit`: 1
+- category `Agriculture`: 2
+
+Base fee:
+- start with 12
+- add `quantity * 2`
+
+Standing operational penalties:
+- add risk `2` if flag `relay` is present
+- add risk `3` if flag `dock` is present
+- add risk `1` if flag `vault` is present
+- add risk `2` if flag `field` is present
+- if `declared_units != quantity`, add risk `3`
+- if `record_age >= 6`, add risk `4`
+- if `weekend = true`, add fee `2`
+
+===== assets/poa_017/amendments.md =====
+# Amendments
+
+Priority order inside this packet:
+1. Replacement rules
+2. Additive rules
+3. Waivers
+4. Final review trigger
+
+Replacement rules:
+- If zone is `South` and category is `Archives`, replace the entire risk score with `3`.
+- If zone is `West` and category is `Agriculture`, replace the running fee with `5`.
+- If zone is `North` and `preclear = true`, replace the risk score with the smaller of its current value and `2`; then add fee `2`.
+
+Additive rules:
+- If seal is `Ember`, subtract fee `4` if flag `dock` is present.
+- If zone is `East` and category is `Research`, add fee `1`.
+- If `quantity >= 1`, add risk `2`.
+
+Waivers:
+- If `quantity <= 2` and `escort = true`, subtract fee `3`.
+- If `declared_units != quantity` and `preclear = true`, subtract fee `2`.
+- If multiple waivers apply, use only the single waiver with the largest reduction.
+
+Final review trigger:
+- If `manual_note = true` and final fee before lane assignment is at least `24`, force the final risk score to be at least `5`.
+
+===== assets/poa_017/case_file.json =====
+{
+  "category": "Archives",
+  "declared_units": 6,
+  "escort": true,
+  "flags": [
+    "vault"
+  ],
+  "id": "poa_017",
+  "manual_note": true,
+  "preclear": false,
+  "quantity": 1,
+  "record_age": 4,
+  "seal": "Aster",
+  "tier": "T3",
+  "weekend": false,
+  "zone": "South"
+}
+
+===== assets/poa_017/charter.md =====
+# Charter
+
+Decision thresholds:
+- `ALLOW` if final risk score <= 3
+- `REVIEW` if final risk score <= 5 and greater than 3
+- `DENY` if final risk score > 5
+
+Lane thresholds:
+- `GREEN` if final fee <= 13
+- `AMBER` if final fee <= 22 and greater than 13
+- `RED` if final fee > 22
+
+Base risk score components:
+- zone `South`: 9
+- zone `West`: 9
+- zone `East`: 6
+- zone `North`: 9
+- tier `T1`: 1
+- tier `T2`: 2
+- tier `T3`: 5
+- category `Archives`: 0
+- category `Research`: 3
+- category `Agriculture`: 0
+- category `Medical`: 3
+- category `Transit`: 1
+
+Base fee:
+- start with 9
+- add `quantity * 3`
+
+Standing operational penalties:
+- add risk `2` if flag `relay` is present
+- add risk `3` if flag `vault` is present
+- add risk `4` if flag `field` is present
+- add risk `4` if flag `dock` is present
+- if `declared_units != quantity`, add risk `7`
+- if `record_age >= 5`, add risk `5`
+- if `weekend = true`, add fee `1`
+
+===== assets/poa_018/amendments.md =====
+# Amendments
+
+Priority order inside this packet:
+1. Replacement rules
+2. Additive rules
+3. Waivers
+4. Final review trigger
+
+Replacement rules:
+- If zone is `East` and category is `Archives`, replace the entire risk score with `3`.
+- If zone is `South` and category is `Agriculture`, replace the running fee with `7`.
+- If zone is `West` and `preclear = true`, replace the risk score with the smaller of its current value and `2`; then add fee `1`.
+
+Additive rules:
+- If seal is `Cinder`, subtract fee `6` if flag `relay` is absent.
+- If zone is `North` and category is `Research`, add fee `1`.
+- If `quantity >= 6`, add risk `2`.
+
+Waivers:
+- If `quantity <= 8` and `escort = true`, subtract fee `1`.
+- If `declared_units != quantity` and `preclear = true`, subtract fee `3`.
+- If multiple waivers apply, use only the single waiver with the largest reduction.
+
+Final review trigger:
+- If `manual_note = true` and final fee before lane assignment is at least `22`, force the final risk score to be at least `5`.
+
+===== assets/poa_018/case_file.json =====
+{
+  "category": "Agriculture",
+  "declared_units": 9,
+  "escort": false,
+  "flags": [
+    "relay"
+  ],
+  "id": "poa_018",
+  "manual_note": false,
+  "preclear": true,
+  "quantity": 7,
+  "record_age": 1,
+  "seal": "Dawn",
+  "tier": "T3",
+  "weekend": true,
+  "zone": "South"
+}
+
+===== assets/poa_018/charter.md =====
+# Charter
+
+Decision thresholds:
+- `ALLOW` if final risk score <= 3
+- `REVIEW` if final risk score <= 5 and greater than 3
+- `DENY` if final risk score > 5
+
+Lane thresholds:
+- `GREEN` if final fee <= 10
+- `AMBER` if final fee <= 21 and greater than 10
+- `RED` if final fee > 21
+
+Base risk score components:
+- zone `East`: 6
+- zone `South`: 7
+- zone `North`: 9
+- zone `West`: 5
+- tier `T1`: 2
+- tier `T2`: 2
+- tier `T3`: 5
+- category `Archives`: 0
+- category `Research`: 2
+- category `Agriculture`: 3
+- category `Medical`: 3
+- category `Transit`: 1
+
+Base fee:
+- start with 15
+- add `quantity * 3`
+
+Standing operational penalties:
+- add risk `4` if flag `dock` is present
+- add risk `4` if flag `vault` is present
+- add risk `3` if flag `field` is present
+- add risk `2` if flag `relay` is present
+- if `declared_units != quantity`, add risk `7`
+- if `record_age >= 6`, add risk `5`
+- if `weekend = true`, add fee `1`
+
+===== assets/poa_019/amendments.md =====
+# Amendments
+
+Priority order inside this packet:
+1. Replacement rules
+2. Additive rules
+3. Waivers
+4. Final review trigger
+
+Replacement rules:
+- If zone is `South` and category is `Archives`, replace the entire risk score with `2`.
+- If zone is `West` and category is `Research`, replace the running fee with `8`.
+- If zone is `North` and `preclear = true`, replace the risk score with the smaller of its current value and `4`; then add fee `3`.
+
+Additive rules:
+- If seal is `Aster`, subtract fee `4` if flag `vault` is present.
+- If zone is `East` and category is `Agriculture`, add fee `2`.
+- If `quantity >= 5`, add risk `4`.
+
+Waivers:
+- If `quantity <= 7` and `escort = true`, subtract fee `1`.
+- If `declared_units != quantity` and `preclear = true`, subtract fee `4`.
+- If multiple waivers apply, use only the single waiver with the largest reduction.
+
+Final review trigger:
+- If `manual_note = true` and final fee before lane assignment is at least `32`, force the final risk score to be at least `8`.
+
+===== assets/poa_019/case_file.json =====
+{
+  "category": "Transit",
+  "declared_units": 5,
+  "escort": true,
+  "flags": [
+    "relay"
+  ],
+  "id": "poa_019",
+  "manual_note": true,
+  "preclear": false,
+  "quantity": 6,
+  "record_age": 9,
+  "seal": "Cinder",
+  "tier": "T2",
+  "weekend": true,
+  "zone": "North"
+}
+
+===== assets/poa_019/charter.md =====
+# Charter
+
+Decision thresholds:
+- `ALLOW` if final risk score <= 5
+- `REVIEW` if final risk score <= 8 and greater than 5
+- `DENY` if final risk score > 8
+
+Lane thresholds:
+- `GREEN` if final fee <= 15
+- `AMBER` if final fee <= 25 and greater than 15
+- `RED` if final fee > 25
+
+Base risk score components:
+- zone `South`: 7
+- zone `West`: 5
+- zone `East`: 6
+- zone `North`: 3
+- tier `T1`: 1
+- tier `T2`: 4
+- tier `T3`: 5
+- category `Archives`: 0
+- category `Agriculture`: 2
+- category `Research`: 1
+- category `Medical`: 1
+- category `Transit`: 1
+
+Base fee:
+- start with 14
+- add `quantity * 5`
+
+Standing operational penalties:
+- add risk `3` if flag `field` is present
+- add risk `2` if flag `relay` is present
+- add risk `3` if flag `vault` is present
+- add risk `2` if flag `dock` is present
+- if `declared_units != quantity`, add risk `3`
+- if `record_age >= 7`, add risk `4`
+- if `weekend = true`, add fee `2`
+
+===== assets/poa_020/amendments.md =====
+# Amendments
+
+Priority order inside this packet:
+1. Replacement rules
+2. Additive rules
+3. Waivers
+4. Final review trigger
+
+Replacement rules:
+- If zone is `East` and category is `Medical`, replace the entire risk score with `0`.
+- If zone is `North` and category is `Agriculture`, replace the running fee with `9`.
+- If zone is `South` and `preclear = true`, replace the risk score with the smaller of its current value and `1`; then add fee `2`.
+
+Additive rules:
+- If seal is `Cinder`, subtract fee `2` if flag `relay` is absent.
+- If zone is `West` and category is `Archives`, add fee `2`.
+- If `quantity >= 1`, add risk `4`.
+
+Waivers:
+- If `quantity <= 2` and `escort = true`, subtract fee `1`.
+- If `declared_units != quantity` and `preclear = true`, subtract fee `3`.
+- If multiple waivers apply, use only the single waiver with the largest reduction.
+
+Final review trigger:
+- If `manual_note = true` and final fee before lane assignment is at least `34`, force the final risk score to be at least `7`.
+
+===== assets/poa_020/case_file.json =====
+{
+  "category": "Transit",
+  "declared_units": 5,
+  "escort": true,
+  "flags": [
+    "dock",
+    "relay"
+  ],
+  "id": "poa_020",
+  "manual_note": false,
+  "preclear": false,
+  "quantity": 1,
+  "record_age": 2,
+  "seal": "Aster",
+  "tier": "T1",
+  "weekend": true,
+  "zone": "East"
+}
+
+===== assets/poa_020/charter.md =====
+# Charter
+
+Decision thresholds:
+- `ALLOW` if final risk score <= 5
+- `REVIEW` if final risk score <= 7 and greater than 5
+- `DENY` if final risk score > 7
+
+Lane thresholds:
+- `GREEN` if final fee <= 17
+- `AMBER` if final fee <= 31 and greater than 17
+- `RED` if final fee > 31
+
+Base risk score components:
+- zone `East`: 5
+- zone `North`: 6
+- zone `West`: 8
+- zone `South`: 4
+- tier `T1`: 2
+- tier `T2`: 4
+- tier `T3`: 4
+- category `Medical`: 0
+- category `Archives`: 1
+- category `Agriculture`: 0
+- category `Transit`: 2
+- category `Research`: 2
+
+Base fee:
+- start with 16
+- add `quantity * 3`
+
+Standing operational penalties:
+- add risk `2` if flag `relay` is present
+- add risk `3` if flag `dock` is present
+- add risk `2` if flag `vault` is present
+- add risk `2` if flag `field` is present
+- if `declared_units != quantity`, add risk `6`
+- if `record_age >= 6`, add risk `5`
+- if `weekend = true`, add fee `3`
+
+===== assets/poa_021/amendments.md =====
+# Amendments
+
+Priority order inside this packet:
+1. Replacement rules
+2. Additive rules
+3. Waivers
+4. Final review trigger
+
+Replacement rules:
+- If zone is `North` and category is `Medical`, replace the entire risk score with `2`.
+- If zone is `East` and category is `Archives`, replace the running fee with `11`.
+- If zone is `South` and `preclear = true`, replace the risk score with the smaller of its current value and `1`; then add fee `3`.
+
+Additive rules:
+- If seal is `Ember`, subtract fee `6` if flag `dock` is present.
+- If zone is `West` and category is `Transit`, add fee `2`.
+- If `quantity >= 8`, add risk `6`.
+
+Waivers:
+- If `quantity <= 9` and `escort = true`, subtract fee `3`.
+- If `declared_units != quantity` and `preclear = true`, subtract fee `4`.
+- If multiple waivers apply, use only the single waiver with the largest reduction.
+
+Final review trigger:
+- If `manual_note = true` and final fee before lane assignment is at least `32`, force the final risk score to be at least `8`.
+
+===== assets/poa_021/case_file.json =====
+{
+  "category": "Research",
+  "declared_units": 4,
+  "escort": true,
+  "flags": [
+    "field"
+  ],
+  "id": "poa_021",
+  "manual_note": true,
+  "preclear": false,
+  "quantity": 9,
+  "record_age": 5,
+  "seal": "Ember",
+  "tier": "T1",
+  "weekend": true,
+  "zone": "West"
+}
+
+===== assets/poa_021/charter.md =====
+# Charter
+
+Decision thresholds:
+- `ALLOW` if final risk score <= 4
+- `REVIEW` if final risk score <= 8 and greater than 4
+- `DENY` if final risk score > 8
+
+Lane thresholds:
+- `GREEN` if final fee <= 17
+- `AMBER` if final fee <= 26 and greater than 17
+- `RED` if final fee > 26
+
+Base risk score components:
+- zone `North`: 8
+- zone `East`: 4
+- zone `West`: 5
+- zone `South`: 4
+- tier `T1`: 1
+- tier `T2`: 2
+- tier `T3`: 4
+- category `Medical`: 2
+- category `Transit`: 2
+- category `Archives`: 0
+- category `Research`: 3
+- category `Agriculture`: 2
+
+Base fee:
+- start with 18
+- add `quantity * 4`
+
+Standing operational penalties:
+- add risk `1` if flag `field` is present
+- add risk `4` if flag `relay` is present
+- add risk `4` if flag `dock` is present
+- add risk `4` if flag `vault` is present
+- if `declared_units != quantity`, add risk `7`
+- if `record_age >= 6`, add risk `2`
+- if `weekend = true`, add fee `4`
+
+===== assets/poa_022/amendments.md =====
+# Amendments
+
+Priority order inside this packet:
+1. Replacement rules
+2. Additive rules
+3. Waivers
+4. Final review trigger
+
+Replacement rules:
+- If zone is `West` and category is `Research`, replace the entire risk score with `3`.
+- If zone is `North` and category is `Medical`, replace the running fee with `12`.
+- If zone is `South` and `preclear = true`, replace the risk score with the smaller of its current value and `4`; then add fee `1`.
+
+Additive rules:
+- If seal is `Cinder`, subtract fee `6` if flag `field` is absent.
+- If zone is `East` and category is `Transit`, add fee `2`.
+- If `quantity >= 7`, add risk `3`.
+
+Waivers:
+- If `quantity <= 9` and `escort = true`, subtract fee `4`.
+- If `declared_units != quantity` and `preclear = true`, subtract fee `2`.
+- If multiple waivers apply, use only the single waiver with the largest reduction.
+
+Final review trigger:
+- If `manual_note = true` and final fee before lane assignment is at least `34`, force the final risk score to be at least `8`.
+
+===== assets/poa_022/case_file.json =====
+{
+  "category": "Archives",
+  "declared_units": 7,
+  "escort": true,
+  "flags": [
+    "field"
+  ],
+  "id": "poa_022",
+  "manual_note": true,
+  "preclear": false,
+  "quantity": 8,
+  "record_age": 9,
+  "seal": "Ember",
+  "tier": "T1",
+  "weekend": true,
+  "zone": "West"
+}
+
+===== assets/poa_022/charter.md =====
+# Charter
+
+Decision thresholds:
+- `ALLOW` if final risk score <= 4
+- `REVIEW` if final risk score <= 8 and greater than 4
+- `DENY` if final risk score > 8
+
+Lane thresholds:
+- `GREEN` if final fee <= 16
+- `AMBER` if final fee <= 30 and greater than 16
+- `RED` if final fee > 30
+
+Base risk score components:
+- zone `West`: 5
+- zone `North`: 9
+- zone `East`: 8
+- zone `South`: 8
+- tier `T1`: 2
+- tier `T2`: 3
+- tier `T3`: 6
+- category `Research`: 2
+- category `Transit`: 3
+- category `Medical`: 1
+- category `Archives`: 0
+- category `Agriculture`: 1
+
+Base fee:
+- start with 18
+- add `quantity * 3`
+
+Standing operational penalties:
+- add risk `2` if flag `relay` is present
+- add risk `1` if flag `vault` is present
+- add risk `3` if flag `field` is present
+- add risk `1` if flag `dock` is present
+- if `declared_units != quantity`, add risk `3`
+- if `record_age >= 6`, add risk `4`
+- if `weekend = true`, add fee `3`
+
+===== assets/poa_023/amendments.md =====
+# Amendments
+
+Priority order inside this packet:
+1. Replacement rules
+2. Additive rules
+3. Waivers
+4. Final review trigger
+
+Replacement rules:
+- If zone is `North` and category is `Archives`, replace the entire risk score with `2`.
+- If zone is `West` and category is `Research`, replace the running fee with `11`.
+- If zone is `South` and `preclear = true`, replace the risk score with the smaller of its current value and `3`; then add fee `3`.
+
+Additive rules:
+- If seal is `Ember`, subtract fee `4` if flag `relay` is absent.
+- If zone is `East` and category is `Agriculture`, add fee `2`.
+- If `quantity >= 5`, add risk `6`.
+
+Waivers:
+- If `quantity <= 7` and `escort = true`, subtract fee `3`.
+- If `declared_units != quantity` and `preclear = true`, subtract fee `3`.
+- If multiple waivers apply, use only the single waiver with the largest reduction.
+
+Final review trigger:
+- If `manual_note = true` and final fee before lane assignment is at least `33`, force the final risk score to be at least `5`.
+
+===== assets/poa_023/case_file.json =====
+{
+  "category": "Medical",
+  "declared_units": 7,
+  "escort": false,
+  "flags": [
+    "field",
+    "relay",
+    "vault"
+  ],
+  "id": "poa_023",
+  "manual_note": true,
+  "preclear": false,
+  "quantity": 6,
+  "record_age": 8,
+  "seal": "Birch",
+  "tier": "T1",
+  "weekend": true,
+  "zone": "East"
+}
+
+===== assets/poa_023/charter.md =====
+# Charter
+
+Decision thresholds:
+- `ALLOW` if final risk score <= 3
+- `REVIEW` if final risk score <= 5 and greater than 3
+- `DENY` if final risk score > 5
+
+Lane thresholds:
+- `GREEN` if final fee <= 16
+- `AMBER` if final fee <= 28 and greater than 16
+- `RED` if final fee > 28
+
+Base risk score components:
+- zone `North`: 3
+- zone `West`: 6
+- zone `East`: 6
+- zone `South`: 4
+- tier `T1`: 2
+- tier `T2`: 2
+- tier `T3`: 4
+- category `Archives`: 2
+- category `Agriculture`: 2
+- category `Research`: 1
+- category `Transit`: 2
+- category `Medical`: 3
+
+Base fee:
+- start with 15
+- add `quantity * 5`
+
+Standing operational penalties:
+- add risk `2` if flag `relay` is present
+- add risk `2` if flag `field` is present
+- add risk `4` if flag `vault` is present
+- add risk `3` if flag `dock` is present
+- if `declared_units != quantity`, add risk `6`
+- if `record_age >= 5`, add risk `4`
+- if `weekend = true`, add fee `1`
+
+===== assets/poa_024/amendments.md =====
+# Amendments
+
+Priority order inside this packet:
+1. Replacement rules
+2. Additive rules
+3. Waivers
+4. Final review trigger
+
+Replacement rules:
+- If zone is `West` and category is `Medical`, replace the entire risk score with `3`.
+- If zone is `South` and category is `Transit`, replace the running fee with `8`.
+- If zone is `East` and `preclear = true`, replace the risk score with the smaller of its current value and `4`; then add fee `1`.
+
+Additive rules:
+- If seal is `Dawn`, subtract fee `3` if flag `dock` is absent.
+- If zone is `North` and category is `Agriculture`, add fee `4`.
+- If `quantity >= 3`, add risk `6`.
+
+Waivers:
+- If `quantity <= 5` and `escort = true`, subtract fee `2`.
+- If `declared_units != quantity` and `preclear = true`, subtract fee `4`.
+- If multiple waivers apply, use only the single waiver with the largest reduction.
+
+Final review trigger:
+- If `manual_note = true` and final fee before lane assignment is at least `34`, force the final risk score to be at least `7`.
+
+===== assets/poa_024/case_file.json =====
+{
+  "category": "Research",
+  "declared_units": 5,
+  "escort": false,
+  "flags": [
+    "dock",
+    "field",
+    "vault"
+  ],
+  "id": "poa_024",
+  "manual_note": false,
+  "preclear": true,
+  "quantity": 4,
+  "record_age": 7,
+  "seal": "Ember",
+  "tier": "T2",
+  "weekend": true,
+  "zone": "North"
+}
+
+===== assets/poa_024/charter.md =====
+# Charter
+
+Decision thresholds:
+- `ALLOW` if final risk score <= 5
+- `REVIEW` if final risk score <= 7 and greater than 5
+- `DENY` if final risk score > 7
+
+Lane thresholds:
+- `GREEN` if final fee <= 15
+- `AMBER` if final fee <= 29 and greater than 15
+- `RED` if final fee > 29
+
+Base risk score components:
+- zone `West`: 6
+- zone `South`: 3
+- zone `North`: 3
+- zone `East`: 9
+- tier `T1`: 1
+- tier `T2`: 2
+- tier `T3`: 5
+- category `Medical`: 2
+- category `Agriculture`: 0
+- category `Transit`: 2
+- category `Archives`: 2
+- category `Research`: 1
+
+Base fee:
+- start with 9
+- add `quantity * 3`
+
+Standing operational penalties:
+- add risk `1` if flag `field` is present
+- add risk `1` if flag `relay` is present
+- add risk `1` if flag `vault` is present
+- add risk `1` if flag `dock` is present
+- if `declared_units != quantity`, add risk `5`
+- if `record_age >= 7`, add risk `2`
+- if `weekend = true`, add fee `2`
+
+===== assets/poa_025/amendments.md =====
+# Amendments
+
+Priority order inside this packet:
+1. Replacement rules
+2. Additive rules
+3. Waivers
+4. Final review trigger
+
+Replacement rules:
+- If zone is `South` and category is `Medical`, replace the entire risk score with `1`.
+- If zone is `East` and category is `Transit`, replace the running fee with `11`.
+- If zone is `North` and `preclear = true`, replace the risk score with the smaller of its current value and `1`; then add fee `2`.
+
+Additive rules:
+- If seal is `Dawn`, subtract fee `4` if flag `dock` is absent.
+- If zone is `West` and category is `Research`, add fee `1`.
+- If `quantity >= 6`, add risk `2`.
+
+Waivers:
+- If `quantity <= 8` and `escort = true`, subtract fee `2`.
+- If `declared_units != quantity` and `preclear = true`, subtract fee `4`.
+- If multiple waivers apply, use only the single waiver with the largest reduction.
+
+Final review trigger:
+- If `manual_note = true` and final fee before lane assignment is at least `29`, force the final risk score to be at least `7`.
+
+===== assets/poa_025/case_file.json =====
+{
+  "category": "Research",
+  "declared_units": 4,
+  "escort": true,
+  "flags": [
+    "dock",
+    "relay",
+    "vault"
+  ],
+  "id": "poa_025",
+  "manual_note": false,
+  "preclear": false,
+  "quantity": 7,
+  "record_age": 2,
+  "seal": "Ember",
+  "tier": "T2",
+  "weekend": true,
+  "zone": "West"
+}
+
+===== assets/poa_025/charter.md =====
+# Charter
+
+Decision thresholds:
+- `ALLOW` if final risk score <= 4
+- `REVIEW` if final risk score <= 7 and greater than 4
+- `DENY` if final risk score > 7
+
+Lane thresholds:
+- `GREEN` if final fee <= 15
+- `AMBER` if final fee <= 27 and greater than 15
+- `RED` if final fee > 27
+
+Base risk score components:
+- zone `South`: 4
+- zone `East`: 6
+- zone `West`: 4
+- zone `North`: 3
+- tier `T1`: 0
+- tier `T2`: 4
+- tier `T3`: 6
+- category `Medical`: 2
+- category `Research`: 3
+- category `Transit`: 1
+- category `Archives`: 3
+- category `Agriculture`: 2
+
+Base fee:
+- start with 9
+- add `quantity * 2`
+
+Standing operational penalties:
+- add risk `1` if flag `relay` is present
+- add risk `2` if flag `vault` is present
+- add risk `3` if flag `field` is present
+- add risk `4` if flag `dock` is present
+- if `declared_units != quantity`, add risk `6`
+- if `record_age >= 6`, add risk `2`
+- if `weekend = true`, add fee `2`
+
+===== assets/poa_026/amendments.md =====
+# Amendments
+
+Priority order inside this packet:
+1. Replacement rules
+2. Additive rules
+3. Waivers
+4. Final review trigger
+
+Replacement rules:
+- If zone is `South` and category is `Transit`, replace the entire risk score with `1`.
+- If zone is `North` and category is `Agriculture`, replace the running fee with `14`.
+- If zone is `West` and `preclear = true`, replace the risk score with the smaller of its current value and `3`; then add fee `2`.
+
+Additive rules:
+- If seal is `Cinder`, subtract fee `3` if flag `vault` is present.
+- If zone is `East` and category is `Research`, add fee `3`.
+- If `quantity >= 7`, add risk `4`.
+
+Waivers:
+- If `quantity <= 9` and `escort = true`, subtract fee `3`.
+- If `declared_units != quantity` and `preclear = true`, subtract fee `2`.
+- If multiple waivers apply, use only the single waiver with the largest reduction.
+
+Final review trigger:
+- If `manual_note = true` and final fee before lane assignment is at least `27`, force the final risk score to be at least `8`.
+
+===== assets/poa_026/case_file.json =====
+{
+  "category": "Agriculture",
+  "declared_units": 5,
+  "escort": true,
+  "flags": [
+    "relay"
+  ],
+  "id": "poa_026",
+  "manual_note": true,
+  "preclear": false,
+  "quantity": 8,
+  "record_age": 5,
+  "seal": "Birch",
+  "tier": "T3",
+  "weekend": true,
+  "zone": "West"
+}
+
+===== assets/poa_026/charter.md =====
+# Charter
+
+Decision thresholds:
+- `ALLOW` if final risk score <= 4
+- `REVIEW` if final risk score <= 8 and greater than 4
+- `DENY` if final risk score > 8
+
+Lane thresholds:
+- `GREEN` if final fee <= 13
+- `AMBER` if final fee <= 25 and greater than 13
+- `RED` if final fee > 25
+
+Base risk score components:
+- zone `South`: 8
+- zone `North`: 7
+- zone `East`: 5
+- zone `West`: 5
+- tier `T1`: 2
+- tier `T2`: 3
+- tier `T3`: 4
+- category `Transit`: 1
+- category `Research`: 1
+- category `Agriculture`: 3
+- category `Archives`: 2
+- category `Medical`: 2
+
+Base fee:
+- start with 17
+- add `quantity * 5`
+
+Standing operational penalties:
+- add risk `2` if flag `vault` is present
+- add risk `1` if flag `dock` is present
+- add risk `3` if flag `relay` is present
+- add risk `2` if flag `field` is present
+- if `declared_units != quantity`, add risk `5`
+- if `record_age >= 6`, add risk `5`
+- if `weekend = true`, add fee `2`
+
+===== assets/poa_027/amendments.md =====
+# Amendments
+
+Priority order inside this packet:
+1. Replacement rules
+2. Additive rules
+3. Waivers
+4. Final review trigger
+
+Replacement rules:
+- If zone is `East` and category is `Agriculture`, replace the entire risk score with `3`.
+- If zone is `South` and category is `Medical`, replace the running fee with `13`.
+- If zone is `West` and `preclear = true`, replace the risk score with the smaller of its current value and `4`; then add fee `3`.
+
+Additive rules:
+- If seal is `Ember`, subtract fee `4` if flag `relay` is absent.
+- If zone is `North` and category is `Research`, add fee `1`.
+- If `quantity >= 1`, add risk `3`.
+
+Waivers:
+- If `quantity <= 3` and `escort = true`, subtract fee `2`.
+- If `declared_units != quantity` and `preclear = true`, subtract fee `2`.
+- If multiple waivers apply, use only the single waiver with the largest reduction.
+
+Final review trigger:
+- If `manual_note = true` and final fee before lane assignment is at least `24`, force the final risk score to be at least `8`.
+
+===== assets/poa_027/case_file.json =====
+{
+  "category": "Agriculture",
+  "declared_units": 5,
+  "escort": true,
+  "flags": [
+    "dock",
+    "relay",
+    "vault"
+  ],
+  "id": "poa_027",
+  "manual_note": true,
+  "preclear": true,
+  "quantity": 2,
+  "record_age": 2,
+  "seal": "Ember",
+  "tier": "T3",
+  "weekend": true,
+  "zone": "South"
+}
+
+===== assets/poa_027/charter.md =====
+# Charter
+
+Decision thresholds:
+- `ALLOW` if final risk score <= 5
+- `REVIEW` if final risk score <= 8 and greater than 5
+- `DENY` if final risk score > 8
+
+Lane thresholds:
+- `GREEN` if final fee <= 12
+- `AMBER` if final fee <= 23 and greater than 12
+- `RED` if final fee > 23
+
+Base risk score components:
+- zone `East`: 6
+- zone `South`: 4
+- zone `North`: 7
+- zone `West`: 5
+- tier `T1`: 0
+- tier `T2`: 4
+- tier `T3`: 6
+- category `Agriculture`: 1
+- category `Research`: 1
+- category `Medical`: 3
+- category `Archives`: 3
+- category `Transit`: 3
+
+Base fee:
+- start with 14
+- add `quantity * 5`
+
+Standing operational penalties:
+- add risk `2` if flag `dock` is present
+- add risk `3` if flag `relay` is present
+- add risk `4` if flag `field` is present
+- add risk `1` if flag `vault` is present
+- if `declared_units != quantity`, add risk `7`
+- if `record_age >= 6`, add risk `5`
+- if `weekend = true`, add fee `4`
+
+===== assets/poa_028/amendments.md =====
+# Amendments
+
+Priority order inside this packet:
+1. Replacement rules
+2. Additive rules
+3. Waivers
+4. Final review trigger
+
+Replacement rules:
+- If zone is `South` and category is `Archives`, replace the entire risk score with `2`.
+- If zone is `West` and category is `Transit`, replace the running fee with `13`.
+- If zone is `North` and `preclear = true`, replace the risk score with the smaller of its current value and `1`; then add fee `1`.
+
+Additive rules:
+- If seal is `Ember`, subtract fee `3` if flag `relay` is present.
+- If zone is `East` and category is `Research`, add fee `1`.
+- If `quantity >= 4`, add risk `2`.
+
+Waivers:
+- If `quantity <= 6` and `escort = true`, subtract fee `1`.
+- If `declared_units != quantity` and `preclear = true`, subtract fee `3`.
+- If multiple waivers apply, use only the single waiver with the largest reduction.
+
+Final review trigger:
+- If `manual_note = true` and final fee before lane assignment is at least `25`, force the final risk score to be at least `9`.
+
+===== assets/poa_028/case_file.json =====
+{
+  "category": "Agriculture",
+  "declared_units": 8,
+  "escort": true,
+  "flags": [
+    "dock"
+  ],
+  "id": "poa_028",
+  "manual_note": true,
+  "preclear": false,
+  "quantity": 5,
+  "record_age": 1,
+  "seal": "Birch",
+  "tier": "T2",
+  "weekend": false,
+  "zone": "South"
+}
+
+===== assets/poa_028/charter.md =====
+# Charter
+
+Decision thresholds:
+- `ALLOW` if final risk score <= 5
+- `REVIEW` if final risk score <= 9 and greater than 5
+- `DENY` if final risk score > 9
+
+Lane thresholds:
+- `GREEN` if final fee <= 13
+- `AMBER` if final fee <= 24 and greater than 13
+- `RED` if final fee > 24
+
+Base risk score components:
+- zone `South`: 8
+- zone `West`: 3
+- zone `East`: 7
+- zone `North`: 7
+- tier `T1`: 1
+- tier `T2`: 2
+- tier `T3`: 4
+- category `Archives`: 3
+- category `Research`: 0
+- category `Transit`: 3
+- category `Agriculture`: 2
+- category `Medical`: 1
+
+Base fee:
+- start with 11
+- add `quantity * 2`
+
+Standing operational penalties:
+- add risk `2` if flag `relay` is present
+- add risk `3` if flag `field` is present
+- add risk `4` if flag `dock` is present
+- add risk `3` if flag `vault` is present
+- if `declared_units != quantity`, add risk `5`
+- if `record_age >= 5`, add risk `3`
+- if `weekend = true`, add fee `3`
+
+===== assets/poa_029/amendments.md =====
+# Amendments
+
+Priority order inside this packet:
+1. Replacement rules
+2. Additive rules
+3. Waivers
+4. Final review trigger
+
+Replacement rules:
+- If zone is `West` and category is `Archives`, replace the entire risk score with `1`.
+- If zone is `South` and category is `Agriculture`, replace the running fee with `12`.
+- If zone is `East` and `preclear = true`, replace the risk score with the smaller of its current value and `2`; then add fee `3`.
+
+Additive rules:
+- If seal is `Birch`, subtract fee `3` if flag `relay` is present.
+- If zone is `North` and category is `Research`, add fee `1`.
+- If `quantity >= 7`, add risk `3`.
+
+Waivers:
+- If `quantity <= 9` and `escort = true`, subtract fee `2`.
+- If `declared_units != quantity` and `preclear = true`, subtract fee `3`.
+- If multiple waivers apply, use only the single waiver with the largest reduction.
+
+Final review trigger:
+- If `manual_note = true` and final fee before lane assignment is at least `35`, force the final risk score to be at least `6`.
+
+===== assets/poa_029/case_file.json =====
+{
+  "category": "Transit",
+  "declared_units": 7,
+  "escort": true,
+  "flags": [
+    "dock"
+  ],
+  "id": "poa_029",
+  "manual_note": false,
+  "preclear": true,
+  "quantity": 8,
+  "record_age": 6,
+  "seal": "Dawn",
+  "tier": "T1",
+  "weekend": false,
+  "zone": "East"
+}
+
+===== assets/poa_029/charter.md =====
+# Charter
+
+Decision thresholds:
+- `ALLOW` if final risk score <= 4
+- `REVIEW` if final risk score <= 6 and greater than 4
+- `DENY` if final risk score > 6
+
+Lane thresholds:
+- `GREEN` if final fee <= 16
+- `AMBER` if final fee <= 29 and greater than 16
+- `RED` if final fee > 29
+
+Base risk score components:
+- zone `West`: 4
+- zone `South`: 7
+- zone `North`: 3
+- zone `East`: 9
+- tier `T1`: 2
+- tier `T2`: 3
+- tier `T3`: 5
+- category `Archives`: 0
+- category `Research`: 1
+- category `Agriculture`: 2
+- category `Medical`: 0
+- category `Transit`: 3
+
+Base fee:
+- start with 17
+- add `quantity * 4`
+
+Standing operational penalties:
+- add risk `1` if flag `dock` is present
+- add risk `4` if flag `vault` is present
+- add risk `4` if flag `relay` is present
+- add risk `1` if flag `field` is present
+- if `declared_units != quantity`, add risk `4`
+- if `record_age >= 6`, add risk `3`
+- if `weekend = true`, add fee `4`
+
+codex
+The first full asset dump was too large for the terminal view, so I’m switching to a small parser over the same in-bundle files. That lets me read every case deterministically and also gives me an audit trail for the arithmetic.
+exec
+/bin/zsh -lc "python3 - <<'PY'
+import json,re,glob
+from pathlib import Path
+root=Path('.')
+
+def parse_charter(txt):
+    d={}
+    d['allow_max']=int(re.search(r'ALLOW"'` if final risk score <= ('"\\d+)',txt).group(1))
+    d['review_max']=int(re.search(r'REVIEW"'` if final risk score <= ('"\\d+)',txt).group(1))
+    d['green_max']=int(re.search(r'GREEN"'` if final fee <= ('"\\d+)',txt).group(1))
+    d['amber_max']=int(re.search(r'AMBER"'` if final fee <= ('"\\d+)',txt).group(1))
+    comps={}
+    for name,val in re.findall(r'- (?:zone|tier|category) "'`([''^`]+)`: ('"\\d+)',txt): comps[name]=int(val)
+    d['comps']=comps
+    m=re.search(r'Base fee:\\n- start with (\\d+)\\n- add "'`quantity '"\\* (\\d+)"'`'"',txt); d['fee_start']=int(m.group(1)); d['fee_mult']=int(m.group(2))
+    d['flag_risk']={flag:int(val) for val,flag in re.findall(r'- add risk "'`('"\\d+)"'` if flag `([''^`]+)` is present'"',txt)}
+    d['decl_mismatch_risk']=int(re.search(r'if "'`declared_units != quantity`, add risk `('"\\d+)"'`'"',txt).group(1))
+    m=re.search(r'if "'`record_age >= ('"\\d+)"'`, add risk `('"\\d+)"'`'"',txt); d['age_thresh']=int(m.group(1)); d['age_risk']=int(m.group(2))
+    d['weekend_fee']=int(re.search(r'if "'`weekend = true`, add fee `('"\\d+)"'`'"',txt).group(1))
+    return d
+
+def parse_amend(txt):
+    a={'risk_replace':[], 'fee_replace':[], 'preclear_cap':None, 'seal_adj':None, 'zonecat_fee':None, 'qty_risk':None, 'waivers':[], 'final':None}
+    for z,c,v in re.findall(r'If zone is "'`([''^`]+)` and category is `([''^`]+)`, replace the entire risk score with `('"\\d+)"'`'"',txt): a['risk_replace'].append((z,c,int(v)))
+    for z,c,v in re.findall(r'If zone is "'`([''^`]+)` and category is `([''^`]+)`, replace the running fee with `('"\\d+)"'`'"',txt): a['fee_replace'].append((z,c,int(v)))
+    m=re.search(r'If zone is "'`([''^`]+)` and `preclear = true`, replace the risk score with the smaller of its current value and `('"\\d+)"'`; then add fee `('"\\d+)"'`'"',txt)
+    if m: a['preclear_cap']=(m.group(1),int(m.group(2)),int(m.group(3)))
+    m=re.search(r'If seal is "'`([''^`]+)`, subtract fee `('"\\d+)"'` if flag `([''^`]+)` is (present|absent)'"',txt)
+    if m: a['seal_adj']=(m.group(1),-int(m.group(2)),m.group(3),m.group(4))
+    m=re.search(r'If zone is "'`([''^`]+)` and category is `([''^`]+)`, add fee `('"\\d+)"'`'"',txt)
+    if m: a['zonecat_fee']=(m.group(1),m.group(2),int(m.group(3)))
+    m=re.search(r'If "'`quantity >= ('"\\d+)"'`, add risk `('"\\d+)"'`'"',txt)
+    if m: a['qty_risk']=(int(m.group(1)),int(m.group(2)))
+    m=re.search(r'If "'`quantity <= ('"\\d+)"'` and `escort = true`, subtract fee `('"\\d+)"'`'"',txt)
+    if m: a['waivers'].append(('escort',int(m.group(1)),-int(m.group(2))))
+    m=re.search(r'If "'`declared_units != quantity` and `preclear = true`, subtract fee `('"\\d+)"'`'"',txt)
+    if m: a['waivers'].append(('mismatch_preclear',None,-int(m.group(1))))
+    m=re.search(r'If "'`manual_note = true` and final fee before lane assignment is at least `('"\\d+)"'`, force the final risk score to be at least `('"\\d+)"'`'"',txt)
+    if m: a['final']=(int(m.group(1)),int(m.group(2)))
+    return a
+
+def solve(id):
+    c=json.loads((root/f'assets/{id}/case_file.json').read_text())
+    ch=parse_charter((root/f'assets/{id}/charter.md').read_text())
+    a=parse_amend((root/f'assets/{id}/amendments.md').read_text())
+    risk=ch['comps'][c['zone']]+ch['comps'][c['tier']]+ch['comps'][c['category']]
+    fee=ch['fee_start']+c['quantity']*ch['fee_mult']
+    for fl,val in ch['flag_risk'].items():
+        if fl in c['flags']: risk+=val
+    if c['declared_units']"'!=c['"'quantity']: risk+=ch['decl_mismatch_risk']
+    if c['record_age']>=ch['age_thresh']: risk+=ch['age_risk']
+    if c['weekend']: fee+=ch['weekend_fee']
+    steps=[('base',risk,fee)]
+    for z,cat,v in a['risk_replace']:
+        if c['zone']==z and c['category']==cat: risk=v; steps.append(('risk_replace',risk,fee))
+    for z,cat,v in a['fee_replace']:
+        if c['zone']==z and c['category']==cat: fee=v; steps.append(('fee_replace',risk,fee))
+    if a['preclear_cap']:
+        z,cap,add=a['preclear_cap']
+        if c['zone']==z and c['preclear']:
+            risk=min(risk,cap); fee+=add; steps.append(('preclear_cap',risk,fee))
+    # additives
+    if a['seal_adj']:
+        seal,delta,flag,pres=a['seal_adj']
+        cond=(flag in c['flags']) if pres=='present' else (flag not in c['flags'])
+        if c['seal']==seal and cond: fee+=delta; steps.append(('seal_adj',risk,fee))
+    if a['zonecat_fee']:
+        z,cat,add=a['zonecat_fee']
+        if c['zone']==z and c['category']==cat: fee+=add; steps.append(('zonecat_fee',risk,fee))
+    if a['qty_risk']:
+        th,add=a['qty_risk']
+        if c['quantity']>=th: risk+=add; steps.append(('qty_risk',risk,fee))
+    # waivers largest reduction (most negative)
+    candidates=[]
+    for typ,th,delta in a['waivers']:
+        if typ=='escort' and c['quantity']<=th and c['escort']: candidates.append(delta)
+        if typ=='mismatch_preclear' and c['declared_units']"'!=c['"'quantity'] and c['preclear']: candidates.append(delta)
+    if candidates:
+        fee += min(candidates); steps.append(('waiver',risk,fee))
+    if fee<0: fee=0
+    if a['final']:
+        th,minrisk=a['final']
+        if c['manual_note'] and fee>=th:
+            risk=max(risk,minrisk); steps.append(('final_trigger',risk,fee))
+    verdict='ALLOW' if risk<=ch['allow_max'] else 'REVIEW' if risk<=ch['review_max'] else 'DENY'
+    lane='GREEN' if fee<=ch['green_max'] else 'AMBER' if fee<=ch['amber_max'] else 'RED'
+    return c,steps,f'verdict={verdict};lane={lane};fee={fee}'
+
+for i in range(30):
+    id=f'poa_{i:03d}'
+    c,steps,ans=solve(id)
+    print(id, ans, steps)
+PY" in /Users/rohit/Documents/Workspace/Coding/benchbench/experiments/003_five_model_sweep_20260522_195526/run/isolated_solver_gpt_5_4__solved_by__gpt_5_5
+ succeeded in 0ms:
+poa_000 verdict=DENY;lane=RED;fee=46 [('base', 31, 50), ('qty_risk', 35, 50), ('waiver', 35, 46)]
+poa_001 verdict=DENY;lane=RED;fee=32 [('base', 21, 35), ('qty_risk', 23, 35), ('waiver', 23, 32)]
+poa_002 verdict=DENY;lane=RED;fee=51 [('base', 20, 52), ('qty_risk', 22, 52), ('waiver', 22, 51)]
+poa_003 verdict=DENY;lane=GREEN;fee=8 [('base', 22, 38), ('fee_replace', 22, 13), ('qty_risk', 26, 13), ('waiver', 26, 8)]
+poa_004 verdict=DENY;lane=AMBER;fee=18 [('base', 29, 21), ('qty_risk', 33, 21), ('waiver', 33, 18)]
+poa_005 verdict=DENY;lane=AMBER;fee=20 [('base', 21, 24), ('qty_risk', 27, 24), ('waiver', 27, 20)]
+poa_006 verdict=DENY;lane=RED;fee=46 [('base', 27, 46), ('qty_risk', 30, 46), ('final_trigger', 30, 46)]
+poa_007 verdict=REVIEW;lane=RED;fee=41 [('base', 19, 42), ('preclear_cap', 2, 43), ('qty_risk', 5, 43), ('waiver', 5, 41)]
+poa_008 verdict=REVIEW;lane=RED;fee=40 [('base', 25, 40), ('preclear_cap', 3, 42), ('qty_risk', 5, 42), ('waiver', 5, 40), ('final_trigger', 8, 40)]
+poa_009 verdict=DENY;lane=RED;fee=35 [('base', 14, 38), ('qty_risk', 18, 38), ('waiver', 18, 35)]
+poa_010 verdict=DENY;lane=RED;fee=28 [('base', 20, 31), ('qty_risk', 22, 31), ('waiver', 22, 28), ('final_trigger', 22, 28)]
+poa_011 verdict=DENY;lane=AMBER;fee=11 [('base', 21, 15), ('qty_risk', 26, 15), ('waiver', 26, 11)]
+poa_012 verdict=REVIEW;lane=RED;fee=49 [('base', 20, 51), ('preclear_cap', 1, 52), ('qty_risk', 4, 52), ('waiver', 4, 49), ('final_trigger', 8, 49)]
+poa_013 verdict=DENY;lane=RED;fee=58 [('base', 17, 58), ('qty_risk', 21, 58)]
+poa_014 verdict=REVIEW;lane=RED;fee=30 [('base', 16, 35), ('risk_replace', 2, 35), ('qty_risk', 5, 35), ('waiver', 5, 30), ('final_trigger', 5, 30)]
+poa_015 verdict=DENY;lane=RED;fee=45 [('base', 20, 47), ('qty_risk', 24, 47), ('waiver', 24, 45)]
+poa_016 verdict=ALLOW;lane=AMBER;fee=20 [('base', 19, 22), ('preclear_cap', 1, 24), ('qty_risk', 3, 24), ('waiver', 3, 20)]
+poa_017 verdict=REVIEW;lane=GREEN;fee=9 [('base', 24, 12), ('risk_replace', 3, 12), ('qty_risk', 5, 12), ('waiver', 5, 9)]
+poa_018 verdict=DENY;lane=GREEN;fee=4 [('base', 24, 37), ('fee_replace', 24, 7), ('qty_risk', 26, 7), ('waiver', 26, 4)]
+poa_019 verdict=DENY;lane=RED;fee=45 [('base', 17, 46), ('qty_risk', 21, 46), ('waiver', 21, 45), ('final_trigger', 21, 45)]
+poa_020 verdict=DENY;lane=AMBER;fee=21 [('base', 20, 22), ('qty_risk', 24, 22), ('waiver', 24, 21)]
+poa_021 verdict=DENY;lane=RED;fee=55 [('base', 17, 58), ('qty_risk', 23, 58), ('waiver', 23, 55), ('final_trigger', 23, 55)]
+poa_022 verdict=DENY;lane=RED;fee=41 [('base', 17, 45), ('qty_risk', 20, 45), ('waiver', 20, 41), ('final_trigger', 20, 41)]
+poa_023 verdict=DENY;lane=RED;fee=46 [('base', 29, 46), ('qty_risk', 35, 46), ('final_trigger', 35, 46)]
+poa_024 verdict=DENY;lane=AMBER;fee=19 [('base', 16, 23), ('qty_risk', 22, 23), ('waiver', 22, 19)]
+poa_025 verdict=DENY;lane=AMBER;fee=24 [('base', 24, 25), ('zonecat_fee', 24, 26), ('qty_risk', 26, 26), ('waiver', 26, 24)]
+poa_026 verdict=DENY;lane=RED;fee=56 [('base', 20, 59), ('qty_risk', 24, 59), ('waiver', 24, 56), ('final_trigger', 24, 56)]
+poa_027 verdict=DENY;lane=RED;fee=26 [('base', 24, 28), ('qty_risk', 27, 28), ('waiver', 27, 26), ('final_trigger', 27, 26)]
+poa_028 verdict=DENY;lane=AMBER;fee=20 [('base', 21, 21), ('qty_risk', 23, 21), ('waiver', 23, 20)]
+poa_029 verdict=REVIEW;lane=RED;fee=49 [('base', 22, 49), ('preclear_cap', 2, 52), ('qty_risk', 5, 52), ('waiver', 5, 49)]
+
+2026-05-23T04:15:16.864003Z  WARN codex_core_skills::loader: ignoring interface.icon_small: icon path must not contain '..'
+2026-05-23T04:15:16.864019Z  WARN codex_core_skills::loader: ignoring interface.icon_large: icon path must not contain '..'
+2026-05-23T04:15:16.864459Z  WARN codex_core_skills::loader: ignoring interface.icon_small: icon path must not contain '..'
+2026-05-23T04:15:16.864465Z  WARN codex_core_skills::loader: ignoring interface.icon_large: icon path must not contain '..'
+2026-05-23T04:15:16.864900Z  WARN codex_core_skills::loader: ignoring interface.icon_small: icon path must not contain '..'
+2026-05-23T04:15:16.864904Z  WARN codex_core_skills::loader: ignoring interface.icon_large: icon path must not contain '..'
+2026-05-23T04:15:16.865337Z  WARN codex_core_skills::loader: ignoring interface.icon_small: icon path must not contain '..'
+2026-05-23T04:15:16.865341Z  WARN codex_core_skills::loader: ignoring interface.icon_large: icon path must not contain '..'
+2026-05-23T04:15:16.865792Z  WARN codex_core_skills::loader: ignoring interface.icon_small: icon path must not contain '..'
+2026-05-23T04:15:16.865796Z  WARN codex_core_skills::loader: ignoring interface.icon_large: icon path must not contain '..'
+2026-05-23T04:15:16.866815Z  WARN codex_core_skills::loader: ignoring interface.icon_small: icon path must not contain '..'
+2026-05-23T04:15:16.866822Z  WARN codex_core_skills::loader: ignoring interface.icon_large: icon path must not contain '..'
+codex
+The parser has produced a full pass over all 30 packets. I’m doing one validation pass now: checking the item count, output shape, and the rule extraction coverage before I return the final JSONL only.
+exec
+/bin/zsh -lc "python3 - <<'PY'
+# Lightweight validation: every packet has the expected three files and parsable key rule sections.
+import re,json
+from pathlib import Path
+root=Path('.')
+ids=[json.loads(l)['id'] for l in Path('items_private_sample.jsonl').read_text().splitlines()]
+print('items',len(ids),ids[0],ids[-1])
+for id in ids:
+    ch=(root/f'assets/{id}/charter.md').read_text(); am=(root/f'assets/{id}/amendments.md').read_text(); cf=json.loads((root/f'assets/{id}/case_file.json').read_text())
+    checks=[
+      bool(re.search(r'ALLOW"'` if final risk score <= '"\\d+',ch)),
+      bool(re.search(r'GREEN"'` if final fee <= '"\\d+',ch)),
+      len(re.findall(r'- (?:zone|tier|category) "'`([''^`]+)`: ('"\\d+)',ch))==12,
+      bool(re.search(r'Base fee:\\n- start with \\d+\\n- add "'`quantity '"\\* \\d+"'`'"',ch)),
+      bool(re.search(r'replace the entire risk score',am)),
+      bool(re.search(r'replace the running fee',am)),
+      bool(re.search(r'Final review trigger',am)),
+      cf['id']==id,
+    ]
+    if not all(checks): print('bad',id,checks)
+print('validation_complete')
+PY" in /Users/rohit/Documents/Workspace/Coding/benchbench/experiments/003_five_model_sweep_20260522_195526/run/isolated_solver_gpt_5_4__solved_by__gpt_5_5
+ succeeded in 0ms:
+items 30 poa_000 poa_029
+validation_complete
+
+2026-05-23T04:15:29.529971Z  WARN codex_core_skills::loader: ignoring interface.icon_small: icon path must not contain '..'
+2026-05-23T04:15:29.529988Z  WARN codex_core_skills::loader: ignoring interface.icon_large: icon path must not contain '..'
+2026-05-23T04:15:29.530417Z  WARN codex_core_skills::loader: ignoring interface.icon_small: icon path must not contain '..'
+2026-05-23T04:15:29.530421Z  WARN codex_core_skills::loader: ignoring interface.icon_large: icon path must not contain '..'
+2026-05-23T04:15:29.530874Z  WARN codex_core_skills::loader: ignoring interface.icon_small: icon path must not contain '..'
+2026-05-23T04:15:29.530881Z  WARN codex_core_skills::loader: ignoring interface.icon_large: icon path must not contain '..'
+2026-05-23T04:15:29.531306Z  WARN codex_core_skills::loader: ignoring interface.icon_small: icon path must not contain '..'
+2026-05-23T04:15:29.531311Z  WARN codex_core_skills::loader: ignoring interface.icon_large: icon path must not contain '..'
+2026-05-23T04:15:29.531760Z  WARN codex_core_skills::loader: ignoring interface.icon_small: icon path must not contain '..'
+2026-05-23T04:15:29.531764Z  WARN codex_core_skills::loader: ignoring interface.icon_large: icon path must not contain '..'
+2026-05-23T04:15:29.532814Z  WARN codex_core_skills::loader: ignoring interface.icon_small: icon path must not contain '..'
+2026-05-23T04:15:29.532818Z  WARN codex_core_skills::loader: ignoring interface.icon_large: icon path must not contain '..'
+codex
+{"id":"poa_000","answer":"verdict=DENY;lane=RED;fee=46"}
+{"id":"poa_001","answer":"verdict=DENY;lane=RED;fee=32"}
+{"id":"poa_002","answer":"verdict=DENY;lane=RED;fee=51"}
+{"id":"poa_003","answer":"verdict=DENY;lane=GREEN;fee=8"}
+{"id":"poa_004","answer":"verdict=DENY;lane=AMBER;fee=18"}
+{"id":"poa_005","answer":"verdict=DENY;lane=AMBER;fee=20"}
+{"id":"poa_006","answer":"verdict=DENY;lane=RED;fee=46"}
+{"id":"poa_007","answer":"verdict=REVIEW;lane=RED;fee=41"}
+{"id":"poa_008","answer":"verdict=REVIEW;lane=RED;fee=40"}
+{"id":"poa_009","answer":"verdict=DENY;lane=RED;fee=35"}
+{"id":"poa_010","answer":"verdict=DENY;lane=RED;fee=28"}
+{"id":"poa_011","answer":"verdict=DENY;lane=AMBER;fee=11"}
+{"id":"poa_012","answer":"verdict=REVIEW;lane=RED;fee=49"}
+{"id":"poa_013","answer":"verdict=DENY;lane=RED;fee=58"}
+{"id":"poa_014","answer":"verdict=REVIEW;lane=RED;fee=30"}
+{"id":"poa_015","answer":"verdict=DENY;lane=RED;fee=45"}
+{"id":"poa_016","answer":"verdict=ALLOW;lane=AMBER;fee=20"}
+{"id":"poa_017","answer":"verdict=REVIEW;lane=GREEN;fee=9"}
+{"id":"poa_018","answer":"verdict=DENY;lane=GREEN;fee=4"}
+{"id":"poa_019","answer":"verdict=DENY;lane=RED;fee=45"}
+{"id":"poa_020","answer":"verdict=DENY;lane=AMBER;fee=21"}
+{"id":"poa_021","answer":"verdict=DENY;lane=RED;fee=55"}
+{"id":"poa_022","answer":"verdict=DENY;lane=RED;fee=41"}
+{"id":"poa_023","answer":"verdict=DENY;lane=RED;fee=46"}
+{"id":"poa_024","answer":"verdict=DENY;lane=AMBER;fee=19"}
+{"id":"poa_025","answer":"verdict=DENY;lane=AMBER;fee=24"}
+{"id":"poa_026","answer":"verdict=DENY;lane=RED;fee=56"}
+{"id":"poa_027","answer":"verdict=DENY;lane=RED;fee=26"}
+{"id":"poa_028","answer":"verdict=DENY;lane=AMBER;fee=20"}
+{"id":"poa_029","answer":"verdict=REVIEW;lane=RED;fee=49"}
+tokens used
+54,804

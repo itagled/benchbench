@@ -1,0 +1,17 @@
+{
+  "category": "Agriculture",
+  "declared_units": 7,
+  "escort": true,
+  "flags": [
+    "relay"
+  ],
+  "id": "poa_010",
+  "manual_note": true,
+  "preclear": false,
+  "quantity": 3,
+  "record_age": 9,
+  "seal": "Dawn",
+  "tier": "T3",
+  "weekend": true,
+  "zone": "East"
+}

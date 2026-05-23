@@ -9,12 +9,16 @@ then must decide what benchmark to build.
 from __future__ import annotations
 
 import datetime as dt
+import argparse
 import json
 import re
 import shutil
 import subprocess
+import tempfile
 from pathlib import Path
 from typing import Any
+
+from benchbench_model_backends import ModelSpec, parse_model_spec, run_cmd, run_model, safe_name
 
 
 ROOT = Path(__file__).resolve().parent
@@ -22,17 +26,15 @@ RUN_ROOT = ROOT / "experiments" / f"002_broad_sweep_{dt.datetime.now().strftime(
 RUN_DIR = RUN_ROOT / "run"
 PYTHON = shutil.which("python") or shutil.which("python3") or "python3"
 
-MODELS = ["gpt-5.2", "gpt-5.4", "gpt-5.5"]
+DEFAULT_MODELS = ["gpt-5.2", "gpt-5.4", "gpt-5.5"]
+MODELS = DEFAULT_MODELS[:]
+MODEL_SPECS = [parse_model_spec(model) for model in MODELS]
 CREATOR_EFFORT = "low"
 SOLVER_EFFORT = "low"
 CREATOR_TIMEOUT_SECONDS = 2400
 SOLVER_TIMEOUT_SECONDS = 1500
 SAMPLE_COUNT = 30
 GENERATION_SEED = 20260516
-
-
-def safe_name(model: str) -> str:
-    return model.replace(".", "_").replace("-", "_")
 
 
 def read_text(path: Path, limit: int | None = None) -> str:
@@ -49,16 +51,24 @@ PILOT_SUMMARY = read_text(ROOT / "experiments" / "001_three_model_grid_pilot" / 
 
 
 CREATOR_PROMPT = """
-You are {model}+Codex acting as a BenchBench creator.
+You are {agent_label} acting as a BenchBench creator.
 
-You are already in an empty artifact directory. Build one benchmark package
-here. You may use local computation and internet research if useful. Do not
-browse or research forever: the output must be a working package.
+Your empty artifact directory is:
+
+{artifact_dir}
+
+Use that exact directory as the working directory for every shell command and
+file read/write. Antigravity may open a global scratch directory by default;
+ignore that scratch directory and build the benchmark package only in the
+artifact directory above.
+
+You may use local computation and internet research if useful. Do not browse or
+research forever: the output must be a working package.
 
 Your task, in the broadest terms:
 
 Create the best possible new benchmark you can: valid, deterministic or
-reliably graded, human-auditable, hard for strong Codex-enabled models, and
+reliably graded, human-auditable, hard for strong tool-enabled models, and
 interesting rather than a near-duplicate of existing evals. You may choose any
 domain, modality, artifact type, environment, or scoring method that you can
 package and validate in this directory.
@@ -139,7 +149,16 @@ private files outside the isolated solver bundle.
 
 
 REPAIR_PROMPT = """
-You are {model}+Codex repairing your BenchBench candidate in place.
+You are {agent_label} repairing your BenchBench candidate in place.
+
+The candidate artifact directory is:
+
+{artifact_dir}
+
+Use that exact directory as the working directory for every shell command and
+file read/write. Antigravity may open a global scratch directory by default;
+ignore that scratch directory and repair the benchmark package only in the
+artifact directory above.
 
 The controller validation found problems:
 
@@ -155,11 +174,19 @@ validation commands before finishing.
 
 
 SOLVER_PROMPT = """
-You are {model}+Codex acting as a blind BenchBench solver.
+You are {agent_label} acting as a blind BenchBench solver.
 
-You are in an isolated solver bundle. You may use any local computation, shell
-scripts, installed packages, OCR, image processing, code, and internet access if
-useful. Try your best to solve the benchmark.
+You are in an isolated solver bundle at:
+
+{solver_bundle_path}
+
+Use that exact directory as the working directory for every shell command and
+file read/write. Antigravity may open a global scratch directory by default;
+ignore that scratch directory and work only in the solver bundle above.
+
+You may use any local computation, shell scripts, installed packages, OCR,
+image processing, code, and internet access if useful. Try your best to solve
+the benchmark.
 
 The only forbidden action is inspecting parent directories or files outside this
 isolated solver bundle. Do not look for gold files, generators, scorers, private
@@ -170,60 +197,6 @@ Read every visible file in this bundle and solve every item.
 Return only JSONL, one object per item, with exactly:
 {{"id":"...","answer":"..."}}
 """
-
-
-def run_cmd(args: list[str], cwd: Path, stdin_text: str | None = None, timeout: int | None = None) -> subprocess.CompletedProcess[str]:
-    return subprocess.run(args, cwd=cwd, input=stdin_text, text=True, capture_output=True, check=False, timeout=timeout)
-
-
-def parse_tokens(text: str) -> int:
-    matches = re.findall(r"tokens used\s+(\d[\d,]*)", text)
-    return int(matches[-1].replace(",", "")) if matches else 0
-
-
-def run_codex(model: str, prompt: str, out_path: Path, cwd: Path, effort: str, timeout: int) -> dict[str, Any]:
-    prompt_path = out_path.with_suffix(".prompt.txt")
-    prompt_path.write_text(prompt, encoding="utf-8")
-    cmd = [
-        "codex",
-        "exec",
-        "--skip-git-repo-check",
-        "--ephemeral",
-        "-m",
-        model,
-        "-c",
-        f'model_reasoning_effort="{effort}"',
-        "--output-last-message",
-        str(out_path),
-        "-",
-    ]
-    try:
-        completed = run_cmd(cmd, cwd, stdin_text=prompt, timeout=timeout)
-        stdout = completed.stdout
-        stderr = completed.stderr
-        returncode = completed.returncode
-    except subprocess.TimeoutExpired as exc:
-        stdout = exc.stdout or ""
-        stderr = exc.stderr or ""
-        if isinstance(stdout, bytes):
-            stdout = stdout.decode("utf-8", errors="replace")
-        if isinstance(stderr, bytes):
-            stderr = stderr.decode("utf-8", errors="replace")
-        stderr += f"\nTIMEOUT after {timeout} seconds\n"
-        returncode = -124
-    stdout_path = out_path.with_suffix(".stdout.txt")
-    stderr_path = out_path.with_suffix(".stderr.txt")
-    stdout_path.write_text(stdout, encoding="utf-8")
-    stderr_path.write_text(stderr, encoding="utf-8")
-    return {
-        "model": model,
-        "returncode": returncode,
-        "tokens_used": parse_tokens(stdout + "\n" + stderr),
-        "out_path": str(out_path),
-        "stdout_path": str(stdout_path),
-        "stderr_path": str(stderr_path),
-        "prompt_path": str(prompt_path),
-    }
 
 
 def read_jsonl(path: Path) -> list[dict[str, Any]]:
@@ -245,15 +218,26 @@ def write_jsonl(path: Path, rows: list[dict[str, Any]]) -> None:
 def score_summary(path: Path) -> dict[str, Any] | None:
     if not path.exists():
         return None
+    text = path.read_text(encoding="utf-8")
     try:
-        data = json.loads(path.read_text(encoding="utf-8"))
+        data = json.loads(text)
     except Exception:
+        data = None
+    if isinstance(data, dict):
+        total = data.get("total", data.get("n_items"))
+        correct = data.get("correct", data.get("n_correct", data.get("score")))
+        accuracy = data.get("accuracy")
+        if total is not None and correct is not None:
+            if accuracy is None:
+                accuracy = 0.0 if int(total) == 0 else float(correct) / float(total)
+            return {"total": total, "correct": correct, "accuracy": accuracy}
+
+    match = re.search(r"(?<![\d.])(\d+)\s*/\s*(\d+)(?![\d.])", text)
+    if not match:
         return None
-    total = data.get("total", data.get("n_items"))
-    correct = data.get("correct", data.get("n_correct"))
-    accuracy = data.get("accuracy")
-    if total is None or correct is None or accuracy is None:
-        return None
+    correct = int(match.group(1))
+    total = int(match.group(2))
+    accuracy = 0.0 if total == 0 else correct / total
     return {"total": total, "correct": correct, "accuracy": accuracy}
 
 
@@ -337,6 +321,7 @@ def local_validate(candidate_dir: Path) -> dict[str, Any]:
     )
 
     gold_rows: list[dict[str, Any]] = []
+    gold_contract_valid = False
     gold_path = candidate_dir / "gold_private_sample.jsonl"
     if gold_path.exists():
         try:
@@ -344,6 +329,11 @@ def local_validate(candidate_dir: Path) -> dict[str, Any]:
             write_jsonl(candidate_dir / "predictions_gold_controller.jsonl", [{"id": row["id"], "answer": row["answer"]} for row in gold_rows])
             write_jsonl(candidate_dir / "predictions_wrong_shifted_controller.jsonl", make_shifted_wrong_predictions(gold_rows))
             report.append(f"gold_rows: {len(gold_rows)}")
+            gold_keys_ok = all(isinstance(row, dict) and set(row) == {"id", "answer"} for row in gold_rows)
+            gold_ids = [str(row["id"]) for row in gold_rows if isinstance(row, dict) and "id" in row]
+            gold_ids_unique = len(gold_ids) == len(set(gold_ids))
+            gold_contract_valid = gold_keys_ok and gold_ids_unique and len(gold_rows) == SAMPLE_COUNT
+            report.append(f"gold_contract_valid: {gold_contract_valid}")
         except Exception as exc:  # noqa: BLE001
             report.append(f"gold_parse_error: {exc}")
 
@@ -371,13 +361,25 @@ def local_validate(candidate_dir: Path) -> dict[str, Any]:
 
     bundle_dir = candidate_dir / "solver_bundle"
     bundle_files: list[str] = []
+    item_contract_valid = False
     if bundle_dir.exists():
         bundle_files = sorted(str(path.relative_to(bundle_dir)) for path in bundle_dir.rglob("*") if path.is_file())
         report.append(f"solver_bundle_file_count: {len(bundle_files)}")
         items_path = bundle_dir / "items_private_sample.jsonl"
         if items_path.exists():
             try:
-                report.append(f"solver_bundle_item_rows: {len(read_jsonl(items_path))}")
+                item_rows = read_jsonl(items_path)
+                report.append(f"solver_bundle_item_rows: {len(item_rows)}")
+                item_ids = [str(row["id"]) for row in item_rows if isinstance(row, dict) and "id" in row]
+                item_ids_unique = len(item_ids) == len(set(item_ids))
+                item_ids_match_gold = bool(gold_rows) and set(item_ids) == {str(row["id"]) for row in gold_rows}
+                item_contract_valid = (
+                    len(item_rows) == SAMPLE_COUNT
+                    and len(item_ids) == SAMPLE_COUNT
+                    and item_ids_unique
+                    and item_ids_match_gold
+                )
+                report.append(f"solver_bundle_item_contract_valid: {item_contract_valid}")
             except Exception as exc:  # noqa: BLE001
                 report.append(f"solver_bundle_item_parse_error: {exc}")
 
@@ -427,6 +429,8 @@ def local_validate(candidate_dir: Path) -> dict[str, Any]:
         and gold_summary is not None
         and gold_summary.get("total") == SAMPLE_COUNT
         and gold_summary.get("correct") == SAMPLE_COUNT
+        and gold_contract_valid
+        and item_contract_valid
     )
 
     text_report = "\n".join(report) + "\n\ncommands:\n" + json.dumps(commands, indent=2) + "\n"
@@ -456,31 +460,50 @@ def extract_predictions(raw: str, item_ids: list[str]) -> list[dict[str, Any]]:
     return [{"id": row_id, "answer": by_id[row_id]} for row_id in item_ids if row_id in by_id]
 
 
-def run_solver(creator_model: str, solver_model: str, candidate_dir: Path) -> dict[str, Any]:
-    slug = f"{safe_name(creator_model)}__solved_by__{safe_name(solver_model)}"
+def run_solver(creator_model: str, solver_spec: ModelSpec, candidate_dir: Path) -> dict[str, Any]:
+    slug = f"{safe_name(creator_model)}__solved_by__{safe_name(solver_spec.name)}"
     solver_dir = RUN_DIR / f"isolated_solver_{slug}"
-    if solver_dir.exists():
-        shutil.rmtree(solver_dir)
-    shutil.copytree(candidate_dir / "solver_bundle", solver_dir)
+    antigravity_temp_dir: Path | None = None
+    if solver_spec.provider == "antigravity":
+        antigravity_temp_dir = Path(tempfile.mkdtemp(prefix=f"benchbench_{slug}_"))
+        solver_dir = antigravity_temp_dir
+        shutil.copytree(candidate_dir / "solver_bundle", solver_dir, dirs_exist_ok=True)
+    else:
+        if solver_dir.exists():
+            shutil.rmtree(solver_dir)
+        shutil.copytree(candidate_dir / "solver_bundle", solver_dir)
     item_ids = [str(row["id"]) for row in read_jsonl(solver_dir / "items_private_sample.jsonl")]
 
     out_path = RUN_DIR / f"solver_{slug}.jsonl"
-    result = run_codex(solver_model, SOLVER_PROMPT.format(model=solver_model), out_path, solver_dir, SOLVER_EFFORT, SOLVER_TIMEOUT_SECONDS)
-    raw = out_path.read_text(encoding="utf-8") if out_path.exists() else ""
-    predictions = extract_predictions(raw, item_ids)
-    predictions_path = candidate_dir / f"predictions_solver_{safe_name(solver_model)}.jsonl"
-    write_jsonl(predictions_path, predictions)
-    score_path = candidate_dir / f"score_solver_{safe_name(solver_model)}.json"
-    completed = run_cmd(
-        [PYTHON, "scorer.py", "--gold", "gold_private_sample.jsonl", "--predictions", str(predictions_path), "--out", str(score_path)],
-        candidate_dir,
-        timeout=420,
+    result = run_model(
+        solver_spec,
+        SOLVER_PROMPT.format(agent_label=solver_spec.agent_label, solver_bundle_path=solver_dir),
+        out_path,
+        solver_dir,
+        SOLVER_EFFORT,
+        SOLVER_TIMEOUT_SECONDS,
     )
+    raw = out_path.read_text(encoding="utf-8") if out_path.exists() else ""
+    predictions = [] if result.get("model_mismatch") else extract_predictions(raw, item_ids)
+    predictions_path = candidate_dir / f"predictions_solver_{safe_name(solver_spec.name)}.jsonl"
+    write_jsonl(predictions_path, predictions)
+    score_path = candidate_dir / f"score_solver_{safe_name(solver_spec.name)}.json"
+    if result.get("model_mismatch"):
+        completed = subprocess.CompletedProcess([], 86, "", "skipped scoring because Antigravity selected-model check failed")
+    else:
+        completed = run_cmd(
+            [PYTHON, "scorer.py", "--gold", "gold_private_sample.jsonl", "--predictions", str(predictions_path), "--out", str(score_path)],
+            candidate_dir,
+            timeout=420,
+        )
+    if antigravity_temp_dir is not None:
+        shutil.rmtree(antigravity_temp_dir, ignore_errors=True)
     result.update(
         {
             "phase": "solver",
             "creator_model": creator_model,
-            "solver_model": solver_model,
+            "solver_model": solver_spec.name,
+            "solver_display_model": solver_spec.display_name,
             "prediction_rows": len(predictions),
             "predictions_path": str(predictions_path),
             "score_path": str(score_path),
@@ -511,6 +534,20 @@ def candidate_title(candidate_dir: Path) -> str:
     return candidate_dir.name
 
 
+def mismatch_validation(result: dict[str, Any]) -> dict[str, Any]:
+    expected = result.get("antigravity_expected_label")
+    actual = result.get("antigravity_actual_label")
+    report = f"model_mismatch: expected {expected!r}, saw {actual!r}\n"
+    return {
+        "valid": False,
+        "bundle_file_count": 0,
+        "gold_summary": None,
+        "wrong_summary": None,
+        "leak_matches": [],
+        "report": report,
+    }
+
+
 def write_summary(manifest: list[dict[str, Any]], validations: dict[str, dict[str, Any]], candidate_dirs: dict[str, Path]) -> None:
     lines: list[str] = []
     lines.append("# Broad BenchBench Sweep")
@@ -518,17 +555,20 @@ def write_summary(manifest: list[dict[str, Any]], validations: dict[str, dict[st
     lines.append("This run used the broad creator prompt: creators saw benchmark landscape notes and prior pilot outcomes, but were not directed toward any specific domain or modality.")
     lines.append("")
     lines.append(f"Run root: `{RUN_ROOT}`")
-    lines.append(f"Creator models: `{', '.join(MODELS)}`")
-    lines.append(f"Solver models: `{', '.join(MODELS)}`")
+    lines.append(f"Creator models: `{', '.join(spec.name for spec in MODEL_SPECS)}`")
+    lines.append(f"Solver models: `{', '.join(spec.name for spec in MODEL_SPECS)}`")
     lines.append(f"Creator effort: `{CREATOR_EFFORT}`")
     lines.append(f"Solver effort: `{SOLVER_EFFORT}`")
+    if any(spec.provider == "antigravity" for spec in MODEL_SPECS):
+        lines.append("")
+        lines.append("Antigravity rows use the current selected `agy` model and are checked against the selected-model label in the CLI log when a specific Gemini label is requested.")
     lines.append("")
     lines.append("## Candidates")
     lines.append("")
-    for model in MODELS:
-        cdir = candidate_dirs[model]
-        val = validations.get(model, {})
-        lines.append(f"### {model}: {candidate_title(cdir)}")
+    for spec in MODEL_SPECS:
+        cdir = candidate_dirs[spec.name]
+        val = validations.get(spec.name, {})
+        lines.append(f"### {spec.display_name}: {candidate_title(cdir)}")
         lines.append("")
         lines.append(f"- Candidate: `{cdir}`")
         lines.append(f"- Validated: `{val.get('valid')}`")
@@ -542,15 +582,16 @@ def write_summary(manifest: list[dict[str, Any]], validations: dict[str, dict[st
 
     lines.append("## Solver Grid")
     lines.append("")
-    lines.append("| creator | benchmark | solver GPT-5.2 | solver GPT-5.4 | solver GPT-5.5 | max score | status |")
-    lines.append("|---|---|---:|---:|---:|---:|---|")
-    for creator_model in MODELS:
-        cdir = candidate_dirs[creator_model]
+    solver_headers = [f"solver {spec.display_name}" for spec in MODEL_SPECS]
+    lines.append("| creator | benchmark | " + " | ".join(solver_headers) + " | max score | status |")
+    lines.append("|---|---|" + "|".join("---:" for _ in MODEL_SPECS) + "|---:|---|")
+    for creator_spec in MODEL_SPECS:
+        cdir = candidate_dirs[creator_spec.name]
         cells = []
         max_correct: int | None = None
         max_total: int | None = None
-        for solver_model in MODELS:
-            score = score_summary(cdir / f"score_solver_{safe_name(solver_model)}.json")
+        for solver_spec in MODEL_SPECS:
+            score = score_summary(cdir / f"score_solver_{safe_name(solver_spec.name)}.json")
             if score:
                 cells.append(f"{score['correct']}/{score['total']}")
                 if max_correct is None or score["correct"] > max_correct:
@@ -559,7 +600,7 @@ def write_summary(manifest: list[dict[str, Any]], validations: dict[str, dict[st
             else:
                 cells.append("NA")
         status = "accept" if max_correct is not None and max_total and max_correct < (0.5 * max_total) else "reject"
-        lines.append(f"| {creator_model} | {candidate_title(cdir)} | " + " | ".join(cells) + f" | {max_correct}/{max_total} | {status} |")
+        lines.append(f"| {creator_spec.display_name} | {candidate_title(cdir)} | " + " | ".join(cells) + f" | {max_correct}/{max_total} | {status} |")
 
     lines.append("")
     lines.append("## Calls")
@@ -575,7 +616,7 @@ def write_summary(manifest: list[dict[str, Any]], validations: dict[str, dict[st
             "| {phase} | {creator} | {model} | {rows} | {score} | {tokens} | {rc} |".format(
                 phase=item.get("phase"),
                 creator=item.get("creator_model", ""),
-                model=item.get("solver_model", item.get("model", "")),
+                model=item.get("solver_display_model", item.get("display_model", item.get("solver_model", item.get("model", "")))),
                 rows=item.get("prediction_rows", ""),
                 score=score_text,
                 tokens=item.get("tokens_used", 0),
@@ -589,22 +630,55 @@ def write_summary(manifest: list[dict[str, Any]], validations: dict[str, dict[st
     (RUN_ROOT / "manifest.json").write_text(json.dumps(manifest, indent=2, sort_keys=True) + "\n", encoding="utf-8")
 
 
+def parse_args() -> argparse.Namespace:
+    parser = argparse.ArgumentParser(description="Run a broad BenchBench creator/solver sweep.")
+    parser.add_argument(
+        "--models",
+        nargs="+",
+        default=DEFAULT_MODELS,
+        help=(
+            "Creator and solver model specs. Unprefixed specs use Codex. "
+            "Use agy:gemini-3.5-flash-high, agy:gemini-3.1-pro, or agy:current for Antigravity."
+        ),
+    )
+    parser.add_argument("--run-root", type=Path, default=None, help="Optional output experiment directory.")
+    parser.add_argument("--creator-effort", default=CREATOR_EFFORT)
+    parser.add_argument("--solver-effort", default=SOLVER_EFFORT)
+    parser.add_argument("--creator-timeout-seconds", type=int, default=CREATOR_TIMEOUT_SECONDS)
+    parser.add_argument("--solver-timeout-seconds", type=int, default=SOLVER_TIMEOUT_SECONDS)
+    return parser.parse_args()
+
+
 def main() -> None:
+    global CREATOR_EFFORT, SOLVER_EFFORT, CREATOR_TIMEOUT_SECONDS, SOLVER_TIMEOUT_SECONDS, MODELS, MODEL_SPECS, RUN_ROOT, RUN_DIR
+
+    args = parse_args()
+    MODELS = args.models
+    MODEL_SPECS = [parse_model_spec(model) for model in MODELS]
+    CREATOR_EFFORT = args.creator_effort
+    SOLVER_EFFORT = args.solver_effort
+    CREATOR_TIMEOUT_SECONDS = args.creator_timeout_seconds
+    SOLVER_TIMEOUT_SECONDS = args.solver_timeout_seconds
+    if args.run_root is not None:
+        RUN_ROOT = args.run_root if args.run_root.is_absolute() else ROOT / args.run_root
+        RUN_DIR = RUN_ROOT / "run"
+
     RUN_DIR.mkdir(parents=True, exist_ok=True)
     manifest: list[dict[str, Any]] = []
     validations: dict[str, dict[str, Any]] = {}
     candidate_dirs: dict[str, Path] = {}
 
-    for model in MODELS:
-        slug = safe_name(model)
+    for spec in MODEL_SPECS:
+        slug = safe_name(spec.name)
         candidate_dir = RUN_DIR / f"candidate_created_by_{slug}"
         candidate_dir.mkdir(parents=True, exist_ok=True)
-        candidate_dirs[model] = candidate_dir
-        print(f"[creator:start] {model}", flush=True)
-        creator = run_codex(
-            model,
+        candidate_dirs[spec.name] = candidate_dir
+        print(f"[creator:start] {spec.name}", flush=True)
+        creator = run_model(
+            spec,
             CREATOR_PROMPT.format(
-                model=model,
+                agent_label=spec.agent_label,
+                artifact_dir=candidate_dir,
                 benchmark_landscape=BENCHMARK_LANDSCAPE,
                 pilot_summary=PILOT_SUMMARY,
                 python=PYTHON,
@@ -615,41 +689,45 @@ def main() -> None:
             CREATOR_EFFORT,
             CREATOR_TIMEOUT_SECONDS,
         )
-        creator.update({"phase": "creator", "creator_model": model})
+        creator.update({"phase": "creator", "creator_model": spec.name, "creator_display_model": spec.display_name})
         manifest.append(creator)
-        print(f"[creator:done] {model} rc={creator['returncode']} tokens={creator['tokens_used']}", flush=True)
+        print(f"[creator:done] {spec.name} rc={creator['returncode']} tokens={creator['tokens_used']}", flush=True)
 
-        validation = local_validate(candidate_dir)
-        validations[model] = validation
-        print(f"[validate] {model} valid={validation['valid']}", flush=True)
+        validation = mismatch_validation(creator) if creator.get("model_mismatch") else local_validate(candidate_dir)
+        validations[spec.name] = validation
+        print(f"[validate] {spec.name} valid={validation['valid']}", flush=True)
 
-        if not validation["valid"]:
-            print(f"[repair:start] {model}", flush=True)
-            repair = run_codex(
-                model,
-                REPAIR_PROMPT.format(model=model, local_report=validation["report"][:60000]),
+        if not validation["valid"] and not creator.get("model_mismatch"):
+            print(f"[repair:start] {spec.name}", flush=True)
+            repair = run_model(
+                spec,
+                REPAIR_PROMPT.format(
+                    agent_label=spec.agent_label,
+                    artifact_dir=candidate_dir,
+                    local_report=validation["report"][:60000],
+                ),
                 RUN_DIR / f"repair_{slug}.md",
                 candidate_dir,
                 CREATOR_EFFORT,
                 CREATOR_TIMEOUT_SECONDS,
             )
-            repair.update({"phase": "repair", "creator_model": model})
+            repair.update({"phase": "repair", "creator_model": spec.name, "creator_display_model": spec.display_name})
             manifest.append(repair)
-            print(f"[repair:done] {model} rc={repair['returncode']} tokens={repair['tokens_used']}", flush=True)
-            validation = local_validate(candidate_dir)
-            validations[model] = validation
-            print(f"[validate:after_repair] {model} valid={validation['valid']}", flush=True)
+            print(f"[repair:done] {spec.name} rc={repair['returncode']} tokens={repair['tokens_used']}", flush=True)
+            validation = mismatch_validation(repair) if repair.get("model_mismatch") else local_validate(candidate_dir)
+            validations[spec.name] = validation
+            print(f"[validate:after_repair] {spec.name} valid={validation['valid']}", flush=True)
 
-    for creator_model in MODELS:
-        candidate_dir = candidate_dirs[creator_model]
-        if not validations.get(creator_model, {}).get("valid"):
+    for creator_spec in MODEL_SPECS:
+        candidate_dir = candidate_dirs[creator_spec.name]
+        if not validations.get(creator_spec.name, {}).get("valid"):
             continue
-        for solver_model in MODELS:
-            print(f"[solver:start] creator={creator_model} solver={solver_model}", flush=True)
-            result = run_solver(creator_model, solver_model, candidate_dir)
+        for solver_spec in MODEL_SPECS:
+            print(f"[solver:start] creator={creator_spec.name} solver={solver_spec.name}", flush=True)
+            result = run_solver(creator_spec.name, solver_spec, candidate_dir)
             manifest.append(result)
             print(
-                f"[solver:done] creator={creator_model} solver={solver_model} "
+                f"[solver:done] creator={creator_spec.name} solver={solver_spec.name} "
                 f"rows={result['prediction_rows']} score={result.get('score_summary')} "
                 f"tokens={result['tokens_used']} rc={result['returncode']}",
                 flush=True,

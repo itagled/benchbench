@@ -1,0 +1,18 @@
+{
+  "category": "Medical",
+  "declared_units": 6,
+  "escort": true,
+  "flags": [
+    "relay",
+    "vault"
+  ],
+  "id": "poa_000",
+  "manual_note": false,
+  "preclear": true,
+  "quantity": 8,
+  "record_age": 7,
+  "seal": "Birch",
+  "tier": "T3",
+  "weekend": true,
+  "zone": "South"
+}

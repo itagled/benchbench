@@ -1,0 +1,157 @@
+{
+  "accuracy": 0.0,
+  "correct": 0,
+  "total": 30,
+  "details": {
+    "mai_0": {
+      "status": "incorrect",
+      "gold": "R0=217,R1=207",
+      "prediction": "R0=178,R1=228"
+    },
+    "mai_1": {
+      "status": "incorrect",
+      "gold": "R0=178,R1=228",
+      "prediction": "R0=201,R1=166"
+    },
+    "mai_2": {
+      "status": "incorrect",
+      "gold": "R0=201,R1=166",
+      "prediction": "R0=34,R1=133"
+    },
+    "mai_3": {
+      "status": "incorrect",
+      "gold": "R0=34,R1=133",
+      "prediction": "R0=182,R1=75"
+    },
+    "mai_4": {
+      "status": "incorrect",
+      "gold": "R0=182,R1=75",
+      "prediction": "R0=54,R1=163"
+    },
+    "mai_5": {
+      "status": "incorrect",
+      "gold": "R0=54,R1=163",
+      "prediction": "R0=215,R1=93"
+    },
+    "mai_6": {
+      "status": "incorrect",
+      "gold": "R0=215,R1=93",
+      "prediction": "R0=36,R1=93"
+    },
+    "mai_7": {
+      "status": "incorrect",
+      "gold": "R0=36,R1=93",
+      "prediction": "R0=134,R1=135"
+    },
+    "mai_8": {
+      "status": "incorrect",
+      "gold": "R0=134,R1=135",
+      "prediction": "R0=124,R1=53"
+    },
+    "mai_9": {
+      "status": "incorrect",
+      "gold": "R0=124,R1=53",
+      "prediction": "R0=204,R1=225"
+    },
+    "mai_10": {
+      "status": "incorrect",
+      "gold": "R0=204,R1=225",
+      "prediction": "R0=0,R1=84"
+    },
+    "mai_11": {
+      "status": "incorrect",
+      "gold": "R0=0,R1=84",
+      "prediction": "R0=77,R1=15"
+    },
+    "mai_12": {
+      "status": "incorrect",
+      "gold": "R0=77,R1=15",
+      "prediction": "R0=94,R1=229"
+    },
+    "mai_13": {
+      "status": "incorrect",
+      "gold": "R0=94,R1=229",
+      "prediction": "R0=102,R1=147"
+    },
+    "mai_14": {
+      "status": "incorrect",
+      "gold": "R0=102,R1=147",
+      "prediction": "R0=92,R1=236"
+    },
+    "mai_15": {
+      "status": "incorrect",
+      "gold": "R0=92,R1=236",
+      "prediction": "R0=33,R1=84"
+    },
+    "mai_16": {
+      "status": "incorrect",
+      "gold": "R0=33,R1=84",
+      "prediction": "R0=226,R1=70"
+    },
+    "mai_17": {
+      "status": "incorrect",
+      "gold": "R0=226,R1=70",
+      "prediction": "R0=134,R1=3"
+    },
+    "mai_18": {
+      "status": "incorrect",
+      "gold": "R0=134,R1=3",
+      "prediction": "R0=178,R1=213"
+    },
+    "mai_19": {
+      "status": "incorrect",
+      "gold": "R0=178,R1=213",
+      "prediction": "R0=123,R1=87"
+    },
+    "mai_20": {
+      "status": "incorrect",
+      "gold": "R0=123,R1=87",
+      "prediction": "R0=105,R1=119"
+    },
+    "mai_21": {
+      "status": "incorrect",
+      "gold": "R0=105,R1=119",
+      "prediction": "R0=9,R1=188"
+    },
+    "mai_22": {
+      "status": "incorrect",
+      "gold": "R0=9,R1=188",
+      "prediction": "R0=44,R1=210"
+    },
+    "mai_23": {
+      "status": "incorrect",
+      "gold": "R0=44,R1=210",
+      "prediction": "R0=113,R1=164"
+    },
+    "mai_24": {
+      "status": "incorrect",
+      "gold": "R0=113,R1=164",
+      "prediction": "R0=82,R1=96"
+    },
+    "mai_25": {
+      "status": "incorrect",
+      "gold": "R0=82,R1=96",
+      "prediction": "R0=114,R1=15"
+    },
+    "mai_26": {
+      "status": "incorrect",
+      "gold": "R0=114,R1=15",
+      "prediction": "R0=149,R1=3"
+    },
+    "mai_27": {
+      "status": "incorrect",
+      "gold": "R0=149,R1=3",
+      "prediction": "R0=218,R1=21"
+    },
+    "mai_28": {
+      "status": "incorrect",
+      "gold": "R0=218,R1=21",
+      "prediction": "R0=33,R1=43"
+    },
+    "mai_29": {
+      "status": "incorrect",
+      "gold": "R0=33,R1=43",
+      "prediction": "R0=217,R1=207"
+    }
+  }
+}

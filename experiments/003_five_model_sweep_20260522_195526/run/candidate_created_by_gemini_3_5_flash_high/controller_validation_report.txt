@@ -1,0 +1,73 @@
+missing_root_files: none
+missing_solver_bundle_files: none
+external_solvability_evidence: present in validation_report.md
+gold_rows: 30
+gold_contract_valid: True
+solver_bundle_file_count: 3
+solver_bundle_item_rows: 30
+solver_bundle_item_contract_valid: True
+leak_scan_matches: solver_packet.md:solution, solver_packet.md:target_, items_private_sample.jsonl:target_
+score_gold_controller: {"accuracy": 1.0, "correct": 30, "total": 30}
+score_wrong_shifted_controller: {"accuracy": 0.0, "correct": 0, "total": 30}
+
+commands:
+[
+  {
+    "args": [
+      "/Users/rohit/.pyenv/versions/global_env/bin/python",
+      "generator.py",
+      "--sample-count",
+      "30",
+      "--seed",
+      "20260516",
+      "--out-dir",
+      "."
+    ],
+    "returncode": 0,
+    "stdout_tail": "Generating 30 puzzles with seed 20260516...\n  Generated mai_0 successfully.\n  Generated mai_1 successfully.\n  Generated mai_2 successfully.\n  Generated mai_3 successfully.\n  Generated mai_4 successfully.\n  Generated mai_5 successfully.\n  Generated mai_6 successfully.\n  Generated mai_7 successfully.\n  Generated mai_8 successfully.\n  Generated mai_9 successfully.\n  Generated mai_10 successfully.\n  Generated mai_11 successfully.\n  Generated mai_12 successfully.\n  Generated mai_13 successfully.\n  Generated mai_14 successfully.\n  Generated mai_15 successfully.\n  Generated mai_16 successfully.\n  Generated mai_17 successfully.\n  Generated mai_18 successfully.\n  Generated mai_19 successfully.\n  Generated mai_20 successfully.\n  Generated mai_21 successfully.\n  Generated mai_22 successfully.\n  Generated mai_23 successfully.\n  Generated mai_24 successfully.\n  Generated mai_25 successfully.\n  Generated mai_26 successfully.\n  Generated mai_27 successfully.\n  Generated mai_28 successfully.\n  Generated mai_29 successfully.\nFinished. Wrote ./solver_bundle/items_private_sample.jsonl and ./gold_private_sample.jsonl.\n",
+    "stderr_tail": ""
+  },
+  {
+    "args": [
+      "/Users/rohit/.pyenv/versions/global_env/bin/python",
+      "verifier.py",
+      "--items",
+      "solver_bundle/items_private_sample.jsonl",
+      "--gold",
+      "gold_private_sample.jsonl"
+    ],
+    "returncode": 0,
+    "stdout_tail": "Verifying 30 items...\n  Item mai_0 verified successfully (unique solution R0=217, R1=207; steps=8).\n  Item mai_1 verified successfully (unique solution R0=178, R1=228; steps=50).\n  Item mai_2 verified successfully (unique solution R0=201, R1=166; steps=8).\n  Item mai_3 verified successfully (unique solution R0=34, R1=133; steps=50).\n  Item mai_4 verified successfully (unique solution R0=182, R1=75; steps=50).\n  Item mai_5 verified successfully (unique solution R0=54, R1=163; steps=50).\n  Item mai_6 verified successfully (unique solution R0=215, R1=93; steps=50).\n  Item mai_7 verified successfully (unique solution R0=36, R1=93; steps=50).\n  Item mai_8 verified successfully (unique solution R0=134, R1=135; steps=8).\n  Item mai_9 verified successfully (unique solution R0=124, R1=53; steps=50).\n  Item mai_10 verified successfully (unique solution R0=204, R1=225; steps=8).\n  Item mai_11 verified successfully (unique solution R0=0, R1=84; steps=8).\n  Item mai_12 verified successfully (unique solution R0=77, R1=15; steps=8).\n  Item mai_13 verified successfully (unique solution R0=94, R1=229; steps=8).\n  Item mai_14 verified successfully (unique solution R0=102, R1=147; steps=8).\n  Item mai_15 verified successfully (unique solution R0=92, R1=236; steps=50).\n  Item mai_16 verified successfully (unique solution R0=33, R1=84; steps=50).\n  Item mai_17 verified successfully (unique solution R0=226, R1=70; steps=50).\n  Item mai_18 verified successfully (unique solution R0=134, R1=3; steps=50).\n  Item mai_19 verified successfully (unique solution R0=178, R1=213; steps=8).\n  Item mai_20 verified successfully (unique solution R0=123, R1=87; steps=50).\n  Item mai_21 verified successfully (unique solution R0=105, R1=119; steps=50).\n  Item mai_22 verified successfully (unique solution R0=9, R1=188; steps=50).\n  Item mai_23 verified successfully (unique solution R0=44, R1=210; steps=8).\n  Item mai_24 verified successfully (unique solution R0=113, R1=164; steps=50).\n  Item mai_25 verified successfully (unique solution R0=82, R1=96; steps=50).\n  Item mai_26 verified successfully (unique solution R0=114, R1=15; steps=50).\n  Item mai_27 verified successfully (unique solution R0=149, R1=3; steps=50).\n  Item mai_28 verified successfully (unique solution R0=218, R1=21; steps=50).\n  Item mai_29 verified successfully (unique solution R0=33, R1=43; steps=10).\nVerification completed successfully. All items are valid and correct.\n",
+    "stderr_tail": ""
+  },
+  {
+    "args": [
+      "/Users/rohit/.pyenv/versions/global_env/bin/python",
+      "scorer.py",
+      "--gold",
+      "gold_private_sample.jsonl",
+      "--predictions",
+      "predictions_gold_controller.jsonl",
+      "--out",
+      "score_gold_controller.json"
+    ],
+    "returncode": 0,
+    "stdout_tail": "Scoring complete. Accuracy: 1.0000 (30/30). Wrote report to score_gold_controller.json.\n",
+    "stderr_tail": ""
+  },
+  {
+    "args": [
+      "/Users/rohit/.pyenv/versions/global_env/bin/python",
+      "scorer.py",
+      "--gold",
+      "gold_private_sample.jsonl",
+      "--predictions",
+      "predictions_wrong_shifted_controller.jsonl",
+      "--out",
+      "score_wrong_shifted_controller.json"
+    ],
+    "returncode": 0,
+    "stdout_tail": "Scoring complete. Accuracy: 0.0000 (0/30). Wrote report to score_wrong_shifted_controller.json.\n",
+    "stderr_tail": ""
+  }
+]

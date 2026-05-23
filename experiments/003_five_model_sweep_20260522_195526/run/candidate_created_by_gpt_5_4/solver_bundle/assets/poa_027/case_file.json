@@ -1,0 +1,19 @@
+{
+  "category": "Agriculture",
+  "declared_units": 5,
+  "escort": true,
+  "flags": [
+    "dock",
+    "relay",
+    "vault"
+  ],
+  "id": "poa_027",
+  "manual_note": true,
+  "preclear": true,
+  "quantity": 2,
+  "record_age": 2,
+  "seal": "Ember",
+  "tier": "T3",
+  "weekend": true,
+  "zone": "South"
+}

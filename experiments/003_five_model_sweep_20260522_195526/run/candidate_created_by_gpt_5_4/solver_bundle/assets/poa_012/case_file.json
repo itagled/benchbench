@@ -1,0 +1,18 @@
+{
+  "category": "Medical",
+  "declared_units": 3,
+  "escort": false,
+  "flags": [
+    "dock",
+    "relay"
+  ],
+  "id": "poa_012",
+  "manual_note": true,
+  "preclear": true,
+  "quantity": 9,
+  "record_age": 3,
+  "seal": "Dawn",
+  "tier": "T1",
+  "weekend": false,
+  "zone": "South"
+}

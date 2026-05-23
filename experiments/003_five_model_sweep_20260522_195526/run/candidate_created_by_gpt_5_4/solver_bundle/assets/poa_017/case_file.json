@@ -1,0 +1,17 @@
+{
+  "category": "Archives",
+  "declared_units": 6,
+  "escort": true,
+  "flags": [
+    "vault"
+  ],
+  "id": "poa_017",
+  "manual_note": true,
+  "preclear": false,
+  "quantity": 1,
+  "record_age": 4,
+  "seal": "Aster",
+  "tier": "T3",
+  "weekend": false,
+  "zone": "South"
+}

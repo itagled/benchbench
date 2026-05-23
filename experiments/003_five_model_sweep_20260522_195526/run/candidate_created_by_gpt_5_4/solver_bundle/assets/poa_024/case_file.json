@@ -1,0 +1,19 @@
+{
+  "category": "Research",
+  "declared_units": 5,
+  "escort": false,
+  "flags": [
+    "dock",
+    "field",
+    "vault"
+  ],
+  "id": "poa_024",
+  "manual_note": false,
+  "preclear": true,
+  "quantity": 4,
+  "record_age": 7,
+  "seal": "Ember",
+  "tier": "T2",
+  "weekend": true,
+  "zone": "North"
+}

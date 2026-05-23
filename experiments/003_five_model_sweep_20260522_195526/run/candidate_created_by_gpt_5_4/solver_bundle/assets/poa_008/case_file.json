@@ -1,0 +1,17 @@
+{
+  "category": "Archives",
+  "declared_units": 4,
+  "escort": false,
+  "flags": [
+    "relay"
+  ],
+  "id": "poa_008",
+  "manual_note": true,
+  "preclear": true,
+  "quantity": 8,
+  "record_age": 9,
+  "seal": "Cinder",
+  "tier": "T3",
+  "weekend": false,
+  "zone": "West"
+}

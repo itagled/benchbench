@@ -1,0 +1,19 @@
+{
+  "category": "Agriculture",
+  "declared_units": 1,
+  "escort": false,
+  "flags": [
+    "field",
+    "relay",
+    "vault"
+  ],
+  "id": "poa_006",
+  "manual_note": true,
+  "preclear": false,
+  "quantity": 9,
+  "record_age": 6,
+  "seal": "Ember",
+  "tier": "T1",
+  "weekend": false,
+  "zone": "West"
+}

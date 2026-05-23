@@ -1,0 +1,17 @@
+{
+  "category": "Agriculture",
+  "declared_units": 8,
+  "escort": true,
+  "flags": [
+    "dock"
+  ],
+  "id": "poa_028",
+  "manual_note": true,
+  "preclear": false,
+  "quantity": 5,
+  "record_age": 1,
+  "seal": "Birch",
+  "tier": "T2",
+  "weekend": false,
+  "zone": "South"
+}

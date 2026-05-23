@@ -1,0 +1,7 @@
+- Built a new benchmark package: **Ledger Canonical Reconciliation (LCR) v1** (`benchmark_spec.json`, `generator.py`, `verifier.py`, `scorer.py`, `README.md`, `failure_modes.md`, `validation_report.md`).
+- Ran the full required CLI flow and validated:
+  - Generated 30 items + solver bundle (`gold_private_sample.jsonl`, `solver_bundle/items_private_sample.jsonl`, per-item CSV assets).
+  - Verified ids/assets (`verifier.py`) successfully.
+  - Gold self-score is **30/30** (`score_report.json`).
+  - Weak shortcut baseline `baseline_naive.py` scores **0/30** (`score_report_naive.json`), showing the items punish sloppy assumptions.
+- Solver bundle is isolated (no gold, no generator/scorer code): `solver_bundle/SOLVER_MANIFEST.json`, `solver_bundle/items_private_sample.jsonl`, `solver_bundle/README.md`, and per-item `items/<id>/{ledger.csv,fx_rates.csv,rules.md}` only.

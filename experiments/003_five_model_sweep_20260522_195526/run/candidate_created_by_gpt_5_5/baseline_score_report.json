@@ -1,0 +1,219 @@
+{
+  "accuracy": 0.0,
+  "details": [
+    {
+      "correct": false,
+      "expected": "rule=R5|fee_units=29|deadline_days=16|notice=no|waiver=W1+W2+W3",
+      "id": "alr_20260516_001",
+      "prediction": "rule=R0|fee_units=35|deadline_days=45|notice=yes|waiver=none",
+      "prediction_well_formed": true
+    },
+    {
+      "correct": false,
+      "expected": "rule=R3|fee_units=28|deadline_days=31|notice=no|waiver=W1",
+      "id": "alr_20260516_002",
+      "prediction": "rule=R0|fee_units=35|deadline_days=45|notice=yes|waiver=none",
+      "prediction_well_formed": true
+    },
+    {
+      "correct": false,
+      "expected": "rule=R2|fee_units=30|deadline_days=37|notice=no|waiver=W1",
+      "id": "alr_20260516_003",
+      "prediction": "rule=R0|fee_units=35|deadline_days=45|notice=yes|waiver=none",
+      "prediction_well_formed": true
+    },
+    {
+      "correct": false,
+      "expected": "rule=R2|fee_units=42|deadline_days=26|notice=yes|waiver=none",
+      "id": "alr_20260516_004",
+      "prediction": "rule=R0|fee_units=35|deadline_days=45|notice=yes|waiver=none",
+      "prediction_well_formed": true
+    },
+    {
+      "correct": false,
+      "expected": "rule=R3|fee_units=34|deadline_days=24|notice=no|waiver=none",
+      "id": "alr_20260516_005",
+      "prediction": "rule=R0|fee_units=35|deadline_days=45|notice=yes|waiver=none",
+      "prediction_well_formed": true
+    },
+    {
+      "correct": false,
+      "expected": "rule=R4|fee_units=26|deadline_days=40|notice=yes|waiver=none",
+      "id": "alr_20260516_006",
+      "prediction": "rule=R0|fee_units=35|deadline_days=45|notice=yes|waiver=none",
+      "prediction_well_formed": true
+    },
+    {
+      "correct": false,
+      "expected": "rule=R2|fee_units=37|deadline_days=20|notice=yes|waiver=none",
+      "id": "alr_20260516_007",
+      "prediction": "rule=R0|fee_units=35|deadline_days=45|notice=yes|waiver=none",
+      "prediction_well_formed": true
+    },
+    {
+      "correct": false,
+      "expected": "rule=R1|fee_units=40|deadline_days=27|notice=no|waiver=none",
+      "id": "alr_20260516_008",
+      "prediction": "rule=R0|fee_units=35|deadline_days=45|notice=yes|waiver=none",
+      "prediction_well_formed": true
+    },
+    {
+      "correct": false,
+      "expected": "rule=R4|fee_units=44|deadline_days=48|notice=no|waiver=W1",
+      "id": "alr_20260516_009",
+      "prediction": "rule=R0|fee_units=35|deadline_days=45|notice=yes|waiver=none",
+      "prediction_well_formed": true
+    },
+    {
+      "correct": false,
+      "expected": "rule=R8|fee_units=62|deadline_days=9|notice=no|waiver=none",
+      "id": "alr_20260516_010",
+      "prediction": "rule=R0|fee_units=35|deadline_days=45|notice=yes|waiver=none",
+      "prediction_well_formed": true
+    },
+    {
+      "correct": false,
+      "expected": "rule=R0|fee_units=19|deadline_days=45|notice=no|waiver=W3",
+      "id": "alr_20260516_011",
+      "prediction": "rule=R0|fee_units=35|deadline_days=45|notice=yes|waiver=none",
+      "prediction_well_formed": true
+    },
+    {
+      "correct": false,
+      "expected": "rule=R0|fee_units=35|deadline_days=45|notice=no|waiver=W2",
+      "id": "alr_20260516_012",
+      "prediction": "rule=R0|fee_units=35|deadline_days=45|notice=yes|waiver=none",
+      "prediction_well_formed": true
+    },
+    {
+      "correct": false,
+      "expected": "rule=R7|fee_units=36|deadline_days=17|notice=yes|waiver=none",
+      "id": "alr_20260516_013",
+      "prediction": "rule=R0|fee_units=35|deadline_days=45|notice=yes|waiver=none",
+      "prediction_well_formed": true
+    },
+    {
+      "correct": false,
+      "expected": "rule=R4|fee_units=32|deadline_days=38|notice=yes|waiver=none",
+      "id": "alr_20260516_014",
+      "prediction": "rule=R0|fee_units=35|deadline_days=45|notice=yes|waiver=none",
+      "prediction_well_formed": true
+    },
+    {
+      "correct": false,
+      "expected": "rule=R1|fee_units=35|deadline_days=45|notice=no|waiver=W2+W3",
+      "id": "alr_20260516_015",
+      "prediction": "rule=R0|fee_units=35|deadline_days=45|notice=yes|waiver=none",
+      "prediction_well_formed": true
+    },
+    {
+      "correct": false,
+      "expected": "rule=R6|fee_units=44|deadline_days=5|notice=no|waiver=W1+W2",
+      "id": "alr_20260516_016",
+      "prediction": "rule=R0|fee_units=35|deadline_days=45|notice=yes|waiver=none",
+      "prediction_well_formed": true
+    },
+    {
+      "correct": false,
+      "expected": "rule=R7|fee_units=44|deadline_days=26|notice=no|waiver=none",
+      "id": "alr_20260516_017",
+      "prediction": "rule=R0|fee_units=35|deadline_days=45|notice=yes|waiver=none",
+      "prediction_well_formed": true
+    },
+    {
+      "correct": false,
+      "expected": "rule=R3|fee_units=35|deadline_days=47|notice=no|waiver=W1",
+      "id": "alr_20260516_018",
+      "prediction": "rule=R0|fee_units=35|deadline_days=45|notice=yes|waiver=none",
+      "prediction_well_formed": true
+    },
+    {
+      "correct": false,
+      "expected": "rule=R0|fee_units=35|deadline_days=45|notice=no|waiver=W1",
+      "id": "alr_20260516_019",
+      "prediction": "rule=R0|fee_units=35|deadline_days=45|notice=yes|waiver=none",
+      "prediction_well_formed": true
+    },
+    {
+      "correct": false,
+      "expected": "rule=R4|fee_units=27|deadline_days=53|notice=yes|waiver=none",
+      "id": "alr_20260516_020",
+      "prediction": "rule=R0|fee_units=35|deadline_days=45|notice=yes|waiver=none",
+      "prediction_well_formed": true
+    },
+    {
+      "correct": false,
+      "expected": "rule=R0|fee_units=43|deadline_days=51|notice=yes|waiver=none",
+      "id": "alr_20260516_021",
+      "prediction": "rule=R0|fee_units=35|deadline_days=45|notice=yes|waiver=none",
+      "prediction_well_formed": true
+    },
+    {
+      "correct": false,
+      "expected": "rule=R5|fee_units=29|deadline_days=5|notice=yes|waiver=none",
+      "id": "alr_20260516_022",
+      "prediction": "rule=R0|fee_units=35|deadline_days=45|notice=yes|waiver=none",
+      "prediction_well_formed": true
+    },
+    {
+      "correct": false,
+      "expected": "rule=R3|fee_units=41|deadline_days=27|notice=no|waiver=W1",
+      "id": "alr_20260516_023",
+      "prediction": "rule=R0|fee_units=35|deadline_days=45|notice=yes|waiver=none",
+      "prediction_well_formed": true
+    },
+    {
+      "correct": false,
+      "expected": "rule=R2|fee_units=28|deadline_days=49|notice=no|waiver=W1",
+      "id": "alr_20260516_024",
+      "prediction": "rule=R0|fee_units=35|deadline_days=45|notice=yes|waiver=none",
+      "prediction_well_formed": true
+    },
+    {
+      "correct": false,
+      "expected": "rule=R0|fee_units=28|deadline_days=45|notice=no|waiver=W1",
+      "id": "alr_20260516_025",
+      "prediction": "rule=R0|fee_units=35|deadline_days=45|notice=yes|waiver=none",
+      "prediction_well_formed": true
+    },
+    {
+      "correct": false,
+      "expected": "rule=R6|fee_units=44|deadline_days=60|notice=no|waiver=W1",
+      "id": "alr_20260516_026",
+      "prediction": "rule=R0|fee_units=35|deadline_days=45|notice=yes|waiver=none",
+      "prediction_well_formed": true
+    },
+    {
+      "correct": false,
+      "expected": "rule=R4|fee_units=38|deadline_days=40|notice=no|waiver=W1",
+      "id": "alr_20260516_027",
+      "prediction": "rule=R0|fee_units=35|deadline_days=45|notice=yes|waiver=none",
+      "prediction_well_formed": true
+    },
+    {
+      "correct": false,
+      "expected": "rule=R2|fee_units=32|deadline_days=45|notice=no|waiver=W1",
+      "id": "alr_20260516_028",
+      "prediction": "rule=R0|fee_units=35|deadline_days=45|notice=yes|waiver=none",
+      "prediction_well_formed": true
+    },
+    {
+      "correct": false,
+      "expected": "rule=R1|fee_units=34|deadline_days=25|notice=no|waiver=none",
+      "id": "alr_20260516_029",
+      "prediction": "rule=R0|fee_units=35|deadline_days=45|notice=yes|waiver=none",
+      "prediction_well_formed": true
+    },
+    {
+      "correct": false,
+      "expected": "rule=R2|fee_units=28|deadline_days=19|notice=no|waiver=W1+W2",
+      "id": "alr_20260516_030",
+      "prediction": "rule=R0|fee_units=35|deadline_days=45|notice=yes|waiver=none",
+      "prediction_well_formed": true
+    }
+  ],
+  "extra_predictions": [],
+  "missing_predictions": [],
+  "score": 0,
+  "total": 30
+}

@@ -1,0 +1,17 @@
+{
+  "category": "Transit",
+  "declared_units": 7,
+  "escort": true,
+  "flags": [
+    "dock"
+  ],
+  "id": "poa_029",
+  "manual_note": false,
+  "preclear": true,
+  "quantity": 8,
+  "record_age": 6,
+  "seal": "Dawn",
+  "tier": "T1",
+  "weekend": false,
+  "zone": "East"
+}

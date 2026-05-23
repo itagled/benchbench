@@ -1,0 +1,11 @@
+Fixed the solver-bundle item JSONL contract mismatch by switching solver bundle rows from `item_id` → `id`, and updated all internal consumers to match.
+
+- Updated generator output schema in `generator.py:372` so `solver_bundle/items_private_sample.jsonl` rows use `{"id": ...}` (not `item_id`), and refreshed bundle docs/manifests accordingly (`generator.py:395`, `solver_bundle/SOLVER_MANIFEST.json:5`, `solver_bundle/README.md:6`).
+- Updated `verifier.py:46` to validate `id` (and keep the same asset-path containment checks).
+- Updated `baseline_naive.py:38` to read `item["id"]` so the naive baseline still runs.
+
+Regenerated and revalidated exactly as requested (same seed/sample size):
+- `/Users/rohit/.pyenv/versions/global_env/bin/python generator.py --sample-count 30 --seed 20260516 --out-dir .`
+- `/Users/rohit/.pyenv/versions/global_env/bin/python verifier.py --items solver_bundle/items_private_sample.jsonl --gold gold_private_sample.jsonl`
+- `/Users/rohit/.pyenv/versions/global_env/bin/python scorer.py --gold gold_private_sample.jsonl --predictions predictions_gold_controller.jsonl --out score_gold_controller.json` → `30/30`
+- `/Users/rohit/.pyenv/versions/global_env/bin/python scorer.py --gold gold_private_sample.jsonl --predictions predictions_wrong_shifted_controller.jsonl --out score_wrong_shifted_controller.json` → `0/30`

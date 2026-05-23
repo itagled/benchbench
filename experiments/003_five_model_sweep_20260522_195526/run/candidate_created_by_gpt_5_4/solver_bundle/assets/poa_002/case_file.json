@@ -1,0 +1,17 @@
+{
+  "category": "Agriculture",
+  "declared_units": 2,
+  "escort": true,
+  "flags": [
+    "relay"
+  ],
+  "id": "poa_002",
+  "manual_note": false,
+  "preclear": false,
+  "quantity": 9,
+  "record_age": 2,
+  "seal": "Cinder",
+  "tier": "T2",
+  "weekend": true,
+  "zone": "South"
+}

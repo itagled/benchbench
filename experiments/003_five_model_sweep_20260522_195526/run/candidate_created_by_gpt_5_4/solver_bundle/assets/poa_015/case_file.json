@@ -1,0 +1,19 @@
+{
+  "category": "Archives",
+  "declared_units": 7,
+  "escort": true,
+  "flags": [
+    "field",
+    "relay",
+    "vault"
+  ],
+  "id": "poa_015",
+  "manual_note": false,
+  "preclear": false,
+  "quantity": 8,
+  "record_age": 1,
+  "seal": "Birch",
+  "tier": "T1",
+  "weekend": true,
+  "zone": "North"
+}

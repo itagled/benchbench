@@ -1,0 +1,2 @@
+An Python script is currently checking the availability of common cryptography and math libraries (`z3`, `numpy`, `scipy`, etc.) in the background. I will pause here to wait for its completion.
+Error: timed out waiting for response

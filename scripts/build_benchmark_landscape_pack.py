@@ -819,6 +819,16 @@ def read_benchmark_name(spec_path: Path) -> str:
     return spec_path.parent.name
 
 
+def model_from_safe_slug(slug: str) -> str:
+    gpt_match = re.fullmatch(r"gpt_5_(\d+)", slug)
+    if gpt_match:
+        return f"gpt-5.{gpt_match.group(1)}"
+    gemini_match = re.fullmatch(r"gemini_3_(\d+)_(.+)", slug)
+    if gemini_match:
+        return f"gemini-3.{gemini_match.group(1)}-{gemini_match.group(2).replace('_', '-')}"
+    return slug.replace("_", "-")
+
+
 def solver_model_from_score_path(path: Path) -> tuple[str, str]:
     if path.stem.startswith("score_specialist_"):
         return path.stem.replace("score_", ""), "baseline"
@@ -829,10 +839,7 @@ def solver_model_from_score_path(path: Path) -> tuple[str, str]:
     elif "high" in name:
         effort = "high"
     name = name.replace("grid_", "").replace("high_", "").replace("xhigh_", "")
-    match = re.search(r"gpt_5_[245]", name)
-    if not match:
-        return name.replace("_", "-"), effort
-    return match.group(0).replace("_", "-").replace("gpt-5-", "gpt-5."), effort
+    return model_from_safe_slug(name), effort
 
 
 def collect_benchbench_scores() -> tuple[pd.DataFrame, list[dict[str, Any]]]:
@@ -845,8 +852,8 @@ def collect_benchbench_scores() -> tuple[pd.DataFrame, list[dict[str, Any]]]:
         if not run_root.exists():
             continue
         experiment = run_root.parent.name
-        for candidate_dir in sorted(run_root.glob("candidate_created_by_gpt_5_*")):
-            creator = candidate_dir.name.replace("candidate_created_by_", "").replace("_", "-").replace("gpt-5-", "gpt-5.")
+        for candidate_dir in sorted(run_root.glob("candidate_created_by_*")):
+            creator = model_from_safe_slug(candidate_dir.name.replace("candidate_created_by_", ""))
             benchmark_name = read_benchmark_name(candidate_dir / "benchmark_spec.json")
             benchmark_slug = f"benchbench_{slugify(benchmark_name)}"
             score_paths = sorted(candidate_dir.glob("score_solver*.json"))
@@ -1152,8 +1159,8 @@ def write_source_manifest(manifest: list[dict[str, Any]], openllm_rows: int, arc
             *manifest,
         ],
         "local_sources": [
-            "experiments/001_three_model_grid_pilot/run/*/score_solver*.json",
-            "experiments/002_broad_sweep_20260515_220653/run/*/score_solver*.json",
+            "experiments/001_three_model_grid_pilot/run/candidate_created_by_*/score_solver*.json",
+            "experiments/002_broad_sweep_20260515_220653/run/candidate_created_by_*/score_solver*.json",
         ],
     }
     (OUT / "source_manifest.json").write_text(json.dumps(data, indent=2) + "\n", encoding="utf-8")

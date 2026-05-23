@@ -1,0 +1,5 @@
+{
+  "name": "Polyhedral Surface Traversal",
+  "description": "Trace a turtle's path across the 2D grid of a 3D folded cube to determine the final sequence of visited cells.",
+  "items_file": "items_private_sample.jsonl"
+}

@@ -1,0 +1,17 @@
+{
+  "category": "Archives",
+  "declared_units": 7,
+  "escort": true,
+  "flags": [
+    "field"
+  ],
+  "id": "poa_022",
+  "manual_note": true,
+  "preclear": false,
+  "quantity": 8,
+  "record_age": 9,
+  "seal": "Ember",
+  "tier": "T1",
+  "weekend": true,
+  "zone": "West"
+}

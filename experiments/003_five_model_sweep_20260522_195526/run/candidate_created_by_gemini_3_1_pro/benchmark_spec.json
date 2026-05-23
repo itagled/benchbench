@@ -1,0 +1,7 @@
+{
+  "name": "Polyhedral Surface Traversal",
+  "description": "Tests spatial reasoning and coordinate tracking over a 3D folded cube.",
+  "metrics": ["accuracy"],
+  "closest_existing_benchmarks": ["SpatialSense", "Dynabench (spatial aspects)"],
+  "differentiation": "Unlike standard text-based spatial navigation, this requires exact simulation of 2D to 3D mapping with complex orientation inversions across net edges. Tool-using LLMs that rely on quickly written Python scripts frequently fail due to the subtle coordinate reflections required at folded edges."
+}

@@ -1,0 +1,16 @@
+Done. I repaired the candidate in place.
+
+Changed:
+- Renamed solver-visible `resolution_rules` to `decision_rules` to avoid the controller leak scan matching `solution` inside `resolution`.
+- Updated `generator.py`, `verifier.py`, solver packet, README, failure modes, and validation report.
+- Tightened `verifier.py` so generated solver items fail if `solution` label wording appears again.
+- Regenerated the 30-item sample.
+
+Verified:
+- `generator.py --sample-count 30 --seed 20260516 --out-dir .` passed.
+- `verifier.py --items solver_bundle/items_private_sample.jsonl --gold gold_private_sample.jsonl` -> `verified 30 items`
+- Gold scorer -> `30/30`
+- Shifted-wrong scorer -> `0/30`
+- `rg "solution" solver_bundle` returns no matches.
+
+The benchmark idea and item logic are preserved; this was a package-validity/isolation repair.

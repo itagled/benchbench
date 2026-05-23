@@ -1,0 +1,27 @@
+{
+  "benchmark_id": "ledger_canonical_reconciliation_v1",
+  "name": "Ledger Canonical Reconciliation (LCR) v1",
+  "version": "1.0.0",
+  "description": "Given a small set of transaction ledger CSVs plus FX rate tables, compute exact final per-account balances under a precise set of de-duplication and reversal rules, and emit a canonical JSON answer string.",
+  "capabilities_measured": [
+    "spec-following with tricky edge cases",
+    "tool-assisted data processing",
+    "deterministic canonicalization",
+    "error-checking and auditability"
+  ],
+  "closest_existing_benchmarks": [
+    {
+      "name": "coding / data-wrangling tasks (broadly)",
+      "why_not_duplicate": "LCR is not a code-writing benchmark; it is a deterministic audit/reconciliation task with intentionally adversarial ledger pathologies (dedupe, reversal semantics, time-indexed FX selection, canonical JSON emission) and a solver-visible rules packet per item."
+    }
+  ],
+  "answer_format": {
+    "type": "string",
+    "description": "A single-line canonical JSON object string mapping account_id -> integer USD cents. Keys must be sorted lexicographically by Unicode codepoint; values are integers. No whitespace."
+  },
+  "determinism": {
+    "generator_seeded": true,
+    "grading_exact_match": true
+  }
+}
+

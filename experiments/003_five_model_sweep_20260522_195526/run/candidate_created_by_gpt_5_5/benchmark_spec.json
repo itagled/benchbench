@@ -1,0 +1,23 @@
+{
+  "benchmark": "Amendment Ledger Reconciliation",
+  "short_name": "ALR",
+  "version": "1.0",
+  "capability_claim": "Measures whether a solver can reconcile a small but dense rule system after ordered amendments, definitions, suspensions, caps, and waivers, then compute the exact operative result for a case file.",
+  "closest_existing_benchmarks": [
+    "MuSR and BIG-Bench Hard, because items require multi-step symbolic reading and state tracking.",
+    "LegalBench-style legal reasoning tasks, because the surface form resembles statutory amendment interpretation.",
+    "SWE-bench only loosely, because the task has ordered patch application, but the artifacts are natural-language rule ledgers rather than software repositories."
+  ],
+  "novelty_statement": "ALR is not a knowledge exam, generic long-context QA, or coding task. The solver-visible packet contains all rules, but the hard part is maintaining a changing normative state across conflicting natural-language amendments and returning one exact machine-graded result.",
+  "item_count_private_sample": 30,
+  "gold_schema": {
+    "id": "string",
+    "answer": "rule=<RULE>|fee_units=<INT>|deadline_days=<INT>|notice=<yes/no>|waiver=<none or + joined waiver ids>"
+  },
+  "prediction_schema": {
+    "id": "string",
+    "answer": "same exact string format as gold"
+  },
+  "scoring": "Exact match per item; total score is number correct.",
+  "determinism": "generator.py is deterministic for a fixed --seed and --sample-count."
+}

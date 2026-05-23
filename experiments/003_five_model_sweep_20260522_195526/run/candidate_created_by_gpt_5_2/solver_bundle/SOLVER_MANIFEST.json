@@ -1,0 +1,16 @@
+{
+  "benchmark_id": "ledger_canonical_reconciliation_v1",
+  "bundle_version": "1.0.0",
+  "contains": [
+    "items_private_sample.jsonl",
+    "items/<id>/ledger.csv",
+    "items/<id>/fx_rates.csv",
+    "items/<id>/rules.md"
+  ],
+  "explicitly_not_included": [
+    "gold answers",
+    "generator/verifier/scorer code",
+    "validation reports",
+    "any hidden labels"
+  ]
+}

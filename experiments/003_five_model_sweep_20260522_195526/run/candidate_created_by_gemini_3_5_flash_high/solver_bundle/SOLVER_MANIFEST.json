@@ -1,0 +1,12 @@
+{
+  "benchmark_name": "Mutative Assembly Inversion (MAI)",
+  "version": "1.0.0",
+  "files": [
+    "SOLVER_MANIFEST.json",
+    "items_private_sample.jsonl",
+    "solver_packet.md"
+  ],
+  "format": "JSONL",
+  "task_description": "Find the unique inputs (R0, R1) in [0, 255] that solve the mutative register machine puzzles.",
+  "expected_outputs": "Predictions in JSONL format, containing rows with exact keys 'id' and 'answer'. The 'answer' string must be formatted exactly as 'R0=X,R1=Y'."
+}

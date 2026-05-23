@@ -1,0 +1,130 @@
+{
+  "benchmark_id": "ledger_canonical_reconciliation_v1",
+  "total": 30,
+  "correct": 0,
+  "accuracy": 0.0,
+  "missing_predictions": [],
+  "extra_predictions": [],
+  "per_item": [
+    {
+      "id": "lcr_20260516_00",
+      "correct": false
+    },
+    {
+      "id": "lcr_20260516_01",
+      "correct": false
+    },
+    {
+      "id": "lcr_20260516_02",
+      "correct": false
+    },
+    {
+      "id": "lcr_20260516_03",
+      "correct": false
+    },
+    {
+      "id": "lcr_20260516_04",
+      "correct": false
+    },
+    {
+      "id": "lcr_20260516_05",
+      "correct": false
+    },
+    {
+      "id": "lcr_20260516_06",
+      "correct": false
+    },
+    {
+      "id": "lcr_20260516_07",
+      "correct": false
+    },
+    {
+      "id": "lcr_20260516_08",
+      "correct": false
+    },
+    {
+      "id": "lcr_20260516_09",
+      "correct": false
+    },
+    {
+      "id": "lcr_20260516_10",
+      "correct": false
+    },
+    {
+      "id": "lcr_20260516_11",
+      "correct": false
+    },
+    {
+      "id": "lcr_20260516_12",
+      "correct": false
+    },
+    {
+      "id": "lcr_20260516_13",
+      "correct": false
+    },
+    {
+      "id": "lcr_20260516_14",
+      "correct": false
+    },
+    {
+      "id": "lcr_20260516_15",
+      "correct": false
+    },
+    {
+      "id": "lcr_20260516_16",
+      "correct": false
+    },
+    {
+      "id": "lcr_20260516_17",
+      "correct": false
+    },
+    {
+      "id": "lcr_20260516_18",
+      "correct": false
+    },
+    {
+      "id": "lcr_20260516_19",
+      "correct": false
+    },
+    {
+      "id": "lcr_20260516_20",
+      "correct": false
+    },
+    {
+      "id": "lcr_20260516_21",
+      "correct": false
+    },
+    {
+      "id": "lcr_20260516_22",
+      "correct": false
+    },
+    {
+      "id": "lcr_20260516_23",
+      "correct": false
+    },
+    {
+      "id": "lcr_20260516_24",
+      "correct": false
+    },
+    {
+      "id": "lcr_20260516_25",
+      "correct": false
+    },
+    {
+      "id": "lcr_20260516_26",
+      "correct": false
+    },
+    {
+      "id": "lcr_20260516_27",
+      "correct": false
+    },
+    {
+      "id": "lcr_20260516_28",
+      "correct": false
+    },
+    {
+      "id": "lcr_20260516_29",
+      "correct": false
+    }
+  ]
+}

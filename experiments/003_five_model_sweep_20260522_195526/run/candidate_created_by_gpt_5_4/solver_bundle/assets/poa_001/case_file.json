@@ -1,0 +1,19 @@
+{
+  "category": "Archives",
+  "declared_units": 9,
+  "escort": true,
+  "flags": [
+    "dock",
+    "relay",
+    "vault"
+  ],
+  "id": "poa_001",
+  "manual_note": false,
+  "preclear": true,
+  "quantity": 8,
+  "record_age": 2,
+  "seal": "Ember",
+  "tier": "T1",
+  "weekend": false,
+  "zone": "East"
+}

@@ -1,0 +1,17 @@
+{
+  "category": "Agriculture",
+  "declared_units": 5,
+  "escort": true,
+  "flags": [
+    "relay"
+  ],
+  "id": "poa_026",
+  "manual_note": true,
+  "preclear": false,
+  "quantity": 8,
+  "record_age": 5,
+  "seal": "Birch",
+  "tier": "T3",
+  "weekend": true,
+  "zone": "West"
+}

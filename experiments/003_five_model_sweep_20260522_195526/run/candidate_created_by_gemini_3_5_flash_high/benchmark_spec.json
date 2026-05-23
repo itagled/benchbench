@@ -1,0 +1,25 @@
+{
+  "name": "Mutative Assembly Inversion (MAI)",
+  "version": "1.0.0",
+  "description": "Find the unique register inputs R0 and R1 in [0, 255] that cause a self-modifying assembly program to terminate with a specified target register state within a maximum step limit.",
+  "capability_claim": "Evaluates logic-tracking, execution-emulation, symbolic analysis, and program-inversion capabilities of frontier models on completely novel, self-modifying, non-standard computer architectures.",
+  "closest_existing_benchmarks": [
+    {
+      "name": "FrontierMath / AIME",
+      "reason": "Evaluates mathematical logic, but does not test programmatic execution state tracking under dynamic self-modification."
+    },
+    {
+      "name": "SWE-bench / LiveCodeBench",
+      "reason": "Evaluates standard coding and debugging, but does not test low-level custom assembly reverse engineering or self-modifying machine emulation."
+    },
+    {
+      "name": "OSWorld / GAIA",
+      "reason": "Evaluates computer use and agent tool reasoning, whereas MAI is a pure logical reasoning and constraint satisfaction task."
+    }
+  ],
+  "grading_method": "Exact match on unique input pair (R0=X,R1=Y)",
+  "input_format": "JSONL containing initial SMRM instructions (as integers and assembly text), initial constant registers, target final register values, and step limit.",
+  "output_format": "Exactly R0=X,R1=Y where X and Y are decimal integer values in [0, 255].",
+  "sample_count": 30,
+  "seed": 20260516
+}

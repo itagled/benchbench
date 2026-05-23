@@ -1,0 +1,18 @@
+{
+  "category": "Research",
+  "declared_units": 8,
+  "escort": false,
+  "flags": [
+    "dock",
+    "vault"
+  ],
+  "id": "poa_007",
+  "manual_note": false,
+  "preclear": true,
+  "quantity": 4,
+  "record_age": 8,
+  "seal": "Aster",
+  "tier": "T2",
+  "weekend": true,
+  "zone": "North"
+}

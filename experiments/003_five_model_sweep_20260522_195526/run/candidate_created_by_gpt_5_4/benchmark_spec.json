@@ -1,0 +1,30 @@
+{
+  "benchmark_id": "patchwork_ordinance_adjudication_v1",
+  "name": "Patchwork Ordinance Adjudication (POA) v1",
+  "version": "1.0.0",
+  "description": "Given a solver-visible packet consisting of a fictional base ordinance, later amendments, and a case file, compute the final adjudication string under exact precedence and fee-composition rules.",
+  "capabilities_measured": [
+    "multi-document rule compilation",
+    "spec-following under precedence and override rules",
+    "tool-assisted exact reasoning",
+    "deterministic canonical output"
+  ],
+  "closest_existing_benchmarks": [
+    {
+      "name": "document understanding / expert QA",
+      "why_not_duplicate": "POA requires compiling several interacting normative documents into an exact machine-checkable output, rather than answering free-form questions from a passage."
+    },
+    {
+      "name": "tool-agent or coding-adjacent reasoning tasks",
+      "why_not_duplicate": "A solver may write code, but success depends on faithfully reconstructing the public rule stack from semi-natural-language amendment packets instead of solving hidden unit tests or API tasks."
+    }
+  ],
+  "answer_format": {
+    "type": "string",
+    "description": "Exact string: verdict=<ALLOW|REVIEW|DENY>;lane=<GREEN|AMBER|RED>;fee=<integer>"
+  },
+  "determinism": {
+    "generator_seeded": true,
+    "grading_exact_match": true
+  }
+}

@@ -1,0 +1,522 @@
+{
+  "answer_format": "verdict=<ALLOW|REVIEW|DENY>;lane=<GREEN|AMBER|RED>;fee=<integer>",
+  "benchmark_id": "patchwork_ordinance_adjudication_v1",
+  "item_count": 30,
+  "items": [
+    {
+      "files": {
+        "amendments": {
+          "path": "assets/poa_000/amendments.md",
+          "sha256": "ac36d8221b6c8837c9df3a245ce06411a8901f32f4628c7769811cf37ab8870f"
+        },
+        "case_file": {
+          "path": "assets/poa_000/case_file.json",
+          "sha256": "04d2875d94ea6b1d33c40ab8fbc91bcca691f831ce32530050808b15eb114e81"
+        },
+        "charter": {
+          "path": "assets/poa_000/charter.md",
+          "sha256": "0902bf223f3d530a8a018ed5b86b0c345d59564caef2daf1b4adb4e5c683363d"
+        }
+      },
+      "id": "poa_000"
+    },
+    {
+      "files": {
+        "amendments": {
+          "path": "assets/poa_001/amendments.md",
+          "sha256": "6b67803401622829891b36302b4fce5834b31850ddef073eeb39187891fbec3b"
+        },
+        "case_file": {
+          "path": "assets/poa_001/case_file.json",
+          "sha256": "c2922de857e1bf13c7c14fe1187405cd7959f26d7830362c325feb7c047ea205"
+        },
+        "charter": {
+          "path": "assets/poa_001/charter.md",
+          "sha256": "4184ffb771b51ef244f79beb5ef9940bbf445c310bf6579a7849d0f54b637f46"
+        }
+      },
+      "id": "poa_001"
+    },
+    {
+      "files": {
+        "amendments": {
+          "path": "assets/poa_002/amendments.md",
+          "sha256": "53bc2ea9d1dd1517a48d306e45d55b90695647203c163fa75ae0f4c48bda16c5"
+        },
+        "case_file": {
+          "path": "assets/poa_002/case_file.json",
+          "sha256": "e35551cd6358a05e9ea22cf7340e94770d2513551af6d1fe8e61c1b5111ae71e"
+        },
+        "charter": {
+          "path": "assets/poa_002/charter.md",
+          "sha256": "afabdf65ae0436da89ac422026d901f40fb769282cebf8ea6afc3a1a3c0c784a"
+        }
+      },
+      "id": "poa_002"
+    },
+    {
+      "files": {
+        "amendments": {
+          "path": "assets/poa_003/amendments.md",
+          "sha256": "f25b662c6804a14aee7e46c8dc13ca4dfa3c59d6cb1b9c52d6cbb281dd6dde2e"
+        },
+        "case_file": {
+          "path": "assets/poa_003/case_file.json",
+          "sha256": "d30972ede8b12e62a0c4b38e8ac3a679ba9141399477feb3b57b6eae359b6cb9"
+        },
+        "charter": {
+          "path": "assets/poa_003/charter.md",
+          "sha256": "0caea53508692ca099f70d7ac7a0f8e5367e6cfb7c9f921c90ae6788e202db98"
+        }
+      },
+      "id": "poa_003"
+    },
+    {
+      "files": {
+        "amendments": {
+          "path": "assets/poa_004/amendments.md",
+          "sha256": "a23700f8cc1788b9552eb53a026e564b5c2926e4f9521000bffd98be7abeba27"
+        },
+        "case_file": {
+          "path": "assets/poa_004/case_file.json",
+          "sha256": "d81168eb6180fd96f81a08ce8aa2e375121c35fc9a2062210b7a2020163d3e7a"
+        },
+        "charter": {
+          "path": "assets/poa_004/charter.md",
+          "sha256": "8a095a54f99e1bd739c64948243468e391d9da3df8c29959d92305b2d8f1ab81"
+        }
+      },
+      "id": "poa_004"
+    },
+    {
+      "files": {
+        "amendments": {
+          "path": "assets/poa_005/amendments.md",
+          "sha256": "25bff9ada6cb9af9ead1cde678c0ad7190fc6dc1373851c9a66c91a3fe7d89e5"
+        },
+        "case_file": {
+          "path": "assets/poa_005/case_file.json",
+          "sha256": "46a3f28dd512072538dffdfdb72d8db0c98d7be5a3d0b223e9058cb73f2cd3e4"
+        },
+        "charter": {
+          "path": "assets/poa_005/charter.md",
+          "sha256": "c3d96b487a9b15bb6313d62aa2d90614539d8e4ecabe6b24959e0d3e0a9aceeb"
+        }
+      },
+      "id": "poa_005"
+    },
+    {
+      "files": {
+        "amendments": {
+          "path": "assets/poa_006/amendments.md",
+          "sha256": "3e25ddddc11f3be7c93b2028d173999aa94cc267c10a1be59751f054bbd8008f"
+        },
+        "case_file": {
+          "path": "assets/poa_006/case_file.json",
+          "sha256": "9a16a0f80202d4acf46ef1a8303a15849d25281099f37fc52f06973c57a707a2"
+        },
+        "charter": {
+          "path": "assets/poa_006/charter.md",
+          "sha256": "258d27e2873b92582853ad309089d8a745ae1ca7deea6660e5beefd9917e1380"
+        }
+      },
+      "id": "poa_006"
+    },
+    {
+      "files": {
+        "amendments": {
+          "path": "assets/poa_007/amendments.md",
+          "sha256": "7a7f7f7727e10c776ccc538007ce73ff13917b1d4e9d38cfef3a5734eb4b1b65"
+        },
+        "case_file": {
+          "path": "assets/poa_007/case_file.json",
+          "sha256": "d27c59dfa6e737e5b414c8f11995134a767cbd887c34ff6bfb7f6a9413d35cef"
+        },
+        "charter": {
+          "path": "assets/poa_007/charter.md",
+          "sha256": "16022bc165f26eaa1fe575d698b36b94ca2460f7f2a9ff7b0ce91c25dc590e78"
+        }
+      },
+      "id": "poa_007"
+    },
+    {
+      "files": {
+        "amendments": {
+          "path": "assets/poa_008/amendments.md",
+          "sha256": "5cf04414475c0d47e4bbeb824ce4d9f87d6acfa282f9df6373ef423f4b11dfe1"
+        },
+        "case_file": {
+          "path": "assets/poa_008/case_file.json",
+          "sha256": "7a07827af23cf3319a9fb3283e8ee23a51fd4b67fd6c7678fa1735b41b8184ee"
+        },
+        "charter": {
+          "path": "assets/poa_008/charter.md",
+          "sha256": "8c00f069cb11b991686504feff0ce58c449b81846d9918b82ce58711b5ca91c2"
+        }
+      },
+      "id": "poa_008"
+    },
+    {
+      "files": {
+        "amendments": {
+          "path": "assets/poa_009/amendments.md",
+          "sha256": "05bbc025358f966393327c2bbcece6ae87efc509196490e440abe2374d488991"
+        },
+        "case_file": {
+          "path": "assets/poa_009/case_file.json",
+          "sha256": "21bb3f0bfb4e6e9e90e88b1cc38255f5f2878a7fabc090e2bdf82b6c41563531"
+        },
+        "charter": {
+          "path": "assets/poa_009/charter.md",
+          "sha256": "7ba342982ef0c260b5579f2bf9c03b3b48eba048c69299fa681da2d9750c5af8"
+        }
+      },
+      "id": "poa_009"
+    },
+    {
+      "files": {
+        "amendments": {
+          "path": "assets/poa_010/amendments.md",
+          "sha256": "d493f2df43eda176410e201a0095ba5d0798341e01a0f3fb02bb990e1f5f0c48"
+        },
+        "case_file": {
+          "path": "assets/poa_010/case_file.json",
+          "sha256": "e09684ecc10467ae846fcf059ea5b9473840edd8cf300b0f159cddcc0008b322"
+        },
+        "charter": {
+          "path": "assets/poa_010/charter.md",
+          "sha256": "e48fc366323a2a011e71cf7a7086524fb6152f508632dc326c95979bc389d1b0"
+        }
+      },
+      "id": "poa_010"
+    },
+    {
+      "files": {
+        "amendments": {
+          "path": "assets/poa_011/amendments.md",
+          "sha256": "61cb970efde39fb61e89b46e7d76d70e4d5af02c7d80b0b6a7dab2b1598b3ac3"
+        },
+        "case_file": {
+          "path": "assets/poa_011/case_file.json",
+          "sha256": "1e02357695f76cad67d7499eaae3a78c5ecb34ef5c3696819b139a068398947d"
+        },
+        "charter": {
+          "path": "assets/poa_011/charter.md",
+          "sha256": "514a916be2137036530cad7092d7b30b0a262d919e4f4541058ece6a1904ca2d"
+        }
+      },
+      "id": "poa_011"
+    },
+    {
+      "files": {
+        "amendments": {
+          "path": "assets/poa_012/amendments.md",
+          "sha256": "0ee933185f369633d0ddf3b3b1fe40ae68a51b9072510a3823d06ccfcd5fe4cc"
+        },
+        "case_file": {
+          "path": "assets/poa_012/case_file.json",
+          "sha256": "a4136e56f2ba6e1f74911237ecb5f47c2cb66e92149814f1a16caeb3324da7b7"
+        },
+        "charter": {
+          "path": "assets/poa_012/charter.md",
+          "sha256": "a73a7751ac0943926de8695d71f48e21e68bb3f7814f36e09ec29c08d14982c7"
+        }
+      },
+      "id": "poa_012"
+    },
+    {
+      "files": {
+        "amendments": {
+          "path": "assets/poa_013/amendments.md",
+          "sha256": "2ad712eaf6f5d73c4beb489caab7f012210985c61d806a9b3d67fed4204fee96"
+        },
+        "case_file": {
+          "path": "assets/poa_013/case_file.json",
+          "sha256": "f25e020f300cd900a7283bca250abcb436d87e67e86b3c6519148145edc365d9"
+        },
+        "charter": {
+          "path": "assets/poa_013/charter.md",
+          "sha256": "6d9dde687981b1f2b4485843d07de500ad0e657c5240ac460858d6141ed09ac9"
+        }
+      },
+      "id": "poa_013"
+    },
+    {
+      "files": {
+        "amendments": {
+          "path": "assets/poa_014/amendments.md",
+          "sha256": "b5ec5ed0e52f455f4273836927bdd70d8e82d062c741f2d9c5c24922bfa94b72"
+        },
+        "case_file": {
+          "path": "assets/poa_014/case_file.json",
+          "sha256": "25247716c3d10e6229d76159e7318d5a5503b3c624a5a945f4617059cc83f8f1"
+        },
+        "charter": {
+          "path": "assets/poa_014/charter.md",
+          "sha256": "a2623bd0bed403c8833a4dc8344560745f6b6aff7d8615636f1fbc64550a3162"
+        }
+      },
+      "id": "poa_014"
+    },
+    {
+      "files": {
+        "amendments": {
+          "path": "assets/poa_015/amendments.md",
+          "sha256": "9f5c03bf7428b3c5866f038c59ad60ab9290bdc1d1f7f47aa5da329c66df604b"
+        },
+        "case_file": {
+          "path": "assets/poa_015/case_file.json",
+          "sha256": "e42f1ac903388adbff3c8f0609c84d2a39fb70ff9d38f8bbe49c33e6d5bddd88"
+        },
+        "charter": {
+          "path": "assets/poa_015/charter.md",
+          "sha256": "0fb381cf814d7cb160e0889bee1987362fc234d4d057f5b380525b43ac17e037"
+        }
+      },
+      "id": "poa_015"
+    },
+    {
+      "files": {
+        "amendments": {
+          "path": "assets/poa_016/amendments.md",
+          "sha256": "6a3765c04ef6a57e02ba1313c75ba1281365ecbb97c5264deca0badee79392e5"
+        },
+        "case_file": {
+          "path": "assets/poa_016/case_file.json",
+          "sha256": "d42cc665f36b8a46c412e9ffecf81c4aade10e6741297c2b70d07a57a51a1926"
+        },
+        "charter": {
+          "path": "assets/poa_016/charter.md",
+          "sha256": "eebf8e446ba8d5e35809d08f8b6521b15c20d0aa21e2590ca4e3f094f61303bd"
+        }
+      },
+      "id": "poa_016"
+    },
+    {
+      "files": {
+        "amendments": {
+          "path": "assets/poa_017/amendments.md",
+          "sha256": "640bced0c58a02876ea32955c55ca24d0fe3082c08adbb4100b9a20f7d21755d"
+        },
+        "case_file": {
+          "path": "assets/poa_017/case_file.json",
+          "sha256": "d0b115613559e2b19fa54f9e0de10ebe8ead9549f77dd21088736049c3b6a80e"
+        },
+        "charter": {
+          "path": "assets/poa_017/charter.md",
+          "sha256": "dafde336908f38fbed7249afda59d204628d24a1c8ea2cb50a605f3455c5cc83"
+        }
+      },
+      "id": "poa_017"
+    },
+    {
+      "files": {
+        "amendments": {
+          "path": "assets/poa_018/amendments.md",
+          "sha256": "dda5983695e5d5dc3bb65c0140c2cb524bf8646f7181f02bc78d29cae48aa95e"
+        },
+        "case_file": {
+          "path": "assets/poa_018/case_file.json",
+          "sha256": "142a1b7010b9794d89a5cc8ffac626181b77a8fa8850c965e5760a7f7090a532"
+        },
+        "charter": {
+          "path": "assets/poa_018/charter.md",
+          "sha256": "fd4220d8dd3236c7e61170719a77684c36285380b691b743f0d540c79956abe7"
+        }
+      },
+      "id": "poa_018"
+    },
+    {
+      "files": {
+        "amendments": {
+          "path": "assets/poa_019/amendments.md",
+          "sha256": "9ae81f255d58f1f0332c30297a0cbbaf7cd7da10e2fa3e54f7d535dbdb98f94d"
+        },
+        "case_file": {
+          "path": "assets/poa_019/case_file.json",
+          "sha256": "ce2c52b23f3e8d4c0ae7c1fc0d6fbf8cc0b244bf5218621799b9417e748f98c9"
+        },
+        "charter": {
+          "path": "assets/poa_019/charter.md",
+          "sha256": "cfe0a13da0b0e5c3d93e7c58296e6e09c1e5cdcce5f505ed91a0f14f1d87e79e"
+        }
+      },
+      "id": "poa_019"
+    },
+    {
+      "files": {
+        "amendments": {
+          "path": "assets/poa_020/amendments.md",
+          "sha256": "39cf429c59e79238f5c07ec366501b4f3207aa79b8db659eb3231cfc6d9d2d47"
+        },
+        "case_file": {
+          "path": "assets/poa_020/case_file.json",
+          "sha256": "49d9f2fc7a039f0b35a1fcdfb0ac33250809c39166109f312e459c525019815a"
+        },
+        "charter": {
+          "path": "assets/poa_020/charter.md",
+          "sha256": "23181cf7a2c8c7dcc30f0fb7be9e5d057f6acb22a8f66007c3f8fc6a95dba1f9"
+        }
+      },
+      "id": "poa_020"
+    },
+    {
+      "files": {
+        "amendments": {
+          "path": "assets/poa_021/amendments.md",
+          "sha256": "a47336a8cc3c7d6155592b752fc52240635feb8b64b0f6bc8e2916cf02f85de0"
+        },
+        "case_file": {
+          "path": "assets/poa_021/case_file.json",
+          "sha256": "a5181861efe142b2fd8c441a4269a363fa9a2947ec3feb42a6cf1c9e06fb5518"
+        },
+        "charter": {
+          "path": "assets/poa_021/charter.md",
+          "sha256": "bd0e567f93bc68da087b3877ad9c4dcf97005ed4d89f3ccb0807eaafac1433e3"
+        }
+      },
+      "id": "poa_021"
+    },
+    {
+      "files": {
+        "amendments": {
+          "path": "assets/poa_022/amendments.md",
+          "sha256": "4af2e7cfc688dc16708444840c1acbe9ec688566580055008b2c5970077f2d77"
+        },
+        "case_file": {
+          "path": "assets/poa_022/case_file.json",
+          "sha256": "8602c37b1606b8cb129c459106ccb5d26b5e3ebe9916a6500affc5d992f06010"
+        },
+        "charter": {
+          "path": "assets/poa_022/charter.md",
+          "sha256": "61dfd34f2e52f8fb9bf2c47859334ead36d1279768cc9b619516c75ae09559a4"
+        }
+      },
+      "id": "poa_022"
+    },
+    {
+      "files": {
+        "amendments": {
+          "path": "assets/poa_023/amendments.md",
+          "sha256": "9ae464579e3fe4326ab193f7482a28139e8404bde845f9461c41b8c883282f44"
+        },
+        "case_file": {
+          "path": "assets/poa_023/case_file.json",
+          "sha256": "a159154f71887615ba1a178eb32a89718009d3b591fcebbdca0a9a6bd3b5d4c3"
+        },
+        "charter": {
+          "path": "assets/poa_023/charter.md",
+          "sha256": "47986c3353b3437f2f0e92241b5a2d81864831bdd9a97c09730d4f3ad057dba7"
+        }
+      },
+      "id": "poa_023"
+    },
+    {
+      "files": {
+        "amendments": {
+          "path": "assets/poa_024/amendments.md",
+          "sha256": "c33ff07108eec91eba4de70c8382d3deaa36e5d0ccbf0f1614f8d42d70918c81"
+        },
+        "case_file": {
+          "path": "assets/poa_024/case_file.json",
+          "sha256": "6f6fe81d46d516a8bfc25e812954f3c8b69352264524f7d4ebed3558c93cf70f"
+        },
+        "charter": {
+          "path": "assets/poa_024/charter.md",
+          "sha256": "4f03e53a7e545eafa6a934d7be03c5200b7c0d7acbd8839729664a2d12876e21"
+        }
+      },
+      "id": "poa_024"
+    },
+    {
+      "files": {
+        "amendments": {
+          "path": "assets/poa_025/amendments.md",
+          "sha256": "c96d2921821faf8f43340dea4ee1f7e154aca217ff38d6e20117dcccc48a3a0c"
+        },
+        "case_file": {
+          "path": "assets/poa_025/case_file.json",
+          "sha256": "721ff78abf0c32499e789f69948a85976e31e251f33329e43826da42e7f00993"
+        },
+        "charter": {
+          "path": "assets/poa_025/charter.md",
+          "sha256": "b03744fa2093b399cf80432ebb63bc1b0337af36c672fc651b3160f6d5ced72e"
+        }
+      },
+      "id": "poa_025"
+    },
+    {
+      "files": {
+        "amendments": {
+          "path": "assets/poa_026/amendments.md",
+          "sha256": "6e8afd0a98a12c30fd3fff539b4ea7cff7d4d51e27e2622a6cae4bc2c5a260ac"
+        },
+        "case_file": {
+          "path": "assets/poa_026/case_file.json",
+          "sha256": "597942997e623ffe8d22b476962adb57a031ebcee456ad8b8b31bbd72edfe7b8"
+        },
+        "charter": {
+          "path": "assets/poa_026/charter.md",
+          "sha256": "c4460b0574297030eae8772fa3ecc60383e7527720d43d2a1aa912ad4dac36a9"
+        }
+      },
+      "id": "poa_026"
+    },
+    {
+      "files": {
+        "amendments": {
+          "path": "assets/poa_027/amendments.md",
+          "sha256": "550c09528b84df752fd84c8eed65957bf7e26ac81482ec1026e697f04866b9e3"
+        },
+        "case_file": {
+          "path": "assets/poa_027/case_file.json",
+          "sha256": "579b5c43ba655041580f5730a9cdcf99ae0578355d4472c4104a815db7f29ad1"
+        },
+        "charter": {
+          "path": "assets/poa_027/charter.md",
+          "sha256": "b23911b41e45e194dbf2e2cec7b95639aecc01afff44ace23c407b8a17017574"
+        }
+      },
+      "id": "poa_027"
+    },
+    {
+      "files": {
+        "amendments": {
+          "path": "assets/poa_028/amendments.md",
+          "sha256": "a78048bda3ad2f3ab844cd0cf80a21ff306146b5ab41ae81ce35de9c58ec886d"
+        },
+        "case_file": {
+          "path": "assets/poa_028/case_file.json",
+          "sha256": "e740020a73396df991772a016db228032a36a7b5eda0dc0a84f58e3440126008"
+        },
+        "charter": {
+          "path": "assets/poa_028/charter.md",
+          "sha256": "0a7265249083414a96eebd315f3729c81a54609e6870e134189a04f9b479e4ec"
+        }
+      },
+      "id": "poa_028"
+    },
+    {
+      "files": {
+        "amendments": {
+          "path": "assets/poa_029/amendments.md",
+          "sha256": "79d1fc0cb306062878886e023e96e657f69b96087d0c01a37be8c1145a7de6c4"
+        },
+        "case_file": {
+          "path": "assets/poa_029/case_file.json",
+          "sha256": "161a2a47abf9bb06014e03e6cdb212a63deb2044aec7134a2314c6465d148767"
+        },
+        "charter": {
+          "path": "assets/poa_029/charter.md",
+          "sha256": "b3320c5d52b3655922535daf062aad9f4b3fc31f336d98007024f1f622ff3cef"
+        }
+      },
+      "id": "poa_029"
+    }
+  ],
+  "public_files": [
+    "shared_rules.md",
+    "items_private_sample.jsonl",
+    "README.md"
+  ]
+}

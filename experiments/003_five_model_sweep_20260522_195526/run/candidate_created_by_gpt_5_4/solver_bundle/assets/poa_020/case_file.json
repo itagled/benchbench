@@ -1,0 +1,18 @@
+{
+  "category": "Transit",
+  "declared_units": 5,
+  "escort": true,
+  "flags": [
+    "dock",
+    "relay"
+  ],
+  "id": "poa_020",
+  "manual_note": false,
+  "preclear": false,
+  "quantity": 1,
+  "record_age": 2,
+  "seal": "Aster",
+  "tier": "T1",
+  "weekend": true,
+  "zone": "East"
+}

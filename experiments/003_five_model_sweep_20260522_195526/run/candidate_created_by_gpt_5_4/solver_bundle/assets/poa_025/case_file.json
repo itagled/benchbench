@@ -1,0 +1,19 @@
+{
+  "category": "Research",
+  "declared_units": 4,
+  "escort": true,
+  "flags": [
+    "dock",
+    "relay",
+    "vault"
+  ],
+  "id": "poa_025",
+  "manual_note": false,
+  "preclear": false,
+  "quantity": 7,
+  "record_age": 2,
+  "seal": "Ember",
+  "tier": "T2",
+  "weekend": true,
+  "zone": "West"
+}

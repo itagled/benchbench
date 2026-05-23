@@ -1,0 +1,17 @@
+{
+  "category": "Research",
+  "declared_units": 7,
+  "escort": false,
+  "flags": [
+    "dock"
+  ],
+  "id": "poa_013",
+  "manual_note": false,
+  "preclear": false,
+  "quantity": 8,
+  "record_age": 8,
+  "seal": "Birch",
+  "tier": "T1",
+  "weekend": false,
+  "zone": "North"
+}

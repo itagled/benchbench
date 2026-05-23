@@ -1,0 +1,18 @@
+{
+  "category": "Agriculture",
+  "declared_units": 3,
+  "escort": true,
+  "flags": [
+    "field",
+    "vault"
+  ],
+  "id": "poa_005",
+  "manual_note": false,
+  "preclear": false,
+  "quantity": 5,
+  "record_age": 3,
+  "seal": "Cinder",
+  "tier": "T2",
+  "weekend": false,
+  "zone": "North"
+}
