@@ -13,8 +13,8 @@ record cost and cache telemetry.
 
 | run | prompt mode | benchmark | validation | full solver result | status |
 |---|---|---|---|---|---|
-| `005_claude_opus_exp003_style_20260523_125019` | Exp003-style starting prompt | String Rewriting Distance | valid | 0, 0, 30, 30, 30, 30 | reject; scorer type artifact plus saturation |
-| `006_claude_opus_feedback_style_20260523_125611` | feedback-style prompt | Conlang Rosetta | valid | 30, 30, 30, 30, 30, 30 | reject; saturated |
+| `005_claude_opus_exp003_style_20260523_125019` | Exp003-style starting prompt | String Rewriting Distance | valid | 0/30, 0/30, 30/30, 30/30, 30/30, 30/30 | reject; scorer type artifact plus saturation |
+| `006_claude_opus_feedback_style_20260523_125611` | feedback-style prompt | Conlang Rosetta | valid | 30/30, 30/30, 30/30, 30/30, 30/30, 30/30 | reject; saturated |
 
 The full solver result order is GPT-5.2, GPT-5.4, GPT-5.5, Gemini 3.1 Pro,
 Gemini 3.5 Flash, Claude Opus. In the String Rewriting Distance row, GPT-5.2

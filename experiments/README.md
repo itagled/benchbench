@@ -16,6 +16,10 @@ sweeps plus Claude Opus extension runs:
 - `feedback_for_next_full_6x6_sweep_20260523.md`: the feedback packet to use
   for the next all-model creator sweep.
 
+Read each grid as creator rows by solver columns. Cell values are exact-match
+scores out of 30. High scores mean the benchmark was easy; low nonzero scores
+are the useful signal; all-zero rows need audit before they count as hard.
+
 The key result is stable after adding Claude Opus: Reimbursement Forensics is
 the only current candidate where every tested solver lands in the low nonzero
 band. The two Claude-created benchmarks are valid packages, but both are too
@@ -29,8 +33,8 @@ Creator runs:
 
 | run | benchmark | full solver result | result |
 |---|---|---|---|
-| `005_claude_opus_exp003_style_20260523_125019` | String Rewriting Distance | 0, 0, 30, 30, 30, 30 | scorer type artifact; otherwise saturated |
-| `006_claude_opus_feedback_style_20260523_125611` | Conlang Rosetta | 30, 30, 30, 30, 30, 30 | saturated |
+| `005_claude_opus_exp003_style_20260523_125019` | String Rewriting Distance | 0/30, 0/30, 30/30, 30/30, 30/30, 30/30 | scorer type artifact; otherwise saturated |
+| `006_claude_opus_feedback_style_20260523_125611` | Conlang Rosetta | 30/30, 30/30, 30/30, 30/30, 30/30, 30/30 | saturated |
 
 The full solver result order is GPT-5.2, GPT-5.4, GPT-5.5, Gemini 3.1 Pro,
 Gemini 3.5 Flash, Claude Opus.

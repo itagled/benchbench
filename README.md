@@ -1,10 +1,11 @@
 # BenchBench
 
-BenchBench is an experiment in evaluating models as benchmark inventors.
+BenchBench evaluates models as benchmark inventors.
 
-The object is not simply to make a task that frontier models fail. The object
-is to make a benchmark package that is valid, reproducible, human-auditable,
-hard under strong solver attempts, and useful as a measurement axis.
+The question is not "can a model make a task that other frontier models fail?"
+That is easy to do badly. The question is whether a model can make a benchmark
+package that is valid, reproducible, human-auditable, hard under strong solver
+attempts, and useful as a measurement axis.
 
 ## Core Loop
 
@@ -70,6 +71,10 @@ controller extracts matching prediction rows and scores them with the
 candidate's scorer. Missing rows, malformed rows, wrong item ids, and timeouts
 all count against the solver.
 
+A sweep is a creator-by-solver matrix. Rows ask, "which model invented this
+benchmark?" Columns ask, "which model tried to solve it?" The cell value is the
+solver's exact-match score out of 30 items.
+
 BenchBench can also run a feedback loop. After a sweep, we write a short
 failure report that names what broke: near-perfect solver scores, all-zero
 solvability warnings, model-specific collapses, timeouts, parse failures, and
@@ -117,6 +122,11 @@ Full tables and notes:
 ![Exp003-style 6x6 solver grid](experiments/figures/exp003_style_6x6_heatmap.svg)
 
 ![Feedback-style 6x6 solver grid](experiments/figures/exp004_feedback_6x6_heatmap.svg)
+
+Read the heatmaps row-first. Red is not good here; it means the benchmark
+saturated at 30/30 and was too easy for that solver. Blue is the promising
+band: low but nonzero. Gray zeros are not automatic wins, because they can mean
+the public packet was under-specified or the solver failed operationally.
 
 The short read: Reimbursement Forensics is still the only current candidate
 with the shape BenchBench wants. All six solvers land in the low nonzero band,
@@ -202,8 +212,8 @@ Claude Opus creator runs:
 
 | pass | generated benchmark | full solver result | result |
 |---|---|---|---|
-| Exp003-style starting prompt | String Rewriting Distance | 0, 0, 30, 30, 30, 30 | reject; scorer type artifact plus saturation |
-| feedback-style prompt | Conlang Rosetta | 30, 30, 30, 30, 30, 30 | reject; saturated |
+| Exp003-style starting prompt | String Rewriting Distance | 0/30, 0/30, 30/30, 30/30, 30/30, 30/30 | reject; scorer type artifact plus saturation |
+| feedback-style prompt | Conlang Rosetta | 30/30, 30/30, 30/30, 30/30, 30/30, 30/30 | reject; saturated |
 
 The full solver result order is GPT-5.2, GPT-5.4, GPT-5.5, Gemini 3.1 Pro,
 Gemini 3.5 Flash, Claude Opus.
@@ -321,6 +331,8 @@ task is under-specified, not that the benchmark found a deep missing capability.
 
 - `benchmark_landscape/`: researched eval catalog, public score tables, model
   score matrix, and similarity method.
+- `benchbench_results.py`: shared parsing helpers for score JSONs, JSONL
+  prediction rows, candidate titles, and solver-written prediction files.
 - `run_broad_three_model_sweep.py`: creator/solver sweep harness, now with
   Codex, Antigravity, and Claude Code model backends.
 - `run_existing_solver_extension.py`: adds extra solver columns to an existing
