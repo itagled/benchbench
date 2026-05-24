@@ -1,6 +1,6 @@
 # Audit Queue
 
-Run these checks before using the next experiment as evidence or freezing a new
+Run these checks before using a new low-scoring result as evidence or freezing a
 candidate.
 
 ## 1. Reimbursement Forensics
@@ -14,11 +14,11 @@ landed in the low nonzero band.
 
 Audit checks:
 
-- Confirm the public solver bundle contains enough evidence to solve each item.
+- Confirm the public solver bundle contains enough evidence for each item.
 - Check that answer fields are identifiable without private labels or generator
   vocabulary.
 - Review representative wrong solver answers against the gold answers.
-- Confirm the scorer accepts the stated answer format and is not overfitting to
+- Confirm the scorer accepts the stated answer format and is not tied to
   hidden implementation details.
 - Scan for leakage from private gold answers, generator logic, seeds, traces, or
   answer keys.
@@ -37,8 +37,7 @@ Status: all-zero challenger; audit required.
 Source: `007_full_feedback_6x6_20260523_172919`.
 
 Why audit it: all six solvers scored 0/30, but field-level inspection suggests
-the exact eligible-downtime field may be the bottleneck rather than the whole
-task.
+the eligible-downtime field may be the bottleneck rather than the whole task.
 
 Audit checks:
 
@@ -56,5 +55,5 @@ Decision after audit:
 
 - Keep as a challenger only if the all-zero result reflects real, fair
   difficulty.
-- Otherwise mark it as a scorer/specification failure and do not use it as a
+- Otherwise mark it as a scorer or specification failure and do not use it as a
   benchmark-quality signal.

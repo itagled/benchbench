@@ -2,20 +2,20 @@
 
 This folder keeps the BenchBench run history.
 
-The current headline evidence is:
+Current headline:
 
-1. Experiment 004 produced the frozen incumbent, Reimbursement Forensics.
-2. Experiment 007 tested the next full-feedback 6x6 challenger sweep and did
-   not produce a better candidate.
+- Experiment 004 produced the frozen incumbent, Reimbursement Forensics.
+- Experiment 007 tested the next full-feedback 6x6 challenger sweep and did
+  not produce a better candidate.
 
-Experiments 001 and 002 are historical support. They are useful for provenance
-and prompt evolution, but they are not the main result.
+Experiments 001 and 002 are provenance. They explain prompt evolution, but they
+are not the main result.
 
 ## Current Files
 
 - `benchmark_bank.md`: status of frozen, audit-required, and rejected
   candidates.
-- `audit_queue.md`: checks to run before the next experiment is used as
+- `audit_queue.md`: checks to run before a new low-scoring result becomes
   evidence.
 - `result_grids_6x6_20260523.md`: current 6x6 result grids and heatmaps.
 - `feedback_for_next_challenger_sweep_20260523.md`: feedback packet for the
@@ -26,8 +26,8 @@ and prompt evolution, but they are not the main result.
 Reimbursement Forensics is frozen as the incumbent. It scored in the low
 nonzero band across all six tested solvers: 10/30 to 14/30.
 
-That is the best shape seen so far, but it is not accepted yet. It still needs
-a human audit for leakage, answer evidence, and external solvability.
+That is the best shape seen so far. It is still not accepted; it needs a human
+audit for leakage, answer evidence, scorer fairness, and external solvability.
 
 Experiment 007 did not displace it:
 
@@ -36,8 +36,8 @@ Experiment 007 did not displace it:
 | GPT-5.2 | Service Credit Forensics | all-zero; audit required |
 | GPT-5.4 | Catalog Royalty Forensics | too easy |
 | GPT-5.5 | Prior Authorization Forensics | too easy |
-| Gemini 3.1 Pro | Commercial Lease CAM Reconciliation | interesting spread, too easy at the top end |
-| Gemini 3.5 Flash | Maritime Freight & Customs Audit | interesting spread, too easy at the top end |
+| Gemini 3.1 Pro | Commercial Lease CAM Reconciliation | diagnostic spread, too easy at the top end |
+| Gemini 3.5 Flash | Maritime Freight & Customs Audit | diagnostic spread, too easy at the top end |
 | Claude Opus | Construction Progress Payment Certification | saturated |
 
 ## Canonical Runs
@@ -47,7 +47,7 @@ Experiment 007 did not displace it:
 Direct six-creator, six-solver feedback sweep. All creators saw the current
 failure report. Claude Opus ran through Cursor.
 
-Two narrow contract interventions were made before interpreting the grid:
+Two contract interventions were made before interpreting the grid:
 
 - Gemini 3.1 Pro's creator package was repaired from `{id, gold}` /
   `prediction` to the required `{id, answer}` contract and validated before its
@@ -60,7 +60,7 @@ No row beat the frozen incumbent.
 ### `004_feedback_sweep_20260522_225208`
 
 Feedback-driven five-model run. Creator models saw the Experiment 003 failure
-report and were asked to build a benchmark that survived those solver
+report and were asked to build a benchmark that survived the observed solver
 strategies.
 
 Headline:

@@ -1,4 +1,4 @@
-# Claude Opus Extension — 2026-05-23
+# Claude Opus Extension - 2026-05-23
 
 This note summarizes the Claude Opus extension runs.
 
@@ -28,10 +28,11 @@ stdout. The harness was fixed to harvest solver-written prediction files before
 deleting temp bundles. The corrected solver extension result is 30/30.
 
 Claude's second creator run received the Experiment 003 failure report,
-Experiment 004 result summary, the solvability audit lessons, and the failure
-of Claude's first String Rewriting Distance run. It did not receive the full
-6x6 grids because they had not been reconstructed yet. The next full creator
-sweep should use `feedback_for_next_full_6x6_sweep_20260523.md`.
+Experiment 004 result summary, solvability audit lessons, and the failure of
+Claude's first String Rewriting Distance run. It did not receive the full 6x6
+grids because they had not been reconstructed yet. The later Experiment 007
+sweep used `feedback_for_next_full_6x6_sweep_20260523.md`; the next live packet
+is `feedback_for_next_challenger_sweep_20260523.md`.
 
 ## Solver Extension Results
 
@@ -72,7 +73,7 @@ have usable cost telemetry.
 ## Interpretation
 
 Claude Opus did not create a durable new benchmark in these two attempts. Both
-candidate packages were valid, but neither survived the full solver set.
+packages were valid, but neither survived the full solver set.
 
 As a solver, Claude Opus strengthens the case that Reimbursement Forensics is
 the best current candidate: it also scored in the low nonzero band, at 11/30.

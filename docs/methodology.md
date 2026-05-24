@@ -1,30 +1,28 @@
-# Methodology And Process
+# Methodology
 
 BenchBench evaluates benchmark invention.
 
-A creator model writes a complete benchmark package. Solver models then attack
-the public solver bundle. The benchmark only matters if it is externally
-solvable in principle, reproducible, auditable, and still hard after strong
-tool-enabled solvers try it.
+A creator model writes a benchmark package. Solver models attack only the
+public bundle. A candidate is useful only if it is externally solvable,
+reproducible, auditable, and still hard after that attack.
 
 ## Sweep Lifecycle
 
-1. Pick creator and solver panels.
-2. Give creators the benchmark landscape, prior pilot notes, and any feedback
-   packet supplied with `--feedback-context`.
+1. Choose creator and solver panels.
+2. Give creators the landscape pack, pilot notes, package contract, and any
+   `--feedback-context`.
 3. Ask each creator to write a complete candidate package.
 4. Validate package mechanics locally.
 5. Give each invalid package one repair call from the same creator.
-6. Copy only the public `solver_bundle/` into isolated solver directories.
+6. Copy only `solver_bundle/` into isolated solver directories.
 7. Run each solver blind against each valid candidate.
-8. Score solver JSONL predictions against private gold answers.
-9. Interpret the grid.
+8. Score solver JSONL against private gold answers.
+9. Interpret the creator-by-solver grid.
 10. Write benchmark cards and feedback for the next sweep.
 
-Rows in the grid are benchmark creators. Columns are solvers. Cells are
-exact-match scores out of 30.
+Rows are creators. Columns are solvers. Cells are exact-match scores out of 30.
 
-## Candidate Package Contract
+## Candidate Contract
 
 Each creator produces a self-contained directory.
 
@@ -39,95 +37,87 @@ Required root files:
 - `validation_report.md`
 - `failure_modes.md`
 
-Required public solver bundle:
+Required public bundle:
 
 - `solver_bundle/SOLVER_MANIFEST.json`
 - `solver_bundle/items_private_sample.jsonl`
 - `solver_bundle/README.md` or `solver_bundle/solver_packet.md`
 - any solver-visible assets needed for the task
 
-Private gold rows use exactly:
+Private gold rows and solver predictions both use:
 
 ```json
 {"id":"...","answer":"..."}
 ```
 
-Solver predictions use the same `id` and `answer` contract.
-
 ## Validation
 
-The controller checks whether the package can be run and scored before it lets
-solvers spend time on it. It:
+The controller checks whether a package can be generated, verified, and scored
+before solvers spend time on it. It:
 
 - regenerates the 30-item sample from the required CLI;
-- runs the verifier against public items and private gold answers;
-- self-scores the private gold answers;
+- runs the verifier against public items and private gold;
+- self-scores the gold answers;
 - runs a shifted-wrong control;
-- checks that the solver bundle exists;
-- checks that public item ids match private gold ids;
+- checks that the public item ids match private gold ids;
 - scans the public bundle for obvious leakage.
 
-Invalid candidates get one repair attempt from the same creator model. Repairs
-are for package validity, not a new benchmark design.
+Repairs are for validity only: fixing generation, scoring, contracts, or bundle
+isolation. They are not a second chance to invent a new benchmark.
 
-## What Creators And Solvers See
+## Who Sees What
 
-Creator models see the broad benchmark landscape pack, the Experiment 001 pilot
-summary, the artifact directory they must write into, and the package contract.
-When `--feedback-context` is supplied, they also see prior run results,
-benchmark cards, and failure lessons.
+Creators see the landscape pack, Experiment 001 pilot summary, artifact path,
+package contract, and any feedback file supplied with `--feedback-context`.
+Feedback files include prior grids, benchmark cards, and failure lessons.
 
-Solver models do not see prior results. They receive only the isolated
-`solver_bundle/` for the candidate they are solving. They may use tools, code,
-OCR, local packages, and internet access if useful. They may not inspect parent
-directories, private gold answers, generators, scorers, private traces, or
-answer keys.
+Solvers see only the isolated `solver_bundle/` for the candidate they are
+solving. They may use tools, code, OCR, local packages, and internet access.
+They may not inspect parent directories, private gold, generators, scorers,
+private traces, or answer keys.
 
 ## Scoring
 
 Solvers return JSONL rows with exactly `id` and `answer`. The controller
 extracts matching rows, preserves item order, and runs the candidate's
-`scorer.py` against private gold answers.
+`scorer.py` against private gold.
 
 Missing rows, malformed rows, wrong item ids, timeouts, parser failures, and
-scorer crashes all count against the solver. The manifest also records return
+scorer crashes all count against the solver. Manifests also record return
 codes, token counts, and backend-specific cache or cost fields when available.
 
-## Interpreting Results
+## Interpreting A Candidate
 
 The gate is conservative.
 
-- If many strong solvers get high scores, the candidate is too easy.
-- If every solver gets zero, the candidate goes to audit. It is not a win yet.
-- If low scores come from hidden labels, private vocabulary, type strictness,
-  malformed output expectations, or missing public evidence, the candidate
-  fails.
-- If a task is mainly a tool-running stall or a narrow recovery puzzle, it may
-  be diagnostically useful without becoming a broad benchmark.
-- A useful candidate should be externally solvable, well specified,
-  reproducible, hard under strong solver attempts, auditable, and meaningfully
-  different from existing evals.
+- High scores from strong solvers mean the candidate is too easy.
+- All-zero rows go to audit. They are not wins by default.
+- Low scores caused by hidden labels, private vocabulary, strict types,
+  malformed output expectations, or missing public evidence fail the candidate.
+- Tool stalls and narrow recovery puzzles can be diagnostic without becoming
+  broad benchmarks.
+- A keeper should be externally solvable, well specified, reproducible,
+  auditable, hard under strong solver attempts, and meaningfully different from
+  existing evals.
 
-## Frozen Incumbents And Challenger Sweeps
+## Frozen Incumbents
 
-Once a candidate reaches the desired low-nonzero shape, it can be frozen as an
-incumbent. Freezing means the saved package and score grid become the current
-target to beat.
+When a candidate reaches the desired low-nonzero shape, it can be frozen as an
+incumbent. Frozen means "current target to beat." It does not mean accepted.
 
-Frozen does not mean accepted. It means "do not rerun this creator result in
-every fresh sweep unless something material changes." Rerun it only when:
+Rerun a frozen incumbent only when:
 
 - a new solver family is added;
 - the package or scorer is audited and repaired;
 - calibration against the incumbent is needed;
-- the model panel changes enough that the old result is no longer comparable.
+- the model panel changes enough to break comparability.
 
-The next sweep should usually be a challenger sweep: keep the incumbent in the
-benchmark bank, give its result and failure lessons to the creators, and ask
-the remaining creators to produce better candidates. The runner supports this
-with separate `--creator-models` and `--solver-models` panels.
+Otherwise, run challenger sweeps: keep the incumbent in the benchmark bank,
+give creators its result and failure lessons, and ask them to produce better
+candidates. The runner supports this with separate `--creator-models` and
+`--solver-models`.
 
-## Audit Gate Between Experiments
+## Audit Gate
 
 Audit-required candidates should be checked before they become feedback anchors
 or frozen incumbents.
@@ -135,33 +125,29 @@ or frozen incumbents.
 The audit asks:
 
 - Does the public bundle contain enough evidence to solve each item?
-- Are the answer fields identifiable without private vocabulary?
-- Does the scorer accept semantically correct answers in the stated format?
+- Are answer fields identifiable without private vocabulary?
+- Does the scorer accept the stated answer format?
 - Did solvers fail because the benchmark is hard, or because the contract is
   unfair, brittle, or ambiguous?
 - Is there leakage from gold answers, generator logic, hidden seeds, or private
   traces?
 
-The current audit queue is tracked in
-[`experiments/audit_queue.md`](../experiments/audit_queue.md).
+Current queue: [`experiments/audit_queue.md`](../experiments/audit_queue.md)
 
-## Stable Bank Vs Fresh Sweeps
+## Benchmark States
 
-BenchBench now separates three states:
+- **Frozen incumbent:** best current candidate to beat, pending audit.
+- **Stable bank:** audited packages ready for fixed solver tests. Empty for
+  now.
+- **Fresh sweep:** a new creator run searching for better candidates.
 
-- **Frozen incumbent:** the best current candidate to beat, pending audit.
-- **Stable bank:** audited benchmark packages that can be reused as fixed
-  solver tests. This is not populated yet.
-- **Fresh sweep:** a new creator run that searches for better candidates.
+Reimbursement Forensics is the current frozen incumbent. It is not yet a stable
+bank benchmark.
 
-Experiment 004's Reimbursement Forensics is the current frozen incumbent. It is
-not yet a promoted stable-bank benchmark.
+## Limits
 
-## What BenchBench Does Not Prove Yet
-
-BenchBench does not prove that one model is generally the best benchmark
+BenchBench does not yet prove that one model is generally the best benchmark
 designer. It shows which model produced the best candidate in these runs.
 
-It also does not prove novelty against the whole benchmark landscape. The
-similarity path exists, but the local evidence is still a smoke check rather
-than a full novelty claim.
+It also does not prove novelty against the whole eval landscape. The similarity
+path exists, but the current evidence is still a smoke check.

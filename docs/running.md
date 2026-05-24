@@ -2,35 +2,19 @@
 
 This page keeps commands and backend notes out of the README.
 
-## Fresh Symmetric Sweep
-
-Run the default three-model sweep:
-
-```bash
-python run_broad_three_model_sweep.py
-```
-
-Use `--models` when the creator and solver panels are the same:
-
-```bash
-python run_broad_three_model_sweep.py \
-  --models gpt-5.2 gpt-5.4 gpt-5.5 agy:gemini-3.1-pro agy:gemini-3.5-flash-high
-```
-
-Each completed sweep writes:
-
-- `summary.md`: run metadata, benchmark cards, solver grid, and call table.
-- `feedback_for_next_sweep.md`: a creator-ready packet with the grid,
-  benchmark cards, and next-run lessons.
-
 ## Challenger Sweep
 
 Use a challenger sweep when a good candidate has been frozen and the next run
 should search for something better.
 
-The current incumbent is Reimbursement Forensics from Experiment 004. The next
-challenger sweep should give creators the current feedback packet, skip GPT-5.2
-as a creator, and keep the full six-model solver panel:
+Current incumbent: Reimbursement Forensics from Experiment 004.
+
+Before using any new all-zero or low-scoring row as evidence, run the checks in
+`experiments/audit_queue.md`.
+
+The next challenger sweep gives creators the current feedback packet, skips
+GPT-5.2 as a creator because its incumbent is frozen, and keeps the full
+six-model solver panel:
 
 ```bash
 BENCHBENCH_CLAUDE_MAX_BUDGET_USD=25 python run_broad_three_model_sweep.py \
@@ -39,15 +23,30 @@ BENCHBENCH_CLAUDE_MAX_BUDGET_USD=25 python run_broad_three_model_sweep.py \
   --solver-models gpt-5.2 gpt-5.4 gpt-5.5 agy:gemini-3.1-pro agy:gemini-3.5-flash-high cursor:claude-opus
 ```
 
-Run the audit queue before treating any all-zero or low-scoring row as evidence:
+## Symmetric Sweep
 
-```text
-experiments/audit_queue.md
+Use `--models` when the creator and solver panels are the same:
+
+```bash
+python run_broad_three_model_sweep.py \
+  --models gpt-5.2 gpt-5.4 gpt-5.5 agy:gemini-3.1-pro agy:gemini-3.5-flash-high
 ```
 
-## Feedback Sweep
+For the default three-model sweep:
 
-Pass a prior failure report as creator context:
+```bash
+python run_broad_three_model_sweep.py
+```
+
+Each completed sweep writes:
+
+- `summary.md`: run metadata, benchmark cards, solver grid, and call table.
+- `feedback_for_next_sweep.md`: creator-ready grid, cards, and lessons.
+
+## Historical Feedback Sweep
+
+Experiment 004 was run by passing the Experiment 003 failure report as creator
+context:
 
 ```bash
 python run_broad_three_model_sweep.py \
@@ -55,7 +54,7 @@ python run_broad_three_model_sweep.py \
   --models gpt-5.2 gpt-5.4 gpt-5.5 agy:gemini-3.1-pro agy:gemini-3.5-flash-high
 ```
 
-For a full symmetric six-model feedback run:
+Experiment 007 used the reconstructed 6x6 context:
 
 ```bash
 BENCHBENCH_CLAUDE_MAX_BUDGET_USD=25 python run_broad_three_model_sweep.py \
@@ -65,7 +64,7 @@ BENCHBENCH_CLAUDE_MAX_BUDGET_USD=25 python run_broad_three_model_sweep.py \
 
 ## Adding Solvers To Existing Runs
 
-Keep existing benchmark packages fixed and add a new solver column:
+Keep existing benchmark packages fixed and add a solver column:
 
 ```bash
 python run_existing_solver_extension.py --solver agy:gemini-3.5-flash-high
@@ -87,7 +86,7 @@ python run_existing_solver_extension.py \
 
 ## Rebuild Published Result Artifacts
 
-Regenerate the markdown grids and SVG heatmaps:
+Regenerate the published grids and SVG heatmaps from saved score JSONs:
 
 ```bash
 python scripts/build_6x6_result_artifacts.py

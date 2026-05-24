@@ -1,9 +1,9 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1110" height="416" viewBox="0 0 1110 416">
 <style>text{font-family:Arial,Helvetica,sans-serif} .small{font-size:12px;fill:#444} .head{font-size:12px;font-weight:700;fill:#333} .cell{font-size:13px;font-weight:700;text-anchor:middle;dominant-baseline:middle} .row{font-size:12px;fill:#111} .bench{font-size:11px;fill:#444}</style>
 <rect width="100%" height="100%" fill="#ffffff"/>
-<text x="18" y="28" font-size="20" font-weight="700" fill="#111">Experiment 007 full-feedback 6x6 challenger grid</text>
-<text x="18" y="50" class="small">All six creator models saw prior failures. All six solvers then attacked each new candidate.</text>
-<text x="18" y="72" class="small">Exact-match correct / 30. Blue = low nonzero; red = saturated/easy; gray = zero/audit.</text>
+<text x="18" y="28" font-size="20" font-weight="700" fill="#111">Experiment 007: challengers did not beat incumbent</text>
+<text x="18" y="50" class="small">All six creators saw prior failures; no new row beat Reimbursement Forensics.</text>
+<text x="18" y="72" class="small">Exact-match correct / 30. Blue = useful low-nonzero; orange/red = too easy; gray = all-zero audit.</text>
 <text x="18" y="92" class="head">creator</text>
 <text x="228" y="92" class="head">benchmark</text>
 <text x="510.0" y="78" class="head" text-anchor="middle">GPT-5.2</text>

@@ -12,7 +12,7 @@ ready to reuse as a stable benchmark." Nothing has reached accepted status yet.
 | Reimbursement Forensics | GPT-5.2 | `004_feedback_sweep_20260522_225208` plus Claude extension | 10/30, 14/30, 11/30, 12/30, 11/30, 11/30 | frozen; audit next |
 
 Why it is frozen: every tested solver landed in the low nonzero band. That is
-the best shape seen so far.
+the best shape so far.
 
 Why it is not accepted: it still needs human review for leakage, answer
 evidence, scorer fairness, and external solvability.
@@ -31,12 +31,12 @@ all failed the exact eligible-downtime field.
 
 | benchmark | creator | source | solver scores | read |
 |---|---|---|---|---|
-| Maritime Freight & Customs Audit | Gemini 3.5 Flash | Experiment 007 | 4/30, 23/30, 15/30, 21/30, 25/30, 25/30 | interesting spread, too easy at the top end |
-| Commercial Lease CAM Reconciliation | Gemini 3.1 Pro | Experiment 007 | 1/30, 26/30, 26/30, 16/30, 18/30, 26/30 | interesting spread, too easy at the top end; required contract repair |
+| Maritime Freight & Customs Audit | Gemini 3.5 Flash | Experiment 007 | 4/30, 23/30, 15/30, 21/30, 25/30, 25/30 | diagnostic spread, too easy at the top end |
+| Commercial Lease CAM Reconciliation | Gemini 3.1 Pro | Experiment 007 | 1/30, 26/30, 26/30, 16/30, 18/30, 26/30 | diagnostic spread, too easy at the top end; required contract repair |
 | Corrupted LZ77 Recovery | Gemini 3.1 Pro | Experiment 004 plus Claude extension | 0/30, 22/30, 17/30, 0/30, 0/30, 0/30 | narrow and operationally brittle |
 
-These are useful for understanding solver failure modes. They should not be
-promoted as stable benchmarks.
+These rows are useful diagnostics. They should not be promoted as stable
+benchmarks.
 
 ## Rejected As Too Easy Or Brittle
 

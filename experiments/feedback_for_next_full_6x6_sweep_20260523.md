@@ -1,7 +1,8 @@
-# Feedback For Next Full 6x6 BenchBench Sweep
+# Feedback Used For Experiment 007 Full 6x6 Sweep
 
-This feedback is for the next creator sweep after the GPT, Gemini, and Claude
-Opus runs through 2026-05-23.
+This was the creator context for Experiment 007, after the GPT, Gemini, and
+Claude Opus runs through 2026-05-23. It is kept for provenance. For the next
+live run, use `feedback_for_next_challenger_sweep_20260523.md`.
 
 BenchBench is evaluating benchmark invention. The goal is not to make an
 impossible task. The goal is to create a complete benchmark package that is
