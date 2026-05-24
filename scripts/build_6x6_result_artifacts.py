@@ -403,6 +403,37 @@ def main() -> None:
         },
     ]
 
+    strongest_benchmark_rows = [
+        {
+            "read": "Strongest current candidate",
+            "benchmark": "Reimbursement Forensics",
+            "creator": "GPT-5.2",
+            "score shape": "10-14/30 across all six solvers",
+            "what it shows": "The only all-solver low-nonzero row so far.",
+        },
+        {
+            "read": "Best Round 3 challenger",
+            "benchmark": "Commercial Lease CAM Reconciliation",
+            "creator": "Gemini 3.1 Pro",
+            "score shape": "1-26/30",
+            "what it shows": "Separated solvers sharply, but top solvers still scored too high.",
+        },
+        {
+            "read": "Best Round 3 challenger",
+            "benchmark": "Maritime Freight & Customs Audit",
+            "creator": "Gemini 3.5 Flash",
+            "score shape": "4-25/30",
+            "what it shows": "Also separated solvers, but did not hold the top end down.",
+        },
+        {
+            "read": "Diagnostic, not a keeper",
+            "benchmark": "Corrupted LZ77 Recovery",
+            "creator": "Gemini 3.1 Pro",
+            "score shape": "0-22/30",
+            "what it shows": "Hard for some solvers, but too brittle and zero-heavy.",
+        },
+    ]
+
     round3_matchup_rows: list[dict[str, str]] = []
     for row in canonical_round3_rows:
         stats = row_stats(row)
@@ -460,15 +491,21 @@ def main() -> None:
         "",
         "That last step is deliberate. Raw Experiment 007 still contains GPT-5.2's Service Credit Forensics attempt, and it remains in the audit queue. But the canonical comparison asks whether any new challenger beat the frozen incumbent. None did.",
         "",
-        "## Current Answer",
+        "## Current Read",
         "",
-        "Reimbursement Forensics remains the best candidate so far. Its six-solver score profile is **10/30, 14/30, 11/30, 12/30, 11/30, 11/30**. That is the target shape: all solvers make progress, and no solver solves it.",
+        "Reimbursement Forensics remains the strongest benchmark so far. Its six-solver score profile is **10/30, 14/30, 11/30, 12/30, 11/30, 11/30**. That is the target shape: every solver got traction, no solver solved it, and the result was not an obvious all-zero failure.",
         "",
-        "It is frozen, not accepted. It still needs a human audit for leakage, answer evidence, scorer fairness, and external solvability before it can enter a stable benchmark bank.",
+        "The model story is the more interesting one: GPT-5.2 is the best benchmark creator so far. It is the only creator that produced an all-solver low-nonzero benchmark. We carry that row forward as the incumbent so new sweeps have something concrete to beat.",
+        "",
+        "A human audit still matters before any candidate moves into a stable benchmark bank. But the audit is a guardrail against false wins, not the main result.",
         "",
         "Read each row as one creator's benchmark and each column as one solver's attempt. Cell values are exact-match correct out of 30.",
         "",
         "Blue is the useful low-nonzero band. Orange and red mean the task was too easy. Gray zeros need audit before they count as hard; they can also mean an under-specified packet, scorer-contract failure, or operational failure.",
+        "",
+        "## Strongest Benchmarks So Far",
+        "",
+        markdown_dict_table(["read", "benchmark", "creator", "score shape", "what it shows"], strongest_benchmark_rows),
         "",
         "## What Changed Across Rounds",
         "",

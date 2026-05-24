@@ -19,8 +19,9 @@ Solver scores:
 This is the desired shape: every strong solver finds some answers, and none
 solves the task.
 
-It is frozen, not accepted. It still needs human audit for leakage, answer
-evidence, scorer fairness, and external solvability.
+Audit note: this is the target to beat, not a promoted stable benchmark. A
+human still needs to check leakage, answer evidence, scorer fairness, and
+external solvability before it enters the benchmark bank.
 
 ## Latest Challenger Sweep
 

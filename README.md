@@ -1,55 +1,62 @@
 # BenchBench
 
-BenchBench asks whether models can invent good benchmarks.
+BenchBench asks whether models know enough about their own limits to write good
+benchmarks.
 
-A creator model writes a complete benchmark package. Other strong, tool-using
-models then solve only the public bundle. A candidate only matters if it is
-valid, auditable, externally solvable, and still hard.
+A creator model builds a complete benchmark package. Other strong, tool-using
+models then solve only the public bundle. A low score is not enough. A useful
+benchmark has to be solvable in principle, fair to score, and hard for reasons
+we can understand.
 
-## Current Answer
+## Current Read
 
-The best candidate so far is **Reimbursement Forensics**, created by GPT-5.2 in
-Experiment 004.
+The strongest benchmark so far is **Reimbursement Forensics**, created by
+GPT-5.2 in Experiment 004.
 
 It scored **10/30, 14/30, 11/30, 12/30, 11/30, and 11/30** across GPT-5.2,
 GPT-5.4, GPT-5.5, Gemini 3.1 Pro, Gemini 3.5 Flash, and Claude Opus. That is
-the target shape: every solver makes progress, and no solver solves it.
+the shape we were looking for: every solver got traction, no solver solved it,
+and the result was not an obvious all-zero failure.
 
-Reimbursement Forensics is frozen as the incumbent. It is not accepted yet. A
-human still needs to audit leakage, answer evidence, scorer fairness, and
-external solvability before it can move into a stable benchmark bank.
+The model story is the more interesting one: **GPT-5.2 is the best benchmark
+creator so far**. It is the only creator that produced an all-solver
+low-nonzero benchmark. GPT-5.4 was the strongest latest solver by Round 3 total
+score. Gemini 3.1 Pro and Gemini 3.5 Flash produced the most interesting Round
+3 challengers, but those tasks were still too easy for the top solvers.
 
-Experiment 007 was the latest full-feedback challenger sweep. It did not beat
-the incumbent. Service Credit Forensics went all-zero and needs audit; Maritime
-Freight and Commercial Lease CAM separated solvers but were too easy at the top
-end; the other challengers saturated.
-
-The canonical presentation carries GPT-5.2's frozen incumbent forward into the
-latest challenger grid. Raw experiment folders remain unchanged.
-
-The short comparative read:
-
-- Best benchmark creator so far: **GPT-5.2**.
-- Strongest latest solver by Round 3 total score: **GPT-5.4**.
-- Most interesting Round 3 challenger rows: Gemini 3.1 Pro's Commercial Lease
-  CAM and Gemini 3.5 Flash's Maritime Freight, because they separated solvers
-  without going all-zero. They were still too easy at the top end.
+We carry Reimbursement Forensics forward as the incumbent so new sweeps have
+something concrete to beat. It still needs a human audit before it can move into
+a stable benchmark bank, but the audit is a guardrail, not the main result.
 
 ![Canonical Round 3 6x6 heatmap](experiments/canonical/figures/canonical_round3_6x6_heatmap.svg)
 
-## Why This Matters
+## Strongest Benchmarks So Far
 
-Most benchmarks ask models to answer questions. BenchBench asks models to
-invent the questions, package the evidence, define the scorer, and survive
-attacks from other models.
+| read | benchmark | creator | score shape | what it shows |
+|---|---|---|---|---|
+| Strongest current candidate | Reimbursement Forensics | GPT-5.2 | 10-14/30 across all six solvers | The only all-solver low-nonzero row so far. |
+| Best Round 3 challenger | Commercial Lease CAM Reconciliation | Gemini 3.1 Pro | 1-26/30 | Separated solvers sharply, but top solvers still scored too high. |
+| Best Round 3 challenger | Maritime Freight & Customs Audit | Gemini 3.5 Flash | 4-25/30 | Also separated solvers, but did not hold the top end down. |
+| Diagnostic, not a keeper | Corrupted LZ77 Recovery | Gemini 3.1 Pro | 0-22/30 | Hard for some solvers, but too brittle and zero-heavy. |
 
-That tests experimental judgment. Can a model learn from prior failures, avoid
-cheap difficulty, and make a task that is neither trivial nor unknowable?
+## What BenchBench Is Testing
 
-So far: sometimes. The models produce plausible benchmark packages quickly, but
-most are too easy, brittle, or under-specified. Feedback helps. Freezing the
-best result lets the next sweeps search for challengers instead of spending
-tokens re-proving the same incumbent.
+Most evals ask a model to answer. BenchBench asks it to decide what is worth
+asking.
+
+A model that understands its own limits should be able to design a task that is
+hard for the right reasons. Not a trick scorer. Not an impossible packet. Not a
+small rule puzzle that collapses under a script. Something with enough public
+evidence for a solver to work, enough structure for a fair scorer, and enough
+friction that strong agents still stumble.
+
+The runs so far are useful because they show the failure modes. Many benchmark
+ideas look serious and then saturate. Some go all-zero because the packet or
+scorer is broken. The rare good shape is in the middle: solvers make partial
+progress, disagree, and leave evidence of what they did and did not understand.
+
+That is the central question now: which model can learn from those failures and
+write a better test next time?
 
 ## Reading The Grids
 

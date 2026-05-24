@@ -12,15 +12,26 @@ The clean story has three canonical rounds:
 
 That last step is deliberate. Raw Experiment 007 still contains GPT-5.2's Service Credit Forensics attempt, and it remains in the audit queue. But the canonical comparison asks whether any new challenger beat the frozen incumbent. None did.
 
-## Current Answer
+## Current Read
 
-Reimbursement Forensics remains the best candidate so far. Its six-solver score profile is **10/30, 14/30, 11/30, 12/30, 11/30, 11/30**. That is the target shape: all solvers make progress, and no solver solves it.
+Reimbursement Forensics remains the strongest benchmark so far. Its six-solver score profile is **10/30, 14/30, 11/30, 12/30, 11/30, 11/30**. That is the target shape: every solver got traction, no solver solved it, and the result was not an obvious all-zero failure.
 
-It is frozen, not accepted. It still needs a human audit for leakage, answer evidence, scorer fairness, and external solvability before it can enter a stable benchmark bank.
+The model story is the more interesting one: GPT-5.2 is the best benchmark creator so far. It is the only creator that produced an all-solver low-nonzero benchmark. We carry that row forward as the incumbent so new sweeps have something concrete to beat.
+
+A human audit still matters before any candidate moves into a stable benchmark bank. But the audit is a guardrail against false wins, not the main result.
 
 Read each row as one creator's benchmark and each column as one solver's attempt. Cell values are exact-match correct out of 30.
 
 Blue is the useful low-nonzero band. Orange and red mean the task was too easy. Gray zeros need audit before they count as hard; they can also mean an under-specified packet, scorer-contract failure, or operational failure.
+
+## Strongest Benchmarks So Far
+
+| read | benchmark | creator | score shape | what it shows |
+|---|---|---|---|---|
+| Strongest current candidate | Reimbursement Forensics | GPT-5.2 | 10-14/30 across all six solvers | The only all-solver low-nonzero row so far. |
+| Best Round 3 challenger | Commercial Lease CAM Reconciliation | Gemini 3.1 Pro | 1-26/30 | Separated solvers sharply, but top solvers still scored too high. |
+| Best Round 3 challenger | Maritime Freight & Customs Audit | Gemini 3.5 Flash | 4-25/30 | Also separated solvers, but did not hold the top end down. |
+| Diagnostic, not a keeper | Corrupted LZ77 Recovery | Gemini 3.1 Pro | 0-22/30 | Hard for some solvers, but too brittle and zero-heavy. |
 
 ## What Changed Across Rounds
 

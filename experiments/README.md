@@ -27,11 +27,17 @@ are not the main result.
 
 ## Current Read
 
-Reimbursement Forensics is frozen as the incumbent. It scored in the low
-nonzero band across all six tested solvers: 10/30 to 14/30.
+Reimbursement Forensics is the strongest benchmark seen so far. It scored in
+the low nonzero band across all six tested solvers: 10/30 to 14/30.
 
-That is the best shape seen so far. It is still not accepted; it needs a human
-audit for leakage, answer evidence, scorer fairness, and external solvability.
+That is the best shape we have seen: all solvers made some progress, and no
+solver broke it open. The model-level read is that GPT-5.2 has been the best
+benchmark creator so far, while Gemini 3.1 Pro and Gemini 3.5 Flash produced
+the most interesting Round 3 challengers.
+
+A human audit still matters before any candidate becomes a stable benchmark,
+but that is a guardrail. The experiment is mainly tracking which models can
+learn from prior failures and design better tests.
 
 The canonical Round 3 comparison shows GPT-5.2 with its frozen incumbent and
 the other Experiment 007 creators as challengers:
