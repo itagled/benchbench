@@ -27,6 +27,14 @@ end; the other challengers saturated.
 The canonical presentation carries GPT-5.2's frozen incumbent forward into the
 latest challenger grid. Raw experiment folders remain unchanged.
 
+The short comparative read:
+
+- Best benchmark creator so far: **GPT-5.2**.
+- Strongest latest solver by Round 3 total score: **GPT-5.4**.
+- Most interesting Round 3 challenger rows: Gemini 3.1 Pro's Commercial Lease
+  CAM and Gemini 3.5 Flash's Maritime Freight, because they separated solvers
+  without going all-zero. They were still too easy at the top end.
+
 ![Canonical Round 3 6x6 heatmap](experiments/canonical/figures/canonical_round3_6x6_heatmap.svg)
 
 ## Why This Matters
@@ -56,6 +64,9 @@ out of 30.
 
 Canonical grids and notes:
 [`experiments/canonical/README.md`](experiments/canonical/README.md)
+
+The canonical results page also includes a round-by-round creator trajectory,
+the latest solver leaderboard, and Round 3 matchup summaries.
 
 ## Next Challenger Sweep
 

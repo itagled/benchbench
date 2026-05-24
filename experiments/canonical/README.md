@@ -22,6 +22,48 @@ Read each row as one creator's benchmark and each column as one solver's attempt
 
 Blue is the useful low-nonzero band. Orange and red mean the task was too easy. Gray zeros need audit before they count as hard; they can also mean an under-specified packet, scorer-contract failure, or operational failure.
 
+## What Changed Across Rounds
+
+The 6x6 grids are evidence, but they are not the easiest way to read the experiment. Creator quality and solver strength point in opposite directions: a good creator makes a valid task that keeps solvers low but nonzero; a good solver scores high.
+
+![Creator trajectory across rounds](figures/creator_trajectory.svg)
+
+| round | best creator read | solver read | what changed |
+|---|---|---|---|
+| Round 1 | No keeper | GPT-5.5 and Gemini 3.1 Pro both averaged 30/30 | First full grid proved most creator ideas were easy to solve. |
+| Round 2 | GPT-5.2: Reimbursement Forensics | GPT-5.4 had the highest scored average, but artifacts make this a noisy solver contest | Feedback produced the first all-solver low-nonzero row. |
+| Round 3 | GPT-5.2 frozen incumbent remains best | GPT-5.4 led the latest grid by total score | New challengers separated solvers but did not beat the incumbent. |
+
+Current read:
+
+- Best benchmark creator so far: GPT-5.2, because Reimbursement Forensics is the only all-solver low-nonzero candidate.
+- Strongest latest solver: GPT-5.4 by Round 3 total score, though solver rankings are secondary here.
+- Most interesting Round 3 challengers: Commercial Lease CAM and Maritime Freight, because they separated solvers without going all-zero. They were still too easy at the top end.
+
+### Round 3 solver leaderboard
+
+| solver | total | average | perfect | low | zero |
+|---|---|---|---|---|---|
+| GPT-5.4 | 147 | 24.5 | 2 | 1 | 0 |
+| Claude Opus | 141 | 23.5 | 1 | 1 | 0 |
+| Gemini 3.5 Flash | 134 | 22.3 | 0 | 1 | 0 |
+| GPT-5.5 | 133 | 22.2 | 1 | 1 | 0 |
+| Gemini 3.1 Pro | 127 | 21.2 | 1 | 1 | 0 |
+| GPT-5.2 | 97 | 16.2 | 1 | 3 | 0 |
+
+For solvers, higher is better. This table uses the canonical Round 3 grid, including the frozen GPT-5.2 incumbent row.
+
+### Round 3 matchups
+
+| benchmark | best solver | weakest solver | spread | read |
+|---|---|---|---|---|
+| Reimbursement Forensics | GPT-5.4 (14/30) | GPT-5.2 (10/30) | 4 | uniformly hard, audit pending |
+| Catalog Royalty Forensics | GPT-5.4 (30/30) | Gemini 3.1 Pro, Claude Opus (25/30) | 5 | too easy |
+| Prior Authorization Forensics | GPT-5.2 (25/30) | Gemini 3.1 Pro (23/30) | 2 | too easy |
+| Commercial Lease CAM Reconciliation | GPT-5.4, GPT-5.5, Claude Opus (26/30) | GPT-5.2 (1/30) | 25 | separates solvers, too easy at the top |
+| Maritime Freight & Customs Audit | Gemini 3.5 Flash, Claude Opus (25/30) | GPT-5.2 (4/30) | 21 | separates solvers, too easy at the top |
+| Construction Progress Payment Certification | GPT-5.2, GPT-5.4, GPT-5.5, Gemini 3.1 Pro, Claude Opus (30/30) | Gemini 3.5 Flash (29/30) | 1 | saturated |
+
 ## Round 1 - First Full 6x6
 
 ![Canonical round 1 heatmap](figures/canonical_round1_6x6_heatmap.svg)

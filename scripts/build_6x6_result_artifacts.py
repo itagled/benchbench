@@ -90,6 +90,129 @@ def text_color(cell: str) -> str:
     return "#111111" if value is None or value < 30 else "#ffffff"
 
 
+def wrap_words(text: str, limit: int) -> list[str]:
+    lines: list[str] = []
+    current: list[str] = []
+    for word in text.split():
+        candidate = " ".join(current + [word])
+        if current and len(candidate) > limit:
+            lines.append(" ".join(current))
+            current = [word]
+        else:
+            current.append(word)
+    if current:
+        lines.append(" ".join(current))
+    return lines or [""]
+
+
+def score_values(row: list[str]) -> list[int]:
+    return [value for cell in row[2:] if (value := score_value(cell)) is not None]
+
+
+def row_stats(row: list[str]) -> dict[str, float | int | None]:
+    values = score_values(row)
+    if not values:
+        return {"mean": None, "min": None, "max": None, "spread": None, "low": 0, "zero": 0, "perfect": 0}
+    return {
+        "mean": sum(values) / len(values),
+        "min": min(values),
+        "max": max(values),
+        "spread": max(values) - min(values),
+        "low": sum(1 for value in values if 1 <= value <= 14),
+        "zero": sum(1 for value in values if value == 0),
+        "perfect": sum(1 for value in values if value == 30),
+    }
+
+
+def best_solver_labels(row: list[str], solvers: list[tuple[str, str]]) -> str:
+    values = [score_value(cell) for cell in row[2:]]
+    numeric = [value for value in values if value is not None]
+    if not numeric:
+        return "NA"
+    best = max(numeric)
+    labels = [label for value, (_id, label) in zip(values, solvers) if value == best]
+    return ", ".join(labels) + f" ({best}/30)"
+
+
+def weakest_solver_labels(row: list[str], solvers: list[tuple[str, str]]) -> str:
+    values = [score_value(cell) for cell in row[2:]]
+    numeric = [value for value in values if value is not None]
+    if not numeric:
+        return "NA"
+    weakest = min(numeric)
+    labels = [label for value, (_id, label) in zip(values, solvers) if value == weakest]
+    return ", ".join(labels) + f" ({weakest}/30)"
+
+
+def solver_leaderboard(rows: list[list[str]], solvers: list[tuple[str, str]]) -> list[dict[str, str]]:
+    leaderboard: list[dict[str, str]] = []
+    for idx, (_solver_id, solver_label) in enumerate(solvers):
+        values = [score_value(row[2 + idx]) for row in rows]
+        numeric = [value for value in values if value is not None]
+        if not numeric:
+            continue
+        leaderboard.append(
+            {
+                "solver": solver_label,
+                "total": str(sum(numeric)),
+                "average": f"{sum(numeric) / len(numeric):.1f}",
+                "perfect": str(sum(1 for value in numeric if value == 30)),
+                "low": str(sum(1 for value in numeric if 1 <= value <= 14)),
+                "zero": str(sum(1 for value in numeric if value == 0)),
+            }
+        )
+    return sorted(leaderboard, key=lambda row: (-int(row["total"]), row["solver"]))
+
+
+def markdown_dict_table(headers: list[str], rows: list[dict[str, str]]) -> str:
+    lines = ["| " + " | ".join(headers) + " |", "|" + "|".join("---" for _ in headers) + "|"]
+    for row in rows:
+        lines.append("| " + " | ".join(row[header] for header in headers) + " |")
+    return "\n".join(lines)
+
+
+def write_creator_trajectory(path: Path, rows: list[dict[str, str]]) -> None:
+    round_headers = ["Round 1", "Round 2", "Round 3"]
+    model_w = 152
+    cell_w = 196
+    row_h = 54
+    header_h = 104
+    width = model_w + cell_w * len(round_headers) + 40
+    height = header_h + row_h * len(rows) + 62
+    colors = {
+        "incumbent": "#8ecae6",
+        "separator": "#f2c078",
+        "too_easy": "#f7b7a3",
+        "saturated": "#d96b6b",
+        "audit": "#d9d9d9",
+    }
+    parts = [
+        f'<svg xmlns="http://www.w3.org/2000/svg" width="{width}" height="{height}" viewBox="0 0 {width} {height}">',
+        "<style>text{font-family:Arial,Helvetica,sans-serif}.small{font-size:12px;fill:#444}.head{font-size:12px;font-weight:700;fill:#333}.model{font-size:13px;font-weight:700;fill:#111}.cell{font-size:12px;fill:#111}</style>",
+        '<rect width="100%" height="100%" fill="#ffffff"/>',
+        '<text x="18" y="28" font-size="20" font-weight="700" fill="#111">Creator trajectory across canonical rounds</text>',
+        '<text x="18" y="50" class="small">Creator quality is not solver score. Good creator rows stay valid, nonzero, and unsolved.</text>',
+        '<text x="18" y="72" class="small">Blue = incumbent shape; amber = separates solvers but too easy at the top; red = too easy; gray = audit/artifact.</text>',
+    ]
+    y0 = header_h
+    parts.append(f'<text x="18" y="{y0 - 12}" class="head">creator</text>')
+    for idx, header in enumerate(round_headers):
+        x = model_w + idx * cell_w + cell_w / 2
+        parts.append(f'<text x="{x}" y="{y0 - 12}" class="head" text-anchor="middle">{header}</text>')
+    for r, row in enumerate(rows):
+        y = y0 + r * row_h
+        parts.append(f'<line x1="18" x2="{width - 18}" y1="{y}" y2="{y}" stroke="#eeeeee"/>')
+        parts.append(f'<text x="18" y="{y + 31}" class="model">{escape(row["creator"])}</text>')
+        for c, key in enumerate(["round1", "round2", "round3"]):
+            x = model_w + c * cell_w
+            fill = colors[row[f"{key}_kind"]]
+            parts.append(f'<rect x="{x + 6}" y="{y + 7}" width="{cell_w - 12}" height="{row_h - 14}" rx="2" fill="{fill}"/>')
+            for line_idx, text in enumerate(wrap_words(row[key], 24)[:2]):
+                parts.append(f'<text x="{x + 14}" y="{y + 25 + line_idx * 14}" class="cell">{escape(text)}</text>')
+    parts.append("</svg>")
+    path.write_text("\n".join(parts) + "\n", encoding="utf-8")
+
+
 def write_heatmap(
     path: Path,
     title: str,
@@ -202,6 +325,105 @@ def main() -> None:
     )
     canonical_round3_rows = incumbent_carry_forward_grid(exp004_rows, exp007_rows)
 
+    creator_trajectory_rows = [
+        {
+            "creator": "GPT-5.2",
+            "round1": "partial separator; too solved",
+            "round1_kind": "separator",
+            "round2": "incumbent: Reimbursement Forensics",
+            "round2_kind": "incumbent",
+            "round3": "frozen incumbent still best",
+            "round3_kind": "incumbent",
+        },
+        {
+            "creator": "GPT-5.4",
+            "round1": "one low score; too solved",
+            "round1_kind": "separator",
+            "round2": "too easy, one zero",
+            "round2_kind": "too_easy",
+            "round3": "too easy",
+            "round3_kind": "too_easy",
+        },
+        {
+            "creator": "GPT-5.5",
+            "round1": "saturated",
+            "round1_kind": "saturated",
+            "round2": "scorer-contract failure",
+            "round2_kind": "audit",
+            "round3": "too easy",
+            "round3_kind": "too_easy",
+        },
+        {
+            "creator": "Gemini 3.1 Pro",
+            "round1": "one low score; too solved",
+            "round1_kind": "separator",
+            "round2": "brittle, many zeros",
+            "round2_kind": "audit",
+            "round3": "separates, too easy at top",
+            "round3_kind": "separator",
+        },
+        {
+            "creator": "Gemini 3.5 Flash",
+            "round1": "too easy",
+            "round1_kind": "too_easy",
+            "round2": "saturated",
+            "round2_kind": "saturated",
+            "round3": "separates, too easy at top",
+            "round3_kind": "separator",
+        },
+        {
+            "creator": "Claude Opus",
+            "round1": "scorer artifact",
+            "round1_kind": "audit",
+            "round2": "saturated",
+            "round2_kind": "saturated",
+            "round3": "saturated",
+            "round3_kind": "saturated",
+        },
+    ]
+
+    round_summary_rows = [
+        {
+            "round": "Round 1",
+            "best creator read": "No keeper",
+            "solver read": "GPT-5.5 and Gemini 3.1 Pro both averaged 30/30",
+            "what changed": "First full grid proved most creator ideas were easy to solve.",
+        },
+        {
+            "round": "Round 2",
+            "best creator read": "GPT-5.2: Reimbursement Forensics",
+            "solver read": "GPT-5.4 had the highest scored average, but artifacts make this a noisy solver contest",
+            "what changed": "Feedback produced the first all-solver low-nonzero row.",
+        },
+        {
+            "round": "Round 3",
+            "best creator read": "GPT-5.2 frozen incumbent remains best",
+            "solver read": "GPT-5.4 led the latest grid by total score",
+            "what changed": "New challengers separated solvers but did not beat the incumbent.",
+        },
+    ]
+
+    round3_matchup_rows: list[dict[str, str]] = []
+    for row in canonical_round3_rows:
+        stats = row_stats(row)
+        read = "uniformly hard, audit pending"
+        if row[0] != "GPT-5.2 (frozen)":
+            if stats["perfect"] and int(stats["perfect"]) >= 4:
+                read = "saturated"
+            elif stats["max"] is not None and int(stats["max"]) >= 23 and int(stats["min"]) <= 4:
+                read = "separates solvers, too easy at the top"
+            elif stats["max"] is not None and int(stats["max"]) >= 23:
+                read = "too easy"
+        round3_matchup_rows.append(
+            {
+                "benchmark": row[1],
+                "best solver": best_solver_labels(row, SOLVERS_CURRENT),
+                "weakest solver": weakest_solver_labels(row, SOLVERS_CURRENT),
+                "spread": str(stats["spread"]),
+                "read": read,
+            }
+        )
+
     write_heatmap(
         CANONICAL_FIG_DIR / "canonical_round1_6x6_heatmap.svg",
         "Round 1: first full 6x6, mostly saturated",
@@ -221,6 +443,7 @@ def main() -> None:
         canonical_round3_rows,
         solvers=SOLVERS_CURRENT,
     )
+    write_creator_trajectory(CANONICAL_FIG_DIR / "creator_trajectory.svg", creator_trajectory_rows)
 
     lines = [
         "# Canonical BenchBench Results - 2026-05-23",
@@ -246,6 +469,30 @@ def main() -> None:
         "Read each row as one creator's benchmark and each column as one solver's attempt. Cell values are exact-match correct out of 30.",
         "",
         "Blue is the useful low-nonzero band. Orange and red mean the task was too easy. Gray zeros need audit before they count as hard; they can also mean an under-specified packet, scorer-contract failure, or operational failure.",
+        "",
+        "## What Changed Across Rounds",
+        "",
+        "The 6x6 grids are evidence, but they are not the easiest way to read the experiment. Creator quality and solver strength point in opposite directions: a good creator makes a valid task that keeps solvers low but nonzero; a good solver scores high.",
+        "",
+        "![Creator trajectory across rounds](figures/creator_trajectory.svg)",
+        "",
+        markdown_dict_table(["round", "best creator read", "solver read", "what changed"], round_summary_rows),
+        "",
+        "Current read:",
+        "",
+        "- Best benchmark creator so far: GPT-5.2, because Reimbursement Forensics is the only all-solver low-nonzero candidate.",
+        "- Strongest latest solver: GPT-5.4 by Round 3 total score, though solver rankings are secondary here.",
+        "- Most interesting Round 3 challengers: Commercial Lease CAM and Maritime Freight, because they separated solvers without going all-zero. They were still too easy at the top end.",
+        "",
+        "### Round 3 solver leaderboard",
+        "",
+        markdown_dict_table(["solver", "total", "average", "perfect", "low", "zero"], solver_leaderboard(canonical_round3_rows, SOLVERS_CURRENT)),
+        "",
+        "For solvers, higher is better. This table uses the canonical Round 3 grid, including the frozen GPT-5.2 incumbent row.",
+        "",
+        "### Round 3 matchups",
+        "",
+        markdown_dict_table(["benchmark", "best solver", "weakest solver", "spread", "read"], round3_matchup_rows),
         "",
         "## Round 1 - First Full 6x6",
         "",
