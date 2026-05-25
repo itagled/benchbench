@@ -67,6 +67,26 @@ Current read:
 - Strongest latest solver: GPT-5.4 by Round 3 total score, though solver rankings are secondary here.
 - Most interesting Round 3 challengers: Commercial Lease CAM and Maritime Freight, because they separated solvers without going all-zero. They were still too easy at the top end.
 
+## Qualitative Creator Patterns
+
+The generated benchmarks point to different instincts about where hard tasks
+live. This is a read on the observed packages, not a claim about the models in
+general.
+
+| creator | what it tended to build | what the runs suggest |
+|---|---|---|
+| GPT-5.2 | Ledger, reimbursement, and service-credit audits. | Strongest creator so far. Its best task made ordinary evidence hard through exceptions, caps, approvals, duplicates, dates, and exact money totals. |
+| GPT-5.4 | Ordinance, release-governance, and royalty adjudication. | Good at building plausible policy worlds, but the rules often became clean enough for strong solvers to follow. |
+| GPT-5.5 | Amendment ledgers, obligation resolution, and prior authorization. | Good at procedural structure, but the hard-looking rows risked becoming schema or label traps rather than fair difficulty. |
+| Gemini 3.1 Pro | Spatial puzzles, corrupted-data recovery, and lease CAM reconciliation. | Most uneven creator. It found solver spread, but its tasks could become brittle, operationally narrow, or too puzzle-like. |
+| Gemini 3.5 Flash | Assembly inversion, tariff cascades, and maritime freight audits. | Good at layered commercial calculations. Maritime Freight was close to the right family, but top solvers still solved too much. |
+| Claude Opus | String rewriting, conlang translation, and construction payment certification. | Made clean, elegant tasks. That readability helped solvers; the rows mostly saturated or hit scorer artifacts. |
+
+The strongest recurring surface is paperwork forensics: all evidence is public,
+the answer is exact, and failure comes from missed exceptions, cross-document
+state, arithmetic, dates, or rounding. Reimbursement Forensics is the current
+best example of that surface.
+
 ### Round 3 solver leaderboard
 
 | solver | total | average | perfect | low | zero |

@@ -38,6 +38,32 @@ something concrete to beat.
 | Best Round 3 challenger | Maritime Freight & Customs Audit | Gemini 3.5 Flash | 4-25/30 | Also separated solvers, but did not hold the top end down. |
 | Diagnostic, not a keeper | Corrupted LZ77 Recovery | Gemini 3.1 Pro | 0-22/30 | Hard for some solvers, but too brittle and zero-heavy. |
 
+## Qualitative Read
+
+The useful direction was not exotic puzzles. The best candidates looked more
+like paperwork forensics: public evidence, exact answers, and many small rules
+that interact. Reimbursement, service credits, royalties, leases, freight,
+prior authorization, and construction payments all live in that zone.
+
+The pattern across creators is simple:
+
+- GPT-5.2 made the strongest version of this: mundane audit evidence with exact
+  totals and enough exceptions to trip every solver.
+- GPT-5.4 built plausible policy and governance worlds, but they often turned
+  into clean checklists.
+- GPT-5.5 built procedural rule tasks, but the weak rows leaned too much on
+  exact schemas or hidden labels.
+- Gemini 3.1 Pro produced the most uneven tasks. They separated solvers, but
+  could become brittle or too puzzle-like.
+- Gemini 3.5 Flash found good commercial-compliance surfaces, especially
+  freight and tariffs, but top solvers still got too far.
+- Claude Opus made elegant contest-style tasks. They were clean and readable,
+  which also made them easier to solve.
+
+The lesson is that BenchBench is finding a concrete hard zone: ordinary
+document-heavy decisions where every fact is visible, but the final answer
+depends on careful exception handling, arithmetic, dates, and rounding.
+
 ## Completion Proxy
 
 Solver completion rate is a useful proxy, but only with a second number beside
