@@ -1,31 +1,35 @@
 # BenchBench
 
-BenchBench asks whether models know enough about their own limits to write good
-benchmarks.
+BenchBench tests whether models can design good benchmarks for other models.
 
-A creator model builds a complete benchmark package. Other strong, tool-using
-models then solve only the public bundle. A low score is not enough. A useful
-benchmark has to be solvable in principle, fair to score, and hard for reasons
-we can understand.
+A creator model writes a complete benchmark package: public solver files,
+private gold answers, generator, verifier, scorer, and notes on expected
+failure modes. Solver models then receive only the public bundle and try to
+answer all 30 items.
+
+The goal is a benchmark that strong agents can work on, score exactly, and
+still fail to finish.
 
 ## Current Read
 
-The strongest benchmark so far is **Reimbursement Forensics**, created by
-GPT-5.2 in Experiment 004.
+**GPT-5.2 is the strongest benchmark creator so far.**
 
-It scored **10/30, 14/30, 11/30, 12/30, 11/30, and 11/30** across GPT-5.2,
-GPT-5.4, GPT-5.5, Gemini 3.1 Pro, Gemini 3.5 Flash, and Claude Opus. That is
-the shape we were looking for: every solver got traction, no solver solved it,
-and the result was not an obvious all-zero failure.
+Its best candidate, **Reimbursement Forensics**, scored **10/30, 14/30, 11/30,
+12/30, 11/30, and 11/30** across GPT-5.2, GPT-5.4, GPT-5.5, Gemini 3.1 Pro,
+Gemini 3.5 Flash, and Claude Opus.
 
-The model story is the more interesting one: **GPT-5.2 is the best benchmark
-creator so far**. It is the only creator that produced an all-solver
-low-nonzero benchmark. GPT-5.4 was the strongest latest solver by Round 3 total
-score. Gemini 3.1 Pro and Gemini 3.5 Flash produced the most interesting Round
-3 challengers, but those tasks were still too easy for the top solvers.
+Every solver found some answers. None came close to finishing. The row stayed
+hard across six different solver models.
 
-We carry Reimbursement Forensics forward as the incumbent so new sweeps have
-something concrete to beat.
+Round 3 produced two interesting challengers:
+
+- **Commercial Lease CAM Reconciliation**, from Gemini 3.1 Pro, spread solvers
+  from 1/30 to 26/30.
+- **Maritime Freight & Customs Audit**, from Gemini 3.5 Flash, spread solvers
+  from 4/30 to 25/30.
+
+Both created real separation. Reimbursement Forensics still leads because all
+six solvers landed in the low nonzero band.
 
 ![Canonical Round 3 6x6 heatmap](experiments/canonical/figures/canonical_round3_6x6_heatmap.svg)
 
@@ -33,68 +37,60 @@ something concrete to beat.
 
 | read | benchmark | creator | score shape | what it shows |
 |---|---|---|---|---|
-| Strongest current candidate | Reimbursement Forensics | GPT-5.2 | 10-14/30 across all six solvers | The only all-solver low-nonzero row so far. |
-| Best Round 3 challenger | Commercial Lease CAM Reconciliation | Gemini 3.1 Pro | 1-26/30 | Separated solvers sharply, but top solvers still scored too high. |
-| Best Round 3 challenger | Maritime Freight & Customs Audit | Gemini 3.5 Flash | 4-25/30 | Also separated solvers, but did not hold the top end down. |
-| Diagnostic, not a keeper | Corrupted LZ77 Recovery | Gemini 3.1 Pro | 0-22/30 | Hard for some solvers, but too brittle and zero-heavy. |
+| Current leader | Reimbursement Forensics | GPT-5.2 | 10-14/30 across all six solvers | The cleanest hard-but-solvable shape so far. |
+| Round 3 challenger | Commercial Lease CAM Reconciliation | Gemini 3.1 Pro | 1-26/30 | Strong solver separation, with the top end still too high. |
+| Round 3 challenger | Maritime Freight & Customs Audit | Gemini 3.5 Flash | 4-25/30 | Strong solver separation, again with too much top-end completion. |
+| Diagnostic row | Corrupted LZ77 Recovery | Gemini 3.1 Pro | 0-22/30 | Useful stress signal, narrower and more brittle than the leaders. |
 
-## Qualitative Read
+## Where The Hardness Came From
 
-The useful direction was not exotic puzzles. The best candidates looked more
-like paperwork forensics: public evidence, exact answers, and many small rules
-that interact. Reimbursement, service credits, royalties, leases, freight,
-prior authorization, and construction payments all live in that zone.
+The strongest candidates looked like paperwork forensics: reimbursement claims,
+leases, freight records, service credits, royalties, prior authorization, and
+construction payments.
 
-The pattern across creators is simple:
+They worked because each item had visible evidence, exact answers, and several
+small rules interacting at once. Solvers had to track dates, exceptions,
+arithmetic, thresholds, and rounding under one record.
 
-- GPT-5.2 made the strongest version of this: mundane audit evidence with exact
-  totals and enough exceptions to trip every solver.
-- GPT-5.4 built plausible policy and governance worlds, but they often turned
-  into clean checklists.
-- GPT-5.5 built procedural rule tasks, but the weak rows leaned too much on
-  exact schemas or hidden labels.
-- Gemini 3.1 Pro produced the most uneven tasks. They separated solvers, but
-  could become brittle or too puzzle-like.
-- Gemini 3.5 Flash found good commercial-compliance surfaces, especially
-  freight and tariffs, but top solvers still got too far.
-- Claude Opus made elegant contest-style tasks. They were clean and readable,
-  which also made them easier to solve.
+GPT-5.2 did this best. Reimbursement Forensics used ordinary evidence, exact
+totals, and enough exception handling to slow every solver.
 
-The lesson is that BenchBench is finding a concrete hard zone: ordinary
-document-heavy decisions where every fact is visible, but the final answer
-depends on careful exception handling, arithmetic, dates, and rounding.
+Gemini 3.1 Pro and Gemini 3.5 Flash found the best Round 3 challenger surfaces,
+especially leases and freight. Their tasks separated solvers, but top solvers
+completed too much.
+
+GPT-5.4 and GPT-5.5 built plausible operational tasks. The strongest solvers
+often turned them into checklist work.
+
+Claude Opus built clean contest-style packages. In these runs, that cleanliness
+made them easier to solve.
 
 ## Completion Proxy
 
-Solver completion rate is a useful proxy, but only with a second number beside
-it. A broken all-zero benchmark also has low completion. The better signal is:
-how many solvers landed in the useful 1-14/30 band?
+Completion rate is the average exact-match score across solvers. It needs a
+companion metric: how many solvers landed in the useful 1-14/30 band.
 
 ![Benchmark quality map](experiments/canonical/figures/benchmark_quality_map.svg)
 
-Reimbursement Forensics is the outlier: moderate completion, six useful solver
-cells, no zero wall. Commercial Lease CAM and Maritime Freight created solver
-spread, but the best solvers completed too much of them. Service Credit and
-Cross-Document Obligation show why low completion alone is not enough.
+Reimbursement Forensics has the desired shape: 38% average completion and six
+useful low-nonzero solver cells. Commercial Lease CAM and Maritime Freight sit
+farther right: they separated solvers, while the best solvers completed too
+much. Service Credit and Cross-Document Obligation sit at the bottom left:
+low completion with no useful solver cells.
 
-## What BenchBench Is Testing
+## What BenchBench Measures
 
-Most evals ask a model to answer. BenchBench asks it to decide what is worth
-asking.
+BenchBench turns model evaluation into a design problem.
 
-A model that understands its own limits should be able to design a task that is
-hard for the right reasons. Not a trick scorer. Not an impossible packet. Not a
-small rule puzzle that collapses under a script. Something with enough public
-evidence for a solver to work, enough structure for a fair scorer, and enough
-friction that strong agents still stumble.
+A strong creator has to choose a task, package the evidence, define exact
+answers, hide the gold data, and build a scorer that rewards the intended work.
+Then strong solvers attack it with tools.
 
-The runs so far are useful because they show the failure modes. Many benchmark
-ideas look serious and then saturate. Some go all-zero because the packet or
-scorer is broken. The rare good shape is in the middle: solvers make partial
-progress, disagree, and leave evidence of what they did and did not understand.
+That makes BenchBench useful for a different question from ordinary evals:
+which model understands failure well enough to write the next hard test?
 
-That is the central question now: which model can learn from those failures and
-write a better test next time?
+The current answer is GPT-5.2. The next run asks whether another model can learn
+from these results and beat Reimbursement Forensics.
 
 ## Reading The Grids
 
@@ -102,25 +98,23 @@ Rows are benchmark creators. Columns are solvers. Cells are exact-match scores
 out of 30.
 
 - High scores mean the benchmark was too easy.
-- Low nonzero scores are the useful band.
-- All-zero rows are not automatically strong; they need a scorer or
-  solvability explanation.
-- Stable benchmark-bank promotion is tracked separately. The headline here is
-  creator ranking.
+- Low nonzero scores are the target band.
+- Zero-heavy rows go to review, since they often point to a packet or scorer
+  problem rather than useful difficulty.
 
 Canonical grids and notes:
 [`experiments/canonical/README.md`](experiments/canonical/README.md)
 
-The canonical results page also includes a round-by-round creator trajectory,
+The canonical results page also includes the round-by-round creator trajectory,
 the latest solver leaderboard, and Round 3 matchup summaries.
 
 ## Next Challenger Sweep
 
-First check the known scorer/solvability problem cases:
+First review the known scorer and solvability problem cases:
 [`experiments/review_queue.md`](experiments/review_queue.md)
 
-Then run challengers against the full solver panel. GPT-5.2's Reimbursement
-Forensics result stays frozen; the next run asks the other creators to beat it.
+Then run a challenger sweep. GPT-5.2 keeps the Reimbursement Forensics incumbent
+row. The other creators try to beat it against the full six-model solver panel.
 
 ```bash
 BENCHBENCH_CLAUDE_MAX_BUDGET_USD=25 python run_broad_three_model_sweep.py \
@@ -134,14 +128,14 @@ same.
 
 ## Evidence
 
-- [`experiments/benchmark_bank.md`](experiments/benchmark_bank.md): current
-  targets, diagnostic rows, and rejected candidates.
 - [`experiments/canonical/README.md`](experiments/canonical/README.md):
   current presentation-layer 6x6 grids and heatmaps.
+- [`experiments/benchmark_bank.md`](experiments/benchmark_bank.md): current
+  target, diagnostic rows, problem cases, and rejected candidates.
 - [`experiments/007_full_feedback_6x6_20260523_172919/`](experiments/007_full_feedback_6x6_20260523_172919/):
   raw latest direct six-creator, six-solver challenger sweep.
 - [`experiments/004_feedback_sweep_20260522_225208/`](experiments/004_feedback_sweep_20260522_225208/):
-  source run for the frozen incumbent.
+  source run for Reimbursement Forensics.
 - [`benchmark_landscape/`](benchmark_landscape/): eval catalog and similarity
   notes used as creator context.
 
@@ -158,7 +152,7 @@ In short:
    obvious leakage.
 3. Solvers receive only the public `solver_bundle/`.
 4. Scores are computed against private gold answers.
-5. Candidates are rejected, diagnosed, or carried forward as targets to beat.
+5. Candidates become leaders, challengers, diagnostics, or rejections.
 
 ## Repo Map
 
