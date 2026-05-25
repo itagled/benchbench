@@ -67,25 +67,30 @@ Current read:
 - Strongest latest solver: GPT-5.4 by Round 3 total score, though solver rankings are secondary here.
 - Most interesting Round 3 challengers: Commercial Lease CAM and Maritime Freight, because they separated solvers without going all-zero. They were still too easy at the top end.
 
+## Creator vs Solver
+
+The creator and solver results point in different directions. The chart below uses Round 3 solver average on the horizontal axis. The vertical axis is the best creator signal for each model: how many solvers landed in the useful 1-14/30 band on that model's best row.
+
+Zero-heavy rows are not counted as good creator signal. Cross-Document Obligation was audited as a scorer-contract failure, Service Credit remains a review case, String Rewriting had a scorer type artifact, and Corrupted LZ77 was partly solved but narrow.
+
+![Creator vs solver 2x2](figures/creator_solver_2x2.svg)
+
+Read: GPT-5.2 is the clearest creator/solver split so far. It has the best creator signal and the weakest latest solver average. GPT-5.4 and Claude Opus sit on the other side: strong solvers, but their created tasks mostly saturated or became checklists.
+
 ## Qualitative Creator Patterns
 
-The generated benchmarks point to different instincts about where hard tasks
-live. This is a read on the observed packages, not a claim about the models in
-general.
+The generated benchmarks point to different interests in what might be hard. This is a read on the observed packages, not a general claim about the models.
 
-| creator | what it tended to build | what the runs suggest |
-|---|---|---|
-| GPT-5.2 | Ledger, reimbursement, and service-credit audits. | Strongest creator so far. Its best task made ordinary evidence hard through exceptions, caps, approvals, duplicates, dates, and exact money totals. |
-| GPT-5.4 | Ordinance, release-governance, and royalty adjudication. | Good at building plausible policy worlds, but the rules often became clean enough for strong solvers to follow. |
-| GPT-5.5 | Amendment ledgers, obligation resolution, and prior authorization. | Good at procedural structure, but the hard-looking rows risked becoming schema or label traps rather than fair difficulty. |
-| Gemini 3.1 Pro | Spatial puzzles, corrupted-data recovery, and lease CAM reconciliation. | Most uneven creator. It found solver spread, but its tasks could become brittle, operationally narrow, or too puzzle-like. |
-| Gemini 3.5 Flash | Assembly inversion, tariff cascades, and maritime freight audits. | Good at layered commercial calculations. Maritime Freight was close to the right family, but top solvers still solved too much. |
-| Claude Opus | String rewriting, conlang translation, and construction payment certification. | Made clean, elegant tasks. That readability helped solvers; the rows mostly saturated or hit scorer artifacts. |
+| creator | plain label | what it tended to build | what the runs suggest |
+|---|---|---|---|
+| GPT-5.2 | Forensic accountant | Ledger, reimbursement, and service-credit audits. | Strongest creator so far. Its best task made ordinary evidence hard through exceptions, caps, approvals, duplicates, dates, and exact money totals. |
+| GPT-5.4 | Policy lawyer | Ordinance, release-governance, and royalty adjudication. | Good at building plausible policy worlds, but the rules often became clean enough for strong solvers to follow. |
+| GPT-5.5 | Procedural judge | Amendment ledgers, obligation resolution, and prior authorization. | Good at procedural structure, but the hard-looking rows risked becoming schema or label traps rather than fair difficulty. |
+| Gemini 3.1 Pro | Puzzle mechanic | Spatial puzzles, corrupted-data recovery, and lease CAM reconciliation. | Most uneven creator. It found solver spread, but its tasks could become brittle, operationally narrow, or too puzzle-like. |
+| Gemini 3.5 Flash | Logistics operator | Assembly inversion, tariff cascades, and maritime freight audits. | Good at layered commercial calculations. Maritime Freight was close to the right family, but top solvers still solved too much. |
+| Claude Opus | Exam writer | String rewriting, conlang translation, and construction payment certification. | Made clean, elegant tasks. That readability helped solvers; the rows mostly saturated or hit scorer artifacts. |
 
-The strongest recurring surface is paperwork forensics: all evidence is public,
-the answer is exact, and failure comes from missed exceptions, cross-document
-state, arithmetic, dates, or rounding. Reimbursement Forensics is the current
-best example of that surface.
+The strongest recurring surface is paperwork forensics: all evidence is public, the answer is exact, and failure comes from missed exceptions, cross-document state, arithmetic, dates, or rounding. Reimbursement Forensics is the current best example of that surface.
 
 ### Round 3 solver leaderboard
 

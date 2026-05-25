@@ -319,6 +319,108 @@ def write_quality_map(path: Path, rows: list[dict[str, str | float | int]]) -> N
     path.write_text("\n".join(parts) + "\n", encoding="utf-8")
 
 
+def best_creator_signal_row(rows: list[list[str]]) -> tuple[list[str], dict[str, float | int | None]]:
+    """Pick the strongest creator row without rewarding zero walls."""
+
+    def key(row: list[str]) -> tuple[int, int, int, float]:
+        stats = row_stats(row)
+        return (
+            int(stats["low"] or 0),
+            -int(stats["zero"] or 0),
+            -int(stats["high"] or 0),
+            -float(stats["mean"] or 0),
+        )
+
+    best = max(rows, key=key)
+    return best, row_stats(best)
+
+
+def write_creator_solver_2x2(path: Path, rows: list[dict[str, str | float | int]]) -> None:
+    width = 1120
+    height = 560
+    plot_x0 = 92
+    plot_x1 = 715
+    plot_y0 = 420
+    plot_y1 = 98
+    x_split = 22.0
+    y_split = 3.0
+
+    def x_for(value: float) -> float:
+        return plot_x0 + (value / 30.0) * (plot_x1 - plot_x0)
+
+    def y_for(value: float) -> float:
+        return plot_y0 - (value / 6.0) * (plot_y0 - plot_y1)
+
+    colors = {
+        "leader": "#2f80b7",
+        "some": "#d8902f",
+        "none": "#9a9a9a",
+    }
+
+    parts = [
+        f'<svg xmlns="http://www.w3.org/2000/svg" width="{width}" height="{height}" viewBox="0 0 {width} {height}">',
+        "<style>text{font-family:Arial,Helvetica,sans-serif}.small{font-size:12px;fill:#444}.axis{font-size:12px;fill:#333}.label{font-size:12px;fill:#111}.title{font-size:20px;font-weight:700;fill:#111}.quad{font-size:12px;fill:#777}</style>",
+        '<rect width="100%" height="100%" fill="#ffffff"/>',
+        '<text x="18" y="30" class="title">Creator signal vs solver strength</text>',
+        '<text x="18" y="54" class="small">Right = higher Round 3 solver score. Up = more solvers in the useful 1-14/30 band on that model&apos;s best row.</text>',
+        '<text x="18" y="72" class="small">Zero-heavy rows do not count as creator signal; they need a solvability or scorer audit first.</text>',
+    ]
+
+    # Quadrant guides.
+    parts.append(f'<line x1="{x_for(x_split)}" x2="{x_for(x_split)}" y1="{plot_y0}" y2="{plot_y1}" stroke="#dddddd"/>')
+    parts.append(f'<line x1="{plot_x0}" x2="{plot_x1}" y1="{y_for(y_split)}" y2="{y_for(y_split)}" stroke="#dddddd"/>')
+    parts.append(f'<text x="{plot_x0 + 10}" y="{plot_y1 + 22}" class="quad">creator signal</text>')
+    parts.append(f'<text x="{x_for(x_split) + 10}" y="{plot_y1 + 22}" class="quad">strong on both</text>')
+    parts.append(f'<text x="{plot_x0 + 10}" y="{plot_y0 - 12}" class="quad">low on both</text>')
+
+    for tick in [0, 10, 20, 30]:
+        x = x_for(tick)
+        parts.append(f'<line x1="{x}" x2="{x}" y1="{plot_y0}" y2="{plot_y1}" stroke="#f0f0f0"/>')
+        parts.append(f'<text x="{x}" y="{plot_y0 + 24}" class="axis" text-anchor="middle">{tick}</text>')
+    for tick in [0, 3, 6]:
+        y = y_for(tick)
+        parts.append(f'<line x1="{plot_x0}" x2="{plot_x1}" y1="{y}" y2="{y}" stroke="#f0f0f0"/>')
+        parts.append(f'<text x="{plot_x0 - 16}" y="{y + 4}" class="axis" text-anchor="end">{tick}</text>')
+
+    parts.append(f'<line x1="{plot_x0}" x2="{plot_x1}" y1="{plot_y0}" y2="{plot_y0}" stroke="#333"/>')
+    parts.append(f'<line x1="{plot_x0}" x2="{plot_x0}" y1="{plot_y0}" y2="{plot_y1}" stroke="#333"/>')
+    parts.append(f'<text x="{(plot_x0 + plot_x1) / 2}" y="{height - 66}" class="axis" text-anchor="middle">solver strength: Round 3 average exact-match score / 30</text>')
+    parts.append(f'<text x="24" y="{(plot_y0 + plot_y1) / 2}" class="axis" transform="rotate(-90 24 {(plot_y0 + plot_y1) / 2})" text-anchor="middle">creator signal: best row cells in 1-14/30 band / 6</text>')
+
+    for row in rows:
+        x = x_for(float(row["solver_average"]))
+        y = y_for(float(row["creator_signal"]))
+        color = colors[str(row["kind"])]
+        parts.append(f'<circle cx="{x}" cy="{y}" r="6" fill="{color}" stroke="#111" stroke-width="0.8"/>')
+        label_x = x + int(row["label_dx"])
+        label_y = y + int(row["label_dy"])
+        label = str(row["plot_label"])
+        parts.append(f'<text x="{label_x}" y="{label_y}" class="label">{escape(label)}</text>')
+
+    note_x = 760
+    note_y = 122
+    notes = ["Values", "model | solver avg | creator signal | best row"]
+    for row in rows:
+        notes.append(
+            f'{row["model"]} | {float(row["solver_average"]):.1f}/30 | '
+            f'{int(row["creator_signal"])}/6 | {row["best_row_short"]}'
+        )
+    notes += [
+        "",
+        "Zeros are not wins here.",
+        "Cross-Document was a scorer-contract failure.",
+        "Service Credit is still a review case.",
+        "String Rewriting had a scorer type artifact.",
+    ]
+    for idx, text in enumerate(notes):
+        klass = "axis" if idx in (0, 1) else "small"
+        weight = ' font-weight="700"' if idx == 0 else ""
+        parts.append(f'<text x="{note_x}" y="{note_y + idx * 17}" class="{klass}"{weight}>{escape(text)}</text>')
+
+    parts.append("</svg>")
+    path.write_text("\n".join(parts) + "\n", encoding="utf-8")
+
+
 def write_heatmap(
     path: Path,
     title: str,
@@ -430,6 +532,14 @@ def main() -> None:
         solvers=SOLVERS_CURRENT,
     )
     canonical_round3_rows = incumbent_carry_forward_grid(exp004_rows, exp007_rows)
+    all_rows_by_creator = {
+        "GPT-5.2": [exp003_rows[0], exp004_rows[0], exp007_rows[0]],
+        "GPT-5.4": [exp003_rows[1], exp004_rows[1], exp007_rows[1]],
+        "GPT-5.5": [exp003_rows[2], exp004_rows[2], exp007_rows[2]],
+        "Gemini 3.1 Pro": [exp003_rows[3], exp004_rows[3], exp007_rows[3]],
+        "Gemini 3.5 Flash": [exp003_rows[4], exp004_rows[4], exp007_rows[4]],
+        "Claude Opus": [exp003_rows[5], exp004_rows[5], exp007_rows[5]],
+    }
 
     creator_trajectory_rows = [
         {
@@ -562,6 +672,68 @@ def main() -> None:
         }
         for row in quality_metric_rows
     ]
+    label_offsets = {
+        "GPT-5.2": (12, -8),
+        "GPT-5.4": (12, -14),
+        "GPT-5.5": (-78, -14),
+        "Gemini 3.1 Pro": (-36, -16),
+        "Gemini 3.5 Flash": (12, 24),
+        "Claude Opus": (12, -14),
+    }
+    plot_labels = {
+        "GPT-5.2": "GPT-5.2",
+        "GPT-5.4": "GPT-5.4",
+        "GPT-5.5": "GPT-5.5",
+        "Gemini 3.1 Pro": "Gemini 3.1",
+        "Gemini 3.5 Flash": "Gemini 3.5",
+        "Claude Opus": "Opus",
+    }
+    best_row_short = {
+        "Ledger Canonical Reconciliation": "ledger",
+        "Reimbursement Forensics": "reimbursement",
+        "Service Credit Forensics": "service credit",
+        "Patchwork Ordinance Adjudication": "patchwork ordinance",
+        "release_packet_arbitration": "release packet",
+        "Catalog Royalty Forensics": "catalog royalty",
+        "Amendment Ledger Reconciliation": "amendment ledger",
+        "Cross-Document Obligation Resolution": "cross-document",
+        "Prior Authorization Forensics": "prior auth",
+        "Polyhedral Surface Traversal": "polyhedral",
+        "Corrupted LZ77 Recovery": "corrupted LZ77",
+        "Commercial Lease CAM Reconciliation": "lease CAM",
+        "Mutative Assembly Inversion": "assembly inversion",
+        "MFN-Cascade": "MFN cascade",
+        "Maritime Freight & Customs Audit": "maritime freight",
+        "String Rewriting Distance": "string rewriting",
+        "Conlang Rosetta": "conlang",
+        "Construction Progress Payment Certification": "construction payment",
+    }
+    creator_solver_rows = []
+    for solver_idx, (_solver_id, solver_label) in enumerate(SOLVERS_CURRENT):
+        solver_values = [score_value(row[2 + solver_idx]) for row in canonical_round3_rows]
+        solver_numeric = [value for value in solver_values if value is not None]
+        best_row, best_stats = best_creator_signal_row(all_rows_by_creator[solver_label])
+        creator_signal = int(best_stats["low"] or 0)
+        if creator_signal >= 3:
+            kind = "leader"
+        elif creator_signal > 0:
+            kind = "some"
+        else:
+            kind = "none"
+        label_dx, label_dy = label_offsets[solver_label]
+        creator_solver_rows.append(
+            {
+                "model": solver_label,
+                "solver_average": sum(solver_numeric) / len(solver_numeric),
+                "creator_signal": creator_signal,
+                "best_row": best_row[1],
+                "best_row_short": best_row_short.get(best_row[1], best_row[1]),
+                "plot_label": plot_labels[solver_label],
+                "kind": kind,
+                "label_dx": label_dx,
+                "label_dy": label_dy,
+            }
+        )
 
     round3_matchup_rows: list[dict[str, str]] = []
     for row in canonical_round3_rows:
@@ -605,6 +777,7 @@ def main() -> None:
     )
     write_creator_trajectory(CANONICAL_FIG_DIR / "creator_trajectory.svg", creator_trajectory_rows)
     write_quality_map(CANONICAL_FIG_DIR / "benchmark_quality_map.svg", quality_metric_rows)
+    write_creator_solver_2x2(CANONICAL_FIG_DIR / "creator_solver_2x2.svg", creator_solver_rows)
 
     lines = [
         "# Canonical BenchBench Results - 2026-05-23",
@@ -656,6 +829,31 @@ def main() -> None:
         "- Best benchmark creator so far: GPT-5.2, because Reimbursement Forensics is the only all-solver low-nonzero candidate.",
         "- Strongest latest solver: GPT-5.4 by Round 3 total score, though solver rankings are secondary here.",
         "- Most interesting Round 3 challengers: Commercial Lease CAM and Maritime Freight, because they separated solvers without going all-zero. They were still too easy at the top end.",
+        "",
+        "## Creator vs Solver",
+        "",
+        "The creator and solver results point in different directions. The chart below uses Round 3 solver average on the horizontal axis. The vertical axis is the best creator signal for each model: how many solvers landed in the useful 1-14/30 band on that model's best row.",
+        "",
+        "Zero-heavy rows are not counted as good creator signal. Cross-Document Obligation was audited as a scorer-contract failure, Service Credit remains a review case, String Rewriting had a scorer type artifact, and Corrupted LZ77 was partly solved but narrow.",
+        "",
+        "![Creator vs solver 2x2](figures/creator_solver_2x2.svg)",
+        "",
+        "Read: GPT-5.2 is the clearest creator/solver split so far. It has the best creator signal and the weakest latest solver average. GPT-5.4 and Claude Opus sit on the other side: strong solvers, but their created tasks mostly saturated or became checklists.",
+        "",
+        "## Qualitative Creator Patterns",
+        "",
+        "The generated benchmarks point to different interests in what might be hard. This is a read on the observed packages, not a general claim about the models.",
+        "",
+        "| creator | plain label | what it tended to build | what the runs suggest |",
+        "|---|---|---|---|",
+        "| GPT-5.2 | Forensic accountant | Ledger, reimbursement, and service-credit audits. | Strongest creator so far. Its best task made ordinary evidence hard through exceptions, caps, approvals, duplicates, dates, and exact money totals. |",
+        "| GPT-5.4 | Policy lawyer | Ordinance, release-governance, and royalty adjudication. | Good at building plausible policy worlds, but the rules often became clean enough for strong solvers to follow. |",
+        "| GPT-5.5 | Procedural judge | Amendment ledgers, obligation resolution, and prior authorization. | Good at procedural structure, but the hard-looking rows risked becoming schema or label traps rather than fair difficulty. |",
+        "| Gemini 3.1 Pro | Puzzle mechanic | Spatial puzzles, corrupted-data recovery, and lease CAM reconciliation. | Most uneven creator. It found solver spread, but its tasks could become brittle, operationally narrow, or too puzzle-like. |",
+        "| Gemini 3.5 Flash | Logistics operator | Assembly inversion, tariff cascades, and maritime freight audits. | Good at layered commercial calculations. Maritime Freight was close to the right family, but top solvers still solved too much. |",
+        "| Claude Opus | Exam writer | String rewriting, conlang translation, and construction payment certification. | Made clean, elegant tasks. That readability helped solvers; the rows mostly saturated or hit scorer artifacts. |",
+        "",
+        "The strongest recurring surface is paperwork forensics: all evidence is public, the answer is exact, and failure comes from missed exceptions, cross-document state, arithmetic, dates, or rounding. Reimbursement Forensics is the current best example of that surface.",
         "",
         "### Round 3 solver leaderboard",
         "",
