@@ -126,7 +126,17 @@ solver panel.
 ```bash
 BENCHBENCH_CLAUDE_MAX_BUDGET_USD=25 python run_broad_three_model_sweep.py \
   --feedback-context experiments/feedback_for_next_challenger_sweep_20260523.md \
-  --creator-models gpt-5.4 gpt-5.5 agy:gemini-3.1-pro agy:gemini-3.5-flash-high cursor:claude-opus \
+  --creator-models gpt-5.4 gpt-5.5 agy:gemini-3.1-pro agy:gemini-3.5-flash-high cursor:claude-opus cursor:fable \
+  --solver-models gpt-5.2 gpt-5.4 gpt-5.5 agy:gemini-3.1-pro agy:gemini-3.5-flash-high cursor:claude-opus
+```
+
+`cursor:fable` runs Claude Fable 5 through Cursor Agent, the same path used
+for Claude Opus. A Fable-only creator run keeps the solver panel fixed:
+
+```bash
+BENCHBENCH_CLAUDE_MAX_BUDGET_USD=25 python run_broad_three_model_sweep.py \
+  --feedback-context experiments/feedback_for_next_challenger_sweep_20260523.md \
+  --creator-models cursor:fable \
   --solver-models gpt-5.2 gpt-5.4 gpt-5.5 agy:gemini-3.1-pro agy:gemini-3.5-flash-high cursor:claude-opus
 ```
 

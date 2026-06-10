@@ -63,6 +63,16 @@ class ModelBackendTests(unittest.TestCase):
         self.assertEqual(spec.cursor_model, "claude-4.6-opus-high-thinking")
         self.assertEqual(spec.agent_label, "Claude Opus 4.6 Thinking+Cursor")
 
+    def test_cursor_fable_model_spec(self) -> None:
+        spec = parse_model_spec("cursor:fable")
+        self.assertEqual(spec.provider, "cursor")
+        self.assertEqual(spec.name, "fable")
+        self.assertEqual(spec.cursor_model, "claude-fable-5-thinking-high")
+        self.assertEqual(spec.agent_label, "Claude Fable 5 Thinking+Cursor")
+
+        xhigh = parse_model_spec("cursor:fable-xhigh")
+        self.assertEqual(xhigh.cursor_model, "claude-fable-5-thinking-xhigh")
+
     def test_claude_usage_parser_counts_cache_tokens(self) -> None:
         data = {
             "usage": {
