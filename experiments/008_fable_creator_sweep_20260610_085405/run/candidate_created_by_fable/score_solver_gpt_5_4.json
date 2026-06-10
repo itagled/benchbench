@@ -1,0 +1,190 @@
+{
+  "benchmark": "rosetta_fieldwork_v1",
+  "n_items": 30,
+  "n_correct": 14,
+  "score": "14/30",
+  "accuracy": 0.4667,
+  "mean_token_f1": 0.7744,
+  "per_item": [
+    {
+      "id": "rf_001",
+      "correct": 1,
+      "answered": 1,
+      "token_f1": 1.0
+    },
+    {
+      "id": "rf_002",
+      "correct": 0,
+      "answered": 1,
+      "token_f1": 0.3333
+    },
+    {
+      "id": "rf_003",
+      "correct": 1,
+      "answered": 1,
+      "token_f1": 1.0
+    },
+    {
+      "id": "rf_004",
+      "correct": 0,
+      "answered": 1,
+      "token_f1": 0.75
+    },
+    {
+      "id": "rf_005",
+      "correct": 0,
+      "answered": 1,
+      "token_f1": 0.75
+    },
+    {
+      "id": "rf_006",
+      "correct": 1,
+      "answered": 1,
+      "token_f1": 1.0
+    },
+    {
+      "id": "rf_007",
+      "correct": 1,
+      "answered": 1,
+      "token_f1": 1.0
+    },
+    {
+      "id": "rf_008",
+      "correct": 1,
+      "answered": 1,
+      "token_f1": 1.0
+    },
+    {
+      "id": "rf_009",
+      "correct": 0,
+      "answered": 1,
+      "token_f1": 0.75
+    },
+    {
+      "id": "rf_010",
+      "correct": 1,
+      "answered": 1,
+      "token_f1": 1.0
+    },
+    {
+      "id": "rf_011",
+      "correct": 0,
+      "answered": 1,
+      "token_f1": 0.0
+    },
+    {
+      "id": "rf_012",
+      "correct": 0,
+      "answered": 1,
+      "token_f1": 0.75
+    },
+    {
+      "id": "rf_013",
+      "correct": 1,
+      "answered": 1,
+      "token_f1": 1.0
+    },
+    {
+      "id": "rf_014",
+      "correct": 0,
+      "answered": 1,
+      "token_f1": 0.6
+    },
+    {
+      "id": "rf_015",
+      "correct": 0,
+      "answered": 1,
+      "token_f1": 0.75
+    },
+    {
+      "id": "rf_016",
+      "correct": 1,
+      "answered": 1,
+      "token_f1": 1.0
+    },
+    {
+      "id": "rf_017",
+      "correct": 1,
+      "answered": 1,
+      "token_f1": 1.0
+    },
+    {
+      "id": "rf_018",
+      "correct": 0,
+      "answered": 1,
+      "token_f1": 0.4
+    },
+    {
+      "id": "rf_019",
+      "correct": 0,
+      "answered": 1,
+      "token_f1": 0.8
+    },
+    {
+      "id": "rf_020",
+      "correct": 1,
+      "answered": 1,
+      "token_f1": 1.0
+    },
+    {
+      "id": "rf_021",
+      "correct": 1,
+      "answered": 1,
+      "token_f1": 1.0
+    },
+    {
+      "id": "rf_022",
+      "correct": 0,
+      "answered": 1,
+      "token_f1": 0.25
+    },
+    {
+      "id": "rf_023",
+      "correct": 1,
+      "answered": 1,
+      "token_f1": 1.0
+    },
+    {
+      "id": "rf_024",
+      "correct": 1,
+      "answered": 1,
+      "token_f1": 1.0
+    },
+    {
+      "id": "rf_025",
+      "correct": 0,
+      "answered": 1,
+      "token_f1": 0.8
+    },
+    {
+      "id": "rf_026",
+      "correct": 1,
+      "answered": 1,
+      "token_f1": 1.0
+    },
+    {
+      "id": "rf_027",
+      "correct": 0,
+      "answered": 1,
+      "token_f1": 0.5
+    },
+    {
+      "id": "rf_028",
+      "correct": 0,
+      "answered": 1,
+      "token_f1": 0.8
+    },
+    {
+      "id": "rf_029",
+      "correct": 0,
+      "answered": 1,
+      "token_f1": 0.4
+    },
+    {
+      "id": "rf_030",
+      "correct": 0,
+      "answered": 1,
+      "token_f1": 0.6
+    }
+  ]
+}

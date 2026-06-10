@@ -1,0 +1,24 @@
+{
+  "benchmark_id": "rosetta_fieldwork_v1",
+  "version": "1.0",
+  "task": "Translate one novel English sentence into a procedurally constructed mini-language, using only the parallel corpus provided with each item.",
+  "items_file": "items_private_sample.jsonl",
+  "instructions": "solver_packet.md",
+  "item_fields": {
+    "id": "item identifier",
+    "corpus": "list of {conlang, english} parallel sentence pairs",
+    "query_english": "the English sentence to translate into the conlang"
+  },
+  "prediction_format": {
+    "file": "predictions.jsonl",
+    "rows": "one JSON object per item",
+    "fields": ["id", "answer"],
+    "answer": "the conlang translation: lowercase words separated by single spaces, no punctuation, no hyphens"
+  },
+  "scoring": "deterministic exact match per item after normalization (lowercase, strip punctuation/hyphens, collapse whitespace); 1 point per item, 30 items",
+  "files": [
+    "SOLVER_MANIFEST.json",
+    "solver_packet.md",
+    "items_private_sample.jsonl"
+  ]
+}
