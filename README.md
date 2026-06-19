@@ -10,6 +10,14 @@ failure modes. Solver models get only the public bundle and answer 30 items.
 The target is a task strong agents can work through, score exactly, and still
 not finish.
 
+## Why this matters for AI evaluation
+
+Most public benchmarks eventually saturate: strong models learn the pattern and
+scores cluster near the ceiling. BenchBench tests a different skill — **can a
+model design a task that is hard-but-fair for other strong models?** That maps
+directly to AI eval, red-teaming, and benchmark design work: separating genuine
+capability gaps from broken scorers, leakage, or all-or-nothing failure modes.
+
 ## Current Result
 
 **GPT-5.2 leads as a benchmark creator.**
@@ -170,3 +178,7 @@ In short:
 - `benchbench_results.py`: shared score and prediction parsing helpers.
 - `scripts/build_6x6_result_artifacts.py`: result grids and SVG heatmaps.
 - `scripts/score_benchmark_similarity.py`: similarity/novelty smoke check.
+
+## License
+
+MIT — see [LICENSE](LICENSE).
