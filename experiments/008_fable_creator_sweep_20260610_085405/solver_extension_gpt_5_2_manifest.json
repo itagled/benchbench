@@ -1,0 +1,41 @@
+[
+  {
+    "benchmark": "Rosetta Fieldwork",
+    "creator_model": "fable",
+    "cursor_cache_read_tokens": 29568,
+    "cursor_cache_write_tokens": 0,
+    "cursor_model": "gpt-5.2",
+    "cursor_usage": {
+      "cacheReadTokens": 29568,
+      "cacheWriteTokens": 0,
+      "inputTokens": 20374,
+      "outputTokens": 1330
+    },
+    "display_model": "gpt-5.2",
+    "effort": "low",
+    "model": "gpt-5.2",
+    "out_path": "/Users/rohit/Documents/Workspace/Coding/benchbench/experiments/008_fable_creator_sweep_20260610_085405/run/solver_fable__solved_by__gpt_5_2.jsonl",
+    "phase": "solver_extension",
+    "prediction_rows": 0,
+    "prediction_source": "/Users/rohit/Documents/Workspace/Coding/benchbench/experiments/008_fable_creator_sweep_20260610_085405/run/solver_fable__solved_by__gpt_5_2.jsonl",
+    "predictions_path": "/Users/rohit/Documents/Workspace/Coding/benchbench/experiments/008_fable_creator_sweep_20260610_085405/run/candidate_created_by_fable/predictions_solver_gpt_5_2.jsonl",
+    "prompt_path": "/Users/rohit/Documents/Workspace/Coding/benchbench/experiments/008_fable_creator_sweep_20260610_085405/run/solver_fable__solved_by__gpt_5_2.prompt.txt",
+    "provider": "cursor",
+    "returncode": 0,
+    "score_path": "/Users/rohit/Documents/Workspace/Coding/benchbench/experiments/008_fable_creator_sweep_20260610_085405/run/candidate_created_by_fable/score_solver_gpt_5_2.json",
+    "score_returncode": 0,
+    "score_stderr": "",
+    "score_stdout": "{\n  \"benchmark\": \"rosetta_fieldwork_v1\",\n  \"n_items\": 30,\n  \"n_correct\": 0,\n  \"score\": \"0/30\",\n  \"accuracy\": 0.0,\n  \"mean_token_f1\": 0.0\n}\n",
+    "score_summary": {
+      "accuracy": 0.0,
+      "correct": 0,
+      "total": 30
+    },
+    "skipped_existing": false,
+    "solver_display_model": "gpt-5.2",
+    "solver_model": "gpt-5.2",
+    "stderr_path": "/Users/rohit/Documents/Workspace/Coding/benchbench/experiments/008_fable_creator_sweep_20260610_085405/run/solver_fable__solved_by__gpt_5_2.stderr.txt",
+    "stdout_path": "/Users/rohit/Documents/Workspace/Coding/benchbench/experiments/008_fable_creator_sweep_20260610_085405/run/solver_fable__solved_by__gpt_5_2.stdout.txt",
+    "tokens_used": 51272
+  }
+]

@@ -1,0 +1,50 @@
+{
+  "benchmark_id": "rosetta_fieldwork_v1",
+  "name": "Rosetta Fieldwork",
+  "version": "1.0",
+  "capability_claim": "Few-shot induction of a novel morphophonological system and compositional generalization from a small parallel corpus: morpheme segmentation, affix function identification, boundary phonology (vowel harmony, hiatus deletion, nasal assimilation), irregular-form detection, word-order inference, and exact compositional production.",
+  "task": "Each item is an independent procedurally generated constructed mini-language. Given a parallel corpus of 16-32 sentence pairs (conlang <-> English) and one novel English query sentence, produce the conlang translation of the query.",
+  "item_count": 30,
+  "tiers": {
+    "easy": {"count": 6, "notes": "no phonological rules; all query wordforms attested verbatim; requires lexicon mapping plus word order"},
+    "medium": {"count": 10, "notes": "vowel harmony and/or hiatus deletion; inflected query wordforms attested only by analogy; occasional irregular plurals"},
+    "hard": {"count": 14, "notes": "harmony + hiatus + nasal assimilation, subject agreement, negation (prefix or suffix), zero present marking, irregular and decoy-irregular forms, larger corpora with distractor lexemes"}
+  },
+  "answer_contract": {
+    "type": "string",
+    "semantics": "the conlang translation of query_english",
+    "format": "lowercase words separated by single spaces, no punctuation, no hyphens",
+    "normalization": "lowercase; hyphens removed; all other non-letter characters treated as separators; whitespace collapsed"
+  },
+  "scoring": {
+    "method": "deterministic exact match per item after normalization",
+    "points_per_item": 1,
+    "max_score": 30,
+    "partial_credit": "none within an item; difficulty gradient across items provides score spread; token-F1 reported as a non-scoring diagnostic"
+  },
+  "generation": {
+    "procedural": true,
+    "seeded": true,
+    "deterministic": "byte-identical regeneration for a fixed seed",
+    "fresh_items": "unbounded; any seed yields a new disjoint item set"
+  },
+  "identifiability_contract": [
+    "every gold wordform is attested verbatim or forced by an attested analogy (same affix chain on a stem of the same harmony class and same boundary-relevant final/initial segment shape)",
+    "every affix used by the answer is attested >=3 times across >=2 distinct stems",
+    "every content lexeme of the query appears in >=2 corpus sentences",
+    "irregular forms needed by the answer are attested verbatim",
+    "stem-final segments that matter for the answer are exposed somewhere in the corpus",
+    "clause word order attested >=3 times; negation attested >=2 times when needed",
+    "the query sentence and the gold sentence never appear in the corpus"
+  ],
+  "external_solvability": "All evidence needed to determine each answer is contained in the item's own corpus in the public solver bundle; the solver packet states the closed inventory of possible phenomena and a worked example. A Linguistics-Olympiad-capable human or model can derive every answer in principle. Machine-checked by verifier.py.",
+  "closest_benchmarks": ["LINGOLY", "IOLBENCH", "modeLing", "low-resource MT probes"],
+  "non_duplication": "Unlike Olympiad-derived sets, items are procedurally generated (no leakage, unbounded fresh items), graded by deterministic exact match in the generation direction, and ship a per-item machine-checked identifiability guarantee. Not a re-skin of document-reconciliation forensics benchmarks: no policies, ledgers, or arithmetic.",
+  "cli": {
+    "generate": "python generator.py --sample-count 30 --seed 20260516 --out-dir .",
+    "verify": "python verifier.py --items solver_bundle/items_private_sample.jsonl --gold gold_private_sample.jsonl",
+    "score": "python scorer.py --gold gold_private_sample.jsonl --predictions predictions.jsonl --out score_report.json"
+  },
+  "private_files": ["gold_private_sample.jsonl", "private_meta.json", "generator.py", "verifier.py", "scorer.py", "baselines.py", "validation_report.md", "failure_modes.md", "score_report*.json", "predictions*.jsonl"],
+  "solver_visible_files": ["solver_bundle/SOLVER_MANIFEST.json", "solver_bundle/solver_packet.md", "solver_bundle/items_private_sample.jsonl"]
+}

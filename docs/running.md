@@ -118,6 +118,9 @@ BenchBench can use Cursor Agent for `cursor:` specs.
   Claude Opus 4.6 runs.
 - `cursor:claude-opus-4.7-thinking-high` maps to Cursor model
   `claude-opus-4-7-thinking-high` if a newer Opus row is desired.
+- `cursor:fable` maps to Cursor model `claude-fable-5-thinking-high`.
+  `cursor:fable-xhigh` selects `claude-fable-5-thinking-xhigh` when a
+  higher-effort Fable row is desired.
 - Calls use `cursor-agent --print --output-format json --force --trust
   --sandbox disabled --workspace <run-dir>` and pass the prompt on stdin.
 - Cursor JSON reports `usage.inputTokens`, `usage.outputTokens`,

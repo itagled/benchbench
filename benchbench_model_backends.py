@@ -46,6 +46,12 @@ KNOWN_CURSOR_MODELS = {
     "claude-opus-4.7-thinking-high": ("claude-opus-4-7-thinking-high", "Claude Opus 4.7 High Thinking"),
     "claude-opus-4-7-thinking-high": ("claude-opus-4-7-thinking-high", "Claude Opus 4.7 High Thinking"),
     "opus-4.7-thinking-high": ("claude-opus-4-7-thinking-high", "Claude Opus 4.7 High Thinking"),
+    "fable": ("claude-fable-5-thinking-high", "Claude Fable 5 Thinking"),
+    "fable-5": ("claude-fable-5-thinking-high", "Claude Fable 5 Thinking"),
+    "claude-fable-5": ("claude-fable-5-thinking-high", "Claude Fable 5 Thinking"),
+    "claude-fable-5-thinking-high": ("claude-fable-5-thinking-high", "Claude Fable 5 Thinking"),
+    "fable-xhigh": ("claude-fable-5-thinking-xhigh", "Claude Fable 5 Extra High Thinking"),
+    "claude-fable-5-thinking-xhigh": ("claude-fable-5-thinking-xhigh", "Claude Fable 5 Extra High Thinking"),
 }
 
 ANTIGRAVITY_SETTINGS_PATH = Path.home() / ".gemini" / "antigravity-cli" / "settings.json"
