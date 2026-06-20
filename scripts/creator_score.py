@@ -142,3 +142,113 @@ def creator_score_difficulty_ranking(
         scored.append((label, creator_score_difficulty(row, creator_index)))
 
     return sorted(scored, key=lambda x: x[1], reverse=True)
+
+
+def quality_index(score: int, gamma: float = 7.0, peak: int = 7, floor_val: float = 10.0) -> float:
+    """Map a single solver score (0-30) to a quality value via a rescaled Lorentzian bell.
+
+    The curve peaks at `peak` (=100) and decays smoothly and symmetrically, reaching
+    `floor_val` at score 30. Score 0 is a special case (broken benchmark) and always
+    returns 0.0, bypassing the formula. `gamma` controls the bell width: smaller =
+    narrower (rewards being near the optimum more sharply), larger = wider (more tolerant).
+
+    Lorentzian shape (for score ``s``, with peak at ``peak``):
+
+        L(x) = 1 / (1 + ((x - peak) / gamma) ** 2)
+        quality(s) = floor_val + (100 - floor_val) * (L(s) - L(30)) / (1 - L(30))
+
+    This rescaling anchors quality(peak)=100 and quality(30)=floor_val.
+
+    Args:
+        score: solver score, integer 0-30.
+        gamma: bell width parameter (default 7.0). Must be > 0.
+        peak: score that receives the maximum quality of 100 (default 7).
+        floor_val: quality value at score 30 (default 10.0).
+
+    Returns:
+        Quality value. 0.0 for score 0; otherwise in (floor_val, 100].
+    """
+    if score == 0:
+        return 0.0
+    if gamma <= 0:
+        raise ValueError("gamma must be > 0")
+
+    def lorentzian(x: float) -> float:
+        return 1.0 / (1.0 + ((x - peak) / gamma) ** 2)
+
+    l_score = lorentzian(score)
+    l_floor = lorentzian(30)
+    return floor_val + (100.0 - floor_val) * (l_score - l_floor) / (1.0 - l_floor)
+
+
+def creator_score_quality(
+    row: list[str],
+    creator_index: int | None = None,
+    gamma: float = 7.0,
+) -> float:
+    """Continuous creator-quality score: average quality_index over non-creator solvers.
+
+    Args:
+        row: grid row [creator_label, benchmark_name, "N/30", "N/30", ...].
+        creator_index: position of the creator's own cell within the SCORE cells
+            (index 0 = first solver). If None, all cells included.
+        gamma: bell width, passed through to quality_index.
+
+    Returns:
+        Score in [0, 100]. 0.0 if no valid score cells.
+    """
+    values = _score_values(row)
+    if not values:
+        return 0.0
+
+    if creator_index is not None:
+        if creator_index < 0 or creator_index >= len(values):
+            return 0.0
+        others = [v for i, v in enumerate(values) if i != creator_index]
+    else:
+        others = values
+
+    if not others:
+        return 0.0
+
+    return sum(quality_index(v, gamma=gamma) for v in others) / len(others)
+
+
+def zero_count(row: list[str], creator_index: int | None = None) -> int:
+    """Count non-creator solvers that scored exactly 0 (informational diagnostic).
+
+    A high zero count flags a possibly broken/misspecified benchmark. Not part of
+    the quality score. Same creator_index exclusion logic as creator_score_quality.
+    """
+    values = _score_values(row)
+    if not values:
+        return 0
+
+    if creator_index is not None:
+        if creator_index < 0 or creator_index >= len(values):
+            return 0
+        others = [v for i, v in enumerate(values) if i != creator_index]
+    else:
+        others = values
+
+    return sum(1 for v in others if v == 0)
+
+
+def creator_score_quality_ranking(
+    rows: list[list[str]],
+    creator_indices: list[int | None] | None = None,
+    gamma: float = 7.0,
+) -> list[tuple[str, float]]:
+    """Compute creator_score_quality per row; return [(label, score), ...] sorted descending.
+
+    If creator_indices is given, it must match len(rows) and maps each row to its
+    creator_index; if None, all rows use creator_index=None. gamma is passed through.
+    Assumes row[0] is the creator label.
+    """
+    scored: list[tuple[str, float]] = []
+    for i, row in enumerate(rows):
+        creator_index = creator_indices[i] if creator_indices is not None else None
+        label = row[0] if row else "unknown"
+        scored.append((label, creator_score_quality(row, creator_index, gamma=gamma)))
+
+    return sorted(scored, key=lambda x: x[1], reverse=True)
