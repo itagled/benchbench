@@ -12,7 +12,8 @@ experiments/canonical/README.md). It prints:
      - creator_score        (bands-based, see creator_score.py)
      - creator_score_difficulty  (continuous, see creator_score.py)
      - best_creator_signal_row   (lexicographic, see build_6x6_result_artifacts.py)
-  4. A side-by-side comparison table.
+  4. A side-by-side comparison table (bands + difficulty).
+  5. A per-creator table with creator_score_quality and zero_count (sorted by quality).
 
 Run from the repo root:
 
@@ -40,7 +41,9 @@ from scripts.creator_score import (
     creator_score,
     creator_score_difficulty,
     creator_score_difficulty_ranking,
+    creator_score_quality,
     creator_score_ranking,
+    zero_count,
 )
 
 
@@ -85,6 +88,17 @@ def load_canonical_round3_grid() -> list[list[str]]:
 def format_score(score: float) -> str:
     pct = score * 100.0
     return f"{score:.2f} ({pct:.1f}%)"
+
+
+def format_raw_scores(row: list[str]) -> str:
+    """Format score cells as comma-separated integers (matches validation MD)."""
+    parts: list[str] = []
+    for cell in row[2:]:
+        if cell.endswith("/30"):
+            parts.append(cell.split("/", 1)[0])
+        else:
+            parts.append(cell)
+    return ", ".join(parts)
 
 
 def normalize_creator_label(label: str) -> str:
@@ -222,6 +236,44 @@ def main() -> None:
             creator_score_difficulty(row, creator_index),
         )
         print(f"  {label:28}  {format_score(bands_score):18}  {format_score(diff_score)}")
+    print()
+
+    print("=" * 72)
+    print("Per-creator metrics (creator_score_quality + zero_count, sorted by quality)")
+    print("  Defaults: gamma=7.0, floor_val=10.0; creator_index excludes own solver cell")
+    print("=" * 72)
+    metrics_rows: list[tuple[str, str, str, float, float, float, int]] = []
+    for row, creator_index in zip(grid, creator_indices):
+        label = row[0]
+        benchmark = row[1]
+        bands_score = bands_by_label.get(label, creator_score(row))
+        diff_score = difficulty_by_label.get(
+            label,
+            creator_score_difficulty(row, creator_index),
+        )
+        quality = creator_score_quality(row, creator_index)
+        zeros = zero_count(row, creator_index)
+        metrics_rows.append(
+            (label, benchmark, format_raw_scores(row), bands_score, diff_score, quality, zeros)
+        )
+
+    metrics_rows.sort(key=lambda item: item[5], reverse=True)
+
+    header = (
+        f"  {'Rank':>4}  {'Creator':28}  {'Benchmark':33}  "
+        f"{'Scores':26}  {'Bands':18}  {'Difficulty':12}  {'Quality':>8}  {'Zeros':>5}"
+    )
+    print(header)
+    print("  " + "-" * 150)
+    for rank, (label, benchmark, scores, bands_score, diff_score, quality, zeros) in enumerate(
+        metrics_rows, start=1
+    ):
+        benchmark_display = benchmark[:33]
+        print(
+            f"  {rank:4d}  {label:28}  {benchmark_display:33}  "
+            f"{scores:26}  {format_score(bands_score):18}  {diff_score:12.4f}  "
+            f"{quality:8.2f}  {zeros:5d}"
+        )
     print()
 
 
