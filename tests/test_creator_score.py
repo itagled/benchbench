@@ -6,7 +6,11 @@ from scripts.creator_score import (
     creator_score,
     creator_score_difficulty,
     creator_score_difficulty_ranking,
+    creator_score_quality,
+    creator_score_quality_ranking,
     creator_score_ranking,
+    quality_index,
+    zero_count,
 )
 
 
@@ -232,6 +236,149 @@ class CreatorScoreDifficultyRankingTests(unittest.TestCase):
             self.assertIsInstance(score, float)
             self.assertGreaterEqual(score, 0.0)
             self.assertLessEqual(score, 1.0)
+
+
+class QualityIndexTests(unittest.TestCase):
+    """Tests for the quality_index function."""
+
+    def test_anchor_scores_with_defaults(self) -> None:
+        """Calibration anchors: 7 and 8 → 100, 0 → 0, 30 → floor 10."""
+        self.assertAlmostEqual(quality_index(7), 100.0, places=4)
+        self.assertAlmostEqual(quality_index(8), 100.0, places=4)
+        self.assertEqual(quality_index(0), 0.0)
+        self.assertAlmostEqual(quality_index(30), 10.0, places=4)
+
+    def test_symmetry_around_peak_7_5(self) -> None:
+        """Scores equidistant from peak 7.5 receive equal quality."""
+        self.assertAlmostEqual(quality_index(6), quality_index(9), places=4)
+        self.assertAlmostEqual(quality_index(1), quality_index(14), places=4)
+
+    def test_monotonicity_within_useful_band(self) -> None:
+        """Quality rises from 1 to 7 and falls from 8 to 14."""
+        rising = [quality_index(s) for s in range(1, 8)]
+        for lower, higher in zip(rising, rising[1:]):
+            self.assertLess(lower, higher)
+
+        falling = [quality_index(s) for s in range(8, 15)]
+        for higher, lower in zip(falling, falling[1:]):
+            self.assertGreater(higher, lower)
+
+    def test_invalid_gamma_raises_value_error(self) -> None:
+        """Non-positive gamma is rejected."""
+        with self.assertRaises(ValueError):
+            quality_index(7, gamma=0.0)
+        with self.assertRaises(ValueError):
+            quality_index(7, gamma=-1.0)
+
+    def test_floor_val_respected_at_score_30(self) -> None:
+        """floor_val sets quality at score 30."""
+        self.assertAlmostEqual(quality_index(30, floor_val=5.0), 5.0, places=4)
+
+
+class CreatorScoreQualityTests(unittest.TestCase):
+    """Tests for the creator_score_quality function."""
+
+    def _make_row(self, *scores: int) -> list[str]:
+        return ["creator", "bench_name"] + [f"{s}/30" for s in scores]
+
+    def test_empty_row_returns_zero(self) -> None:
+        """No valid score cells → 0.0."""
+        self.assertEqual(creator_score_quality([]), 0.0)
+        self.assertEqual(creator_score_quality(["creator", "bench_name"]), 0.0)
+
+    def test_excludes_creator_index_when_valid(self) -> None:
+        """creator_index excludes that solver cell from the mean."""
+        row = self._make_row(10, 14, 11, 12, 11, 11)
+        with_exclusion = creator_score_quality(row, creator_index=0)
+        without_exclusion = creator_score_quality(row, creator_index=None)
+        self.assertNotEqual(with_exclusion, without_exclusion)
+
+    def test_invalid_creator_index_returns_zero(self) -> None:
+        """Out-of-range creator_index is defensive → 0.0."""
+        row = self._make_row(10, 14, 11, 12, 11, 11)
+        self.assertEqual(creator_score_quality(row, creator_index=10), 0.0)
+        self.assertEqual(creator_score_quality(row, creator_index=-1), 0.0)
+
+    def test_excluding_all_cells_returns_zero(self) -> None:
+        """Single score cell excluded entirely → empty others → 0.0."""
+        row = self._make_row(10)
+        self.assertEqual(creator_score_quality(row, creator_index=0), 0.0)
+
+    def test_reimbursement_forensics_known_score(self) -> None:
+        """Canonical Round 3 incumbent row with creator_index=0."""
+        row = [
+            "GPT-5.2",
+            "Reimbursement Forensics",
+            "10/30",
+            "14/30",
+            "11/30",
+            "12/30",
+            "11/30",
+            "11/30",
+        ]
+        self.assertAlmostEqual(
+            creator_score_quality(row, creator_index=0),
+            73.59,
+            places=1,
+        )
+
+    def test_gamma_and_floor_val_change_result(self) -> None:
+        """Parameter changes propagate into the row score."""
+        row = self._make_row(10, 14, 11, 12, 11, 11)
+        default_score = creator_score_quality(row, creator_index=0)
+        wider_gamma = creator_score_quality(row, creator_index=0, gamma=13.0)
+        lower_floor = creator_score_quality(row, creator_index=0, floor_val=5.0)
+        self.assertNotEqual(default_score, wider_gamma)
+        self.assertNotEqual(default_score, lower_floor)
+
+
+class ZeroCountTests(unittest.TestCase):
+    """Tests for the zero_count function."""
+
+    def _make_row(self, *scores: int) -> list[str]:
+        return ["creator", "bench_name"] + [f"{s}/30" for s in scores]
+
+    def test_counts_zeros_excluding_creator(self) -> None:
+        """Counts zero cells among non-creator solvers."""
+        row = self._make_row(0, 5, 0, 8, 0, 12)
+        self.assertEqual(zero_count(row, creator_index=0), 2)
+
+    def test_includes_all_cells_when_index_is_none(self) -> None:
+        """Without exclusion, all zero cells count."""
+        row = self._make_row(0, 5, 0, 8)
+        self.assertEqual(zero_count(row, creator_index=None), 2)
+
+    def test_invalid_creator_index_returns_zero(self) -> None:
+        """Out-of-range creator_index is defensive → 0."""
+        row = self._make_row(0, 0, 5)
+        self.assertEqual(zero_count(row, creator_index=5), 0.0)
+
+
+class CreatorScoreQualityRankingTests(unittest.TestCase):
+    """Tests for the creator_score_quality_ranking function."""
+
+    def test_ranking_sorts_descending(self) -> None:
+        """Higher quality rows rank first."""
+        rows = [
+            ["easy", "b1", "25/30", "28/30", "30/30"],
+            ["strong", "b2", "7/30", "8/30", "9/30"],
+            ["broken", "b3", "0/30", "0/30", "0/30"],
+        ]
+        ranking = creator_score_quality_ranking(rows)
+        self.assertEqual(ranking[0][0], "strong")
+        self.assertEqual(ranking[-1][0], "broken")
+        scores = [score for _, score in ranking]
+        self.assertEqual(scores, sorted(scores, reverse=True))
+
+    def test_ranking_with_creator_indices(self) -> None:
+        """Per-row creator_index exclusion affects ranking order."""
+        rows = [
+            ["a", "b1", "10/30", "7/30", "8/30", "9/30"],
+            ["b", "b2", "7/30", "25/30", "28/30", "30/30"],
+        ]
+        ranking_no_indices = creator_score_quality_ranking(rows)
+        ranking_with_indices = creator_score_quality_ranking(rows, creator_indices=[0, 0])
+        self.assertNotEqual(ranking_no_indices, ranking_with_indices)
 
 
 if __name__ == "__main__":

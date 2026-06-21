@@ -144,29 +144,32 @@ def creator_score_difficulty_ranking(
     return sorted(scored, key=lambda x: x[1], reverse=True)
 
 
-def quality_index(score: int, gamma: float = 7.0, peak: int = 7, floor_val: float = 10.0) -> float:
+def quality_index(score: int, gamma: float = 7.0, peak: float = 7.5, floor_val: float = 10.0) -> float:
     """Map a single solver score (0-30) to a quality value via a rescaled Lorentzian bell.
 
-    The curve peaks at `peak` (=100) and decays smoothly and symmetrically, reaching
-    `floor_val` at score 30. Score 0 is a special case (broken benchmark) and always
-    returns 0.0, bypassing the formula. `gamma` controls the bell width: smaller =
-    narrower (rewards being near the optimum more sharply), larger = wider (more tolerant).
+    The bell is centered at the band optimum `peak` (=7.5, the center of the useful
+    band 1-14) and calibrated so the integer scores 7 and 8 both map to exactly 100
+    (they are equidistant from 7.5). The curve decays smoothly and symmetrically,
+    reaching `floor_val` at score 30. Score 0 is a special case (broken benchmark)
+    and always returns 0.0. `gamma` controls the bell width.
+
+    Calibration anchors at L(7) (= L(8) by symmetry) rather than at the vertex, so
+    100 is attained by the nearest reachable integer scores rather than the
+    unreachable 7.5 vertex.
 
     Lorentzian shape (for score ``s``, with peak at ``peak``):
 
         L(x) = 1 / (1 + ((x - peak) / gamma) ** 2)
-        quality(s) = floor_val + (100 - floor_val) * (L(s) - L(30)) / (1 - L(30))
-
-    This rescaling anchors quality(peak)=100 and quality(30)=floor_val.
+        quality(s) = floor_val + (100 - floor_val) * (L(s) - L(30)) / (L(7) - L(30))
 
     Args:
         score: solver score, integer 0-30.
-        gamma: bell width parameter (default 7.0). Must be > 0.
-        peak: score that receives the maximum quality of 100 (default 7).
+        gamma: bell width (default 7.0). Must be > 0.
+        peak: band optimum, default 7.5 (center of useful band 1-14).
         floor_val: quality value at score 30 (default 10.0).
 
     Returns:
-        Quality value. 0.0 for score 0; otherwise in (floor_val, 100].
+        Quality value. 0.0 for score 0; ~100 at scores 7 and 8; floor_val at 30.
     """
     if score == 0:
         return 0.0
@@ -178,13 +181,15 @@ def quality_index(score: int, gamma: float = 7.0, peak: int = 7, floor_val: floa
 
     l_score = lorentzian(score)
     l_floor = lorentzian(30)
-    return floor_val + (100.0 - floor_val) * (l_score - l_floor) / (1.0 - l_floor)
+    l_anchor = lorentzian(7)
+    return floor_val + (100.0 - floor_val) * (l_score - l_floor) / (l_anchor - l_floor)
 
 
 def creator_score_quality(
     row: list[str],
     creator_index: int | None = None,
     gamma: float = 7.0,
+    floor_val: float = 10.0,
 ) -> float:
     """Continuous creator-quality score: average quality_index over non-creator solvers.
 
@@ -193,6 +198,7 @@ def creator_score_quality(
         creator_index: position of the creator's own cell within the SCORE cells
             (index 0 = first solver). If None, all cells included.
         gamma: bell width, passed through to quality_index.
+        floor_val: floor at score 30, passed through to quality_index.
 
     Returns:
         Score in [0, 100]. 0.0 if no valid score cells.
@@ -211,7 +217,7 @@ def creator_score_quality(
     if not others:
         return 0.0
 
-    return sum(quality_index(v, gamma=gamma) for v in others) / len(others)
+    return sum(quality_index(v, gamma=gamma, floor_val=floor_val) for v in others) / len(others)
 
 
 def zero_count(row: list[str], creator_index: int | None = None) -> int:
@@ -238,17 +244,20 @@ def creator_score_quality_ranking(
     rows: list[list[str]],
     creator_indices: list[int | None] | None = None,
     gamma: float = 7.0,
+    floor_val: float = 10.0,
 ) -> list[tuple[str, float]]:
     """Compute creator_score_quality per row; return [(label, score), ...] sorted descending.
 
     If creator_indices is given, it must match len(rows) and maps each row to its
-    creator_index; if None, all rows use creator_index=None. gamma is passed through.
-    Assumes row[0] is the creator label.
+    creator_index; if None, all rows use creator_index=None. gamma and floor_val
+    are passed through. Assumes row[0] is the creator label.
     """
     scored: list[tuple[str, float]] = []
     for i, row in enumerate(rows):
         creator_index = creator_indices[i] if creator_indices is not None else None
         label = row[0] if row else "unknown"
-        scored.append((label, creator_score_quality(row, creator_index, gamma=gamma)))
+        scored.append(
+            (label, creator_score_quality(row, creator_index, gamma=gamma, floor_val=floor_val))
+        )
 
     return sorted(scored, key=lambda x: x[1], reverse=True)
